@@ -1,0 +1,20 @@
+{
+  "name": "peach-qe",
+  "version": "1.0.0",
+  "description": "relay visualizer - desktop app",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/mac/icon.icns --prune=true --out=release-builds",
+    "package-win": "electron-packager . --overwrite --asar=true --platform=win32 --arch=ia32 --icon=assets/icons/win/icon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Peach QE - Relay Visualizer\"",
+    "package-linux" : "electron-packager . --overwrite --platform=linux --arch=x64 --icon=assets/icons/png/icon.png --prune=true --out=release-builds"
+  },
+  "author": "OS Labs - Team Peach - CBV",
+  "license": "MIT",
+  "dependencies": {
+    "electron": "^12.0.9"
+  },
+  "devDependencies": {
+    "electron-packager": "^15.2.0"
+  }
+}
