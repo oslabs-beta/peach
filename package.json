@@ -2,19 +2,52 @@
   "name": "peach-qe",
   "version": "1.0.0",
   "description": "relay visualizer - desktop app",
-  "main": "main.js",
-  "scripts": {
-    "start": "electron .",
-    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/mac/icon.icns --prune=true --out=release-builds",
-    "package-win": "electron-packager . --overwrite --asar=true --platform=win32 --arch=ia32 --icon=assets/icons/win/icon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Peach QE - Relay Visualizer\"",
-    "package-linux" : "electron-packager . --overwrite --platform=linux --arch=x64 --icon=assets/icons/png/icon.png --prune=true --out=release-builds"
-  },
   "author": "OS Labs - Team Peach - CBV",
   "license": "MIT",
+  "engines": {
+    "node": ">=9.0.0",
+    "npm": ">=5.0.0",
+    "yarn": ">=1.0.0"
+  },
+  "browserslist": [
+    "last 4 versions"
+  ],
+  "main": "main.js",
+  "scripts": {
+    "prod": "cross-env NODE_ENV=production webpack --mode production --config webpack.build.config.js && electron --noDevServer .",
+    "start": "cross-env NODE_ENV=development webpack-dev-server --hot --host 0.0.0.0 --config=./webpack.dev.config.js --mode development",
+    "build": "cross-env NODE_ENV=production webpack --config webpack.build.config.js --mode production",
+    "package": "npm run build",
+    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/mac/icon.icns --prune=true --out=release-builds",
+    "package-win": "electron-packager . --overwrite --asar=true --platform=win32 --arch=ia32 --icon=assets/icons/win/icon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Peach QE - Relay Visualizer\"",
+    "package-linux": "electron-packager . --overwrite --platform=linux --arch=x64 --icon=assets/icons/png/icon.png --prune=true --out=release-builds",
+    "postpackage": "electron-packager ./ --out=./release-builds"
+  },
   "dependencies": {
-    "electron": "^12.0.9"
+    "bootstrap": "^5.0.1",
+    "moment": "^2.29.1",
+    "react": "^16.13.1",
+    "react-bootstrap": "^1.6.0",
+    "react-dom": "^16.13.1",
+    "react-moment": "^1.1.1"
   },
   "devDependencies": {
-    "electron-packager": "^15.2.0"
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-react": "^7.9.4",
+    "babel-loader": "^8.1.0",
+    "babili-webpack-plugin": "^0.1.2",
+    "cross-env": "^7.0.2",
+    "css-loader": "^3.5.3",
+    "electron": "^9.0.0",
+    "electron-devtools-installer": "^3.2.0",
+    "electron-packager": "^14.2.1",
+    "file-loader": "^6.0.0",
+    "html-webpack-plugin": "^4.3.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "style-loader": "^1.2.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
   }
 }

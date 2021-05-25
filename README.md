@@ -63,7 +63,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-Our first hands on attempt to understand Relay. Built with the generous help of LinkedIn's Tutorial <a href="#">Step-By-Step</a>
+Our first hands on attempt to understand Relay.
 
 <br />
 
