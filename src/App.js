@@ -10,7 +10,7 @@ import ResponseDisplay from './components/ResponseDisplay';
 import QueryContainer from './components/QueryContainer';
 import VariableInput from './components/VariableInput.jsx'
 import './components/styles.css';
-import './App.css';
+import '.styles/App.css';
 
 import graphql from 'babel-plugin-relay/macro';
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from 'react';
 import Container from 'react-bootstrap/Container';
 import Prism from 'prismjs';
-import './styles.css';
+import './styles/styles.css';
 
 const VariableInput = props => {
     const [content, setContent] = useState(props.content);
