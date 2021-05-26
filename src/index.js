@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { render } from 'react-dom';
 import App from './App';
+import { RelayEnvironmentProvider } from 'react-relay';
+import RelayEnvironment from './RelayEnvironment';
 
 // * Just to speed up the process of decorating the App
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -16,4 +18,10 @@ root.id = 'root'
 document.body.appendChild(root)
 
 // Now we can render our application into it
-render(<App />, document.getElementById('root'))
+render(
+	<RelayEnvironmentProvider environment={RelayEnvironment}>
+        <Suspense fallback={"loading..."}>
+            <App />
+        </Suspense>
+	</RelayEnvironmentProvider>,
+    document.getElementById('root'))
