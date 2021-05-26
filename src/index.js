@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import App from './components/App';
+import App from './App';
 
 // * Just to speed up the process of decorating the App
 import 'bootstrap/dist/css/bootstrap.min.css'

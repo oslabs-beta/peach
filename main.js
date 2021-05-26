@@ -1,6 +1,8 @@
 const path = require('path');
 const url = require('url');
 const { app, BrowserWindow, Menu } = require('electron');
+const mainMenuTemplate = require('./electron/menu');
+// const createAddWindow = require('./electron/newWindow')
 
 let mainWindow
 
@@ -63,46 +65,16 @@ function createMainWindow() {
 	})
 
   // ! Quit app when closed
-  mainWindow.on('closed', function(){
-    app.quit();
-  });
+  mainWindow.on('closed', () => app.quit());
+  // redundant closinf window (Mac)
+  mainWindow.on('closed', () => (mainWindow = null))
 
 	 // Build menu from template
 	 const mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
 	 // Insert menu
 	 Menu.setApplicationMenu(mainMenu);
 
-  // Automatically opens DevTools
-	mainWindow.on('closed', () => (mainWindow = null))
 }
-
-  // Handle add item window
-  const createAddWindow = () => {
-    addWindow = new BrowserWindow({
-      width: 300,
-      height: 225,
-      title: 'Start a New Peach',
-      // To remove menu from Popup
-      frame: false,
-      webPreferences: {
-          nodeIntegration: true
-      }
-    });
-
-    // To remove menu from Popup
-    // addWindow.removeMenu();
-
-    addWindow.loadURL(url.format({
-      pathname: path.join(__dirname, '/html/addWindow.html'),
-      protocol: 'file:',
-      slashes:true
-    }));
-
-    // ! Handle garbage collection
-    addWindow.on('close', function(){
-      addWindow = null;
-    });
-  }
 
 app.on('ready', createMainWindow)
 
@@ -120,53 +92,3 @@ app.on('activate', () => {
 
 // Stop error
 app.allowRendererProcessReuse = true
-
-// Create Menu template
-const mainMenuTemplate = [
-  // Each object is a dropdown
-  {
-    label: 'File',
-    submenu: [
-      {
-        label: 'Start a New Peach',
-        click(){
-          createAddWindow();
-        }
-      },
-      {
-        label: 'Continue working with a Peach'
-      },
-      {
-        label: 'Quit',
-        accelerator: process.platform == 'darwin' ? 'Command+Q' : 'Ctrl+Q',
-        click(){
-          app.quit();
-        }
-      }
-    ]
-  }
-];
-
-// If OSX, add empty object to the start of menu
-if (process.platform == 'darwin') {
-  mainMenuTemplate.unshift({label: app.getName()});
-}
-
-// * Add developer tools option if in dev
-if(process.env.NODE_ENV !== 'production'){
-  mainMenuTemplate.push({
-    label: 'Developer Tools',
-    submenu:[
-      {
-        role: 'reload'
-      },
-      {
-        label: 'Toggle DevTools',
-        accelerator:process.platform == 'darwin' ? 'Command+I' : 'Ctrl+I',
-        click(item, focusedWindow){
-          focusedWindow.toggleDevTools();
-        }
-      }
-    ]
-  });
-}
