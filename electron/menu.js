@@ -1,4 +1,5 @@
 const createAddWindow = require('./newWindow')
+const { app } = require('electron');
 
 const isMac = process.platform === 'darwin' ? true : false;
 
