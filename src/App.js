@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
@@ -12,15 +12,47 @@ import VariableInput from './components/VariableInput.jsx'
 import './components/styles.css';
 import './App.css';
 
+import graphql from 'babel-plugin-relay/macro';
 
-const App = () => {
+import { 
+	loadQuery,
+	usePreloadedQuery,
+} from 'react-relay/hooks';
+import RelayEnvironment from './RelayEnvironment';
+
+const { Suspense } = React;
+
+// ! important note: the name of the query (after the keyword query in query string)
+const AnimeQuery = graphql`
+	query AppQuery($id: Int) { # Define which variables will be used in the query (id)
+		Media (id: $id, type: ANIME) { # Insert our variables into the query arguments (id) (type: ANIME is hard-coded in the query)
+			_id: id
+			title {
+				romaji
+				english
+				native
+			}
+		}
+	}
+`;
+
+const preloadedQuery = loadQuery(RelayEnvironment, AnimeQuery, {
+	id: '15125',
+});
+
+
+const App = (props) => {
 	const [editorLanguage, setEditorLanguage] = useState('javascript');
+
+	const data = usePreloadedQuery(AnimeQuery, preloadedQuery);
+
 
 	return (
 		<Container  className="App" fluid>
 			<div align='center' className='my-2' style={{ backgroundColor: '#d14828', height: '60px'  }}>
 				<h1>PeachQL - React App</h1>
 				{/* <hr /> */}
+				<p>{data != null ? `Name of show is: ${JSON.stringify(data)}` : "Loading..."}</p>
 			</div>
 			
 			<Row>
@@ -64,4 +96,4 @@ const App = () => {
 	)
 }
 
-export default App
+export default App;
