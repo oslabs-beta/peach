@@ -28,6 +28,7 @@
     "@babel/plugin-transform-runtime": "^7.14.3",
     "babel-plugin-macros": "^2.8.0",
     "bootstrap": "^5.0.1",
+    "get-graphql-schema": "^2.1.2",
     "moment": "^2.29.1",
     "prismjs": "^1.23.0",
     "react": "^16.13.1",

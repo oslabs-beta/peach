@@ -13,7 +13,7 @@ export type AppQueryVariables = {|
 |};
 export type AppQueryResponse = {|
   +Media: ?{|
-    +id: number,
+    +_id: number,
     +title: ?{|
       +romaji: ?string,
       +english: ?string,
@@ -33,7 +33,7 @@ query AppQuery(
   $id: Int
 ) {
   Media(id: $id, type: ANIME) {
-    id
+    _id: id
     title {
       romaji
       english
@@ -72,7 +72,7 @@ v1 = [
     "plural": false,
     "selections": [
       {
-        "alias": null,
+        "alias": "_id",
         "args": null,
         "kind": "ScalarField",
         "name": "id",
@@ -132,16 +132,16 @@ return {
     "selections": (v1/*: any*/)
   },
   "params": {
-    "cacheID": "6c0f06a1c5a6e768a05759a725a1bcd6",
+    "cacheID": "7f3dd2b1a3932911e6ec5b9bb56f7d16",
     "id": null,
     "metadata": {},
     "name": "AppQuery",
     "operationKind": "query",
-    "text": "query AppQuery(\n  $id: Int\n) {\n  Media(id: $id, type: ANIME) {\n    id\n    title {\n      romaji\n      english\n      native\n    }\n  }\n}\n"
+    "text": "query AppQuery(\n  $id: Int\n) {\n  Media(id: $id, type: ANIME) {\n    _id: id\n    title {\n      romaji\n      english\n      native\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = 'a47999b179ba1566e1d5d483275e9be3';
+(node/*: any*/).hash = 'd742635e8d68a49d2374d004cf9c95cf';
 
 module.exports = node;

@@ -14,7 +14,6 @@ import './App.css';
 
 import graphql from 'babel-plugin-relay/macro';
 
-import fetchGraphQL from './fetchGraphQL';
 import { 
 	loadQuery,
 	usePreloadedQuery,
@@ -27,7 +26,7 @@ const { Suspense } = React;
 const AnimeQuery = graphql`
 	query AppQuery($id: Int) { # Define which variables will be used in the query (id)
 		Media (id: $id, type: ANIME) { # Insert our variables into the query arguments (id) (type: ANIME is hard-coded in the query)
-			id
+			_id: id
 			title {
 				romaji
 				english
@@ -42,57 +41,18 @@ const preloadedQuery = loadQuery(RelayEnvironment, AnimeQuery, {
 });
 
 
-
-
 const App = (props) => {
 	const [editorLanguage, setEditorLanguage] = useState('javascript');
-	const [show, setShow] = useState(null);
 
 	const data = usePreloadedQuery(AnimeQuery, preloadedQuery);
 
-// 	const query = `
-// 		query ($id: Int) { # Define which variables will be used in the query (id)
-// 			Media (id: $id, type: ANIME) { # Insert our variables into the query arguments (id) (type: ANIME is hard-coded in the query)
-// 				id
-// 					title {
-// 						romaji
-// 						english
-// 						native
-// 					}
-// 			}
-// 		}
-// 	`;
-
-// // Define our query variables and values that will be used in the query request
-// 	const variables = {
-// 		id: 15125
-// 	};
-
-
-	// useEffect(() => {
-	// 	let isMounted = true;
-	// 	fetchGraphQL(query, variables)
-	// 		.then(response => {
-	// 			if (!isMounted) {
-	// 				return;
-	// 			}
-	// 			const data = response.data;
-	// 			setShow(JSON.stringify(data));
-	// 		}).catch(error => {
-	// 			console.error(error);
-	// 		});
-
-	// 		return () => {
-	// 			isMounted = false;
-	// 		};
-	// }, [fetchGraphQL]);
 
 	return (
 		<Container  className="App" fluid>
 			<div align='center' className='my-2' style={{ backgroundColor: '#d14828', height: '60px'  }}>
 				<h1>PeachQL - React App</h1>
 				{/* <hr /> */}
-				<p>{props.data != null ? `Name of show is: ${props.data}` : "Loading..."}</p>
+				<p>{data != null ? `Name of show is: ${JSON.stringify(data)}` : "Loading..."}</p>
 			</div>
 			
 			<Row>
