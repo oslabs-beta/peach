@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/styles.css';
+import Editor from './Editor';
 
 const VariableInput = props => {
     const [state, setState] = useState('');
