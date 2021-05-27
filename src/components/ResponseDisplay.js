@@ -2,41 +2,23 @@ import React, { useState, useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import '../styles/styles.css'
 
-const ResponseDisplay = () => {
 
-  // add useState hook to add state to be dummy data
-  const [responseText, setResponseText] = useState(
-  `{
-    "data": {
-      "hero": {
-        "name": "R2-D2",
-          "friends": [
-            {
-              "name": "Luke Skywalker"
-            },
-            {
-              "name": "Han Solo"
-            },
-            {
-              "name": "Leia Organa"
-            }
-          ]
-        }
-      }
-    }`
-  );
+const ResponseDisplay = (props) => {
 
-  // const handleResponseText = () => {
-  //   setResponseText();
-  // };
+  //Stringifies result and removes double quotes.
+  const format = (response) => {
+    const output = JSON.stringify(response, null, 2);
+    return output.replace(/"/g, '');
+  }
+  
 
   return (
-    <Container className='my-3'>
+    <Container className='response-container'>
       <div id="responseText" align='center'>
         <h4>
           Response
         </h4>
-          <pre className='_responseDisplay'> {responseText} </pre>
+          <pre className='_responseDisplay'>{format(props.responseData)}</pre>
       </div>
     </Container>
   );

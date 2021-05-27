@@ -51,7 +51,6 @@ const App = (props) => {
 			<div className='_banner' >
 				<h1>PeachQL - React App</h1>
 				{/* <hr /> */}
-				<p>{data != null ? `Name of show is: ${JSON.stringify(data)}` : "Loading..."}</p>
 			</div>
 			
 			<Row>
@@ -81,7 +80,7 @@ const App = (props) => {
 				<Col xs={4} className='my-2'>
 					<Card className='_response'>
 						<div id="ResponseDisplay">
-							<ResponseDisplay />
+							<ResponseDisplay responseData={data} />
 						</div>
 					</Card>
 				{/* <div className="nav-wrapper" align='center' >
