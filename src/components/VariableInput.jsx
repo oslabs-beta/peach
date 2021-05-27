@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from 'react';
 import Container from 'react-bootstrap/Container';
 import Prism from 'prismjs';
-import './styles/styles.css';
+import '../styles/styles.css';
 
 const VariableInput = props => {
     const [content, setContent] = useState(props.content);
@@ -31,7 +31,7 @@ const VariableInput = props => {
 
     return (
         <Container >
-            <div className='my-2' style={{ color: 'seashell' }}>
+            <div className='_variableInput'>
             <h5>React code syntax highLighter</h5>
                 <fieldset>
                     <p>Choose Language:</p>
@@ -61,9 +61,9 @@ const VariableInput = props => {
                     <label htmlFor='JSON'>&nbsp; JSON &nbsp; </label>
                 </fieldset>
             </div>
-            <div className='code-edit-container'  style={{ backgroundColor: 'seashell', height: '90px' }}>
+            <div className='code-edit-container'>
                 <textarea
-                rows='4'
+                rows='3'
                 className='code-input'
                 value={content}
                 onChange={handleKeyDown}

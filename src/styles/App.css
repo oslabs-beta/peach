@@ -12,3 +12,35 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+._banner {
+  padding-top: 0.15rem;
+  height: 3.5rem;
+  text-align: center;
+  background-color: hsla(11, 63%, 52%, 0.87);
+}
+
+._schemaDisplay {
+  height: 26.8rem;
+  background-color: #fbb78d;
+}
+
+._variableInput {
+  padding: 0.2rem;
+  /* background-color: #962d10; */
+}
+
+._queryContainer {
+  background-color: #f38b58;
+  height: 100%;
+}
+
+._response {
+  background-color: #eb8060;
+  height: 100%;
+}
+
+.schema-display-container {
+  background-color: #fbb78d;
+  height: 24rem;
+}

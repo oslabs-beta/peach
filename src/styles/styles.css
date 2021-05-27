@@ -3,7 +3,7 @@
 /** ---------------------------- */
 .code-edit-container {
   position: relative;
-  height: 500px;
+  height: 5rem;
   border: 1px solid hsl(0, 0%, 60%);
   background-color: hsl(212, 35%, 95%);
   margin: 1em 0;
@@ -32,6 +32,7 @@
   margin: 0;
   color: hsl(0, 0%, 40%);
   resize: none;
+  height: 5rem;
 }
 
 .code-output {
@@ -39,6 +40,7 @@
   z-index: 3;
   margin: 0;
   overflow-y: auto;
+  height: 5rem;
 }
 
 code {
@@ -46,7 +48,7 @@ code {
   top: 0;
   left: 0;
   margin: 0;
-  height: 10px;
+  height: 6rem;
   padding: 1rem;
   display: block;
   color: hsl(0, 0%, 40%);
@@ -54,9 +56,31 @@ code {
   font-family: "PT Mono", monospace;
 }
 
+._variableInput {
+  padding-top: 0.3rem;
+  color: hsl(0, 0%, 18%);
+}
+
 /* overrides */
 .code-edit-container :not(pre) > code[class*="language-"],
 .code-edit-container pre[class*="language-"] {
   background: transparent;
   margin: 0;
+  height: 5rem;
+  /* background-color: seashell;  */
+}
+
+._queries {
+  background-color: seashell;
+  width: calc(100% - 0.25rem);
+}
+
+._responseDisplay {
+  text-align: left; 
+  font-size: 0.8em; 
+}
+
+#responseText {
+  background-color: #fbb78d;
+  height: 39rem;
 }

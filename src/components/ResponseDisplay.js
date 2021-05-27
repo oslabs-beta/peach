@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
+import '../styles/styles.css'
 
 const ResponseDisplay = () => {
 
@@ -35,7 +36,7 @@ const ResponseDisplay = () => {
         <h4>
           Response
         </h4>
-          <pre align='left' style={{ fontSize: '11px' }}> {responseText} </pre>
+          <pre className='_responseDisplay'> {responseText} </pre>
       </div>
     </Container>
   );

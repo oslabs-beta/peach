@@ -8,7 +8,7 @@ import RelayEnvironment from './RelayEnvironment';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 // ? In case we decide to operate with out won css
-import './App.css';
+import './styles/App.css';
 
 
 // Since we are using HtmlWebpackPlugin WITHOUT a template, we need to create our own root node in the body element before rendering into it
