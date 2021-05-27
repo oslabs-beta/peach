@@ -1,6 +1,4 @@
-import React, { useState, useEffect} from 'react';
-import Container from 'react-bootstrap/Container';
-import Prism from 'prismjs';
+import React, { useState } from 'react';
 import './styles.css';
 import Editor from './Editor'
 
