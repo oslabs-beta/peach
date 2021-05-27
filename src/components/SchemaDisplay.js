@@ -10,9 +10,9 @@ const SchemaDisplay = ({schemaName, schemaFields}) => {
 
     return(
         <li className='schema-display' style={{margin: 0, padding: 0}}>
-            <pre className='schemaName'>{schemaName}</pre>
+            <p className='schemaName'>{schemaName}</p>
             {schemaFields.map(field => {
-                return <pre className="schema">{field.type}</pre>
+                return <p className="schema">{field.type}</p>
             })}
         </li>
     )
