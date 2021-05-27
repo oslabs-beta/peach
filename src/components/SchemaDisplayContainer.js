@@ -7,6 +7,7 @@ import React, { useState } from 'react';
 import SchemaDisplay from './SchemaDisplay';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
+import '../styles/styles.css'
 
 const SchemaDisplayContainer = () => {
 
@@ -51,7 +52,7 @@ const SchemaDisplayContainer = () => {
 
     return (
         <Container fluid>
-            <div className="schema-display-container"  className='my-5'>
+            <div className="schema-display-container my-4">
                 <ul>
                     {schemaList.map(schema => {
                         return <SchemaDisplay 
@@ -60,14 +61,16 @@ const SchemaDisplayContainer = () => {
                     })}
                 </ul>
                 <div align="center">
-                <input 
-                placeholder="Type in your schema..."
-                type="schemaText" 
-                onChange={updateSchemaInput} 
-                value={schemaInput} />
-                <Button onClick={updateSchemaList} size='sm' type='submit' variant='secondary' className='my-2'>
-                Update Schema
-                </Button>
+                    <input 
+                        placeholder="Type in your schema..."
+                        type="schemaText" 
+                        onChange={updateSchemaInput} 
+                        value={schemaInput} 
+                    />
+                    <br />
+                    <Button onClick={updateSchemaList} size='sm' type='submit' variant='secondary' className='my-2'>
+                        Update Schema
+                    </Button>
                 </div>
             </div>
         </Container>

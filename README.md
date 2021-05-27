@@ -6,7 +6,7 @@
     <img src="assets/PeachLogo.png" alt="Logo" width="350" height="350">
   </a>
 
-  <h3 align="center">README - PEach QE</h3>
+  <h3 align="center">README - Peach QE</h3>
 
   <p align="center">
      - Initial Commit -
