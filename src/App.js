@@ -3,14 +3,13 @@ import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import logo from '../assets/PeachLogo.png';
+// import logo from '../assets/PeachLogo.png';
 
 import SchemaDisplayContainer from './components/SchemaDisplayContainer';
 import ResponseDisplay from './components/ResponseDisplay';
 import QueryContainer from './components/QueryContainer';
-import VariableInput from './components/VariableInput.jsx'
-import './components/styles.css';
-import './App.css';
+import VariableInput from './components/VariableInput.jsx';
+import './styles/App.css';
 
 import graphql from 'babel-plugin-relay/macro';
 
@@ -18,7 +17,7 @@ import {
 	loadQuery,
 	usePreloadedQuery,
 } from 'react-relay/hooks';
-import RelayEnvironment from './RelayEnvironment';
+import RelayEnvironment from './relay/RelayEnvironment';
 
 const { Suspense } = React;
 
@@ -48,8 +47,8 @@ const App = (props) => {
 
 
 	return (
-		<Container  className="App" fluid>
-			<div align='center' className='my-2' style={{ backgroundColor: '#d14828', height: '60px'  }}>
+		<Container className="App" fluid>
+			<div className='_banner' >
 				<h1>PeachQL - React App</h1>
 				{/* <hr /> */}
 				<p>{data != null ? `Name of show is: ${JSON.stringify(data)}` : "Loading..."}</p>
@@ -59,14 +58,14 @@ const App = (props) => {
 				<Col xs={4}>
 					<Row  className='my-2'>
 						<Col>
-						<Card style={{ backgroundColor: '#fbb78d', height: '400px' }}>
+						<Card className='_schemaDisplay'>
 							<SchemaDisplayContainer/>
 						</Card>	
 						</Col>
 					</Row>
 					<Row>
 						<Col>
-						<Card style={{ backgroundColor: '#962d10' }}>
+						<Card className='_variableInput'>
 							<VariableInput language={editorLanguage}/>
 						</Card>
 						</Col>
@@ -74,21 +73,21 @@ const App = (props) => {
 				</Col>
 				
 				<Col xs={4} className='my-2'>
-					<Card style={{ backgroundColor: '#f38b58' }}>
+					<Card className='_queryContainer'>
 						<QueryContainer/>
 					</Card>
 				</Col>
 				
 				<Col xs={4} className='my-2'>
-					<Card style={{ backgroundColor: '#eb8060' }}>
+					<Card className='_response'>
 						<div id="ResponseDisplay">
 							<ResponseDisplay />
 						</div>
 					</Card>
-				<div className="nav-wrapper" align='center' >
+				{/* <div className="nav-wrapper" align='center' >
 					<br />
 					<img src={logo} alt='Logo' width='160px' align='center' />
-				</div>
+				</div> */}
 				</Col>
 			
 			</Row>

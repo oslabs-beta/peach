@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
+import '../styles/styles.css'
 
 
 const QueryContainer = (props) => {
@@ -18,7 +19,7 @@ const QueryContainer = (props) => {
   return (
     <Container>
       <div >
-        <textarea type="text" rows="22" value={query} onChange={updateQuery} placeholder="Enter Query Here"  style={{ backgroundColor: 'seashell', width:' calc(114% - 45px)' }}  className='my-3'></textarea>
+        <textarea type="text" rows="24" value={query} onChange={updateQuery} placeholder="Enter Query Here"  className='my-2 _queries'></textarea>
         
         <Button onClick={submitQuery}  type='submit' variant='secondary' className='mb-3'>Submit Query</Button>
       </div>
