@@ -48,3 +48,34 @@ code {
   height: 100%;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }
+
+/* SCHEMA DISPLAY */
+
+._schemaDisplay {
+  height: 100%;
+}
+
+#schema-display-container > ul {
+  margin: 0;
+  padding: 0;
+  overflow: scroll;
+  height: 50vh;
+}
+
+li.schema-display {
+  font-size: .875rem;
+  list-style: none;
+  margin-bottom: .5rem;
+}
+
+p.schemaName {
+  margin: 0;
+  padding: 0;
+}
+
+p.schema {
+  font-size: .75rem;
+  margin: 0 0 0 .875rem;
+  padding: 0;
+}
+
