@@ -15,7 +15,7 @@
   "main": "main.js",
   "scripts": {
     "prod": "cross-env NODE_ENV=production webpack --mode production --config webpack.build.config.js && electron --noDevServer .",
-    "start": "yarn run relay && cross-env NODE_ENV=development webpack-dev-server --hot --host 0.0.0.0 --config=./webpack.dev.config.js --mode development",
+    "start": "npm run relay && cross-env NODE_ENV=development webpack-dev-server --hot --host 0.0.0.0 --config=./webpack.dev.config.js --mode development",
     "build": "cross-env NODE_ENV=production webpack --config webpack.build.config.js --mode production",
     "relay": "relay-compiler --schema schema.graphql --src ./src/ --watchman false $@",
     "package": "npm run build",
@@ -25,14 +25,18 @@
     "postpackage": "electron-packager ./ --out=./release-builds"
   },
   "dependencies": {
+    "2": "^3.0.0",
     "@babel/plugin-transform-runtime": "^7.14.3",
     "babel-plugin-macros": "^2.8.0",
     "bootstrap": "^5.0.1",
+    "codemirror": "^5.61.1",
     "get-graphql-schema": "^2.1.2",
     "moment": "^2.29.1",
     "prismjs": "^1.23.0",
     "react": "^16.13.1",
     "react-bootstrap": "^1.6.0",
+    "react-codemirror": "^1.0.0",
+    "react-codemirror2": "^7.2.1",
     "react-dom": "^16.13.1",
     "react-moment": "^1.1.1",
     "react-relay": "^11.0.2",
