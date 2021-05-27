@@ -19,7 +19,7 @@ export default function Editor(props) {
                 lineWrapping: true,
                 lint: true,
                 mode: language,
-                lineNumbers: true
+                lineNumbers: true,
             }}
             />
 
