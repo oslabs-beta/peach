@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
-import './ResponseDisplay.css'
+import '../styles/styles.css'
 
 
 const ResponseDisplay = (props) => {
@@ -17,8 +17,7 @@ const ResponseDisplay = (props) => {
         <h4>
           Response
         </h4>
-
-          <pre align='left' style={{ fontSize: '11px' }}>{format(JSON.stringify(props.responseData, null, 2))}</pre>
+          <pre className='_responseDisplay' align='left' style={{ fontSize: '11px' }}>{format(JSON.stringify(props.responseData, null, 2))}</pre>
       </div>
     </Container>
   );
