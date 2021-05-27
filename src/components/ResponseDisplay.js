@@ -17,7 +17,7 @@ const ResponseDisplay = (props) => {
         <h4>
           Response
         </h4>
-          <pre className='_responseDisplay' align='left' style={{ fontSize: '11px' }}>{format(JSON.stringify(props.responseData, null, 2))}</pre>
+          <pre className='_responseDisplay'>{format(JSON.stringify(props.responseData, null, 2))}</pre>
       </div>
     </Container>
   );
