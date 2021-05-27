@@ -12,7 +12,7 @@ const VariableInput = props => {
             <h1>Variable Input</h1>
             <Editor
             language='javascript'
-            value = {js}
+            value = {state}
             onChange={setState}
             />
         </div>
