@@ -5,9 +5,10 @@ import '../styles/styles.css'
 
 const ResponseDisplay = (props) => {
 
-  //Removes double quotes from stringified query result.
+  //Stringifies result and removes double quotes.
   const format = (response) => {
-    return response.replace(/"/g, '');
+    const output = JSON.stringify(response, null, 2);
+    return output.replace(/"/g, '');
   }
   
 
@@ -17,7 +18,7 @@ const ResponseDisplay = (props) => {
         <h4>
           Response
         </h4>
-          <pre className='_responseDisplay'>{format(JSON.stringify(props.responseData, null, 2))}</pre>
+          <pre className='_responseDisplay'>{format(props.responseData)}</pre>
       </div>
     </Container>
   );
