@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import logo from '../assets/PeachLogo.png';
+// import logo from '../assets/PeachLogo.png';
 
 import SchemaDisplayContainer from './components/SchemaDisplayContainer';
 import ResponseDisplay from './components/ResponseDisplay';
@@ -17,7 +17,7 @@ import {
 	loadQuery,
 	usePreloadedQuery,
 } from 'react-relay/hooks';
-import RelayEnvironment from './RelayEnvironment';
+import RelayEnvironment from './relay/RelayEnvironment';
 
 const { Suspense } = React;
 
@@ -66,7 +66,7 @@ const App = (props) => {
 					<Row>
 						<Col>
 						<Card className='_variableInput'>
-							<VariableInput language={editorLanguage}  className='_variableInput'/>
+							<VariableInput language={editorLanguage}/>
 						</Card>
 						</Col>
 					</Row>

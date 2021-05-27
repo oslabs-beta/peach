@@ -23,24 +23,28 @@ code {
 ._schemaDisplay {
   height: 26.8rem;
   background-color: #fbb78d;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.schema-display-container {
+  /* background-color: #fbb78d; */
+  height: 24rem;
 }
 
 ._variableInput {
   padding: 0.2rem;
-  /* background-color: #962d10; */
+  background-color: #962d10;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }
 
 ._queryContainer {
   background-color: #f38b58;
   height: 100%;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }
 
 ._response {
   background-color: #eb8060;
   height: 100%;
-}
-
-.schema-display-container {
-  background-color: #fbb78d;
-  height: 24rem;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }

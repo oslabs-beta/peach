@@ -2,7 +2,7 @@ import React, { Suspense } from 'react';
 import { render } from 'react-dom';
 import App from './App';
 import { RelayEnvironmentProvider } from 'react-relay';
-import RelayEnvironment from './RelayEnvironment';
+import RelayEnvironment from './relay/RelayEnvironment';
 
 // * Just to speed up the process of decorating the App
 import 'bootstrap/dist/css/bootstrap.min.css'

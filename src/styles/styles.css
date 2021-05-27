@@ -56,7 +56,7 @@ code {
   font-family: "PT Mono", monospace;
 }
 
-._variableInput {
+._variableInput-inner {
   padding-top: 0.3rem;
   color: hsl(0, 0%, 18%);
 }

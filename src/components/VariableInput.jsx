@@ -31,7 +31,7 @@ const VariableInput = props => {
 
     return (
         <Container >
-            <div className='_variableInput'>
+            <div className='_variableInput-inner'>
             <h5>React code syntax highLighter</h5>
                 <fieldset>
                     <p>Choose Language:</p>
