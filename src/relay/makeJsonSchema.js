@@ -1,9 +1,6 @@
-import { assertObjectType } from 'graphql';
-
 const { parse, visit, print } = require('graphql/language');
 const path = require('path');
 const fs = require('fs');
-
 
 /* 
     each schema, when parsed as JSON, will each have the following fields:
@@ -32,8 +29,8 @@ const fs = require('fs');
 
 export default function makeJsonSchema() {
     const output = [];
-    console.log(__dirname);
-    const schemaString = fs.readFileSync('/Users/graham/Documents/projects/peach/src/relay/schema.graphql', 'utf8', async (err, data) => {
+    const pathToSchema = path.resolve('./schema.graphql');
+    const schemaString = fs.readFileSync(pathToSchema, 'utf8', async (err, data) => {
         if (err) console.error(err);
         return data;
     });
@@ -59,6 +56,5 @@ export default function makeJsonSchema() {
     console.log(output);
     return output;
 }
-
 
 
