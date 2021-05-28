@@ -24,7 +24,7 @@ const { Suspense } = React;
 const App = (props) => {
 	const [editorLanguage, setEditorLanguage] = useState('javascript');
 	// define hooks for state, onclick handler in return statement
-	const [query, setQuery] = useState(``);
+	const [query, setQuery] = useState(null);
 	const [variables, setVariables] = useState({});
 	
 	// relay query logic
@@ -35,12 +35,12 @@ const App = (props) => {
 	// save user's query to variable so we can use that name for querying in relay
 	// const PeachUserQuery = graphql`${query}`;
 
-	
+	const preloadedQuery = loadQuery(RelayEnvironment, query, variables);
 	
 	const submitQuery = () => {
 		// perform GraphQl query with text contained in query state.
 		// update contents of ResponseDisplay with returned value of query.
-		const preloadedQuery = loadQuery(RelayEnvironment, query, variables);
+		
 		const data = usePreloadedQuery(query, preloadedQuery);
 		
 			return (
