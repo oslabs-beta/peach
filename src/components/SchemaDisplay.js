@@ -6,10 +6,14 @@ the Schema Display Container
 
 import React from 'react';
 
-const SchemaDisplay = ({schema}) => {
+const SchemaDisplay = ({schemaName, schemaFields}) => {
+
     return(
-        <li className="schema">
-            <p>{schema.schemaText}</p>
+        <li className='schema-display' style={{margin: 0, padding: 0}}>
+            <p className='schemaName'>{schemaName}</p>
+            {schemaFields.map(field => {
+                return <p className="schema">{field.type}</p>
+            })}
         </li>
     )
 }

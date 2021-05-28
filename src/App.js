@@ -11,12 +11,12 @@ import QueryContainer from './components/QueryContainer';
 import VariableInput from './components/VariableInput.jsx';
 import './styles/App.css';
 
-import graphql from 'babel-plugin-relay/macro';
+// import graphql from 'babel-plugin-relay/macro';
 
-import { 
-	loadQuery,
-	usePreloadedQuery,
-} from 'react-relay/hooks';
+//useLazyLoadQuery imports
+import AppQuery from './__generated__/AppQuery.graphql';
+import { graphql, useLazyLoadQuery } from 'react-relay';
+
 import RelayEnvironment from './relay/RelayEnvironment';
 
 const { Suspense } = React;
@@ -32,53 +32,41 @@ const App = (props) => {
 		setQuery(e.target.value);
 	}
 
-	// save user's query to variable so we can use that name for querying in relay
-	// const PeachUserQuery = graphql`${query}`;
-
-	const preloadedQuery = loadQuery(RelayEnvironment, query, variables);
+	
 	
 	const submitQuery = () => {
 		// perform GraphQl query with text contained in query state.
 		// update contents of ResponseDisplay with returned value of query.
 		
-		const data = usePreloadedQuery(query, preloadedQuery);
+		
 		
 			return (
 				<h1>{data}</h1>
 			);
 		}
-	
-	
-	
-	// commented-out lines below come from hard-coded example
-	// ! important note: the name of the query (after the keyword query in query string)
-	// const AnimeQuery = graphql`
-	// 	query AppQuery($id: Int) { # Define which variables will be used in the query (id)
-	// 		Media (id: $id, type: ANIME) { # Insert our variables into the query arguments (id) (type: ANIME is hard-coded in the query)
-	// 			_id: id
-	// 			title {
-	// 				romaji
-	// 				english
-	// 				native
-	// 			}
-	// 		}
-	// 	}
-	// `;
-	
-	// const preloadedQuery = loadQuery(RelayEnvironment, AnimeQuery, {
-	// 	id: '15125',
-	// });
 
-	// const data = usePreloadedQuery(AnimeQuery, preloadedQuery);
-	
+		const data = useLazyLoadQuery<AppQuery>(
+			graphql`
+				query AppQuery ($id: Int) { # Define which variables will be used in the query (id)
+					Media (id: $id, type: ANIME) { # Insert our variables into the query arguments (id) (type: ANIME is hard-coded in the query)
+						_id: id
+						title {
+							romaji
+							english
+							native
+						}
+					}
+				}
+				`,
+				{id: 15125}
+		);
 	
 
 	return (
 		<Container className="App" fluid>
 			<div className='_banner' >
 				<h1>PeachQL - React App</h1>
-				{/* <hr /> */}
-				<p>{data != null ? `Query results: ${JSON.stringify(data)}` : "Loading..."}</p>
+				{/* <p>{data != null ? `Query results: ${JSON.stringify(data)}` : "Loading..."}</p> */}
 			</div>
 			
 			<Row>
@@ -108,7 +96,7 @@ const App = (props) => {
 				<Col xs={4} className='my-2'>
 					<Card className='_response'>
 						<div id="ResponseDisplay">
-							<ResponseDisplay />
+							<ResponseDisplay responseData={data} />
 						</div>
 					</Card>
 				{/* <div className="nav-wrapper" align='center' >
