@@ -2,31 +2,6 @@ const { parse, visit, print } = require('graphql/language');
 const path = require('path');
 const fs = require('fs');
 
-/* 
-    each schema, when parsed as JSON, will each have the following fields:
-
-    kind: ""
-    description: {...value: "",} | undefined
-    "name": {kind: "name", value: "<the-actual-name>", loc: {...}}
-    "interfaces": [] (possibly empty)
-    "directives": [] (possibly empty)
-    fields: [
-        {
-            kind: ''
-            name: {kind: "name", value: "<the-actual-name>"} loc: {...}
-            arguments: [] (possibly empty)
-            type: {
-                kind: ""
-                name: <...as above>
-                loc: {...}
-            }
-            directives: [] (possibly empty)
-            loc: {...}
-        }
-    ]
-    loc: {...}
-*/ 
-
 export default function makeJsonSchema() {
     const output = [];
     const pathToSchema = path.resolve('./schema.graphql');
