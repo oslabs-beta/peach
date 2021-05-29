@@ -11,7 +11,7 @@ const {graphql, usePreloadedQuery} = require('react-relay');
 
 
 const QueryContainer = (props) => {
-  
+  console.log(props.submitQuery);
   return (
     <Container>
       <div >

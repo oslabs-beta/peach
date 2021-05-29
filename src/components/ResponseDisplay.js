@@ -13,12 +13,13 @@ const ResponseDisplay = (props) => {
   
 
   return (
+    props.responseData && 
     <Container className='response-container'>
       <div id="responseText" align='center'>
         <h4>
           Response
         </h4>
-          <pre className='_responseDisplay'>{format(props.responseData)}</pre>
+          <pre className='_responseDisplay'>{props.responseData ? format(props.responseData) : ''}</pre>
       </div>
     </Container>
   );

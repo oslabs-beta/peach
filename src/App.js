@@ -24,39 +24,35 @@ const { Suspense } = React;
 const App = (props) => {
 	const [editorLanguage, setEditorLanguage] = useState('javascript');
 	// define hooks for state, onclick handler in return statement
-	const [query, setQuery] = useState(null);
+	const [query, setQuery] = useState(``);
 	const [variables, setVariables] = useState({});
 	
 	// relay query logic
 	const updateQuery = (e) => {
 		setQuery(e.target.value);
 	}
-	
 	const submitQuery = () => {
 		// perform GraphQl query with text contained in query state.
 		// update contents of ResponseDisplay with returned value of query.
-		
-		setQuery(useLazyLoadQuery<AppQuery>(
-			graphql`
+		setQuery(graphql`
 			query AppQuery($id: Int) { # Define which variables will be used in the query (id)
-				Media (id: $id, type: ANIME) { # Insert our variables into the query arguments (id) (type: ANIME is hard-coded in the query)
-					_id: id
-					title {
-						romaji
-						english
-						native
+					Media (id: $id, type: ANIME) { # Insert our variables into the query arguments (id) (type: ANIME is hard-coded in the query)
+						_id: id
+						title {
+							romaji
+							english
+							native
+						}
 					}
 				}
-			}
-			`,
-			{id: 15125},
-			{fetchPolicy: 'store-or-network'}
-			));
+				`);
+		};
+		
+		let data = query ? useLazyLoadQuery(query, {id: 15125}, {fetchPolicy: 'network-only'}) : '';
 
 		// 	return (
 		// 	<h1>{query}</h1>
 		// );
-	}
 		
 		// const query = useLazyLoadQuery<AppQuery>(
 		// 	graphql`
@@ -109,7 +105,7 @@ const App = (props) => {
 				<Col xs={4} className='my-2'>
 					<Card className='_response'>
 						<div id="ResponseDisplay">
-							<ResponseDisplay responseData={query !== null ? query : ''} />
+							<ResponseDisplay responseData={data !== null ? data : ''} />
 						</div>
 					</Card>
 				{/* <div className="nav-wrapper" align='center' >
