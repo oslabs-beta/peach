@@ -38,28 +38,42 @@ const App = (props) => {
 		// perform GraphQl query with text contained in query state.
 		// update contents of ResponseDisplay with returned value of query.
 		
-		
-		
-			return (
-				<h1>{data}</h1>
-			);
-		}
-
-		const data = useLazyLoadQuery<AppQuery>(
+		setQuery(useLazyLoadQuery<AppQuery>(
 			graphql`
-				query AppQuery ($id: Int) { # Define which variables will be used in the query (id)
-					Media (id: $id, type: ANIME) { # Insert our variables into the query arguments (id) (type: ANIME is hard-coded in the query)
-						_id: id
-						title {
-							romaji
-							english
-							native
-						}
+			query AppQuery ($id: Int) { # Define which variables will be used in the query (id)
+				Media (id: $id, type: ANIME) { # Insert our variables into the query arguments (id) (type: ANIME is hard-coded in the query)
+					_id: id
+					title {
+						romaji
+						english
+						native
 					}
 				}
-				`,
-				{id: 15125}
+			}
+			`,
+			{id: 15125}
+			));
+		return (
+			<h1>{query}</h1>
 		);
+	}
+		
+		// const query = useLazyLoadQuery<AppQuery>(
+		// 	graphql`
+		// 	query AppQuery ($id: Int) { # Define which variables will be used in the query (id)
+		// 		Media (id: $id, type: ANIME) { # Insert our variables into the query arguments (id) (type: ANIME is hard-coded in the query)
+		// 			_id: id
+		// 			title {
+		// 				romaji
+		// 				english
+		// 				native
+		// 			}
+		// 		}
+		// 	}
+		// 	`,
+		// 	{id: 15125}
+		// 	);
+			
 	
 
 	return (
@@ -96,7 +110,7 @@ const App = (props) => {
 				<Col xs={4} className='my-2'>
 					<Card className='_response'>
 						<div id="ResponseDisplay">
-							<ResponseDisplay responseData={data} />
+							<ResponseDisplay responseData={query} />
 						</div>
 					</Card>
 				{/* <div className="nav-wrapper" align='center' >
