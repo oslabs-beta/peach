@@ -2,6 +2,7 @@ import React from 'react'
 import 'codemirror/lib/codemirror.css'
 import 'codemirror/mode/javascript/javascript'
 import { Controlled as ControlledEditor } from 'react-codemirror2'
+import 'codemirror/mode/javascript/javascript'
 
 export default function Editor(props) {
     const { language, value, onChange } = props;
