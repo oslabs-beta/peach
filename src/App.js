@@ -31,8 +31,6 @@ const App = (props) => {
 	const updateQuery = (e) => {
 		setQuery(e.target.value);
 	}
-
-	
 	
 	const submitQuery = () => {
 		// perform GraphQl query with text contained in query state.
@@ -40,7 +38,7 @@ const App = (props) => {
 		
 		setQuery(useLazyLoadQuery<AppQuery>(
 			graphql`
-			query AppQuery ($id: Int) { # Define which variables will be used in the query (id)
+			query AppQuery($id: Int) { # Define which variables will be used in the query (id)
 				Media (id: $id, type: ANIME) { # Insert our variables into the query arguments (id) (type: ANIME is hard-coded in the query)
 					_id: id
 					title {
@@ -51,11 +49,13 @@ const App = (props) => {
 				}
 			}
 			`,
-			{id: 15125}
+			{id: 15125},
+			{fetchPolicy: 'store-or-network'}
 			));
-		return (
-			<h1>{query}</h1>
-		);
+
+		// 	return (
+		// 	<h1>{query}</h1>
+		// );
 	}
 		
 		// const query = useLazyLoadQuery<AppQuery>(
@@ -80,7 +80,6 @@ const App = (props) => {
 		<Container className="App" fluid>
 			<div className='_banner' >
 				<h1>PeachQL - React App</h1>
-				{/* <p>{data != null ? `Query results: ${JSON.stringify(data)}` : "Loading..."}</p> */}
 			</div>
 			
 			<Row>
@@ -88,7 +87,7 @@ const App = (props) => {
 					<Row  className='my-2'>
 						<Col>
 						<Card className='_schemaDisplay'>
-							<SchemaDisplayContainer/>
+							{/* <SchemaDisplayContainer/> */}
 						</Card>	
 						</Col>
 					</Row>
@@ -110,7 +109,7 @@ const App = (props) => {
 				<Col xs={4} className='my-2'>
 					<Card className='_response'>
 						<div id="ResponseDisplay">
-							<ResponseDisplay responseData={query} />
+							<ResponseDisplay responseData={query !== null ? query : ''} />
 						</div>
 					</Card>
 				{/* <div className="nav-wrapper" align='center' >
