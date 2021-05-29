@@ -10,6 +10,7 @@ import ResponseDisplay from './components/ResponseDisplay';
 import QueryContainer from './components/QueryContainer';
 import VariableInput from './components/VariableInput.jsx';
 import './styles/App.css';
+import SchemaSearch from './components/SchemaSearch';
 
 import graphql from 'babel-plugin-relay/macro';
 
@@ -66,6 +67,7 @@ const App = (props) => {
 						<Col>
 						<Card className='_variableInput'>
 							<VariableInput language={editorLanguage}/>
+							<SchemaSearch/>
 						</Card>
 						</Col>
 					</Row>
