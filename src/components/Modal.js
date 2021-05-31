@@ -50,7 +50,10 @@ const Modal = ({ showModal, setShowModal}) => {
               <div className="ModalContent">
                 <h3>Explore your own Database</h3>
                 <hr width='70%' />
-                <p className="modalText">Bring any url to visualize your graphQl database on our system. Download your schema:</p>
+                <p className="modalText">
+                  Bring any url to visualize your graphQl database on our system. <br />
+                  Make sure to download your schema to <br />
+                  the same directory your app is installed:</p>
                 <FileDownloader /> 
                 <button className='mt-3' onClick={() => setShowModal(prev => !prev)}>Close</button>
                 <MdClose className='CloseModalButton' />

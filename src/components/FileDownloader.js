@@ -24,7 +24,6 @@ const FileDownloader = () => {
       <div className="row">
         <div className="col text-center">
           <form action="" className="my-2">
-            {/* <label for="fname">Schema Url:</label> */}
             <input type="text" id="url" name="schemaUrl" placeholder="your schema URL..."/>
           </form>
           <div className="row mt-3">

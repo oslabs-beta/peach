@@ -5,17 +5,16 @@ import Modal from './Modal';
 
 const fs = require('fs');
 
-const newSchemaUrl = 'newSchema.graphql';
+const downloaded = false;
 
-// Check if the file exists in the current directory, and if it is readable.
-fs.access(newSchemaUrl, fs.constants.F_OK | fs.constants.R_OK, (err) => {
-  if (!newSchemaUrl) console.log('Unsuccesful operation, can\'t find the file ', newFile)
+const file = 'icon.png'
+
+// ! check if the file exists in the current directory.
+fs.access(file, (err) => {
   if (err) {
-      return(
-          `${newSchemaUrl} ${err.code === 'ENOENT' ? 'does not exist' : 'is read-only'}`
-          );
+      console.log(`The file ${file} does not exist.`);
   } else {
-      return `${newSchemaUrl} exists, and it is readable`;
+      console.log("The file exists.");
   }
 });
 
@@ -25,21 +24,28 @@ const InputGqlSchema = () => {
   const openModal = () => {
     setShowModal(prev => !prev);
   }
+
+  const newSchemaUrl = downloaded ? 'newSchema.graphql' : 'Example file';
+
   return (
     <Container fluid>
       <div className="_inputSchemaUrl">
-        <Button 
-          // onClick={updateSchemaUrl} 
-          onClick={openModal}
-          size='sm' 
-          variant='success' 
-          className='my-2'
-          >
-          Import a new Schema
-        </Button> &nbsp;
+        <div className="_inline">
+          <Button 
+            // onClick={updateSchemaUrl} 
+            onClick={openModal}
+            size='sm' 
+            variant='success' 
+            className='my-2'
+            >
+            Import a new Schema
+          </Button> &nbsp;
+          <div className='_downloadedSchema'> {newSchemaUrl} </div> 
+
+        </div>
         <Modal showModal={showModal} setShowModal={setShowModal} />
       </div>
-      <div className='_downloadedSchema'> {newFile} </div>
+       
     </Container>
   )
 }

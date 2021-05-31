@@ -38,16 +38,26 @@ _input {
 }
 
 ._inputSchemaUrl {
+  width: 100%;
+  /* display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-around; */
   text-align: center; 
   padding: 0.3rem;
-  /* display: flex;
-  align-items: baseline;
-  margin-left: 1rem; */
   font-size: 1.2em; 
 }
 
+._inline {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
 ._downloadedSchema {
-  font-size: 1.2em; 
+  font-size: 0.8em; 
   color: #ec4a19
 }
 
