@@ -3,15 +3,14 @@ import '../styles/styles.css';
 import Editor from './Editor';
 
 const VariableInput = props => {
-    const [state, setState] = useState('');
+    const { variables, setVariables } = props;
 
     return (
         <div>
             <h1>Variable Input</h1>
             <Editor
-            language='javascript'
-            value = {state}
-            onChange={setState}
+            variables= {variables}
+            setVariables={setVariables}
             />
         </div>
     );
