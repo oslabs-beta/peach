@@ -20,7 +20,27 @@ import importedQuery from './relay/importedQuery';
 const App = () => {
 	const [response, setResponse] = useState('');
 	const [variables, setVariables] = useState('{id: 15125}');
-    
+	const [queryText, setQueryText] = useState(	`query AppQuery($id: Int) { # Define which variables will be used in the query (id)
+		Media (id: $id, type: ANIME) { # Insert our variables into the query arguments (id) (type: ANIME is hard-coded in the query)
+			_id: id
+			title {
+				romaji
+				english
+				native
+			}
+		}
+	}`);
+
+	const updateQueryText = (e) => {
+    setQueryText(e.target.value);
+  }
+
+	const submitQuery = () => {
+    const queryFileStart = 'import graphql from \'graphql\'\;\nexport default graphql`';
+    const queryFileEnd = '`;';
+    fs.writeFileSync(path.resolve('./src/relay/importedQuery.js'), queryFileStart + queryText + queryFileEnd);
+  }
+
     let data = useLazyLoadQuery(
         importedQuery,
         variables
@@ -57,7 +77,7 @@ const App = () => {
 				
 				<Col xs={4} className='my-2'>
 					<Card className='_queryContainer'>
-						<QueryContainer/>
+						<QueryContainer queryText={queryText} updateQueryText={updateQueryText} submitQuery={submitQuery} />
 					</Card>
 				</Col>
 				

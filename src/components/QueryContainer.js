@@ -13,17 +13,19 @@ const {graphql, usePreloadedQuery} = require('react-relay');
 
 
 const QueryContainer = () => {
-  const [queryText, setQueryText] = useState('');
 
-  const updateQueryText = (e) => {
-    setQueryText(e.target.value);
-  }
+  const { queryText, updateQueryText, submitQuery } = props;
+  // const [queryText, setQueryText] = useState('');
 
-  const submitQuery = () => {
-    const queryFileStart = 'import graphql from \'graphql\'\;\nexport default graphql`';
-    const queryFileEnd = '`;';
-    fs.writeFileSync(path.resolve('./src/relay/importedQuery.js'), queryFileStart + queryText + queryFileEnd);
-  }
+  // const updateQueryText = (e) => {
+  //   setQueryText(e.target.value);
+  // }
+
+  // const submitQuery = () => {
+  //   const queryFileStart = 'import graphql from \'graphql\'\;\nexport default graphql`';
+  //   const queryFileEnd = '`;';
+  //   fs.writeFileSync(path.resolve('./src/relay/importedQuery.js'), queryFileStart + queryText + queryFileEnd);
+  // }
 
   return (
     <Container>
