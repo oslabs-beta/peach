@@ -7,13 +7,13 @@
   display: flex;
   justify-content: top;
   align-items: left; */
-  width: 50%;
-  height: 80%;
+  width: 40%;
+  height: 70%;
   position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(235, 129, 96, 0.678);
+  background-color: rgba(235, 129, 96, 0.822);
   border-radius: 0.5rem;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }
@@ -48,10 +48,12 @@
 }
 
 .ModalContent button {
-    padding: 10px 24px;
-    background: #141414;
+    /* padding: 10px 10px; */
+    /* height: 30px; */
+    background: #868686;
     color: #fff;
     border: none;
+    border-radius: 0.5rem;
   }
 
 .CloseModalButton {

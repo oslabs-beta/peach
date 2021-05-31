@@ -7,6 +7,7 @@ import FileDownloader from "./FileDownloader";
 const Modal = ({ showModal, setShowModal}) => {
   const modalRef = useRef();
 
+  //To bring the Modal from the top, cascade style
   const animation = useSpring({
     config: {
       duration: 250
@@ -21,6 +22,7 @@ const Modal = ({ showModal, setShowModal}) => {
     }
   };
 
+  // Close the modal wwith 'Esc' key
   const keyPress = useCallback(
     e => {
       if (e.key === 'Escape' && showModal) {
@@ -48,9 +50,9 @@ const Modal = ({ showModal, setShowModal}) => {
               <div className="ModalContent">
                 <h3>Explore your own Database</h3>
                 <hr width='70%' />
-                <p>Bring any url to visualize your graphQl database on our system</p>
+                <p>Bring any url to visualize your graphQl database on our system. Download your schema:</p>
                 <FileDownloader /> 
-                <button onClick={() => setShowModal(prev => !prev)}>Close</button>
+                <button className='mt-3' onClick={() => setShowModal(prev => !prev)}>Close</button>
                 <MdClose className='CloseModalButton' />
               </div>
               <div className="CloseModalButton"

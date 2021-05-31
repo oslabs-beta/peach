@@ -2,8 +2,8 @@
   width: 500px;
   min-height: 128px;
   position: fixed;
-  left: 18px;
-  bottom: 18px;
+  left: 2px;
+  bottom: -40px;
   max-height: 700px;
   overflow-y: auto;
 }

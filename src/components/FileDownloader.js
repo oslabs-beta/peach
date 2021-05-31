@@ -3,10 +3,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import useFileDownloader from "./hooks/useFileDownloader";
 
-// file:
-//       "https://images.unsplash.com/photo-1604164388977-1b6250ef26f3?rnd=" +
-//       Math.random(),
-
+// Temporary hardwiring of the Download path
 const files = [
   {
     name: "Test File",
@@ -26,7 +23,10 @@ const FileDownloader = () => {
     <>
       <div className="row">
         <div className="col text-center">
-          <h2>File Downloader with progress bar in react</h2>
+          <form action="" className="my-2">
+            {/* <label for="fname">Schema Url:</label> */}
+            <input type="text" id="url" name="schemaUrl" placeholder="your schema URL..." />
+          </form>
           <div className="row mt-3">
             {files.map((file, idx) => (
               <div className="col" key={idx}>
