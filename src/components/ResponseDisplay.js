@@ -13,7 +13,6 @@ const ResponseDisplay = (props) => {
   
 
   return (
-    props.responseData && 
     <Container className='response-container'>
       <div id="responseText" align='center'>
         <h4>

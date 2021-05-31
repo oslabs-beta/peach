@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
+import fs from 'fs';
+import path from 'path';
 import '../styles/styles.css'
 
 // look into useLazyQueryLoader
@@ -10,14 +12,25 @@ import '../styles/styles.css'
 const {graphql, usePreloadedQuery} = require('react-relay');
 
 
-const QueryContainer = (props) => {
-  console.log(props.submitQuery);
+const QueryContainer = () => {
+  const [queryText, setQueryText] = useState('');
+
+  const updateQueryText = (e) => {
+    setQueryText(e.target.value);
+  }
+
+  const submitQuery = () => {
+    const queryFileStart = 'import graphql from \'graphql\'\;\nexport default graphql`';
+    const queryFileEnd = '`;';
+    fs.writeFileSync(path.resolve('./src/relay/importedQuery.js'), queryFileStart + queryText + queryFileEnd);
+  }
+
   return (
     <Container>
       <div >
-        <textarea type="text" rows="24" value={props.query} onChange={props.updateQuery} placeholder="Enter Query Here"  className='my-2 _queries'></textarea>
+        <textarea type="text" rows="24" value={queryText} onChange={updateQueryText} placeholder="Enter Query Here"  className='my-2 _queries'></textarea>
         
-        <Button onClick={props.submitQuery}  type='submit' variant='secondary' className='mb-3'>Submit Query</Button>
+        <Button onClick={submitQuery}  type='submit' variant='secondary' className='mb-3'>Submit Query</Button>
       </div>
     </Container>
   );

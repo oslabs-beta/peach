@@ -14,76 +14,35 @@ import './styles/App.css';
 // import graphql from 'babel-plugin-relay/macro';
 
 //useLazyLoadQuery imports
-import AppQuery from './__generated__/AppQuery.graphql';
-import { graphql, useLazyLoadQuery } from 'react-relay';
+import { useLazyLoadQuery } from 'react-relay';
+import importedQuery from './relay/importedQuery';
 
-import RelayEnvironment from './relay/RelayEnvironment';
-
-const { Suspense } = React;
-
-const App = (props) => {
+const App = () => {
 	const [editorLanguage, setEditorLanguage] = useState('javascript');
-	// define hooks for state, onclick handler in return statement
-	const [query, setQuery] = useState(``);
-	const [variables, setVariables] = useState({});
-	
-	// relay query logic
-	const updateQuery = (e) => {
-		setQuery(e.target.value);
-	}
-	const submitQuery = () => {
-		// perform GraphQl query with text contained in query state.
-		// update contents of ResponseDisplay with returned value of query.
-		setQuery(graphql`
-			query AppQuery($id: Int) { # Define which variables will be used in the query (id)
-					Media (id: $id, type: ANIME) { # Insert our variables into the query arguments (id) (type: ANIME is hard-coded in the query)
-						_id: id
-						title {
-							romaji
-							english
-							native
-						}
-					}
-				}
-				`);
-		};
-		
-		let data = query ? useLazyLoadQuery(query, {id: 15125}, {fetchPolicy: 'network-only'}) : '';
+	const [response, setResponse] = useState('');
+    
+    let data = useLazyLoadQuery(
+        importedQuery,
+        {id: 15125}
+    );
 
-		// 	return (
-		// 	<h1>{query}</h1>
-		// );
-		
-		// const query = useLazyLoadQuery<AppQuery>(
-		// 	graphql`
-		// 	query AppQuery ($id: Int) { # Define which variables will be used in the query (id)
-		// 		Media (id: $id, type: ANIME) { # Insert our variables into the query arguments (id) (type: ANIME is hard-coded in the query)
-		// 			_id: id
-		// 			title {
-		// 				romaji
-		// 				english
-		// 				native
-		// 			}
-		// 		}
-		// 	}
-		// 	`,
-		// 	{id: 15125}
-		// 	);
-			
-	
+    useEffect(() => {
+        setResponse(prev => {
+            return data;
+        })
+    }, [data]);
 
 	return (
 		<Container className="App" fluid>
 			<div className='_banner' >
 				<h1>PeachQL - React App</h1>
 			</div>
-			
 			<Row>
 				<Col xs={4}>
 					<Row  className='my-2'>
 						<Col>
 						<Card className='_schemaDisplay'>
-							{/* <SchemaDisplayContainer/> */}
+							<SchemaDisplayContainer/>
 						</Card>	
 						</Col>
 					</Row>
@@ -98,14 +57,14 @@ const App = (props) => {
 				
 				<Col xs={4} className='my-2'>
 					<Card className='_queryContainer'>
-						<QueryContainer submitQuery={submitQuery} updateQuery={updateQuery} />
+						<QueryContainer/>
 					</Card>
 				</Col>
 				
 				<Col xs={4} className='my-2'>
 					<Card className='_response'>
 						<div id="ResponseDisplay">
-							<ResponseDisplay responseData={data !== null ? data : ''} />
+							<ResponseDisplay responseData={response ? response : ''} />
 						</div>
 					</Card>
 				{/* <div className="nav-wrapper" align='center' >
