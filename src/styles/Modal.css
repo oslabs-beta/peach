@@ -66,3 +66,13 @@
   padding: 0;
   z-index: 10;
 }
+
+.card {
+  background-color: #fbb78d;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 0.2rem;
+}
+
+.card .modalText {
+  font-size: 0.65em; 
+}

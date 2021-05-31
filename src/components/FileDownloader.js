@@ -9,7 +9,7 @@ const files = [
     name: "Test File",
     file:
       "https://docs.github.com/public/schema.docs.graphql",
-    filename: "schema.graphql",
+    filename: "newSchema.graphql",
   }
 ];
 
@@ -25,12 +25,12 @@ const FileDownloader = () => {
         <div className="col text-center">
           <form action="" className="my-2">
             {/* <label for="fname">Schema Url:</label> */}
-            <input type="text" id="url" name="schemaUrl" placeholder="your schema URL..." />
+            <input type="text" id="url" name="schemaUrl" placeholder="your schema URL..."/>
           </form>
           <div className="row mt-3">
             {files.map((file, idx) => (
               <div className="col" key={idx}>
-                <div className="card ">
+                <div className="card">
                   <div className="card-body" key={idx}>
                     <h5 className="card-title">{file.name}</h5>
                     <a

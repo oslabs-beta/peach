@@ -32,6 +32,11 @@ code {
   align-items: baseline;
 }
 
+_input {
+  background-color: #fbb78d;
+  border-radius: 1rem;
+}
+
 ._inputSchemaUrl {
   text-align: center; 
   padding: 0.3rem;
@@ -39,6 +44,11 @@ code {
   align-items: baseline;
   margin-left: 1rem; */
   font-size: 1.2em; 
+}
+
+._downloadedSchema {
+  font-size: 1.2em; 
+  color: #ec4a19
 }
 
 ._UrlInput {
