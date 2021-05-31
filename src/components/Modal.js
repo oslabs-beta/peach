@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useCallback } from 'react';
 import { useSpring, animated } from 'react-spring';
 import { MdClose } from 'react-icons/md';
 import '../styles/Modal.css';
+import FileDownloader from "./FileDownloader";
 
 const Modal = ({ showModal, setShowModal}) => {
   const modalRef = useRef();
@@ -48,7 +49,8 @@ const Modal = ({ showModal, setShowModal}) => {
                 <h3>Explore your own Database</h3>
                 <hr width='70%' />
                 <p>Bring any url to visualize your graphQl database on our system</p>
-                <button onClick={() => setShowModal(prev => !prev)}>Close me</button>
+                <FileDownloader /> 
+                <button onClick={() => setShowModal(prev => !prev)}>Close</button>
                 <MdClose className='CloseModalButton' />
               </div>
               <div className="CloseModalButton"
