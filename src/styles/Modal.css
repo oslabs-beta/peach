@@ -1,0 +1,66 @@
+.Background {
+  z-index: 1000;
+  /* width: 52.5rem;
+  height: 28rem;
+  padding: 1.5rem;
+  position: absolute;
+  display: flex;
+  justify-content: top;
+  align-items: left; */
+  width: 50%;
+  height: 80%;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(235, 129, 96, 0.678);
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.ModalWrapper {
+  width: 30rem;
+  height: 30rem;
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
+  color: #000;
+  display: grid;
+  grid-template-columns: 1fr;
+  position: relative;
+  z-index: 10;
+  border-radius: 11px;
+}
+
+.ModalContent {
+  /* height: 100%; */
+  padding: 2rem;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  line-height: 1.8;
+  color: #141414;
+  border-radius: 0.5rem;
+}
+
+.ModalContent p {
+    margin-bottom: 1rem;
+}
+
+.ModalContent button {
+    padding: 10px 24px;
+    background: #141414;
+    color: #fff;
+    border: none;
+  }
+
+.CloseModalButton {
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  z-index: 10;
+}

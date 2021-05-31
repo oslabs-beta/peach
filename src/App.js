@@ -48,6 +48,7 @@ const App = (props) => {
 
 	return (
 		<Container className="App" fluid>
+			
 			<div className='_banner' >
 				<h1>PeachQL - React App</h1>
 				{/* <hr /> */}
@@ -75,18 +76,18 @@ const App = (props) => {
 					<Card className='_queryContainer'>
 						<QueryContainer/>
 					</Card>
-				</Col>
-				
-				<Col xs={4} className='my-2'>
+					</Col>
+
+					<Col xs={4} className='my-2'>
 					<Card className='_response'>
 						<div id="ResponseDisplay">
 							<ResponseDisplay responseData={data} />
 						</div>
 					</Card>
-				{/* <div className="nav-wrapper" align='center' >
+					{/* <div className="nav-wrapper" align='center' >
 					<br />
 					<img src={logo} alt='Logo' width='160px' align='center' />
-				</div> */}
+					</div> */}
 				</Col>
 			
 			</Row>
@@ -95,3 +96,5 @@ const App = (props) => {
 }
 
 export default App;
+
+
