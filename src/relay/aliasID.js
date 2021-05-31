@@ -3,17 +3,4 @@ function aliasID(queryString) {
     return queryString.replace(idRegex, ' _id: id\n');
 }
 
-const testQuery = `
-query AppQuery($id: Int) { 
-    Media (id: $id, type: ANIME) { 
-        id
-        title {
-            romaji
-            english
-            native
-            id
-        }
-    }
-}`;
-
-console.log(aliasID(testQuery));
+export default aliasID;
