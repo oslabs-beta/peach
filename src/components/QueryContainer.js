@@ -11,6 +11,9 @@ import '../styles/styles.css'
 // import type {HomeTabQuery} from 'HomeTabQuery.graphql';
 const {graphql, usePreloadedQuery} = require('react-relay');
 
+//require in exec to run terminal commands in js:
+const execSync = require('child_process').execSync;
+
 
 const QueryContainer = () => {
   const [queryText, setQueryText] = useState('');
@@ -23,6 +26,10 @@ const QueryContainer = () => {
     const queryFileStart = 'import graphql from \'graphql\'\;\nexport default graphql`';
     const queryFileEnd = '`;';
     fs.writeFileSync(path.resolve('./src/relay/importedQuery.js'), queryFileStart + queryText + queryFileEnd);
+    
+
+    const output = execSync('npm run relay', { encoding: 'utf-8' });
+    console.log('Output was:\n', output);
   }
 
   return (
