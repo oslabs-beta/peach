@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import useFileDownloader from "./hooks/useFileDownloader";
 
 // Temporary hardwiring of the Download path
@@ -40,10 +39,12 @@ const FileDownloader = () => {
                     <h5 className="card-title">{file.name}</h5>
                     <a
                       className="btn btn-primary cursor-pointer text-white"
-                      onClick={() => download(file)}
+                      onClick={() => {
+                          download(file);
+                        }
+                      }
                     >
                       Download 
-                      {/* <FontAwesomeIcon icon="download" /> */}
                     </a>
                   </div>
                 </div>

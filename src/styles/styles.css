@@ -73,6 +73,8 @@ code {
 ._queries {
   background-color: seashell;
   width: calc(100% - 0.25rem);
+  padding-left: 1rem;
+  padding-top: 1rem;
 }
 
 ._responseDisplay {
