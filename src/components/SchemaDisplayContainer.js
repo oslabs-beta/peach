@@ -8,6 +8,7 @@ import SchemaDisplay from './SchemaDisplay';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import makeJsonSchema from '../relay/makeJsonSchema';
+import InputGqlSchema from './InputGqlSchema';
 
 const jsonSchema = makeJsonSchema(); 
 
@@ -37,7 +38,8 @@ const SchemaDisplayContainer = () => {
 
     return (
         <Container fluid>
-            <div id="schema-display-container"  className='my-5'>
+            <InputGqlSchema className='mb-1' />
+            <div id="schema-display-container"  className='mb-4'>
                 <ul style={{overflow: scroll}}>
                     {jsonSchema.map(schema => {
                         return <SchemaDisplay 
@@ -46,12 +48,12 @@ const SchemaDisplayContainer = () => {
                         schemaFields={schema.fields}/>
                     })}
                 </ul>
-                <div align="center">
+                <div className="_inputButton">
                 <input 
                 placeholder="Type in your schema..."
                 type="schemaText" 
                 onChange={updateSchemaInput} 
-                value={schemaInput} />
+                value={schemaInput} /> &nbsp;
                 <Button onClick={updateSchemaList} size='sm' type='submit' variant='secondary' className='my-2'>
                 Update Schema
                 </Button>

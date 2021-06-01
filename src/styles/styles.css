@@ -76,11 +76,14 @@ code {
 }
 
 ._responseDisplay {
+  margin-left: 1rem;
   text-align: left; 
   font-size: 0.8em; 
 }
 
 #responseText {
+  margin-top: 1rem;
   background-color: #fbb78d;
   height: 39rem;
+  border-radius: 0.5rem;
 }
