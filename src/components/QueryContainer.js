@@ -1,3 +1,8 @@
+/* 
+stateful component updates query string to be run in App.js via fs module,
+also reruns relay compiler when the query is submitted
+*/
+
 import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
@@ -7,15 +12,8 @@ import importedQuery from '../relay/importedQuery';
 import '../styles/styles.css'
 import aliasID from '../relay/aliasID';
 
-// look into useLazyQueryLoader
-
-// figure out how to make the below line dynamic (depending on the query)
-// import type {HomeTabQuery} from 'HomeTabQuery.graphql';
-const {graphql, usePreloadedQuery} = require('react-relay');
-
 //require in exec to run terminal commands in js:
 const execSync = require('child_process').execSync;
-
 
 const QueryContainer = () => {
   let initialQueryText = importedQuery.params.text;
@@ -28,11 +26,9 @@ const QueryContainer = () => {
   const submitQuery = () => {
     const queryFileStart = 'import graphql from \'graphql\'\;\nexport default graphql`';
     const queryFileEnd = '`;';
-    
     const fullQueryText = aliasID(queryFileStart + queryText + queryFileEnd);
     fs.writeFileSync(path.resolve('./src/relay/importedQuery.js'), fullQueryText);
     
-
     const output = execSync('npm run relay', { encoding: 'utf-8' });
     console.log('Output was:\n', output);
   }
