@@ -11,49 +11,33 @@ import QueryContainer from './components/QueryContainer';
 import VariableInput from './components/VariableInput.jsx';
 import './styles/App.css';
 
-import graphql from 'babel-plugin-relay/macro';
+// import graphql from 'babel-plugin-relay/macro';
 
-import { 
-	loadQuery,
-	usePreloadedQuery,
-} from 'react-relay/hooks';
-import RelayEnvironment from './relay/RelayEnvironment';
+//useLazyLoadQuery imports
+import { useLazyLoadQuery } from 'react-relay';
+import importedQuery from './relay/importedQuery';
 
-const { Suspense } = React;
-
-// ! important note: the name of the query (after the keyword query in query string)
-const AnimeQuery = graphql`
-	query AppQuery($id: Int) { # Define which variables will be used in the query (id)
-		Media (id: $id, type: ANIME) { # Insert our variables into the query arguments (id) (type: ANIME is hard-coded in the query)
-			_id: id
-			title {
-				romaji
-				english
-				native
-			}
-		}
-	}
-`;
-
-const preloadedQuery = loadQuery(RelayEnvironment, AnimeQuery, {
-	id: '15125',
-});
-
-
-const App = (props) => {
+const App = () => {
 	const [editorLanguage, setEditorLanguage] = useState('javascript');
+	const [response, setResponse] = useState('');
+    
+    let data = useLazyLoadQuery(
+        importedQuery,
+        {id: 15125}
+    );
 
-	const data = usePreloadedQuery(AnimeQuery, preloadedQuery);
-
+    useEffect(() => {
+        setResponse(prev => {
+            return data;
+        })
+    }, [data]);
 
 	return (
 		<Container className="App" fluid>
 			
 			<div className='_banner' >
 				<h1>PeachQL - React App</h1>
-				{/* <hr /> */}
 			</div>
-			
 			<Row>
 				<Col xs={4}>
 					<Row  className='my-2'>
@@ -81,7 +65,7 @@ const App = (props) => {
 					<Col xs={4} className='my-2'>
 					<Card className='_response'>
 						<div id="ResponseDisplay">
-							<ResponseDisplay responseData={data} />
+							<ResponseDisplay responseData={response ? response : ''} />
 						</div>
 					</Card>
 					{/* <div className="nav-wrapper" align='center' >

@@ -28,7 +28,6 @@ export default function makeJsonSchema() {
         output.push(astObject);
         }
       });
-    console.log(output);
     return output;
 }
 
