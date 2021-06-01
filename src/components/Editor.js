@@ -7,7 +7,7 @@ export default function Editor(props) {
     const { language, value, onChange } = props;
 
     const handleChange = (editor, data, value) => {
-        onChange(value)
+        onChange(value);
     }
     return (
         <div className='editor-container'>
@@ -26,4 +26,4 @@ export default function Editor(props) {
 
         </div>
     )
-}
+};
