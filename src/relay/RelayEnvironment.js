@@ -1,3 +1,8 @@
+/*
+sets up the relay environment, tying it to our fetchGraphQL function to reach the endpoint,
+generating a new Network and Store for caching and logging our queries to the console
+*/
+
 import { Environment, Network, RecordSource, Store } from 'relay-runtime';
 import fetchGraphQL from './fetchGraphQL';
 
