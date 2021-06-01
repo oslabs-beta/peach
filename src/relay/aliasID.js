@@ -1,5 +1,5 @@
 function aliasID(queryString) {
-    const idRegex = /\sid\s/ig;
+    const idRegex = /(?<!\s_id:?)\sid\s/ig;
     return queryString.replace(idRegex, ' _id: id\n');
 }
 

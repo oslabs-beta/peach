@@ -12,7 +12,7 @@ const SchemaDisplay = ({schemaName, schemaFields}) => {
         <li className='schema-display' style={{margin: 0, padding: 0}}>
             <p className='schemaName'>{schemaName}</p>
             {schemaFields.map(field => {
-                return <p className="schema">{field.type}</p>
+                return <p key={schemaName += field.type} className="schema">{field.type}</p>
             })}
         </li>
     )
