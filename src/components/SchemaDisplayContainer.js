@@ -16,8 +16,6 @@ const SchemaDisplayContainer = () => {
     // list of Schema to be rendered by SchemaDisplay
     const [schemaList, setSchemaList] = useState([jsonSchema]);
 
-    console.log(jsonSchema); 
-
     // input for addint additional Schema directly
     const [schemaInput, setSchemaInput] = useState('');
     
