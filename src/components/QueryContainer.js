@@ -3,7 +3,9 @@ import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import fs from 'fs';
 import path from 'path';
+import importedQuery from '../relay/importedQuery';
 import '../styles/styles.css'
+import aliasID from '../relay/aliasID';
 
 // look into useLazyQueryLoader
 
@@ -16,7 +18,8 @@ const execSync = require('child_process').execSync;
 
 
 const QueryContainer = () => {
-  const [queryText, setQueryText] = useState('');
+  let initialQueryText = importedQuery.params.text;
+  const [queryText, setQueryText] = useState(initialQueryText);
 
   const updateQueryText = (e) => {
     setQueryText(e.target.value);
@@ -25,7 +28,9 @@ const QueryContainer = () => {
   const submitQuery = () => {
     const queryFileStart = 'import graphql from \'graphql\'\;\nexport default graphql`';
     const queryFileEnd = '`;';
-    fs.writeFileSync(path.resolve('./src/relay/importedQuery.js'), queryFileStart + queryText + queryFileEnd);
+    
+    const fullQueryText = aliasID(queryFileStart + queryText + queryFileEnd);
+    fs.writeFileSync(path.resolve('./src/relay/importedQuery.js'), fullQueryText);
     
 
     const output = execSync('npm run relay', { encoding: 'utf-8' });
