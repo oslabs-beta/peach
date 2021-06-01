@@ -70,7 +70,7 @@ const DownloadItem = ({ name, file, filename, removeFile }) => {
 
       setTimeout(() => {
         removeFile();
-      }, 4000);
+      }, 5000);
     });
   }, []);
 

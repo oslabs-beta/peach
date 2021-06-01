@@ -40,6 +40,8 @@ const Modal = ({ showModal, setShowModal}) => {
     },
     [keyPress]
   );
+
+  
   
   return (
     <>
@@ -48,14 +50,17 @@ const Modal = ({ showModal, setShowModal}) => {
         <animated.div style={animation}>
             <div className="ModalWrapper" showModal={showModal}>
               <div className="ModalContent">
-                <h3>Explore your own Database</h3>
+                <h3>Explore different Databases</h3>
                 <hr width='70%' />
                 <p className="modalText">
                   Bring any url to visualize your graphQl database on our system. <br />
                   Make sure to download your schema to <br />
-                  the same directory your app is installed:</p>
+                  the same directory your app is installed <br />
+                  (aka. your PEACH folder)  
+                </p>
+                <h6 className="red">Please confirm you want to overwrite the existing file.</h6>
                 <FileDownloader /> 
-                <button className='mt-3' onClick={() => setShowModal(prev => !prev)}>Close</button>
+                <button className='mt-4' onClick={() => setShowModal(prev => !prev)}>Close</button>
                 <MdClose className='CloseModalButton' />
               </div>
               <div className="CloseModalButton"
