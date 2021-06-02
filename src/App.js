@@ -41,7 +41,6 @@ const App = () => {
 
 	return (
 		<Container className="App" fluid>
-			<History/>
 			<div className='_banner' >
 				<h1>PeachQL - React App</h1>
 			</div>
@@ -65,6 +64,7 @@ const App = () => {
 				
 				<Col xs={4} className='my-2'>
 					<Card className='_queryContainer'>
+						<History/>
 						<QueryContainer/>
 					</Card>
 					</Col>
