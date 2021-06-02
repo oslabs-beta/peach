@@ -1,6 +1,11 @@
+/*
+This file holds the application's window menu structure
+*/ 
+
 const createAddWindow = require('./newWindow')
 const { app } = require('electron');
 
+// evaluates to true if the platform is Mac
 const isMac = process.platform === 'darwin' ? true : false;
 
 // Create Menu template

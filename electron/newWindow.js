@@ -1,3 +1,8 @@
+/*
+handles logic for generating a window that allows you to create a new project
+currently only functions as a text box
+*/ 
+
 const path = require('path');
 const url = require('url');
 const { BrowserWindow } = require('electron');
