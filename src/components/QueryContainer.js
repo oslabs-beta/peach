@@ -1,25 +1,46 @@
 import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
+import fs from 'fs';
+import path from 'path';
+import importedQuery from '../relay/importedQuery';
 import '../styles/styles.css'
+import aliasID from '../relay/aliasID';
+
+// look into useLazyQueryLoader
+
+// figure out how to make the below line dynamic (depending on the query)
+// import type {HomeTabQuery} from 'HomeTabQuery.graphql';
+const {graphql, usePreloadedQuery} = require('react-relay');
+
+//require in exec to run terminal commands in js:
+const execSync = require('child_process').execSync;
 
 
-const QueryContainer = (props) => {
-  const [query, setQuery] = useState('');
+const QueryContainer = () => {
+  let initialQueryText = importedQuery.params.text;
+  const [queryText, setQueryText] = useState(initialQueryText);
 
-  const updateQuery = (e) => {
-    setQuery(e.target.value);
+  const updateQueryText = (e) => {
+    setQueryText(e.target.value);
   }
 
   const submitQuery = () => {
-    //perform GraphQl query with text contained in query state.
-    //update contents of ResponseDisplay with returned value of query.
+    const queryFileStart = 'import graphql from \'graphql\'\;\nexport default graphql`';
+    const queryFileEnd = '`;';
+    
+    const fullQueryText = aliasID(queryFileStart + queryText + queryFileEnd);
+    fs.writeFileSync(path.resolve('./src/relay/importedQuery.js'), fullQueryText);
+    
+
+    const output = execSync('npm run relay', { encoding: 'utf-8' });
+    console.log('Output was:\n', output);
   }
-  
+
   return (
     <Container>
       <div >
-        <textarea type="text" rows="24" value={query} onChange={updateQuery} placeholder="Enter Query Here"  className='my-2 _queries'></textarea>
+        <textarea type="text" rows="24" value={queryText} onChange={updateQueryText} placeholder="Enter Query Here"  className='my-2 _queries'></textarea>
         
         <Button onClick={submitQuery}  type='submit' variant='secondary' className='mb-3'>Submit Query</Button>
       </div>

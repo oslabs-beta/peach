@@ -13,7 +13,6 @@ import './styles/App.css';
 
 // Since we are using HtmlWebpackPlugin WITHOUT a template, we need to create our own root node in the body element before rendering into it
 let root = document.createElement('div')
-
 root.id = 'root'
 document.body.appendChild(root)
 
