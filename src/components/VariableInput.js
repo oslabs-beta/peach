@@ -15,25 +15,27 @@ const VariableInput = props => {
         setVariables(value);
     }
 
-    const handleChange2 = (e) => {
-        setVariables(e.target.value);
-    }
+    // const handleChange2 = (e) => {
+    //     setVariables(e.target.value);
+    // }
 
     return (
         <div>
             <h1>Variable Input</h1>
             <ControlledEditor
             onBeforeChange={handleChange}
-            // value={variables}
+            value={variables}
             className='code-mirror-wrapper'
             options={{
                 lineWrapping: true,
                 lint: true,
-                mode: 'javascript',
+                mode: {
+                    name: 'javascript', 
+                    json: true
+                },
                 lineNumbers: true,
             }}
             />
-            <input type="text" value={variables} onChange={handleChange2}></input>
         </div>
     );
 };
