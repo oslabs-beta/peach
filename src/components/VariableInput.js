@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import '../styles/styles.css';
-import Editor from './Editor';
 
 //importing library for code editor
 import 'codemirror/lib/codemirror.css';
@@ -14,10 +13,6 @@ const VariableInput = props => {
     const handleChange = (editor, data, value) => {
         setVariables(value);
     }
-
-    // const handleChange2 = (e) => {
-    //     setVariables(e.target.value);
-    // }
 
     return (
         <div>
