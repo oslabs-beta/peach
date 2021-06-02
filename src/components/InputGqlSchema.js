@@ -17,7 +17,7 @@ const InputGqlSchema = () => {
     setShowModal(prev => !prev);
   }
 
-  const newSchemaUrl = downloaded ? 'newSchema.graphql' : 'anilist.co';
+  const newSchemaUrl = downloaded ? 'newSchema' : 'anilist.co';
 
   return (
     <Container fluid>
