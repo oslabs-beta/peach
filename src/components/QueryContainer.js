@@ -12,15 +12,21 @@ import importedQuery from '../relay/importedQuery';
 import '../styles/styles.css'
 import aliasID from '../relay/aliasID';
 
+//importing library for code editor
+import 'codemirror/lib/codemirror.css';
+import 'codemirror/mode/javascript/javascript';
+import { Controlled as ControlledEditor } from 'react-codemirror2';
+
 //require in exec to run terminal commands in js:
 const execSync = require('child_process').execSync;
 
 const QueryContainer = () => {
   let initialQueryText = importedQuery.params.text;
+
   const [queryText, setQueryText] = useState(initialQueryText);
 
-  const updateQueryText = (e) => {
-    setQueryText(e.target.value);
+  const updateQueryText = (editor, data, value) => {
+    setQueryText(value);
   }
 
   const submitQuery = () => {
@@ -35,9 +41,19 @@ const QueryContainer = () => {
 
   return (
     <Container>
-      <div >
-        <textarea type="text" rows="24" value={queryText} onChange={updateQueryText} placeholder="Enter Query Here"  className='my-2 _queries'></textarea>
-        
+      <div>
+        {/* <textarea type="text" rows="24" value={queryText} onChange={updateQueryText} placeholder="Enter Query Here"  className='my-2 _queries'></textarea> */}
+        <ControlledEditor
+            onBeforeChange={updateQueryText}
+            value={queryText}
+            className='code-mirror-wrapper'
+            options={{
+                lineWrapping: true,
+                lint: true,
+                mode: 'javascript',
+                lineNumbers: true
+            }}
+            />
         <Button onClick={submitQuery}  type='submit' variant='secondary' className='mb-3'>Submit Query</Button>
       </div>
     </Container>
