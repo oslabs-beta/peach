@@ -15,6 +15,7 @@ import SchemaDisplayContainer from './components/SchemaDisplayContainer';
 import ResponseDisplay from './components/ResponseDisplay';
 import QueryContainer from './components/QueryContainer';
 import VariableInput from './components/VariableInput.jsx';
+import History from './components/History';
 import db from './database/db.js';
 import './styles/App.css';
 
@@ -40,7 +41,7 @@ const App = () => {
 
 	return (
 		<Container className="App" fluid>
-			
+			<History/>
 			<div className='_banner' >
 				<h1>PeachQL - React App</h1>
 			</div>

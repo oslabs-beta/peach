@@ -30,7 +30,7 @@ db.add = () => {
     const entry = {};
     const data = store._roots.entries().next().value;
     entry[data[0]] = data[1];
-    history.push(entry);
+    history.push(data[1]);
     db.sync();
 }
 
@@ -44,5 +44,7 @@ db.sync = () => {
 db.clear = () => {
     fs.writeFileSync(pathToDatabase, '');
 }
+
+db.getHistory = () => history;
 
 export default db;
