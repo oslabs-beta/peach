@@ -14,7 +14,6 @@
   ],
   "main": "main.js",
   "scripts": {
-    "install": "npm i && npm i react-spring --legacy-peer-deps",
     "prod": "cross-env NODE_ENV=production webpack --mode production --config webpack.build.config.js && electron --noDevServer .",
     "start": "npm run relay && cross-env NODE_ENV=development webpack-dev-server --hot --host 0.0.0.0 --config=./webpack.dev.config.js --mode development",
     "build": "cross-env NODE_ENV=production webpack --config webpack.build.config.js --mode production",
