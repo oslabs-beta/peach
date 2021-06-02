@@ -1,29 +1,18 @@
 import React, { useState } from 'react';
-
-
+import { ReactSearchAutocomplete } from 'react-search-autocomplete'
 const SchemaSearch = props => {
-  const items = [
-    {
-      id: 0,
-      name: 'Cobol'
-    },
-    {
-      id: 1,
-      name: 'JavaScript'
-    },
-    {
-      id: 2,
-      name: 'Basic'
-    },
-    {
-      id: 3,
-      name: 'PHP'
-    },
-    {
-      id: 4,
-      name: 'Java'
-    }
-  ]
+  const { schemaList } = props;
+  const items = []
+
+  for(let i = 0; i < schemaList[0].length; i++){
+    
+    items.push(
+      {id: i,
+      name: schemaList[i],
+      key: i
+      });
+  }
+  
 
   const handleOnSearch = (string, results) => {
     // onSearch will have as the first callback parameter
@@ -49,6 +38,8 @@ const SchemaSearch = props => {
     <div className="App">
       <header className="App-header">
         <div style={{ width: 400 }}>
+          <h1> Schema Search </h1>
+          {/* <p>{Schema}</p> */}
           <ReactSearchAutocomplete
             items={items}
             onSearch={handleOnSearch}

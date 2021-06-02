@@ -67,7 +67,6 @@ const App = (props) => {
 						<Col>
 						<Card className='_variableInput'>
 							<VariableInput language={editorLanguage}/>
-							<SchemaSearch/>
 						</Card>
 						</Col>
 					</Row>

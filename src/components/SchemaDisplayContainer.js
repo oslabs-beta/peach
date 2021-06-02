@@ -8,6 +8,7 @@ import SchemaDisplay from './SchemaDisplay';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import makeJsonSchema from '../relay/makeJsonSchema';
+import SchemaSearch from './SchemaSearch';
 
 const jsonSchema = makeJsonSchema(); 
 
@@ -15,7 +16,7 @@ const SchemaDisplayContainer = () => {
     // list of Schema to be rendered by SchemaDisplay
     const [schemaList, setSchemaList] = useState([jsonSchema]);
 
-    console.log(jsonSchema); 
+    //console.log(jsonSchema); 
 
     // input for addint additional Schema directly
     const [schemaInput, setSchemaInput] = useState('');
@@ -37,6 +38,7 @@ const SchemaDisplayContainer = () => {
 
     return (
         <Container fluid>
+            <SchemaSearch schemaList={schemaList}/>
             <div id="schema-display-container"  className='my-5'>
                 <ul style={{overflow: scroll}}>
                     {jsonSchema.map(schema => {
