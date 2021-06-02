@@ -1,3 +1,7 @@
+/* 
+This file holds the main window process for Electron, rendering the desktop window of the application
+*/
+
 const path = require('path');
 const url = require('url');
 const { app, BrowserWindow, Menu } = require('electron');
@@ -6,6 +10,7 @@ const mainMenuTemplate = require('./electron/menu');
 
 let mainWindow
 
+// check for development environment
 let isDev = false
 
 if (
@@ -29,6 +34,7 @@ function createMainWindow() {
 
 	let indexPath
 
+	// check for development mode options
 	if (isDev && process.argv.indexOf('--noDevServer') === -1) {
 		indexPath = url.format({
 			protocol: 'http:',
@@ -56,7 +62,7 @@ function createMainWindow() {
 				default: installExtension,
 				REACT_DEVELOPER_TOOLS,
 			} = require('electron-devtools-installer')
-
+			// add react dev tools
 			installExtension(REACT_DEVELOPER_TOOLS).catch((err) =>
 				console.log('Error loading React DevTools: ', err)
 			)
@@ -76,8 +82,10 @@ function createMainWindow() {
 
 }
 
+// must wait to load pages until the ready state has fired
 app.on('ready', createMainWindow)
 
+// it is common for apps to remain open until explicitly quit in Mac environment
 app.on('window-all-closed', () => {
 	if (process.platform !== 'darwin') {
 		app.quit()
@@ -90,5 +98,5 @@ app.on('activate', () => {
 	}
 })
 
-// Stop error
+// Stop error, note may become deprecated
 app.allowRendererProcessReuse = true

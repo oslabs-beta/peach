@@ -1,3 +1,7 @@
+/* 
+handles the task of parsing schema.graphql into json, 
+which allows other components to render and manipulate the data
+*/
 const { parse, visit, print } = require('graphql/language');
 const path = require('path');
 const fs = require('fs');
@@ -10,8 +14,10 @@ export default function makeJsonSchema() {
         return data;
     });
     parse(schemaString).definitions.forEach(ast => {
-        if (ast.kind === 'ObjectTypeDefinition') {
-            const astObject = {};
+      // currently ignoring the definitions that are not for Object Types
+      // render therefore excludes things like Mutations, Subscriptions and Fragment definitions
+      if (ast.kind === 'ObjectTypeDefinition') {
+        const astObject = {};
         astObject.name = ast.name.value;
         astObject.fields = [];
         visit(ast, {
@@ -19,8 +25,9 @@ export default function makeJsonSchema() {
             const text = print(node);
             astObject.fields.push(
                 {
-                    note: text.split("\"")[3],
-                    type: text.split('\"')[6]
+                  // note that the comments are saved as 'note' and maintained for rendering later
+                  note: text.split("\"")[3],
+                  type: text.split('\"')[6]
                 }
                 );
           }
@@ -28,7 +35,6 @@ export default function makeJsonSchema() {
         output.push(astObject);
         }
       });
-    console.log(output);
     return output;
 }
 

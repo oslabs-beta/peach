@@ -4,15 +4,16 @@ const SchemaSearch = props => {
   const { schemaList } = props;
   const items = []
 
-  for(let i = 0; i < schemaList[0].length; i++){
+  for(let i = 0; i < schemaList.length; i++){
     
     items.push(
       {id: i,
-      name: schemaList[i],
+      name: schemaList[i].name,
       key: i
       });
+      console.log(schemaList.[i].name)
   }
-  
+  // console.log(items[0])
 
   const handleOnSearch = (string, results) => {
     // onSearch will have as the first callback parameter

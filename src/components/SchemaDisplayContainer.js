@@ -9,37 +9,20 @@ import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import makeJsonSchema from '../relay/makeJsonSchema';
 import SchemaSearch from './SchemaSearch';
+import InputGqlSchema from './InputGqlSchema';
 
+// calls makeJsonSchema to generate a js array of objects we can render from schema.graphql
 const jsonSchema = makeJsonSchema(); 
 
 const SchemaDisplayContainer = () => {
     // list of Schema to be rendered by SchemaDisplay
     const [schemaList, setSchemaList] = useState([jsonSchema]);
 
-    //console.log(jsonSchema); 
-
-    // input for addint additional Schema directly
-    const [schemaInput, setSchemaInput] = useState('');
-    
-    // updateSchema checks to see if the schemaText of the schemaInput to be added already... 
-    // ...exists in the schemaList and updates if not
-    const updateSchemaList = () => {
-        // const index = schemaList.findIndex(schema => schema.schemaText === schemaInput);
-        // if (index === -1 && schemaInput !== '') {
-        setSchemaList((prev) => {
-            return [...prev, {schemaText: schemaInput}];
-        });
-        setSchemaInput('');
-    }
-
-    const updateSchemaInput = (e) => {
-        setSchemaInput(e.target.value);
-    }
-
     return (
         <Container fluid>
-            <SchemaSearch schemaList={schemaList}/>
-            <div id="schema-display-container"  className='my-5'>
+            <SchemaSearch schemaList={schemaList[0]}/>
+            <InputGqlSchema className='mb-1' />
+            <div id="schema-display-container"  className='mb-4'>
                 <ul style={{overflow: scroll}}>
                     {jsonSchema.map(schema => {
                         return <SchemaDisplay 
@@ -48,16 +31,7 @@ const SchemaDisplayContainer = () => {
                         schemaFields={schema.fields}/>
                     })}
                 </ul>
-                <div align="center">
-                <input 
-                placeholder="Type in your schema..."
-                type="schemaText" 
-                onChange={updateSchemaInput} 
-                value={schemaInput} />
-                <Button onClick={updateSchemaList} size='sm' type='submit' variant='secondary' className='my-2'>
-                Update Schema
-                </Button>
-                </div>
+                <div className="_inputButton"></div>
             </div>
         </Container>
     )

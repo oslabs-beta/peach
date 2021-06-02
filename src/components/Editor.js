@@ -23,8 +23,6 @@ export default function Editor(props) {
                 lineNumbers: true,
             }}
             />
-
-
         </div>
     )
 }
