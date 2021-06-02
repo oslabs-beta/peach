@@ -3,10 +3,9 @@ stateful functional container component responsible for rendering
 as many SchemaDisplay components as the uploaded Schema require
 */ 
 
-import React, { useState } from 'react';
+import React from 'react';
 import SchemaDisplay from './SchemaDisplay';
 import Container from 'react-bootstrap/Container';
-import Button from 'react-bootstrap/Button';
 import makeJsonSchema from '../relay/makeJsonSchema';
 import InputGqlSchema from './InputGqlSchema';
 
