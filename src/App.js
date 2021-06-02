@@ -19,7 +19,7 @@ import History from './components/History';
 import db from './database/db.js';
 import './styles/App.css';
 
-// import graphql from 'babel-plugin-relay/macro';
+import graphql from 'babel-plugin-relay/macro';
 
 //useLazyLoadQuery imports
 import { useLazyLoadQuery } from 'react-relay';
@@ -28,6 +28,17 @@ import importedQuery from './relay/importedQuery';
 const App = () => {
 	const [response, setResponse] = useState('');
 	const [variables, setVariables] = useState('{"id": 15125}');
+	const [query, setQuery] = useState(
+		graphql`fragment AppFragment on Query {
+			Media (id: $id, type: ANIME) {
+					_id: id
+					title {
+						romaji
+						english
+						native
+					}
+				}
+			}`);
 		
 	// formatting 'variables' string into JSON object for useLazyLoadQuery
 	function formatJSON(input) {
@@ -35,7 +46,7 @@ const App = () => {
 	}
 
 	let data = useLazyLoadQuery(
-			importedQuery,
+			query,
 			formatJSON(variables)
 	);
 
@@ -71,7 +82,7 @@ const App = () => {
 				<Col xs={4} className='my-2'>
 					<Card className='_queryContainer'>
 						<History/>
-						<QueryContainer/>
+						<QueryContainer setQuery={setQuery}/>
 					</Card>
 					</Col>
 

@@ -15,7 +15,7 @@
           ],
           "kind": "Fragment",
           "metadata": null,
-          "name": "importedQueryQuery",
+          "name": "AppQuery",
           "selections": [
             {
               "alias": null,
@@ -64,6 +64,13 @@
                       "kind": "ScalarField",
                       "name": "english",
                       "storageKey": null
+                    },
+                    {
+                      "alias": null,
+                      "args": null,
+                      "kind": "ScalarField",
+                      "name": "native",
+                      "storageKey": null
                     }
                   ],
                   "storageKey": null
@@ -79,7 +86,7 @@
           "id": 15125
         },
         "owner": {
-          "identifier": "3b44d494a3128e7875cba4afff1542b0{\"id\":15125}",
+          "identifier": "7f3dd2b1a3932911e6ec5b9bb56f7d16{\"id\":15125}",
           "node": {
             "fragment": {
               "argumentDefinitions": [
@@ -91,7 +98,7 @@
               ],
               "kind": "Fragment",
               "metadata": null,
-              "name": "importedQueryQuery",
+              "name": "AppQuery",
               "selections": [
                 {
                   "alias": null,
@@ -139,6 +146,13 @@
                           "args": null,
                           "kind": "ScalarField",
                           "name": "english",
+                          "storageKey": null
+                        },
+                        {
+                          "alias": null,
+                          "args": null,
+                          "kind": "ScalarField",
+                          "name": "native",
                           "storageKey": null
                         }
                       ],
@@ -161,7 +175,7 @@
                 }
               ],
               "kind": "Operation",
-              "name": "importedQueryQuery",
+              "name": "AppQuery",
               "selections": [
                 {
                   "alias": null,
@@ -210,6 +224,13 @@
                           "kind": "ScalarField",
                           "name": "english",
                           "storageKey": null
+                        },
+                        {
+                          "alias": null,
+                          "args": null,
+                          "kind": "ScalarField",
+                          "name": "native",
+                          "storageKey": null
                         }
                       ],
                       "storageKey": null
@@ -220,14 +241,14 @@
               ]
             },
             "params": {
-              "cacheID": "3b44d494a3128e7875cba4afff1542b0",
+              "cacheID": "7f3dd2b1a3932911e6ec5b9bb56f7d16",
               "id": null,
               "metadata": {},
-              "name": "importedQueryQuery",
+              "name": "AppQuery",
               "operationKind": "query",
-              "text": "query importedQueryQuery(\n  $id: Int\n) {\n  Media(id: $id, type: ANIME) {\n    _id: id\n    title {\n      romaji\n      english\n    }\n  }\n}\n"
+              "text": "query AppQuery(\n  $id: Int\n) {\n  Media(id: $id, type: ANIME) {\n    _id: id\n    title {\n      romaji\n      english\n      native\n    }\n  }\n}\n"
             },
-            "hash": "66e8a11fc7a9bc032753efa2c8ff92ad"
+            "hash": "d742635e8d68a49d2374d004cf9c95cf"
           },
           "variables": {
             "id": 15125
@@ -238,7 +259,7 @@
         }
       },
       "request": {
-        "identifier": "3b44d494a3128e7875cba4afff1542b0{\"id\":15125}",
+        "identifier": "7f3dd2b1a3932911e6ec5b9bb56f7d16{\"id\":15125}",
         "node": {
           "fragment": {
             "argumentDefinitions": [
@@ -250,7 +271,7 @@
             ],
             "kind": "Fragment",
             "metadata": null,
-            "name": "importedQueryQuery",
+            "name": "AppQuery",
             "selections": [
               {
                 "alias": null,
@@ -298,6 +319,13 @@
                         "args": null,
                         "kind": "ScalarField",
                         "name": "english",
+                        "storageKey": null
+                      },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "native",
                         "storageKey": null
                       }
                     ],
@@ -320,7 +348,7 @@
               }
             ],
             "kind": "Operation",
-            "name": "importedQueryQuery",
+            "name": "AppQuery",
             "selections": [
               {
                 "alias": null,
@@ -369,6 +397,13 @@
                         "kind": "ScalarField",
                         "name": "english",
                         "storageKey": null
+                      },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "native",
+                        "storageKey": null
                       }
                     ],
                     "storageKey": null
@@ -379,14 +414,14 @@
             ]
           },
           "params": {
-            "cacheID": "3b44d494a3128e7875cba4afff1542b0",
+            "cacheID": "7f3dd2b1a3932911e6ec5b9bb56f7d16",
             "id": null,
             "metadata": {},
-            "name": "importedQueryQuery",
+            "name": "AppQuery",
             "operationKind": "query",
-            "text": "query importedQueryQuery(\n  $id: Int\n) {\n  Media(id: $id, type: ANIME) {\n    _id: id\n    title {\n      romaji\n      english\n    }\n  }\n}\n"
+            "text": "query AppQuery(\n  $id: Int\n) {\n  Media(id: $id, type: ANIME) {\n    _id: id\n    title {\n      romaji\n      english\n      native\n    }\n  }\n}\n"
           },
-          "hash": "66e8a11fc7a9bc032753efa2c8ff92ad"
+          "hash": "d742635e8d68a49d2374d004cf9c95cf"
         },
         "variables": {
           "id": 15125
@@ -406,7 +441,7 @@
             }
           ],
           "kind": "Operation",
-          "name": "importedQueryQuery",
+          "name": "AppQuery",
           "selections": [
             {
               "alias": null,
@@ -455,6 +490,13 @@
                       "kind": "ScalarField",
                       "name": "english",
                       "storageKey": null
+                    },
+                    {
+                      "alias": null,
+                      "args": null,
+                      "kind": "ScalarField",
+                      "name": "native",
+                      "storageKey": null
                     }
                   ],
                   "storageKey": null
@@ -471,6 +513,6 @@
     },
     "refCount": 1,
     "epoch": 1,
-    "fetchTime": 1622670551142
+    "fetchTime": 1622674090076
   }
 ]

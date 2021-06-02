@@ -15,7 +15,7 @@ import aliasID from '../relay/aliasID';
 //require in exec to run terminal commands in js:
 const execSync = require('child_process').execSync;
 
-const QueryContainer = () => {
+const QueryContainer = ({setQuery}) => {
   let initialQueryText = importedQuery.params.text;
   const [queryText, setQueryText] = useState(initialQueryText);
 
@@ -24,10 +24,11 @@ const QueryContainer = () => {
   }
 
   const submitQuery = () => {
-    const queryFileStart = 'import graphql from \'graphql\'\;\nexport default graphql`';
-    const queryFileEnd = '`;';
-    const fullQueryText = aliasID(queryFileStart + queryText + queryFileEnd);
-    fs.writeFileSync(path.resolve('./src/relay/importedQuery.js'), fullQueryText);
+    // const queryFileStart = 'import graphql from \'graphql\'\;\nexport default graphql`';
+    // const queryFileEnd = '`;';
+    const fullQueryText = aliasID(queryText);
+    setQuery(graphql`fragment QueryContainerFragment on Query {...AppFragment}`);
+    // fs.writeFileSync(path.resolve('./src/relay/importedQuery.js'), fullQueryText);
     
     const output = execSync('npm run relay', { encoding: 'utf-8' });
     console.log('Output was:\n', output);

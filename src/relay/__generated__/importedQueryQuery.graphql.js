@@ -15,8 +15,8 @@ export type importedQueryQueryResponse = {|
   +Media: ?{|
     +_id: number,
     +title: ?{|
-      +romaji: ?string,
       +english: ?string,
+      +native: ?string,
     |},
   |}
 |};
@@ -34,8 +34,8 @@ query importedQueryQuery(
   Media(id: $id, type: ANIME) {
     _id: id
     title {
-      romaji
       english
+      native
     }
   }
 }
@@ -88,14 +88,14 @@ v1 = [
             "alias": null,
             "args": null,
             "kind": "ScalarField",
-            "name": "romaji",
+            "name": "english",
             "storageKey": null
           },
           {
             "alias": null,
             "args": null,
             "kind": "ScalarField",
-            "name": "english",
+            "name": "native",
             "storageKey": null
           }
         ],
@@ -123,16 +123,16 @@ return {
     "selections": (v1/*: any*/)
   },
   "params": {
-    "cacheID": "3b44d494a3128e7875cba4afff1542b0",
+    "cacheID": "1d054acaff01fdfd4f2a43192b72ae15",
     "id": null,
     "metadata": {},
     "name": "importedQueryQuery",
     "operationKind": "query",
-    "text": "query importedQueryQuery(\n  $id: Int\n) {\n  Media(id: $id, type: ANIME) {\n    _id: id\n    title {\n      romaji\n      english\n    }\n  }\n}\n"
+    "text": "query importedQueryQuery(\n  $id: Int\n) {\n  Media(id: $id, type: ANIME) {\n    _id: id\n    title {\n      english\n      native\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = '66e8a11fc7a9bc032753efa2c8ff92ad';
+(node/*: any*/).hash = '4ac82e8196bed2b24f3864d21cafb3f8';
 
 module.exports = node;
