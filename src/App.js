@@ -1,3 +1,9 @@
+/*
+Currently responsible for rendering all the major components,
+imports the importedQuery and holds the data that comes back from 
+useLazyLoadQuery as state, which is passed and rendered in ResponseDisplay
+*/ 
+
 import React, { useState, useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
@@ -31,11 +37,10 @@ const App = () => {
 			formatJSON(variables)
 	);
 
+	// update response state, only updates when data is fresh
 	useEffect(() => {
-			setResponse(prev => {
-					return data;
-			})
-	}, [data]);
+		setResponse(data);
+}, [data]);
 
 	return (
 		<Container className="App" fluid>
