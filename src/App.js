@@ -19,21 +19,23 @@ import importedQuery from './relay/importedQuery';
 
 const App = () => {
 	const [response, setResponse] = useState('');
-	const [variables, setVariables] = useState({"id": 15125});
-    
+	const [variables, setVariables] = useState('{"id": 15125}');
+		
+	// formatting 'variables' string into JSON object for useLazyLoadQuery
+	function formatJSON(input) {
+		return JSON.parse(input);
+	}
 
+	let data = useLazyLoadQuery(
+			importedQuery,
+			formatJSON(variables)
+	);
 
-
-    let data = useLazyLoadQuery(
-        importedQuery,
-        variables
-    );
-
-    useEffect(() => {
-        setResponse(prev => {
-            return data;
-        })
-    }, [data]);
+	useEffect(() => {
+			setResponse(prev => {
+					return data;
+			})
+	}, [data]);
 
 	return (
 		<Container className="App" fluid>
