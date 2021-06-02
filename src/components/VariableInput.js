@@ -16,7 +16,7 @@ const VariableInput = props => {
     }
 
     const handleChange2 = (e) => {
-        setVariables(JSON.parse(e.target.value));
+        setVariables(e.target.value);
     }
 
     return (
