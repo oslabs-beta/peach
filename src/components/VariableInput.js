@@ -8,10 +8,15 @@ import 'codemirror/mode/javascript/javascript';
 import { Controlled as ControlledEditor } from 'react-codemirror2';
 
 const VariableInput = props => {
-    const [state, setState] = useState('');
+
+    const { variables, setVariables } = props;
 
     const handleChange = (editor, data, value) => {
-        onChange(value);
+        setVariables(value);
+    }
+
+    const handleChange2 = (e) => {
+        setVariables(JSON.parse(e.target.value));
     }
 
     return (
@@ -19,20 +24,16 @@ const VariableInput = props => {
             <h1>Variable Input</h1>
             <ControlledEditor
             onBeforeChange={handleChange}
-            value={value}
+            // value={variables}
             className='code-mirror-wrapper'
             options={{
                 lineWrapping: true,
                 lint: true,
-                mode: language,
+                mode: 'javascript',
                 lineNumbers: true,
             }}
             />
-            <Editor
-            language='javascript'
-            value = {state}
-            onChange={setState}
-            />
+            <input type="text" value={variables} onChange={handleChange2}></input>
         </div>
     );
 };

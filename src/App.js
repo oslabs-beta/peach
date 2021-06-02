@@ -8,7 +8,7 @@ import Col from 'react-bootstrap/Col';
 import SchemaDisplayContainer from './components/SchemaDisplayContainer';
 import ResponseDisplay from './components/ResponseDisplay';
 import QueryContainer from './components/QueryContainer';
-import VariableInput from './components/VariableInput.jsx';
+import VariableInput from './components/VariableInput';
 import './styles/App.css';
 
 // import graphql from 'babel-plugin-relay/macro';
@@ -18,12 +18,15 @@ import { useLazyLoadQuery } from 'react-relay';
 import importedQuery from './relay/importedQuery';
 
 const App = () => {
-	const [editorLanguage, setEditorLanguage] = useState('javascript');
 	const [response, setResponse] = useState('');
+	const [variables, setVariables] = useState('{id: 15125}');
     
+
+
+
     let data = useLazyLoadQuery(
         importedQuery,
-        {id: 15125}
+        JSON.parse(variables)
     );
 
     useEffect(() => {
@@ -50,7 +53,7 @@ const App = () => {
 					<Row>
 						<Col>
 						<Card className='_variableInput'>
-							<VariableInput language={editorLanguage}/>
+							<VariableInput variables={variables} setVariables={setVariables}/>
 						</Card>
 						</Col>
 					</Row>
