@@ -15,6 +15,7 @@ import SchemaDisplayContainer from './components/SchemaDisplayContainer';
 import ResponseDisplay from './components/ResponseDisplay';
 import QueryContainer from './components/QueryContainer';
 import VariableInput from './components/VariableInput.jsx';
+import db from './database/db.js';
 import './styles/App.css';
 
 // import graphql from 'babel-plugin-relay/macro';
@@ -33,6 +34,7 @@ const App = () => {
     );
 	// update response state, only updates when data is fresh
     useEffect(() => {
+		db.sync();
         setResponse(data);
     }, [data]);
 
