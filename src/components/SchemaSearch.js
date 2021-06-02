@@ -39,8 +39,7 @@ const SchemaSearch = props => {
     <div className="App">
       <header className="App-header">
         <div style={{ width: 400 }}>
-          <h1> Schema Search </h1>
-          {/* <p>{Schema}</p> */}
+          <h2> Schema Search </h2>
           <ReactSearchAutocomplete
             items={items}
             onSearch={handleOnSearch}
