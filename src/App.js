@@ -34,7 +34,7 @@ const App = () => {
     );
 	// update response state, only updates when data is fresh
     useEffect(() => {
-		db.sync();
+		db.add();
         setResponse(data);
     }, [data]);
 

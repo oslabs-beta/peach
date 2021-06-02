@@ -7,7 +7,7 @@ const fs = require('fs');
 const path = require('path');
 import RelayEnvironment from '../relay/RelayEnvironment';
 
-let history;
+let history = [];
 let pathToDatabase = path.resolve('./src/database/queryHistory.json');
 const store = RelayEnvironment.getStore();
 
@@ -15,10 +15,9 @@ const store = RelayEnvironment.getStore();
 // easiest way might be to pull the url from fetchGraphQL.js
 const db = {};
 
-// overwrite the entire JSON file with new data
+// overwrite the entire JSON file with the current history
 db.write = () => {
-    let data = store._roots.entries().next();
-    fs.writeFileSync(pathToDatabase, JSON.stringify(data, null, 2));
+    fs.writeFileSync(pathToDatabase, JSON.stringify(history, null, 2));
 };
 
 // set history variable to the parsed database
@@ -26,10 +25,24 @@ db.reset = () => {
     history = JSON.parse(fs.readFileSync(pathToDatabase));
 };
 
+// add the most recent query to the histry and then sync to the database
+db.add = () => {
+    const entry = {};
+    const data = store._roots.entries().next().value;
+    entry[data[0]] = data[1];
+    history.push(entry);
+    db.sync();
+}
+
 // writes history and resets the history variable to keep it up to date
 db.sync = () => {
     db.write();
     db.reset();
 };
+
+// clears the queryHistory permanently
+db.clear = () => {
+    fs.writeFileSync(pathToDatabase, '');
+}
 
 export default db;
