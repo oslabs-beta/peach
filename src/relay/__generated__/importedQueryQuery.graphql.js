@@ -132,11 +132,7 @@ return {
     "selections": (v1/*: any*/)
   },
   "params": {
-<<<<<<< HEAD
     "cacheID": "0516b25f48d3b4f75fd0b7167a3dccb4",
-=======
-    "cacheID": "e1db2dd181b89ce359d0cce00afcaf37",
->>>>>>> dev
     "id": null,
     "metadata": {},
     "name": "importedQueryQuery",
