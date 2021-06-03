@@ -6,7 +6,6 @@ as many SchemaDisplay components as the uploaded Schema require
 import React, { useState, useRef } from 'react';
 import SchemaDisplay from './SchemaDisplay';
 import Container from 'react-bootstrap/Container';
-import Button from 'react-bootstrap/Button';
 import makeJsonSchema from '../relay/makeJsonSchema';
 import SchemaSearch from './SchemaSearch';
 import InputGqlSchema from './InputGqlSchema';
