@@ -8,9 +8,10 @@ import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import fs from 'fs';
 import path from 'path';
-import importedQuery from '../relay/importedQuery';
+import importedQuery from '../relay/imported';
 import '../styles/styles.css'
 import aliasID from '../relay/aliasID';
+import db from '../database/db';
 
 //importing library for code editor
 import 'codemirror/lib/codemirror.css';
@@ -21,7 +22,8 @@ import { Controlled as ControlledEditor } from 'react-codemirror2';
 const execSync = require('child_process').execSync;
 
 const QueryContainer = () => {
-  let initialQueryText = importedQuery.params.text;
+  // import the current text of the importedQuery file, slicing off the beginning boilerplate
+  let initialQueryText = importedQuery.params.text.slice(34);
 
   const [queryText, setQueryText] = useState(initialQueryText);
 
@@ -30,13 +32,13 @@ const QueryContainer = () => {
   }
 
   const submitQuery = () => {
-    const queryFileStart = 'import graphql from \'graphql\'\;\nexport default graphql`';
+    const queryFileStart = 'import graphql from \'graphql\'\;\nexport default graphql`query importedQueryQuery($id: Int) ';
     const queryFileEnd = '`;';
     const fullQueryText = aliasID(queryFileStart + queryText + queryFileEnd);
-    fs.writeFileSync(path.resolve('./src/relay/importedQuery.js'), fullQueryText);
-    
-    const output = execSync('npm run relay', { encoding: 'utf-8' });
-    console.log('Output was:\n', output);
+    fs.writeFileSync(path.resolve('./src/relay/imported.js'), fullQueryText);
+    db.add();
+    execSync('npm run relay', { encoding: 'utf-8' });
+    // console.log('Output was:\n', output);
   }
 
   return (

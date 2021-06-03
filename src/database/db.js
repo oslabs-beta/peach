@@ -5,38 +5,46 @@ writing, updating and deleting to local history
 
 const fs = require('fs');
 const path = require('path');
+const queryHistoryJSON = require('./queryHistory.json');
 import RelayEnvironment from '../relay/RelayEnvironment';
 
-let history = [];
-let pathToDatabase = path.resolve('./src/database/queryHistory.json');
+const pathToDatabase = path.resolve('./src/database/queryHistory.json');
 const store = RelayEnvironment.getStore();
 
 // !NTS: would ideally like to associate queries with their respective APIs
 // easiest way might be to pull the url from fetchGraphQL.js
 const db = {};
+let historyArray = queryHistoryJSON || [];
 
-// overwrite the entire JSON file with the current history
-db.write = () => {
-    fs.writeFileSync(pathToDatabase, JSON.stringify(history, null, 2));
+// sets a history item on localStorage equal to the history array
+db.write = (newKey, newEntry) => {
+    fs.writeFileSync(pathToDatabase, JSON.stringify(historyArray, null, 2));
+    window.localStorage.setItem(newKey, newEntry);
 };
 
-// set history variable to the parsed database
+// set history array to equal the value of localStorage history item
 db.reset = () => {
-    history = JSON.parse(fs.readFileSync(pathToDatabase));
+    historyArray = queryHistoryJSON || [];
 };
 
 // add the most recent query to the histry and then sync to the database
 db.add = () => {
-    const entry = {};
     const data = store._roots.entries().next().value;
-    entry[data[0]] = data[1];
-    history.push(data[1]);
-    db.sync();
+    // currently only saves the text of the query entry
+    const newEntry = JSON.stringify(data[1].operation.fragment.owner.node.params.text)
+        .replace(/\\n/g, '') // remove newlines
+        .replace(/\\"/g, '') // remove quotations
+        .replace(/\s+/g, ' ') // remove extra spaces
+        .slice(25); // remove universal query name
+    // key is its universal ID as set by the Relay Store
+    const newKey = JSON.stringify(data[0]);
+    historyArray.push(newEntry);
+    db.sync(newKey, newEntry);
 }
 
 // writes history and resets the history variable to keep it up to date
-db.sync = () => {
-    db.write();
+db.sync = (newKey, newEntry) => {
+    db.write(newKey, newEntry);
     db.reset();
 };
 
@@ -45,6 +53,6 @@ db.clear = () => {
     fs.writeFileSync(pathToDatabase, '');
 }
 
-db.getHistory = () => history;
+db.getHistory = () => historyArray;
 
 export default db;

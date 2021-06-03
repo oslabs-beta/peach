@@ -10,16 +10,14 @@ import db from '../database/db.js';
 const History = () => {
 
     const [history, setHistory] = useState(db.getHistory());
-
-    const options = history.map(previousQuery => {
-        return previousQuery.operation.fragment.owner.node.params.text;
-    });
+    // formatting for better UI
+    const trimmedHistory = history.map(string => string.slice(0, 23) + '...');
 
     return (
         <Dropdown 
-        options={options}
-        defaultOption={'History'}
-        onSelect={''}
+            options={trimmedHistory}
+            defaultOption={'History'}
+            onSelect={''}
         />
     )
 }

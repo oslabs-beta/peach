@@ -24,7 +24,7 @@ import SchemaSearch from './components/SchemaSearch';
 
 //useLazyLoadQuery imports
 import { useLazyLoadQuery } from 'react-relay';
-import importedQuery from './relay/importedQuery';
+import importedQuery from './relay/imported';
 
 const App = () => {
 	const [response, setResponse] = useState('');
@@ -42,9 +42,8 @@ const App = () => {
 
 	// update response state, only updates when data is fresh
     useEffect(() => {
-		db.add();
         setResponse(data);
-    }, [data]);
+    }, []);
 
 	return (
 		<Container className="App" fluid>

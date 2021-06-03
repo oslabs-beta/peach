@@ -5,7 +5,6 @@ stateless component renders query response data passed from App.js
 import React from 'react';
 import Container from 'react-bootstrap/Container';
 import '../styles/styles.css'
-import RelayEnvironment from '../relay/RelayEnvironment';
 
 
 const ResponseDisplay = (props) => {
@@ -14,11 +13,7 @@ const ResponseDisplay = (props) => {
   const format = (response) => {
     const output = JSON.stringify(response, null, 2);
     return output.replace(/"/g, '');
-  }
-
-  const store = RelayEnvironment.getStore();
-  console.log(store);
-  console.log(store._roots.entries().next());
+  }  
 
   return (
     <Container className='response-container'>
