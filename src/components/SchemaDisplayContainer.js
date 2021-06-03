@@ -34,6 +34,9 @@ const SchemaDisplayContainer = () => {
         key: i
         });
     }
+    const handleClick = () => {
+      setFocus(0)
+    }
     const handleOnSearch = (string, schema) => {
         // onSearch will have as the first callback parameter
         // the string searched and for the second the results.
@@ -97,6 +100,7 @@ const SchemaDisplayContainer = () => {
             //onChange={handleOnChange}
             autoFocus
           />
+          <button onClick={handleClick}> Show All </button>
             <InputGqlSchema className='mb-1' />
             <div id="schema-display-container"  className='mb-4'>
                 <ul style={{overflow: scroll}}>
