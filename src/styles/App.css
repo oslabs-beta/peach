@@ -21,9 +21,10 @@ code {
 
 .schema-display-container {
   background-color: #fbb78d;
-  height: 24rem;
+  height: 10rem;
   display: flex;
   align-items: baseline;
+  overflow-x: hidden;
 }
 
 ._inputButton {
@@ -32,7 +33,7 @@ code {
   align-items: baseline;
 }
 
-_input {
+._input {
   background-color: #fbb78d;
   border-radius: 1rem;
 }
@@ -71,9 +72,7 @@ _input {
 
 ._variableInput {
   padding: 0.2rem;
-  /* height: 5rem; */
   text-align: center;
-  background-color: #962d10;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }
 
@@ -106,7 +105,7 @@ _input {
   margin: 0;
   padding: 0;
   overflow: scroll;
-  height: 50vh;
+  height: 41vh;
 }
 
 li.schema-display {

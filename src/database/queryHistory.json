@@ -64,6 +64,13 @@
                       "kind": "ScalarField",
                       "name": "english",
                       "storageKey": null
+                    },
+                    {
+                      "alias": null,
+                      "args": null,
+                      "kind": "ScalarField",
+                      "name": "native",
+                      "storageKey": null
                     }
                   ],
                   "storageKey": null
@@ -79,7 +86,7 @@
           "id": 15125
         },
         "owner": {
-          "identifier": "3b44d494a3128e7875cba4afff1542b0{\"id\":15125}",
+          "identifier": "e1db2dd181b89ce359d0cce00afcaf37{\"id\":15125}",
           "node": {
             "fragment": {
               "argumentDefinitions": [
@@ -139,6 +146,13 @@
                           "args": null,
                           "kind": "ScalarField",
                           "name": "english",
+                          "storageKey": null
+                        },
+                        {
+                          "alias": null,
+                          "args": null,
+                          "kind": "ScalarField",
+                          "name": "native",
                           "storageKey": null
                         }
                       ],
@@ -210,6 +224,13 @@
                           "kind": "ScalarField",
                           "name": "english",
                           "storageKey": null
+                        },
+                        {
+                          "alias": null,
+                          "args": null,
+                          "kind": "ScalarField",
+                          "name": "native",
+                          "storageKey": null
                         }
                       ],
                       "storageKey": null
@@ -220,14 +241,14 @@
               ]
             },
             "params": {
-              "cacheID": "3b44d494a3128e7875cba4afff1542b0",
+              "cacheID": "e1db2dd181b89ce359d0cce00afcaf37",
               "id": null,
               "metadata": {},
               "name": "importedQueryQuery",
               "operationKind": "query",
-              "text": "query importedQueryQuery(\n  $id: Int\n) {\n  Media(id: $id, type: ANIME) {\n    _id: id\n    title {\n      romaji\n      english\n    }\n  }\n}\n"
+              "text": "query importedQueryQuery(\n  $id: Int\n) {\n  Media(id: $id, type: ANIME) {\n    _id: id\n    title {\n      romaji\n      english\n      native\n    }\n  }\n}\n"
             },
-            "hash": "66e8a11fc7a9bc032753efa2c8ff92ad"
+            "hash": "e07846b070fdce2af28b3fcf1f7257a6"
           },
           "variables": {
             "id": 15125
@@ -238,7 +259,7 @@
         }
       },
       "request": {
-        "identifier": "3b44d494a3128e7875cba4afff1542b0{\"id\":15125}",
+        "identifier": "e1db2dd181b89ce359d0cce00afcaf37{\"id\":15125}",
         "node": {
           "fragment": {
             "argumentDefinitions": [
@@ -298,6 +319,13 @@
                         "args": null,
                         "kind": "ScalarField",
                         "name": "english",
+                        "storageKey": null
+                      },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "native",
                         "storageKey": null
                       }
                     ],
@@ -369,6 +397,13 @@
                         "kind": "ScalarField",
                         "name": "english",
                         "storageKey": null
+                      },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "native",
+                        "storageKey": null
                       }
                     ],
                     "storageKey": null
@@ -379,14 +414,14 @@
             ]
           },
           "params": {
-            "cacheID": "3b44d494a3128e7875cba4afff1542b0",
+            "cacheID": "e1db2dd181b89ce359d0cce00afcaf37",
             "id": null,
             "metadata": {},
             "name": "importedQueryQuery",
             "operationKind": "query",
-            "text": "query importedQueryQuery(\n  $id: Int\n) {\n  Media(id: $id, type: ANIME) {\n    _id: id\n    title {\n      romaji\n      english\n    }\n  }\n}\n"
+            "text": "query importedQueryQuery(\n  $id: Int\n) {\n  Media(id: $id, type: ANIME) {\n    _id: id\n    title {\n      romaji\n      english\n      native\n    }\n  }\n}\n"
           },
-          "hash": "66e8a11fc7a9bc032753efa2c8ff92ad"
+          "hash": "e07846b070fdce2af28b3fcf1f7257a6"
         },
         "variables": {
           "id": 15125
@@ -455,6 +490,13 @@
                       "kind": "ScalarField",
                       "name": "english",
                       "storageKey": null
+                    },
+                    {
+                      "alias": null,
+                      "args": null,
+                      "kind": "ScalarField",
+                      "name": "native",
+                      "storageKey": null
                     }
                   ],
                   "storageKey": null
@@ -471,6 +513,6 @@
     },
     "refCount": 1,
     "epoch": 1,
-    "fetchTime": 1622733247513
+    "fetchTime": 1622753085733
   }
 ]

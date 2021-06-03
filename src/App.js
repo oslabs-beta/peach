@@ -49,7 +49,7 @@ const App = () => {
 	return (
 		<Container className="App" fluid>
 			<div className='_banner' >
-				<h1>PeachQL - React App</h1>
+				<h1>PeachQE - Electron App</h1>
 			</div>
 			<Row>
 				<Col xs={4}>

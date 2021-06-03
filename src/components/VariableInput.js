@@ -15,13 +15,12 @@ const VariableInput = props => {
     }
 
     return (
-        <div>
-            <h6>Variable Input</h6>
+        <div className='variable'>
+            <h5>Variable Input</h5>
             <ControlledEditor
             onBeforeChange={handleChange}
             value={variables}
             className='code-mirror-wrapper _variableInputInner'
-            // style={ height= '5rem' }
             options={{
                 lineWrapping: true,
                 lint: true,
@@ -30,6 +29,7 @@ const VariableInput = props => {
                     json: true
                 },
                 lineNumbers: true,
+                theme: 'default height4rem readonly',
             }}
             />
         </div>

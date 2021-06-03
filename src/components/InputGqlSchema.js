@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import Modal from './Modal';
+import FileDownloader from "./FileDownloader";
 
 const InputGqlSchema = () => {
   const [showModal, setShowModal] = useState(false);
@@ -17,7 +18,7 @@ const InputGqlSchema = () => {
     if (currentSchemaName) {
       setSchemaName(currentSchemaName);
     };
-  }, []);
+  }, [useState(schemaName)]);
 
   // set theme
   const handleClick = (schema) => {
@@ -39,7 +40,7 @@ const InputGqlSchema = () => {
             onClick={openModal}
             size='sm' 
             variant='success' 
-            className='my-2'
+            className='mt-2'
             >
             Import a new Schema
           </Button> &nbsp;
