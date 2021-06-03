@@ -40,7 +40,7 @@ db.add = () => {
         .slice(37); // remove universal query name
     newEntry.key = JSON.stringify(data[0]); // key is its universal ID as set by the Relay Store
     newEntry.createdAt = new Date().toLocaleString();
-    historyArray.push(newEntry);
+    historyArray.unshift(newEntry);
     db.sync();
 }
 
