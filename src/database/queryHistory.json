@@ -20,11 +20,6 @@
     "createdAt": "6/3/2021, 3:54:34 PM"
   },
   {
-    "queryText": " { Media(id: $id, type: ANIME) { _id: id title { native romaji english } }}",
-    "key": "\"35b714d35e35814e785182b7d4a3926f{\\\"id\\\":15125}\"",
-    "createdAt": "6/3/2021, 3:48:07 PM"
-  },
-  {
     "queryText": "{ Media(id: $id, type: ANIME) { _id: id title { native english romaji } }}",
     "key": "\"ac43176716a06699e0f121e41133e3aa{\\\"id\\\":15125}\"",
     "createdAt": "6/3/2021, 3:41:18 PM"
