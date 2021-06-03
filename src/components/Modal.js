@@ -16,6 +16,7 @@ const Modal = ({ showModal, setShowModal}) => {
     transform: showModal ? `translateY(0%)` : `translateY(-100%)`
   });
 
+  // Close the Modal with the X on the top right corner
   const closeModal = e => {
     if (modalRef.current === e.target) {
       setShowModal(false);
@@ -27,7 +28,7 @@ const Modal = ({ showModal, setShowModal}) => {
     e => {
       if (e.key === 'Escape' && showModal) {
         setShowModal(false);
-        console.log('I pressed');
+        // console.log('I pressed'); // Unnecessary console.log now!
       }
     },
     [setShowModal, showModal]
@@ -40,8 +41,6 @@ const Modal = ({ showModal, setShowModal}) => {
     },
     [keyPress]
   );
-
-  
   
   return (
     <>

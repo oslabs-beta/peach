@@ -71,6 +71,15 @@ _input {
 
 ._variableInput {
   padding: 0.2rem;
+  /* height: 5rem; */
+  text-align: center;
+  background-color: #962d10;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+._variableInputInner {
+  /* padding: 0.2rem; */
+  text-align: left;
   background-color: #962d10;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }

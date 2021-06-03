@@ -5,15 +5,15 @@ import useFileDownloader from "./hooks/useFileDownloader";
 // Temporary hardwiring of the Download path
 const files = [
   {
-    name: "GitHub db",
+    name: "Test-DB",
     file:
-      "https://docs.github.com/public/schema.docs.graphql",
+      "https://drive.google.com/uc?export=download&id=1UFkN1VUD7A-ShQef7TfT6q0hlzrrrvzl",
     filename: "schema.graphql",
   },
   {
-    name: "Music db",
+    name: "United Nations",
     file:
-      "https://raw.githubusercontent.com/mapr-demos/mapr-db-graphql-sample/master/mapr-rest/src/main/webapp/WEB-INF/classes/schema.graphqls",
+      "https://drive.google.com/uc?export=download&id=1TDkiNRBsbyewnR96YOjQ2p7Zo6S4-ld8",
     filename: "schema.graphql",
   }
 ];
