@@ -35,9 +35,9 @@ db.add = () => {
     const newEntry = {};
     newEntry.queryText = JSON.stringify(data[1].operation.fragment.owner.node.params.text)
         .replace(/\\n/g, '') // remove newlines
-        .replace(/\\"/g, '') // remove quotations
+        .replace(/["]+/g, '') // remove quotations
         .replace(/\s+/g, ' ') // remove extra spaces
-        .slice(25); // remove universal query name
+        .slice(37); // remove universal query name
     newEntry.key = JSON.stringify(data[0]); // key is its universal ID as set by the Relay Store
     newEntry.createdAt = new Date().toLocaleString();
     historyArray.push(newEntry);

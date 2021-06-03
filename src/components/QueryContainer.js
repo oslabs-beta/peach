@@ -12,6 +12,7 @@ import importedQuery from '../relay/imported';
 import '../styles/styles.css'
 import aliasID from '../relay/aliasID';
 import db from '../database/db';
+import History from './History';
 
 //importing library for code editor
 import 'codemirror/lib/codemirror.css';
@@ -45,6 +46,9 @@ const QueryContainer = () => {
   return (
     <Container>
       <div>
+        <History 
+          setQueryText={setQueryText}
+          submitQuery={submitQuery}/>
         {/* <textarea type="text" rows="24" value={queryText} onChange={updateQueryText} placeholder="Enter Query Here"  className='my-2 _queries'></textarea> */}
         <ControlledEditor
             onBeforeChange={updateQueryText}

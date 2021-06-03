@@ -7,21 +7,34 @@ import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 import db from '../database/db.js';
 
-const History = () => {
+const History = ({setQueryText, submitQuery}) => {
 
     const [history, setHistory] = useState(db.getHistory());
     // formatting for better UI
     const trimmedHistory = history.map(historyObject => {
-        return historyObject.createdAt 
-             + historyObject.queryText.slice(0, 30) 
-             + '...';
+        const optionObject = {};
+        optionObject.label = historyObject.createdAt 
+                           + '\n'
+                           + historyObject.queryText.slice(0, 25) 
+                           + '...';
+        optionObject.value = historyObject.queryText;
+        return optionObject;
     });
+
+    const reloadHistory = (queryText) => {
+        console.log('fired with', queryText);
+        setQueryText(queryText);
+        // submitQuery();
+    };
+
+
 
     return (
         <Dropdown 
+            placeholder="Select Query"
             options={trimmedHistory}
-            defaultOption={'History'}
-            onSelect={''}
+            defaultOption={''}
+            onChange={(e) => reloadHistory(e.value)}
         />
     )
 }

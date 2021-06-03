@@ -15,10 +15,7 @@ import SchemaDisplayContainer from './components/SchemaDisplayContainer';
 import ResponseDisplay from './components/ResponseDisplay';
 import QueryContainer from './components/QueryContainer';
 import VariableInput from './components/VariableInput';
-import History from './components/History';
-import db from './database/db.js';
 import './styles/App.css';
-import SchemaSearch from './components/SchemaSearch';
 
 // import graphql from 'babel-plugin-relay/macro';
 
@@ -70,7 +67,6 @@ const App = () => {
 				
 				<Col xs={4} className='my-2'>
 					<Card className='_queryContainer'>
-						<History/>
 						<QueryContainer/>
 					</Card>
 					</Col>
