@@ -15,10 +15,6 @@ const ResponseDisplay = (props) => {
     return output.replace(/"/g, '');
   }
 
-  // const store = RelayEnvironment.getStore();
-  // console.log('This is the store, line 20', store);
-  // console.log('What line 20 looks like', store._roots.entries().next());
-
   return (
     <Container className='response-container'>
       <div id="responseText" align='center'>
