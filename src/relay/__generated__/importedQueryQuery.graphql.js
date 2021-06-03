@@ -17,7 +17,6 @@ export type importedQueryQueryResponse = {|
     +title: ?{|
       +native: ?string,
       +english: ?string,
-      +native: ?string,
     |},
   |}
 |};
@@ -37,7 +36,6 @@ query importedQueryQuery(
     title {
       native
       english
-      native
     }
   }
 }
@@ -98,13 +96,6 @@ v1 = [
             "args": null,
             "kind": "ScalarField",
             "name": "english",
-            "storageKey": null
-          },
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "native",
             "storageKey": null
           }
         ],

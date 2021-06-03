@@ -1,5 +1,10 @@
 [
   {
+    "queryText": " Media(id: $id, type: ANIME) { _id: id title { native english } }}",
+    "key": "\"0516b25f48d3b4f75fd0b7167a3dccb4{\\\"id\\\":15125}\"",
+    "createdAt": "6/3/2021, 6:16:28 PM"
+  },
+  {
     "queryText": "{ Media(id: $id, type: ANIME) { _id: id title { native romaji english } }}",
     "key": "\"35b714d35e35814e785182b7d4a3926f{\\\"id\\\":15125}\"",
     "createdAt": "6/3/2021, 4:06:49 PM"

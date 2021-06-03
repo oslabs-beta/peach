@@ -40,7 +40,7 @@ const App = () => {
 	// update response state, only updates when data is fresh
     useEffect(() => {
         setResponse(data);
-    }, []);
+    }, [data]);
 
 	return (
 		<Container className="App" fluid>
