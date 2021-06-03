@@ -7,6 +7,7 @@ release-builds/
 .tmp/
 dist/
 node_modules/
+package-lock.json
 *.compiled.*
 
 # Folder config file #
