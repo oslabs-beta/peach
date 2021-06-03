@@ -58,7 +58,8 @@ const QueryContainer = () => {
                 lineWrapping: true,
                 lint: true,
                 mode: 'javascript',
-                lineNumbers: true
+                lineNumbers: true,
+                theme: 'default height35rem readonly',
             }}
             />
         <Button onClick={submitQuery}  type='submit' variant='secondary' className='mb-3'>Submit Query</Button>

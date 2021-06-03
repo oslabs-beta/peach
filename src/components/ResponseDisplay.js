@@ -13,7 +13,11 @@ const ResponseDisplay = (props) => {
   const format = (response) => {
     const output = JSON.stringify(response, null, 2);
     return output.replace(/"/g, '');
-  }  
+  }
+
+  const store = RelayEnvironment.getStore();
+  console.log('This is the store, line 20', store);
+  console.log('What line 20 looks like', store._roots.entries().next());
 
   return (
     <Container className='response-container'>
