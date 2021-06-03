@@ -18,6 +18,7 @@ import VariableInput from './components/VariableInput';
 import History from './components/History';
 import db from './database/db.js';
 import './styles/App.css';
+import SchemaSearch from './components/SchemaSearch';
 
 // import graphql from 'babel-plugin-relay/macro';
 
