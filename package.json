@@ -47,7 +47,7 @@
     "react-moment": "^1.1.1",
     "react-relay": "^11.0.2",
     "react-search-autocomplete": "^5.2.2",
-    "react-spring": "^9.2.1",
+    "react-spring": "^8.0.27",
     "relay-runtime": "^11.0.2",
     "uuid": "^8.3.2"
   },

@@ -17,8 +17,8 @@ const ResponseDisplay = (props) => {
   }
 
   const store = RelayEnvironment.getStore();
-  console.log(store);
-  console.log(store._roots.entries().next());
+  console.log('This is the store, line 20', store);
+  console.log('What line 20 looks like', store._roots.entries().next());
 
   return (
     <Container className='response-container'>
