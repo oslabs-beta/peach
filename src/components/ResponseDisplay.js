@@ -5,7 +5,6 @@ stateless component renders query response data passed from App.js
 import React from 'react';
 import Container from 'react-bootstrap/Container';
 import '../styles/styles.css'
-import RelayEnvironment from '../relay/RelayEnvironment';
 
 
 const ResponseDisplay = (props) => {
