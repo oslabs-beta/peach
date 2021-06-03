@@ -23,7 +23,7 @@ const execSync = require('child_process').execSync;
 
 const QueryContainer = () => {
   // import the current text of the importedQuery file, slicing off the beginning boilerplate
-  let initialQueryText = importedQuery.params.text.slice(34);
+  let initialQueryText = importedQuery.params.text.slice(39);
 
   const [queryText, setQueryText] = useState(initialQueryText);
 
@@ -32,6 +32,7 @@ const QueryContainer = () => {
   }
 
   const submitQuery = () => {
+    // file boilerplate
     const queryFileStart = 'import graphql from \'graphql\'\;\nexport default graphql`query importedQueryQuery($id: Int) ';
     const queryFileEnd = '`;';
     const fullQueryText = aliasID(queryFileStart + queryText + queryFileEnd);

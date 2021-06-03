@@ -11,7 +11,11 @@ const History = () => {
 
     const [history, setHistory] = useState(db.getHistory());
     // formatting for better UI
-    const trimmedHistory = history.map(string => string.slice(0, 23) + '...');
+    const trimmedHistory = history.map(historyObject => {
+        return historyObject.createdAt 
+             + historyObject.queryText.slice(0, 30) 
+             + '...';
+    });
 
     return (
         <Dropdown 

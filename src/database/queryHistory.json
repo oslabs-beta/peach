@@ -1,6 +1,17 @@
 [
-  "( $id: Int) { Media(id: $id, type: ANIME) { _id: id title { romaji english native } }}\"",
-  "( $id: Int) { Media(id: $id, type: ANIME) { _id: id title { native } }}\"",
-  "( $id: Int) { Media(id: $id, type: ANIME) { _id: id title { native english romaji } }}\"",
-  "( $id: Int) { Media(id: $id, type: ANIME) { _id: id title { native english romaji } }}\""
+  {
+    "queryText": "( $id: Int) { Media(id: $id, type: ANIME) { _id: id title { english romaji } }}\"",
+    "key": "\"3e7ca51a9e4fd1ed611a2726684126f2{\\\"id\\\":15125}\"",
+    "createdAt": "6/3/2021, 3:11:16 PM"
+  },
+  {
+    "queryText": "( $id: Int) { Media(id: $id, type: ANIME) { _id: id title { english romaji native } }}\"",
+    "key": "\"acf2aba72098def6374f0286f5151588{\\\"id\\\":15125}\"",
+    "createdAt": "6/3/2021, 3:11:36 PM"
+  },
+  {
+    "queryText": "( $id: Int) { Media(id: $id, type: ANIME) { _id: id title { english romaji native } }}\"",
+    "key": "\"acf2aba72098def6374f0286f5151588{\\\"id\\\":15125}\"",
+    "createdAt": "6/3/2021, 3:11:45 PM"
+  }
 ]

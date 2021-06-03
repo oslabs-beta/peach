@@ -8,36 +8,34 @@
 
 /*::
 import type { ConcreteRequest } from 'relay-runtime';
-export type importedQueryVariables = {|
+export type importedQueryQueryVariables = {|
   id?: ?number
 |};
-export type importedQueryResponse = {|
+export type importedQueryQueryResponse = {|
   +Media: ?{|
     +_id: number,
     +title: ?{|
-      +native: ?string,
       +english: ?string,
-      +romaji: ?string,
+      +native: ?string,
     |},
   |}
 |};
-export type importedQuery = {|
-  variables: importedQueryVariables,
-  response: importedQueryResponse,
+export type importedQueryQuery = {|
+  variables: importedQueryQueryVariables,
+  response: importedQueryQueryResponse,
 |};
 */
 
 
 /*
-query importedQuery(
+query importedQueryQuery(
   $id: Int
 ) {
   Media(id: $id, type: ANIME) {
     _id: id
     title {
-      native
       english
-      romaji
+      native
     }
   }
 }
@@ -90,13 +88,6 @@ v1 = [
             "alias": null,
             "args": null,
             "kind": "ScalarField",
-            "name": "native",
-            "storageKey": null
-          },
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
             "name": "english",
             "storageKey": null
           },
@@ -104,7 +95,7 @@ v1 = [
             "alias": null,
             "args": null,
             "kind": "ScalarField",
-            "name": "romaji",
+            "name": "native",
             "storageKey": null
           }
         ],
@@ -119,7 +110,7 @@ return {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Fragment",
     "metadata": null,
-    "name": "importedQuery",
+    "name": "importedQueryQuery",
     "selections": (v1/*: any*/),
     "type": "Query",
     "abstractKey": null
@@ -128,20 +119,20 @@ return {
   "operation": {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
-    "name": "importedQuery",
+    "name": "importedQueryQuery",
     "selections": (v1/*: any*/)
   },
   "params": {
-    "cacheID": "1190e60a591faeb2358fb20225706147",
+    "cacheID": "1d054acaff01fdfd4f2a43192b72ae15",
     "id": null,
     "metadata": {},
-    "name": "importedQuery",
+    "name": "importedQueryQuery",
     "operationKind": "query",
-    "text": "query importedQuery(\n  $id: Int\n) {\n  Media(id: $id, type: ANIME) {\n    _id: id\n    title {\n      native\n      english\n      romaji\n    }\n  }\n}\n"
+    "text": "query importedQueryQuery(\n  $id: Int\n) {\n  Media(id: $id, type: ANIME) {\n    _id: id\n    title {\n      english\n      native\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = '5d9b31788cf7b74361f0131269b86d4c';
+(node/*: any*/).hash = 'bf8c7d223dd7856bc9bb1f304709ef99';
 
 module.exports = node;

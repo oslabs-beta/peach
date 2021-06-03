@@ -10,6 +10,7 @@ import RelayEnvironment from '../relay/RelayEnvironment';
 
 const pathToDatabase = path.resolve('./src/database/queryHistory.json');
 const store = RelayEnvironment.getStore();
+console.log('Environment', RelayEnvironment);
 
 // !NTS: would ideally like to associate queries with their respective APIs
 // easiest way might be to pull the url from fetchGraphQL.js
@@ -17,9 +18,9 @@ const db = {};
 let historyArray = queryHistoryJSON || [];
 
 // sets a history item on localStorage equal to the history array
-db.write = (newKey, newEntry) => {
+db.write = () => {
     fs.writeFileSync(pathToDatabase, JSON.stringify(historyArray, null, 2));
-    window.localStorage.setItem(newKey, newEntry);
+    // window.localStorage.setItem(newKey, newEntry);
 };
 
 // set history array to equal the value of localStorage history item
@@ -31,20 +32,21 @@ db.reset = () => {
 db.add = () => {
     const data = store._roots.entries().next().value;
     // currently only saves the text of the query entry
-    const newEntry = JSON.stringify(data[1].operation.fragment.owner.node.params.text)
+    const newEntry = {};
+    newEntry.queryText = JSON.stringify(data[1].operation.fragment.owner.node.params.text)
         .replace(/\\n/g, '') // remove newlines
         .replace(/\\"/g, '') // remove quotations
         .replace(/\s+/g, ' ') // remove extra spaces
         .slice(25); // remove universal query name
-    // key is its universal ID as set by the Relay Store
-    const newKey = JSON.stringify(data[0]);
+    newEntry.key = JSON.stringify(data[0]); // key is its universal ID as set by the Relay Store
+    newEntry.createdAt = new Date().toLocaleString();
     historyArray.push(newEntry);
-    db.sync(newKey, newEntry);
+    db.sync();
 }
 
 // writes history and resets the history variable to keep it up to date
-db.sync = (newKey, newEntry) => {
-    db.write(newKey, newEntry);
+db.sync = () => {
+    db.write();
     db.reset();
 };
 
