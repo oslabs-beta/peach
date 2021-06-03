@@ -1,8 +1,10 @@
-async function fetchGraphQL (text, variables) {
-    // I was going to make a conditional here to change the current DB depending on the schema downloaded by the user.
-    const currentDB = 'https://graphql.anilist.co';
+/*
+handles the fetch request for connecting to graphql endpoint
+*/ 
 
-    const response = await fetch(currentDB, {
+async function fetchGraphQL (text, variables) {
+    // ! currently hard-coded value for graphql endpoint url, needs to update with schema
+    const response = await fetch('https://graphql.anilist.co', {
         method: 'POST', 
         headers: {
             'Content-Type': 'application/json',
