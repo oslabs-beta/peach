@@ -15,15 +15,13 @@ import SchemaDisplayContainer from './components/SchemaDisplayContainer';
 import ResponseDisplay from './components/ResponseDisplay';
 import QueryContainer from './components/QueryContainer';
 import VariableInput from './components/VariableInput';
-import History from './components/History';
-import db from './database/db.js';
 import './styles/App.css';
 
 import graphql from 'babel-plugin-relay/macro';
 
 //useLazyLoadQuery imports
 import { useLazyLoadQuery } from 'react-relay';
-import importedQuery from './relay/importedQuery';
+import importedQuery from './relay/imported';
 
 const App = () => {
 	const [response, setResponse] = useState('');
@@ -52,14 +50,13 @@ const App = () => {
 
 	// update response state, only updates when data is fresh
     useEffect(() => {
-		db.add();
         setResponse(data);
     }, [data]);
 
 	return (
 		<Container className="App" fluid>
 			<div className='_banner' >
-				<h1>PeachQL - React App</h1>
+				<h1>PeachQE - Electron App</h1>
 			</div>
 			<Row>
 				<Col xs={4}>
@@ -81,8 +78,7 @@ const App = () => {
 				
 				<Col xs={4} className='my-2'>
 					<Card className='_queryContainer'>
-						<History/>
-						<QueryContainer setQuery={setQuery}/>
+						<QueryContainer/>
 					</Card>
 					</Col>
 

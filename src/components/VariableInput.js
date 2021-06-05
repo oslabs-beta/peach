@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import '../styles/styles.css';
-import Editor from './Editor';
 
 //importing library for code editor
 import 'codemirror/lib/codemirror.css';
@@ -15,17 +14,13 @@ const VariableInput = props => {
         setVariables(value);
     }
 
-    // const handleChange2 = (e) => {
-    //     setVariables(e.target.value);
-    // }
-
     return (
-        <div>
-            <h1>Variable Input</h1>
+        <div className='variable'>
+            <h5>Variable Input</h5>
             <ControlledEditor
             onBeforeChange={handleChange}
             value={variables}
-            className='code-mirror-wrapper'
+            className='code-mirror-wrapper _variableInputInner'
             options={{
                 lineWrapping: true,
                 lint: true,
@@ -34,6 +29,7 @@ const VariableInput = props => {
                     json: true
                 },
                 lineNumbers: true,
+                theme: 'default height4rem readonly',
             }}
             />
         </div>

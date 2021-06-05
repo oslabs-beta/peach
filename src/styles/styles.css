@@ -1,6 +1,7 @@
 /** ---------------------------- */
 /** --- Code editor ------------ */
 /** ---------------------------- */
+
 .code-edit-container {
   position: relative;
   height: 5rem;
@@ -56,6 +57,29 @@ code {
   font-family: "PT Mono", monospace;
 }
 
+.code-mirror-wrapper {
+  max-height: '6rem' !important;
+}
+
+/* This is an global styling
+.CodeMirror {
+  max-height: 6rem;
+} */
+
+/* Code mirror syles */
+.cm-s-readonly {
+  background-color: rgba(255, 255, 255, 1) !important;  
+}
+.cm-s-height4rem {
+  height: 4rem !important;
+  width: 100% !important;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.cm-s-height35rem {
+  height: 35.1rem !important;
+}
+
 ._variableInput-inner {
   padding-top: 0.3rem;
   color: hsl(0, 0%, 18%);
@@ -73,6 +97,8 @@ code {
 ._queries {
   background-color: seashell;
   width: calc(100% - 0.25rem);
+  padding-left: 1rem;
+  padding-top: 1rem;
 }
 
 ._responseDisplay {

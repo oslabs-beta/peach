@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../../styles/downloader.css";
 import { ProgressBar } from "react-bootstrap";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Axios from "axios";
 
 const Downloader = ({ files = [], remove }) => {
@@ -70,7 +69,7 @@ const DownloadItem = ({ name, file, filename, removeFile }) => {
 
       setTimeout(() => {
         removeFile();
-      }, 4000);
+      }, 5000);
     });
   }, []);
 
@@ -98,7 +97,7 @@ const DownloadItem = ({ name, file, filename, removeFile }) => {
           <div className="d-inline ml-2 ml-auto">
             {downloadInfo.completed && (
               <span className="text-success">
-                Completed <FontAwesomeIcon icon="check-circle" />
+                Completed 
               </span>
             )}
           </div>
