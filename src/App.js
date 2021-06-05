@@ -1,7 +1,7 @@
 /*
 Currently responsible for rendering all the major components,
 imports the importedQuery and holds the data that comes back from 
-useLazyLoadQuery as state, which is passed and rendered in ResponseDisplay
+Query as state, which is passed and rendered in ResponseDisplay
 */ 
 
 import React, { useState, useEffect } from 'react';
@@ -21,22 +21,15 @@ import graphql from 'babel-plugin-relay/macro';
 
 //useLazyLoadQuery imports
 import { useLazyLoadQuery } from 'react-relay';
-import importedQuery from './relay/imported';
+// import importedQuery from './relay/imported';
 
 const App = () => {
 	const [response, setResponse] = useState('');
 	const [variables, setVariables] = useState('{"id": 15125}');
 	const [query, setQuery] = useState(
 		graphql`fragment AppFragment on Query {
-			Media (id: $id, type: ANIME) {
-					_id: id
-					title {
-						romaji
-						english
-						native
-					}
-				}
-			}`);
+			...QueryContainerFragment
+		}`);
 		
 	// formatting 'variables' string into JSON object for useLazyLoadQuery
 	function formatJSON(input) {
@@ -59,7 +52,7 @@ const App = () => {
 				<h1>PeachQE - Electron App</h1>
 			</div>
 			<Row>
-				<Col xs={4}>
+				{/* <Col xs={4}>
 					<Row  className='my-2'>
 						<Col>
 						<Card className='_schemaDisplay'>
@@ -74,11 +67,11 @@ const App = () => {
 						</Card>
 						</Col>
 					</Row>
-				</Col>
+				</Col> */}
 				
 				<Col xs={4} className='my-2'>
 					<Card className='_queryContainer'>
-						<QueryContainer/>
+						<QueryContainer setQuery={setQuery}/>
 					</Card>
 					</Col>
 
