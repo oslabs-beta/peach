@@ -22,6 +22,7 @@ const Downloader = ({ files = [], remove }) => {
   );
 };
 
+  // Later will fill this boilerplate with the current download information
 const DownloadItem = ({ name, file, filename, removeFile }) => {
   const [downloadInfo, setDownloadInfo] = useState({
     progress: 0,
@@ -30,6 +31,7 @@ const DownloadItem = ({ name, file, filename, removeFile }) => {
     loaded: 0,
   });
 
+  // Side effect, to show ho much of thee download progress remains
   useEffect(() => {
     const options = {
       onDownloadProgress: (progressEvent) => {
@@ -44,11 +46,12 @@ const DownloadItem = ({ name, file, filename, removeFile }) => {
       },
     };
 
+    // Using Axios built-in Blob class to display the download information
     Axios.get(file, {
       responseType: "blob",
       ...options,
     }).then(function (response) {
-      console.log(response);
+      // console.log(response);
 
       const url = window.URL.createObjectURL(
         new Blob([response.data], {
@@ -62,14 +65,16 @@ const DownloadItem = ({ name, file, filename, removeFile }) => {
       document.body.appendChild(link);
       link.click();
 
+      // displays info on lines 27-32 boilerplate
       setDownloadInfo((info) => ({
         ...info,
         completed: true,
       }));
 
+      // takes the file out of the blurb after 4 seconds
       setTimeout(() => {
         removeFile();
-      }, 5000);
+      }, 4000);
     });
   }, []);
 
@@ -85,9 +90,9 @@ const DownloadItem = ({ name, file, filename, removeFile }) => {
               {downloadInfo.loaded > 0 && (
                 <>
                   <span className="text-success">
-                    {formatBytes(downloadInfo.loaded)}
+                  &nbsp;  {formatBytes(downloadInfo.loaded)} &nbsp;
                   </span>
-                  / {formatBytes(downloadInfo.total)}
+                  / &nbsp; {formatBytes(downloadInfo.total)}
                 </>
               )}
 
