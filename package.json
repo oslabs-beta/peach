@@ -32,6 +32,7 @@
     "@fortawesome/react-fontawesome": "^0.1.9",
     "axios": "^0.21.1",
     "babel-plugin-macros": "^2.8.0",
+    "babel-plugin-wildcard": "^7.0.0",
     "bootstrap": "^5.0.1",
     "codemirror": "^5.61.1",
     "get-graphql-schema": "^2.1.2",
