@@ -17,15 +17,12 @@ import '../styles/styles.css'
 import aliasID from '../relay/aliasID';
 import db from '../database/db';
 import History from './History';
-import * as importedQueries from '../relay/__generated__/';
-
-console.log(importedQueries);
-
 
 //importing library for code editor
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/mode/javascript/javascript';
 import { Controlled as ControlledEditor } from 'react-codemirror2';
+import QuerySelector from './QuerySelector';
 
 //require in exec to run terminal commands in js:
 const execSync = require('child_process').execSync;
@@ -58,6 +55,9 @@ const QueryContainer = () => {
           setQueryText={setQueryText}
           submitQuery={submitQuery}/>
         {/* <textarea type="text" rows="24" value={queryText} onChange={updateQueryText} placeholder="Enter Query Here"  className='my-2 _queries'></textarea> */}
+        <QuerySelector
+          setQueryText={setQueryText}
+        />
         <ControlledEditor
             onBeforeChange={updateQueryText}
             value={queryText}
