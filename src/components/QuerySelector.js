@@ -14,8 +14,8 @@ const QuerySelector = ({setQueryText}) => {
         const initialOptions = [];
         for (let query in importedQueries) {
             const option = {};
-            option.label = importedQueries[query].params.text;
-            option.value = option.label;
+            option.label = importedQueries[query].params.text.slice(14, 40) + '...';
+            option.value = importedQueries[query].params.text;
             initialOptions.push(option);
         }
         setOptions(initialOptions);

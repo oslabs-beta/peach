@@ -21,7 +21,7 @@ import './styles/App.css';
 
 //useLazyLoadQuery imports
 import { useLazyLoadQuery } from 'react-relay';
-import mediaQuery from './relay/__generated__/importedMediaQuery.graphql';
+import importedQuery from './relay/imported';
 
 const App = () => {
 	const [response, setResponse] = useState('');
@@ -33,7 +33,7 @@ const App = () => {
 	}
 
 	let data = useLazyLoadQuery(
-			mediaQuery,
+			importedQuery,
 			formatJSON(variables)
 	);
 
