@@ -29,7 +29,7 @@ const execSync = require('child_process').execSync;
 
 const QueryContainer = () => {
   // import the current text of the importedQuery file, slicing off the beginning boilerplate
-  let initialQueryText = mediaQuery.params.text.slice(39);
+  let initialQueryText = mediaQuery.params.text;
 
   const [queryText, setQueryText] = useState(initialQueryText);
 
