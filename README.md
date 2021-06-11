@@ -9,6 +9,14 @@
   <h3 align="center">README - Peach QE</h3>
 
   <p align="center">
+  <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat"/>
+  <img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat"/>
+  <img alt="license" src="https://img.shields.io/github/license/oslabs-beta/peach?color=%2357d3af">
+  <img alt="last commit" src="https://img.shields.io/github/last-commit/oslabs-beta/peach?color=%2357d3af">
+  <img alt="Repo stars" src="https://img.shields.io/github/stars/oslabs-beta/peach?logoColor=%2334495e&style=social"> 
+</p>
+
+  <p align="center">
      - Initial Commit -
     <br />
     (Minimum set of features, including DevTools toggling in DEV mode)

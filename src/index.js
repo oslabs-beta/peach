@@ -15,11 +15,12 @@ import {
   Link
 } from "react-router-dom";
 import App2 from './components/peach/App2';
+import Navbar from './components/Navbar';
 
 // * Just to speed up the process of decorating the App
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-// ? In case we decide to operate with out won css
+// ? In case we decide to operate with our own css
 import './styles/App.css';
 // import '../peach/styles/App.css';
 
