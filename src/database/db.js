@@ -10,7 +10,7 @@ import RelayEnvironment from '../relay/RelayEnvironment';
 
 const pathToDatabase = path.resolve('./src/database/queryHistory.json');
 const store = RelayEnvironment.getStore();
-console.log('Environment', RelayEnvironment);
+// console.log('Environment', RelayEnvironment);
 
 // !NTS: would ideally like to associate queries with their respective APIs
 // easiest way might be to pull the url from fetchGraphQL.js
@@ -37,7 +37,7 @@ db.add = () => {
         .replace(/\\n/g, '') // remove newlines
         .replace(/["]+/g, '') // remove quotations
         .replace(/\s+/g, ' ') // remove extra spaces
-        .slice(37); // remove universal query name
+        // .slice(37); // // remove universal query name
     newEntry.key = JSON.stringify(data[0]); // key is its universal ID as set by the Relay Store
     newEntry.createdAt = new Date().toLocaleString();
     historyArray.unshift(newEntry);

@@ -35,7 +35,7 @@ const App = () => {
 
 	let data = useLazyLoadQuery(
 			importedQuery,
-			formatJSON(variables)
+			variables ? formatJSON(variables) : null
 	);
 
 	// update response state, only updates when data is fresh

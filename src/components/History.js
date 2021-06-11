@@ -22,7 +22,7 @@ const History = ({setQueryText, submitQuery}) => {
     });
 
     const reloadHistory = (queryText) => {
-        console.log('reloaded history with', queryText);
+        // console.log('reloaded history with', queryText);
         setQueryText(queryText);
         // submitQuery();
     };
