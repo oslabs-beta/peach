@@ -22,16 +22,16 @@ const History = ({setQueryText, submitQuery}) => {
     });
 
     const reloadHistory = (queryText) => {
-        console.log('fired with', queryText);
+        // console.log('reloaded history with', queryText);
         setQueryText(queryText);
-        // submitQuery();
+        // submitQuery(); for now, we don't want to immediately submit
     };
 
 
 
     return (
         <Dropdown 
-            placeholder="Select Query"
+            placeholder="Query History"
             options={trimmedHistory}
             defaultOption={''}
             onChange={(e) => reloadHistory(e.value)}

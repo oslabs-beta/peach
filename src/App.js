@@ -16,17 +16,23 @@ import SchemaDisplayContainer from './components/SchemaDisplayContainer';
 import ResponseDisplay from './components/ResponseDisplay';
 import QueryContainer from './components/QueryContainer';
 import VariableInput from './components/VariableInput';
+import QuerySelector from './components/QuerySelector';
 import './styles/App.css';
 
 // import graphql from 'babel-plugin-relay/macro';
 
 //useLazyLoadQuery imports
-import { useLazyLoadQuery } from 'react-relay';
-import importedQuery from './relay/imported';
+import { useLazyLoadQuery, usePreloadedQuery } from 'react-relay';
+// import importedQuery from './relay/imported';
+import writtenQuery from './relay/__generated__/writtenQuery.graphql'
+import * as importedQueries from './relay/__generated__';
+import { Suspense } from 'react';
 
 const App = () => {
+	const [loadedQuery, setLoadedQuery] = useState(writtenQuery);
 	const [response, setResponse] = useState('');
 	const [variables, setVariables] = useState('{"id": 15125}');
+	
 		
 	// formatting 'variables' string into JSON object for useLazyLoadQuery
 	function formatJSON(input) {
@@ -34,14 +40,14 @@ const App = () => {
 	}
 
 	let data = useLazyLoadQuery(
-			importedQuery,
-			formatJSON(variables)
+		loadedQuery,
+		variables ? formatJSON(variables) : null
 	);
 
 	// update response state, only updates when data is fresh
     useEffect(() => {
         setResponse(data);
-    }, [data]);
+    }, [loadedQuery, variables]);
 
 	return (
 		<Container className="App" fluid>
@@ -71,14 +77,20 @@ const App = () => {
 				
 				<Col xs={4} className='my-2'>
 					<Card className='_queryContainer'>
-						<QueryContainer/>
+						<QueryContainer 
+							setLoadedQuery={setLoadedQuery}
+						/>
 					</Card>
 					</Col>
 
 					<Col xs={4} className='my-2'>
 					<Card className='_response'>
 						<div id="ResponseDisplay">
-							<ResponseDisplay responseData={response ? response : ''} />
+							<Suspense>
+								<ResponseDisplay 
+									responseData={response ? response : ''}
+								/>
+							</Suspense>
 						</div>
 					</Card>
 				</Col>

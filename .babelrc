@@ -5,6 +5,7 @@
 		["relay"],
 		["@babel/plugin-transform-runtime", {
 			"regenerator": true
-		}]
+		}],
+		["wildcard"]
 	]
 }

@@ -1,5 +1,105 @@
 [
   {
+    "queryText": "query writtenQuery { Media(id: 80) { title { english } }}",
+    "key": "\"756224db2a2f33d4ffc3a7734aec1f13{}\"",
+    "createdAt": "6/11/2021, 4:21:22 PM"
+  },
+  {
+    "queryText": "query writtenQuery { Media(id: 80) { title { english } }}",
+    "key": "\"756224db2a2f33d4ffc3a7734aec1f13{}\"",
+    "createdAt": "6/11/2021, 4:21:06 PM"
+  },
+  {
+    "queryText": "query writtenQuery { Media(id: 80) { title { english } }}",
+    "key": "\"756224db2a2f33d4ffc3a7734aec1f13{}\"",
+    "createdAt": "6/11/2021, 11:30:17 AM"
+  },
+  {
+    "queryText": "80) { title { english } }}",
+    "key": "\"6614549f14a36b9789a0079ac7e87d20{}\"",
+    "createdAt": "6/11/2021, 8:57:23 AM"
+  },
+  {
+    "queryText": "80) { title { english } }}",
+    "key": "\"6614549f14a36b9789a0079ac7e87d20{}\"",
+    "createdAt": "6/10/2021, 4:31:08 PM"
+  },
+  {
+    "queryText": "80) { title { english } }}",
+    "key": "\"6614549f14a36b9789a0079ac7e87d20{}\"",
+    "createdAt": "6/10/2021, 4:30:56 PM"
+  },
+  {
+    "queryText": "80) { title { english } }}",
+    "key": "\"6614549f14a36b9789a0079ac7e87d20{}\"",
+    "createdAt": "6/10/2021, 4:27:43 PM"
+  },
+  {
+    "queryText": "80) { title { english } }}",
+    "key": "\"6614549f14a36b9789a0079ac7e87d20{}\"",
+    "createdAt": "6/10/2021, 12:38:35 PM"
+  },
+  {
+    "queryText": " Media(id: $id, type: ANIME) { _id: id title { native romaji english } }}",
+    "key": "\"35b714d35e35814e785182b7d4a3926f{\\\"id\\\":15125}\"",
+    "createdAt": "6/10/2021, 12:14:36 PM"
+  },
+  {
+    "queryText": " Media(id: $id, type: ANIME) { _id: id title { native romaji english } }}",
+    "key": "\"35b714d35e35814e785182b7d4a3926f{\\\"id\\\":15125}\"",
+    "createdAt": "6/10/2021, 12:14:35 PM"
+  },
+  {
+    "queryText": " Media(id: $id, type: ANIME) { _id: id title { native romaji english } }}",
+    "key": "\"35b714d35e35814e785182b7d4a3926f{\\\"id\\\":15125}\"",
+    "createdAt": "6/10/2021, 12:14:33 PM"
+  },
+  {
+    "queryText": " Media(id: $id, type: ANIME) { _id: id title { native romaji english } }}",
+    "key": "\"35b714d35e35814e785182b7d4a3926f{\\\"id\\\":15125}\"",
+    "createdAt": "6/10/2021, 12:14:31 PM"
+  },
+  {
+    "queryText": " Media(id: $id, type: ANIME) { _id: id title { native romaji english } }}",
+    "key": "\"35b714d35e35814e785182b7d4a3926f{\\\"id\\\":15125}\"",
+    "createdAt": "6/10/2021, 12:14:20 PM"
+  },
+  {
+    "queryText": " Media(id: $id, type: ANIME) { _id: id title { native romaji english } }}",
+    "key": "\"35b714d35e35814e785182b7d4a3926f{\\\"id\\\":15125}\"",
+    "createdAt": "6/10/2021, 12:13:54 PM"
+  },
+  {
+    "queryText": " Media(id: $id, type: ANIME) { _id: id title { native romaji english } }}",
+    "key": "\"35b714d35e35814e785182b7d4a3926f{\\\"id\\\":15125}\"",
+    "createdAt": "6/10/2021, 12:13:30 PM"
+  },
+  {
+    "queryText": " Media(id: $id, type: ANIME) { _id: id title { native english } }}",
+    "key": "\"0516b25f48d3b4f75fd0b7167a3dccb4{\\\"id\\\":15125}\"",
+    "createdAt": "6/10/2021, 12:02:01 PM"
+  },
+  {
+    "queryText": " Media(id: $id, type: ANIME) { _id: id title { native romaji english } }}",
+    "key": "\"35b714d35e35814e785182b7d4a3926f{\\\"id\\\":15125}\"",
+    "createdAt": "6/10/2021, 11:45:57 AM"
+  },
+  {
+    "queryText": " Media(id: $id, type: ANIME) { _id: id title { native } }}",
+    "key": "\"51402c1e331db9489fa18e4145e9b09b{\\\"id\\\":15125}\"",
+    "createdAt": "6/10/2021, 11:35:00 AM"
+  },
+  {
+    "queryText": "a(id: $id, type: ANIME) { _id: id title { native english } }}",
+    "key": "\"8e8785217622a8bb7acab4f66e209c95{\\\"id\\\":15125}\"",
+    "createdAt": "6/10/2021, 11:34:43 AM"
+  },
+  {
+    "queryText": "a(id: $id, type: ANIME) { _id: id title { native english } }}",
+    "key": "\"8e8785217622a8bb7acab4f66e209c95{\\\"id\\\":15125}\"",
+    "createdAt": "6/10/2021, 11:34:34 AM"
+  },
+  {
     "queryText": " Media(id: $id, type: ANIME) { _id: id title { native english } }}",
     "key": "\"0516b25f48d3b4f75fd0b7167a3dccb4{\\\"id\\\":15125}\"",
     "createdAt": "6/3/2021, 6:27:37 PM"

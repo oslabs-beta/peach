@@ -10,6 +10,14 @@ import Col from 'react-bootstrap/Col';
 // import logo from '../assets/PeachLogo.png';
 
 import Navbar from '../Navbar';
+import QuerySelector from '../QuerySelector';
+import { useLazyLoadQuery, usePreloadedQuery } from 'react-relay';
+// import importedQuery from './relay/imported';
+import writtenQuery from '../../relay/__generated__/writtenQuery.graphql'
+import * as importedQueries from '../../relay/__generated__';
+import { Suspense } from 'react';
+import ResponseDisplay from '../ResponseDisplay';
+
 // import SchemaDisplayContainer from '../SchemaDisplayContainer';
 // import ResponseDisplay from '../ResponseDisplay';
 // import QueryContainer from '../QueryContainer';
@@ -21,17 +29,25 @@ const {dialog} = remote
 
 const App2 = ()=>{
   // const [response, setResponse] = useState('');
-	const [variables, setVariables] = useState('');
+  const [loadedQuery, setLoadedQuery] = useState(writtenQuery);
+	const [response, setResponse] = useState('');
+	const [variables, setVariables] = useState('{"id": 15125}');
+
 		
 	// formatting 'variables' string into JSON object for useLazyLoadQuery
-	// function formatJSON(input) {
-	// 	return JSON.parse(input);
-	// }
+	function formatJSON(input) {
+		return JSON.parse(input);
+	}
+
+  let data = useLazyLoadQuery(
+		loadedQuery,
+		variables ? formatJSON(variables) : null
+	);
 
 	// update response state, only updates when data is fresh
-    // useEffect(() => {
-    //     setResponse(data);
-    // }, [data]);
+    useEffect(() => {
+        setResponse(data);
+    }, [loadedQuery, variables]);
 
     return(
     <>
@@ -59,6 +75,10 @@ const App2 = ()=>{
 				  <Col xs={6} className='my-2'>
             <Card className='_storeDisplay'>
 					    <h5>New Query selector</h5>
+              <QuerySelector
+          			setLoadedQuery={setLoadedQuery}
+					      importedQueries={importedQueries}
+        		  />
             </Card>	
 					</Col>
 
@@ -68,13 +88,17 @@ const App2 = ()=>{
                 <Card className='_response'>
                   <div id="ResponseDisplay">
                     {/* <ResponseDisplay responseData={response ? response : ''} /> */}
-                    <h5>Response Display</h5>
+                    <ResponseDisplay
+                      responseData={response ? response : ''}
+                    />
                   </div>
                 </Card>
 
                 <Card className='_variableInput'>
                   {/* <h5>Variable Input</h5> */}
-                  <VariableInput variables={variables} setVariables={setVariables}/>
+                  <VariableInput 
+                    variables={variables} 
+                    setVariables={setVariables}/>
                 </Card>
               </Col>
             </Row>

@@ -8,10 +8,10 @@
 
 /*::
 import type { ConcreteRequest } from 'relay-runtime';
-export type importedQueryQueryVariables = {|
+export type importedLongMediaQueryVariables = {|
   id?: ?number
 |};
-export type importedQueryQueryResponse = {|
+export type importedLongMediaQueryResponse = {|
   +Media: ?{|
     +_id: number,
     +title: ?{|
@@ -21,15 +21,15 @@ export type importedQueryQueryResponse = {|
     |},
   |}
 |};
-export type importedQueryQuery = {|
-  variables: importedQueryQueryVariables,
-  response: importedQueryQueryResponse,
+export type importedLongMediaQuery = {|
+  variables: importedLongMediaQueryVariables,
+  response: importedLongMediaQueryResponse,
 |};
 */
 
 
 /*
-query importedQueryQuery(
+query importedLongMediaQuery(
   $id: Int
 ) {
   Media(id: $id, type: ANIME) {
@@ -119,7 +119,7 @@ return {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Fragment",
     "metadata": null,
-    "name": "importedQueryQuery",
+    "name": "importedLongMediaQuery",
     "selections": (v1/*: any*/),
     "type": "Query",
     "abstractKey": null
@@ -128,20 +128,20 @@ return {
   "operation": {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
-    "name": "importedQueryQuery",
+    "name": "importedLongMediaQuery",
     "selections": (v1/*: any*/)
   },
   "params": {
-    "cacheID": "90200a96425e0c8bc60d438cee16f30e",
+    "cacheID": "c0567eb9244ab39268f52281605db3f7",
     "id": null,
     "metadata": {},
-    "name": "importedQueryQuery",
+    "name": "importedLongMediaQuery",
     "operationKind": "query",
-    "text": "query importedQueryQuery(\n  $id: Int\n) {\n  Media(id: $id, type: ANIME) {\n    _id: id\n    title {\n      native\n      english\n      userPreferred\n    }\n  }\n}\n"
+    "text": "query importedLongMediaQuery(\n  $id: Int\n) {\n  Media(id: $id, type: ANIME) {\n    _id: id\n    title {\n      native\n      english\n      userPreferred\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = '6b0bc2b3e3ebba95adb76091dd76df81';
+(node/*: any*/).hash = '24e61eff102fc4e4c0374e1bf7cb9684';
 
 module.exports = node;

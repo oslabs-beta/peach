@@ -11,7 +11,7 @@ const SchemaSearch = props => {
       name: schemaList[i].name,
       key: i
       });
-      console.log(schemaList.[i].name)
+      // console.log(schemaList.[i].name)
   }
   // console.log(items[0])
 
