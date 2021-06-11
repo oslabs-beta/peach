@@ -5,24 +5,34 @@ and populates the QueryContainer with the selected queries text
 
 import React, { useState, useEffect } from 'react';
 // import * as importedQueries from '../relay/__generated__';
+import QueryButton from './QueryButton';
 
-const QuerySelector = ({setQueryText, setLoadedQuery, importedQueries}) => {
+const QuerySelector = ({setLoadedQuery, importedQueries}) => {
     
+    const [queryButtons, setQueryButtons] = useState([]);
 
-    // useEffect(() => {
-    //     const initialOptions = [];
-    //     for (let query in importedQueries) {
-    //         const option = {};
-    //         option.label = importedQueries[query].params.text.slice(14, 40) + '...';
-    //         option.value = importedQueries[query].params.text;
-    //         initialOptions.push(option);
-    //     }
-    //     setOptions(initialOptions);
-    // }, [importedQueries]);
+    console.log(importedQueries)
+    useEffect(() => {
+        const queryButtonDetails = [];
+        for (let query in importedQueries) {
+            queryButtonDetails.push(importedQueries[query]);
+        }
+        setQueryButtons(queryButtonDetails);
+    }, []);
     
 
     return (
-        <button>"hello world"</button>
+        <div>
+            {queryButtons.map(query => {
+                return (
+                    <QueryButton
+                        query={query}
+                        key={query.hash}
+                        setLoadedQuery={setLoadedQuery}
+                    />
+                )
+            })}
+        </div>
     )
 }
 

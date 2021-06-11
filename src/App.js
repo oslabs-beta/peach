@@ -25,6 +25,7 @@ import { useLazyLoadQuery, usePreloadedQuery } from 'react-relay';
 // import importedQuery from './relay/imported';
 import writtenQuery from './relay/__generated__/writtenQuery.graphql'
 import * as importedQueries from './relay/__generated__';
+import { Suspense } from 'react';
 
 const App = () => {
 	const [loadedQuery, setLoadedQuery] = useState(writtenQuery);
@@ -56,14 +57,15 @@ const App = () => {
 				<Col xs={4}>
 				<QuerySelector
           			setLoadedQuery={setLoadedQuery}
+					importedQueries={importedQueries}
         		/>
-					{/* <Row  className='my-2'>
+					<Row  className='my-2'>
 						<Col>
 						<Card className='_schemaDisplay'>
 							<SchemaDisplayContainer/>
 						</Card>	
 						</Col>
-					</Row> */}
+					</Row>
 					<Row>
 						<Col>
 						<Card className='_variableInput'>
@@ -77,7 +79,6 @@ const App = () => {
 					<Card className='_queryContainer'>
 						<QueryContainer 
 							setLoadedQuery={setLoadedQuery}
-							importedQueries={importedQueries}
 						/>
 					</Card>
 					</Col>
@@ -85,9 +86,11 @@ const App = () => {
 					<Col xs={4} className='my-2'>
 					<Card className='_response'>
 						<div id="ResponseDisplay">
-							<ResponseDisplay 
-								responseData={response ? response : ''}
-							/>
+							<Suspense>
+								<ResponseDisplay 
+									responseData={response ? response : ''}
+								/>
+							</Suspense>
 						</div>
 					</Card>
 					{/* <div className="nav-wrapper" align='center' >
