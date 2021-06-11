@@ -1,0 +1,139 @@
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+._banner {
+  padding-top: 0.15rem;
+  height: 3.5rem;
+  text-align: center;
+  background-color: hsla(11, 63%, 52%, 0.87);
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+
+._schemaDisplay {
+  height: 26.8rem;
+  background-color: #fbb78d;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.schema-display-container {
+  background-color: #fbb78d;
+  height: 10rem;
+  display: flex;
+  align-items: baseline;
+  overflow-x: hidden;
+}
+
+._inputButton {
+  /* align: center;   */
+  display: flex;
+  align-items: baseline;
+}
+
+._input {
+  background-color: #fbb78d;
+  border-radius: 1rem;
+}
+
+._inputSchemaUrl {
+  width: 100%;
+  /* display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-around; */
+  text-align: center; 
+  padding: 0.3rem;
+  font-size: 1.2em; 
+}
+
+._inline {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+._downloadedSchema {
+  font-size: 0.8em; 
+  color: #ec4a19
+}
+
+._UrlInput {
+  display: inline-block;
+  height: 1.8rem;
+  border: solid 1px black;
+  border-radius: 0.2rem;
+}
+
+
+._variableInput {
+  padding: 0.2rem;
+  text-align: center;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+._variableInputInner {
+  /* padding: 0.2rem; */
+  text-align: left;
+  background-color: #962d10;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+._queryContainer {
+  background-color: #f38b58;
+  height: 100%;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+._response {
+  background-color: #eb8060;
+  height: 100%;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* SCHEMA DISPLAY */
+
+._schemaDisplay {
+  height: 100%;
+}
+
+#schema-display-container > ul {
+  margin: 0;
+  padding: 0;
+  overflow: scroll;
+  height: 41vh;
+}
+
+li.schema-display {
+  font-size: .875rem;
+  list-style: none;
+  margin-bottom: .5rem;
+}
+
+p.schemaName {
+  margin: 0;
+  padding: 0;
+}
+
+p.schema {
+  font-size: .75rem;
+  margin: 0 0 0 .875rem;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #fbf9f8;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1200 800'%3E%3Cdefs%3E%3CradialGradient id='a' cx='0' cy='800' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23fcede5'/%3E%3Cstop offset='1' stop-color='%23fcede5' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='b' cx='1200' cy='800' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23feeadb'/%3E%3Cstop offset='1' stop-color='%23feeadb' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='c' cx='600' cy='0' r='600' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23fcdec7'/%3E%3Cstop offset='1' stop-color='%23fcdec7' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='d' cx='600' cy='800' r='600' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23fbf9f8'/%3E%3Cstop offset='1' stop-color='%23fbf9f8' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='e' cx='0' cy='0' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23fbe1d2'/%3E%3Cstop offset='1' stop-color='%23fbe1d2' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='f' cx='1200' cy='0' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23fbdcbc'/%3E%3Cstop offset='1' stop-color='%23fbdcbc' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect fill='url(%23a)' width='1200' height='800'/%3E%3Crect fill='url(%23b)' width='1200' height='800'/%3E%3Crect fill='url(%23c)' width='1200' height='800'/%3E%3Crect fill='url(%23d)' width='1200' height='800'/%3E%3Crect fill='url(%23e)' width='1200' height='800'/%3E%3Crect fill='url(%23f)' width='1200' height='800'/%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
+}

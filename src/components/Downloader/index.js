@@ -31,7 +31,7 @@ const DownloadItem = ({ name, file, filename, removeFile }) => {
     loaded: 0,
   });
 
-  // Side effect, to show ho much of thee download progress remains
+  // Side effect, to show ho much of the download progress remains
   useEffect(() => {
     const options = {
       onDownloadProgress: (progressEvent) => {

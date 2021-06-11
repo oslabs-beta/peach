@@ -8,12 +8,20 @@ import { render } from 'react-dom';
 import App from './App';
 import { RelayEnvironmentProvider } from 'react-relay';
 import RelayEnvironment from './relay/RelayEnvironment';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import App2 from './components/peach/App2';
 
 // * Just to speed up the process of decorating the App
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 // ? In case we decide to operate with out won css
 import './styles/App.css';
+// import '../peach/styles/App.css';
 
 
 /* Since we are using HtmlWebpackPlugin WITHOUT a template, 
@@ -23,11 +31,34 @@ let root = document.createElement('div');
 root.id = 'root';
 document.body.appendChild(root);
 
+function Home() {
+    return (
+      <div>
+        <Switch>
+          {/* If the current URL is /peach, we render the new App
+              while the original is ignored */}
+          <Route path="/peach">
+            <App2 />
+          </Route>
+  
+  
+          {/* If none route is specified,
+              this route acts as a fallback. */}
+          <Route path="/">
+            <RelayEnvironmentProvider environment={RelayEnvironment}>
+                <Suspense fallback={"loading..."}>
+                    <App />
+                </Suspense>
+	          </RelayEnvironmentProvider>
+          </Route>
+        </Switch>
+      </div>
+    );
+  }
+
 // Now we can render our application into it
 render(
-	<RelayEnvironmentProvider environment={RelayEnvironment}>
-        <Suspense fallback={"loading..."}>
-            <App />
-        </Suspense>
-	</RelayEnvironmentProvider>,
+  <Router>
+    <Home />
+  </Router>,
     document.getElementById('root'))
