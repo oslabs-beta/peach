@@ -2,6 +2,7 @@
 // We might (or not) need this later
 
 import React, { useState, useEffect } from 'react';
+import VariableInput from '../VariableInput';
 import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
@@ -20,7 +21,7 @@ const {dialog} = remote
 
 const App2 = ()=>{
   // const [response, setResponse] = useState('');
-	// const [variables, setVariables] = useState('{"id": 15125}');
+	const [variables, setVariables] = useState('');
 		
 	// formatting 'variables' string into JSON object for useLazyLoadQuery
 	// function formatJSON(input) {
@@ -72,8 +73,8 @@ const App2 = ()=>{
                 </Card>
 
                 <Card className='_variableInput'>
-                  <h5>Variable Input</h5>
-                  {/* <VariableInput variables={variables} setVariables={setVariables}/> */}
+                  {/* <h5>Variable Input</h5> */}
+                  <VariableInput variables={variables} setVariables={setVariables}/>
                 </Card>
               </Col>
             </Row>
