@@ -34,7 +34,7 @@ const App2 = ()=>{
 
     return(
     <>
-      <Container className="App" fluid>
+      <Container className="App2" fluid>
 			<Row>
           <Col xs={12}>
             <Navbar />

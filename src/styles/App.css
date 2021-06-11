@@ -1,3 +1,7 @@
+.App2 {
+  background-color: #4377c57a;
+  height: 46rem;
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -6,11 +10,18 @@ code {
 
 ._banner {
   padding-top: 0.15rem;
-  height: 2.5rem;
+  height: 3rem;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
   background-color: hsla(11, 63%, 52%, 0.87);
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 0 0 0.5rem 0.5rem;
+}
+
+._banner a {
+  text-decoration: none;
 }
 
 ._schemaDisplay {
