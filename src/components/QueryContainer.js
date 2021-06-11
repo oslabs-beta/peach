@@ -39,7 +39,7 @@ const QueryContainer = () => {
 
   const submitQuery = () => {
     // file boilerplate
-    const queryFileStart = 'import graphql from \'graphql\'\;\nexport default graphql`query importedQueryQuery($id: Int) ';
+    const queryFileStart = 'import graphql from \'graphql\'\;\nexport default graphql`';
     const queryFileEnd = '`;';
     const fullQueryText = aliasID(queryFileStart + queryText + queryFileEnd);
     fs.writeFileSync(path.resolve('./src/relay/imported.js'), fullQueryText);
@@ -70,7 +70,7 @@ const QueryContainer = () => {
                 theme: 'default height35rem readonly',
             }}
             />
-        <Button onClick={submitQuery}  type='submit' variant='secondary' className='mb-3'>Submit Query</Button>
+        <Button onClick={submitQuery} type='submit' variant='secondary' className='mb-3'>Submit Query</Button>
       </div>
     </Container>
   );
