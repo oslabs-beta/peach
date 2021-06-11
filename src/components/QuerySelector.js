@@ -4,31 +4,25 @@ and populates the QueryContainer with the selected queries text
 */ 
 
 import React, { useState, useEffect } from 'react';
-import * as importedQueries from '../relay/__generated__';
-import Dropdown from 'react-dropdown';
+// import * as importedQueries from '../relay/__generated__';
 
-const QuerySelector = ({setQueryText}) => {
-    const [options, setOptions] = useState([]);
+const QuerySelector = ({setQueryText, setLoadedQuery, importedQueries}) => {
+    
 
-    useEffect(() => {
-        const initialOptions = [];
-        for (let query in importedQueries) {
-            const option = {};
-            option.label = importedQueries[query].params.text.slice(14, 40) + '...';
-            option.value = importedQueries[query].params.text;
-            initialOptions.push(option);
-        }
-        setOptions(initialOptions);
-    }, []);
+    // useEffect(() => {
+    //     const initialOptions = [];
+    //     for (let query in importedQueries) {
+    //         const option = {};
+    //         option.label = importedQueries[query].params.text.slice(14, 40) + '...';
+    //         option.value = importedQueries[query].params.text;
+    //         initialOptions.push(option);
+    //     }
+    //     setOptions(initialOptions);
+    // }, [importedQueries]);
     
 
     return (
-        <Dropdown 
-            placeholder="Loaded Queries"
-            options={options}
-            defaultOption={''}
-            onChange={(e) => setQueryText(e.value)}
-        />
+        <button>"hello world"</button>
     )
 }
 

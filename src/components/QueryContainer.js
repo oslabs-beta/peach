@@ -42,9 +42,9 @@ const QueryContainer = () => {
     const queryFileStart = 'import graphql from \'graphql\'\;\nexport default graphql`';
     const queryFileEnd = '`;';
     const fullQueryText = aliasID(queryFileStart + queryText + queryFileEnd);
-    fs.writeFileSync(path.resolve('./src/relay/imported.js'), fullQueryText);
+    fs.writeFileSync(path.resolve('./src/relay/written.js'), fullQueryText);
     db.add();
-    // execSync('npm run relay', { encoding: 'utf-8' });
+    execSync('npm run relay', { encoding: 'utf-8' });
     // console.log('Output was:\n', output);
   }
 
@@ -55,9 +55,6 @@ const QueryContainer = () => {
           setQueryText={setQueryText}
           submitQuery={submitQuery}/>
         {/* <textarea type="text" rows="24" value={queryText} onChange={updateQueryText} placeholder="Enter Query Here"  className='my-2 _queries'></textarea> */}
-        <QuerySelector
-          setQueryText={setQueryText}
-        />
         <ControlledEditor
             onBeforeChange={updateQueryText}
             value={queryText}

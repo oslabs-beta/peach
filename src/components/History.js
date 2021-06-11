@@ -24,7 +24,7 @@ const History = ({setQueryText, submitQuery}) => {
     const reloadHistory = (queryText) => {
         // console.log('reloaded history with', queryText);
         setQueryText(queryText);
-        // submitQuery();
+        // submitQuery(); for now, we don't want to immediately submit
     };
 
 

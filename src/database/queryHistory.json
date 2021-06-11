@@ -1,5 +1,10 @@
 [
   {
+    "queryText": "query writtenQuery { Media(id: 80) { title { english } }}",
+    "key": "\"756224db2a2f33d4ffc3a7734aec1f13{}\"",
+    "createdAt": "6/11/2021, 11:30:17 AM"
+  },
+  {
     "queryText": "80) { title { english } }}",
     "key": "\"6614549f14a36b9789a0079ac7e87d20{}\"",
     "createdAt": "6/11/2021, 8:57:23 AM"
