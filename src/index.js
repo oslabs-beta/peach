@@ -39,7 +39,11 @@ function Home() {
           {/* If the current URL is /peach, we render the new App
               while the original is ignored */}
           <Route path="/peach">
-            <App2 />
+            <RelayEnvironmentProvider environment={RelayEnvironment}>
+                <Suspense fallback={"loading..."}>
+                    <App2 />
+                </Suspense>
+            </RelayEnvironmentProvider>
           </Route>
   
   

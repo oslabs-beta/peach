@@ -29,9 +29,10 @@ const {dialog} = remote
 
 const App2 = ()=>{
   // const [response, setResponse] = useState('');
-	const [variables, setVariables] = useState('');
   const [loadedQuery, setLoadedQuery] = useState(writtenQuery);
 	const [response, setResponse] = useState('');
+	const [variables, setVariables] = useState('{"id": 15125}');
+
 		
 	// formatting 'variables' string into JSON object for useLazyLoadQuery
 	function formatJSON(input) {
@@ -95,7 +96,9 @@ const App2 = ()=>{
 
                 <Card className='_variableInput'>
                   {/* <h5>Variable Input</h5> */}
-                  <VariableInput variables={variables} setVariables={setVariables}/>
+                  <VariableInput 
+                    variables={variables} 
+                    setVariables={setVariables}/>
                 </Card>
               </Col>
             </Row>
