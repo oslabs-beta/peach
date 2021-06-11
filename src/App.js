@@ -11,6 +11,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 // import logo from '../assets/PeachLogo.png';
 
+import Navbar from './components/Navbar';
 import SchemaDisplayContainer from './components/SchemaDisplayContainer';
 import ResponseDisplay from './components/ResponseDisplay';
 import QueryContainer from './components/QueryContainer';
@@ -50,15 +51,14 @@ const App = () => {
 
 	return (
 		<Container className="App" fluid>
-			<div className='_banner' >
-				<h1>PeachQE - Electron App</h1>
-			</div>
+			<Row>
+				<Col xs={12}>
+					<Navbar />
+				</Col>
+			</Row>
+			
 			<Row>
 				<Col xs={4}>
-				<QuerySelector
-          			setLoadedQuery={setLoadedQuery}
-					importedQueries={importedQueries}
-        		/>
 					<Row  className='my-2'>
 						<Col>
 						<Card className='_schemaDisplay'>
@@ -93,10 +93,6 @@ const App = () => {
 							</Suspense>
 						</div>
 					</Card>
-					{/* <div className="nav-wrapper" align='center' >
-					<br />
-					<img src={logo} alt='Logo' width='160px' align='center' />
-					</div> */}
 				</Col>
 			
 			</Row>
