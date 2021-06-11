@@ -5,6 +5,7 @@ export default graphql`query importedQueryQuery($id: Int) {
     title {
       native
       english
+      userPreferred
     }
   }
 }

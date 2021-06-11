@@ -47,7 +47,7 @@ const SchemaDisplayContainer = () => {
           setFocus(0)
         }
 
-        console.log('serach', string, schema)
+        console.log('search', string, schema)
       }
     
       const handleOnHover = (schema) => {

@@ -23,17 +23,16 @@ const Modal = ({ showModal, setShowModal}) => {
     }
   };
 
-  // Close the modal wwith 'Esc' key
+  // Close the modal with 'Esc' key
   const keyPress = useCallback(
     e => {
-      if (e.key === 'Escape' && showModal) {
-        setShowModal(false);
-        // console.log('I pressed'); // Unnecessary console.log now!
-      }
-    },
-    [setShowModal, showModal]
+            if (e.key === 'Escape' && showModal) {
+              setShowModal(false);
+              // console.log('I pressed'); // Unnecessary console.log now!
+            }
+          },
+          [setShowModal, showModal]
   );
-
   useEffect(
     () => {
       document.addEventListener('keydown', keyPress);
