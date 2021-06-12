@@ -10,7 +10,6 @@ import QueryButton from './QueryButton';
 const QuerySelector = ({
     setQueryToLoad, 
     loadQuery,
-    initialQueryReference,
     variables
 }) => {
     
@@ -34,7 +33,6 @@ const QuerySelector = ({
                         key={query.hash}
                         setQueryToLoad={setQueryToLoad}
                         loadQuery={loadQuery}
-                        initialQueryReference={initialQueryReference}
                         variables={variables}
                     />
                 )

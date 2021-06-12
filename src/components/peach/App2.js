@@ -58,7 +58,6 @@ const App2 = () =>{
             <QuerySelector
               setQueryToLoad={setQueryToLoad}
               loadQuery={loadQuery}
-              initialQueryReference={initialQueryReference}
               variables={variables}
             />
           </Card>	
