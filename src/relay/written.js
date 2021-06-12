@@ -5,9 +5,9 @@ export default graphql`query writtenQuery(
   Media(id: $id, type: ANIME) {
     _id: id
     title {
-      native
       english
-      romaji
+      native
+      
     }
   }
 }

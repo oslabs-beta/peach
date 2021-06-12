@@ -15,8 +15,11 @@ export type writtenQueryResponse = {|
   +Media: ?{|
     +_id: number,
     +title: ?{|
-      +native: ?string,
       +english: ?string,
+<<<<<<< Updated upstream
+=======
+      +native: ?string,
+>>>>>>> Stashed changes
     |},
   |}
 |};
@@ -34,8 +37,11 @@ query writtenQuery(
   Media(id: $id, type: ANIME) {
     _id: id
     title {
-      native
       english
+<<<<<<< Updated upstream
+=======
+      native
+>>>>>>> Stashed changes
     }
   }
 }
@@ -88,15 +94,18 @@ v1 = [
             "alias": null,
             "args": null,
             "kind": "ScalarField",
-            "name": "native",
+            "name": "english",
             "storageKey": null
+<<<<<<< Updated upstream
+=======
           },
           {
             "alias": null,
             "args": null,
             "kind": "ScalarField",
-            "name": "english",
+            "name": "native",
             "storageKey": null
+>>>>>>> Stashed changes
           }
         ],
         "storageKey": null
@@ -123,16 +132,28 @@ return {
     "selections": (v1/*: any*/)
   },
   "params": {
+<<<<<<< Updated upstream
     "cacheID": "8d12112eb1ad99531b1df2e439e2de80",
+=======
+    "cacheID": "8c787910bff1c8b823366153135a1426",
+>>>>>>> Stashed changes
     "id": null,
     "metadata": {},
     "name": "writtenQuery",
     "operationKind": "query",
+<<<<<<< Updated upstream
     "text": "query writtenQuery(\n  $id: Int\n) {\n  Media(id: $id, type: ANIME) {\n    _id: id\n    title {\n      native\n      english\n    }\n  }\n}\n"
+=======
+    "text": "query writtenQuery(\n  $id: Int\n) {\n  Media(id: $id, type: ANIME) {\n    _id: id\n    title {\n      english\n      native\n    }\n  }\n}\n"
+>>>>>>> Stashed changes
   }
 };
 })();
 // prettier-ignore
+<<<<<<< Updated upstream
 (node/*: any*/).hash = 'be10a2f4a3950e2d8bf7aeba27646d85';
+=======
+(node/*: any*/).hash = '32f2a80b7c05c3a180a6478c0fede6e8';
+>>>>>>> Stashed changes
 
 module.exports = node;
