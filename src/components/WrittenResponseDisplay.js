@@ -1,5 +1,6 @@
 /* 
-stateless component renders query response data passed from App.js 
+stateless component renders query response data passed from App.js
+Note that this display 
 */ 
 
 import React from 'react';
@@ -21,9 +22,10 @@ const WrittenResponseDisplay = ({response}) => {
           Response
         </h4>
         <pre 
-            style={{textAlign: 'left'}} 
-            className='_WrittenResponseDisplay'>
-            {response ? format(response) : ''}
+          style={{textAlign: 'left'}} 
+          className='_WrittenResponseDisplay'
+        >
+          {response ? format(response) : ''}
         </pre>          
       </div>
     </Container>

@@ -9,7 +9,7 @@ const Response = ({variables, queryToLoad, initialQueryReference}) => {
     return (
         <div>
             <pre style={{textAlign: 'left'}}>
-                {data ? data.stringify(data, null, 2).replace(/"/g, '') : null}
+                {data != null ? JSON.stringify(data, null, 2).replace(/"/g, '') : null}
             </pre>
         </div>
     )

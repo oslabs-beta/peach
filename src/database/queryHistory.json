@@ -1,34 +1,13 @@
 [
   {
-<<<<<<< Updated upstream
-    "queryText": "query writtenQuery( $id: Int) { Media(id: $id, type: ANIME) { _id: id title { native english romaji } }}",
-    "key": "\"724a7d3a8936f1555e419c87131b2696{\\\"id\\\":15125}\"",
-    "createdAt": "6/12/2021, 10:07:41 AM"
-=======
-    "queryText": "query writtenQuery( $id: Int) { Media(id: $id, type: ANIME) { _id: id title { english native romaji } }}",
-    "key": "\"0d9775445cb1e47039f54627b342fb24{\\\"id\\\":15125}\"",
-    "createdAt": "6/12/2021, 9:20:07 AM"
+    "queryText": "query writtenQuery( $id: Int) { Media(id: $id, type: ANIME) { _id: id title { romaji english } }}",
+    "key": "\"4eeb59d2a28a729622c53f77ae281143{\\\"id\\\":15125}\"",
+    "createdAt": "6/12/2021, 11:19:17 AM"
   },
   {
-    "queryText": "query writtenQuery( $id: Int) { Media(id: $id, type: ANIME) { _id: id title { english native } }}",
-    "key": "\"8c787910bff1c8b823366153135a1426{\\\"id\\\":15125}\"",
-    "createdAt": "6/12/2021, 8:49:04 AM"
-  },
-  {
-    "queryText": "query writtenQuery( $id: Int) { Media(id: $id, type: ANIME) { _id: id title { english native romaji } }}",
-    "key": "\"0d9775445cb1e47039f54627b342fb24{\\\"id\\\":15125}\"",
-    "createdAt": "6/12/2021, 8:48:55 AM"
-  },
-  {
-    "queryText": "query writtenQuery( $id: Int) { Media(id: $id, type: ANIME) { _id: id title { english romaji } }}",
-    "key": "\"4daef7883f8f20809453c8d02301938d{\\\"id\\\":15125}\"",
-    "createdAt": "6/12/2021, 8:43:54 AM"
-  },
-  {
-    "queryText": "query writtenQuery( $id: Int) { Media(id: $id, type: ANIME) { _id: id title { native english romaji } }}",
-    "key": "\"724a7d3a8936f1555e419c87131b2696{\\\"id\\\":15125}\"",
-    "createdAt": "6/12/2021, 8:43:23 AM"
->>>>>>> Stashed changes
+    "queryText": "query writtenQuery( $id: Int) { Media(id: $id, type: ANIME) { _id: id title { native romaji english } }}",
+    "key": "\"b58609cec13f6ea1793e0ad0013292ee{\\\"id\\\":15125}\"",
+    "createdAt": "6/12/2021, 11:19:07 AM"
   },
   {
     "queryText": "query writtenQuery( $id: Int) { Media(id: $id, type: ANIME) { _id: id title { native english } }}",
