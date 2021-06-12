@@ -21,7 +21,9 @@ const StoreDisplay = ({queryToLoad, variables}) => {
 
     return (
         <div>
-            <pre>{JSON.stringify(storeDisplay, null, 2)}</pre>
+            <pre style={{maxHeight: '65vh', overflow: scroll}}>
+                {JSON.stringify(storeDisplay, null, 2)}
+            </pre>
             <button onClick={() => store.snapshot()}>Save Snapshot</button>
             <button onClick={() => {
                 store.restore();
