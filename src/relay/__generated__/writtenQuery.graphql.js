@@ -15,6 +15,7 @@ export type writtenQueryResponse = {|
   +Media: ?{|
     +_id: number,
     +title: ?{|
+      +native: ?string,
       +english: ?string,
       +romaji: ?string,
     |},
@@ -34,6 +35,7 @@ query writtenQuery(
   Media(id: $id, type: ANIME) {
     _id: id
     title {
+      native
       english
       romaji
     }
@@ -88,6 +90,13 @@ v1 = [
             "alias": null,
             "args": null,
             "kind": "ScalarField",
+            "name": "native",
+            "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
             "name": "english",
             "storageKey": null
           },
@@ -123,16 +132,16 @@ return {
     "selections": (v1/*: any*/)
   },
   "params": {
-    "cacheID": "4daef7883f8f20809453c8d02301938d",
+    "cacheID": "724a7d3a8936f1555e419c87131b2696",
     "id": null,
     "metadata": {},
     "name": "writtenQuery",
     "operationKind": "query",
-    "text": "query writtenQuery(\n  $id: Int\n) {\n  Media(id: $id, type: ANIME) {\n    _id: id\n    title {\n      english\n      romaji\n    }\n  }\n}\n"
+    "text": "query writtenQuery(\n  $id: Int\n) {\n  Media(id: $id, type: ANIME) {\n    _id: id\n    title {\n      native\n      english\n      romaji\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = 'c11f2a479e9f8a0b6e4a50d16e271b3b';
+(node/*: any*/).hash = 'acd556a0d1d06081425ac104a5f4bec3';
 
 module.exports = node;

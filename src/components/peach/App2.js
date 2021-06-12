@@ -11,11 +11,10 @@ import Col from 'react-bootstrap/Col';
 
 import Navbar from '../Navbar';
 import QuerySelector from '../QuerySelector';
-import { useLazyLoadQuery, usePreloadedQuery } from 'react-relay';
+import { useLazyLoadQuery, useQueryLoader, usePreloadedQuery } from 'react-relay';
 // import importedQuery from './relay/imported';
 import writtenQuery from '../../relay/__generated__/writtenQuery.graphql'
 import * as importedQueries from '../../relay/__generated__';
-import { Suspense } from 'react';
 import ResponseDisplay from '../ResponseDisplay';
 import EditorDisplay from './EditorDisplay';
 
@@ -28,13 +27,20 @@ const {shell} = window.require('electron');
 const remote = electron.remote
 const {dialog} = remote
 
-const App2 = ()=>{
-  // const [response, setResponse] = useState('');
-  const [loadedQuery, setLoadedQuery] = useState(writtenQuery);
+const App2 = () =>{
+
+  const [queryToLoad, setQueryToLoad] = useState(writtenQuery);
 	const [response, setResponse] = useState('');
 	const [variables, setVariables] = useState('{"id": 15125}');
+<<<<<<< HEAD
   const [querySelection, setQuerySelection] = useState(null)
 
+=======
+  const [
+    initialQueryReference, 
+    loadQuery, 
+    disposeQuery, ] = useQueryLoader(queryToLoad);
+>>>>>>> dev
 		
 	// formatting 'variables' string into JSON object for useLazyLoadQuery
 	function formatJSON(input) {
@@ -42,14 +48,14 @@ const App2 = ()=>{
 	}
 
   let data = useLazyLoadQuery(
-		loadedQuery,
+		queryToLoad,
 		variables ? formatJSON(variables) : null
 	);
 
-	// update response state, only updates when data is fresh
+	// update response state, only updates when either query or variables are fresh
     useEffect(() => {
         setResponse(data);
-    }, [loadedQuery, variables]);
+    }, [queryToLoad, variables]);
 
     return(
     <>
@@ -79,8 +85,11 @@ const App2 = ()=>{
             <Card className='_storeDisplay'>
 					    <h5>New Query selector</h5>
               <QuerySelector
-          			setLoadedQuery={setLoadedQuery}
+          			setQueryToLoad={setQueryToLoad}
 					      importedQueries={importedQueries}
+                loadQuery={loadQuery}
+                initialQueryReference={initialQueryReference}
+                variables={variables}
         		  />
             </Card>	
 					</Col>
@@ -92,7 +101,8 @@ const App2 = ()=>{
                   <div id="ResponseDisplay">
                     {/* <ResponseDisplay responseData={response ? response : ''} /> */}
                     <ResponseDisplay
-                      responseData={response ? response : ''}
+                      initialQueryReference={initialQueryReference}
+                      queryToLoad={queryToLoad}
                     />
                   </div>
                 </Card>
