@@ -95,7 +95,6 @@ const App = () => {
 						</div>
 					</Card>
 				</Col>
-			
 			</Row>
 		</Container>
 	)

@@ -2,7 +2,7 @@
 handles the fetch request for connecting to graphql endpoint
 */ 
 
-async function fetchGraphQL (text, variables) {
+async function fetchGraphQL (operation, variables) {
     // ! currently hard-coded value for graphql endpoint url, needs to update with schema
     // I was going to make a conditional here to change the current DB depending on the schema downloaded by the user.
     let currentDB = 'https://graphql.anilist.co';
@@ -17,7 +17,8 @@ async function fetchGraphQL (text, variables) {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                query: text,
+                query: operation,
+                // doc_id: operation.id,
                 variables,
             }),
         });

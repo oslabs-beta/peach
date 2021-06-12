@@ -15,6 +15,7 @@ import { useQueryLoader } from 'react-relay';
 import writtenQuery from '../../relay/__generated__/writtenQuery.graphql'
 import ResponseDisplay from '../ResponseDisplay';
 import TestUpload from './TestUpload';
+import StoreDisplay from '../StoreDisplay';
 
 const electron = window.require('electron');
 const {shell} = window.require('electron');
@@ -49,6 +50,10 @@ const App2 = () =>{
               </Card>	
               <Card className='_storeDisplay'>
                 <h5>Store Display</h5>
+                <StoreDisplay
+                  queryToLoad={queryToLoad}
+                  variables={variables}
+                />
               </Card>	
             </Col>
           </Row>

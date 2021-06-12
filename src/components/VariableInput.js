@@ -6,12 +6,12 @@ import 'codemirror/lib/codemirror.css';
 import 'codemirror/mode/javascript/javascript';
 import { Controlled as ControlledEditor } from 'react-codemirror2';
 
-const VariableInput = props => {
+const VariableInput = ({variables, setVariables, loadQuery}) => {
 
-    const { variables, setVariables } = props;
 
     const handleChange = (editor, data, value) => {
         setVariables(value);
+        loadQuery(variables);
     }
 
     return (
