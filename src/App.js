@@ -21,7 +21,7 @@ import './styles/App.css';
 // import graphql from 'babel-plugin-relay/macro';
 
 //useLazyLoadQuery imports
-import { useLazyLoadQuery, useQueryLoader, usePreloadedQuery } from 'react-relay';
+import { useLazyLoadQuery } from 'react-relay';
 import writtenQuery from './relay/__generated__/writtenQuery.graphql'
 import { Suspense } from 'react';
 
@@ -58,16 +58,19 @@ const App = () => {
 				<Col xs={4}>
 					<Row  className='my-2'>
 						<Col>
-						<Card className='_schemaDisplay'>
-							<SchemaDisplayContainer/>
-						</Card>	
+							<Card className='_schemaDisplay'>
+								<SchemaDisplayContainer/>
+							</Card>	
 						</Col>
 					</Row>
 					<Row>
 						<Col>
-						<Card className='_variableInput'>
-							<VariableInput variables={variables} setVariables={setVariables}/>
-						</Card>
+							<Card className='_variableInput'>
+								<VariableInput 
+									variables={variables} 
+									setVariables={setVariables}
+								/>
+							</Card>
 						</Col>
 					</Row>
 				</Col>
@@ -79,9 +82,9 @@ const App = () => {
 							variables={variables}
 						/>
 					</Card>
-					</Col>
+				</Col>
 
-					<Col xs={4} className='my-2'>
+				<Col xs={4} className='my-2'>
 					<Card className='_response'>
 						<div id="ResponseDisplay">
 							<Suspense>

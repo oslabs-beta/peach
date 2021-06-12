@@ -67,8 +67,8 @@ const QueryContainer = ({loadQuery, variables}) => {
           variant='secondary' 
           className='mb-3'
           >
-            Submit Query
-          </Button>
+          Submit Query
+        </Button>
       </div>
     </Container>
   );
