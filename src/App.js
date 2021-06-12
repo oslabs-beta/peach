@@ -13,10 +13,9 @@ import Col from 'react-bootstrap/Col';
 
 import Navbar from './components/Navbar';
 import SchemaDisplayContainer from './components/SchemaDisplayContainer';
-import ResponseDisplay from './components/ResponseDisplay';
+import WrittenResponseDisplay from './components/WrittenResponseDisplay';
 import QueryContainer from './components/QueryContainer';
 import VariableInput from './components/VariableInput';
-import QuerySelector from './components/QuerySelector';
 import './styles/App.css';
 
 // import graphql from 'babel-plugin-relay/macro';
@@ -30,7 +29,7 @@ import { Suspense } from 'react';
 const App = () => {
 
 	const [queryToLoad, setQueryToLoad] = useState(writtenQuery);
-	const [response, setResponse] = useState('');
+	const [response, setResponse] = useState(data);
 	const [variables, setVariables] = useState('{"id": 15125}');
 	const [initialQueryReference, loadQuery, disposeQuery] = useQueryLoader(queryToLoad);
 		
@@ -79,6 +78,8 @@ const App = () => {
 					<Card className='_queryContainer'>
 						<QueryContainer 
 							setQueryToLoad={setQueryToLoad}
+							loadQuery={loadQuery}
+							variables={variables}
 						/>
 					</Card>
 					</Col>
@@ -87,11 +88,8 @@ const App = () => {
 					<Card className='_response'>
 						<div id="ResponseDisplay">
 							<Suspense>
-								<ResponseDisplay 
+								<WrittenResponseDisplay 
 									response={response ? response : ''}
-									loadQuery={loadQuery}
-									initialQueryReference={initialQueryReference}
-									queryToLoad={queryToLoad}
 								/>
 							</Suspense>
 						</div>

@@ -31,8 +31,10 @@ const App2 = () =>{
   const [queryToLoad, setQueryToLoad] = useState(writtenQuery);
 	const [response, setResponse] = useState('');
 	const [variables, setVariables] = useState('{"id": 15125}');
-  
-  const [initialQueryReference, loadQuery, disposeQuery] = useQueryLoader(queryToLoad);
+  const [
+    initialQueryReference, 
+    loadQuery, 
+    disposeQuery, ] = useQueryLoader(queryToLoad);
 		
 	// formatting 'variables' string into JSON object for useLazyLoadQuery
 	function formatJSON(input) {
@@ -80,6 +82,7 @@ const App2 = () =>{
 					      importedQueries={importedQueries}
                 loadQuery={loadQuery}
                 initialQueryReference={initialQueryReference}
+                variables={variables}
         		  />
             </Card>	
 					</Col>
@@ -91,8 +94,6 @@ const App2 = () =>{
                   <div id="ResponseDisplay">
                     {/* <ResponseDisplay responseData={response ? response : ''} /> */}
                     <ResponseDisplay
-                      response={response ? response : ''}
-                      loadQuery={loadQuery}
                       initialQueryReference={initialQueryReference}
                       queryToLoad={queryToLoad}
                     />

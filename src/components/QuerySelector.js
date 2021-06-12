@@ -11,7 +11,8 @@ const QuerySelector = ({
     setQueryToLoad, 
     importedQueries,
     loadQuery,
-    initialQueryReference
+    initialQueryReference,
+    variables
 }) => {
     
     const [queryButtons, setQueryButtons] = useState([]);
@@ -35,6 +36,7 @@ const QuerySelector = ({
                         setQueryToLoad={setQueryToLoad}
                         loadQuery={loadQuery}
                         initialQueryReference={initialQueryReference}
+                        variables={variables}
                     />
                 )
             })}
