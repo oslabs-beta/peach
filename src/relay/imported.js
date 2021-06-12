@@ -12,7 +12,6 @@ graphql`query importedLongMediaQuery($id: Int) {
     title {
       native
       english
-      userPreferred
     }
   }
 }`;

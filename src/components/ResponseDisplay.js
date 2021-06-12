@@ -18,7 +18,7 @@ const ResponseDisplay = ({initialQueryReference, queryToLoad}) => {
         </h4>
           <Suspense fallback="Loading...">
             {initialQueryReference != null ? 
-            <Response 
+            <Response
               initialQueryReference={initialQueryReference}
               queryToLoad={queryToLoad}>
             </Response> : null}
