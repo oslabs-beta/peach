@@ -22,7 +22,6 @@ import './styles/App.css';
 
 //useLazyLoadQuery imports
 import { useLazyLoadQuery, useQueryLoader, usePreloadedQuery } from 'react-relay';
-// import importedQuery from './relay/imported';
 import writtenQuery from './relay/__generated__/writtenQuery.graphql'
 import { Suspense } from 'react';
 
@@ -31,7 +30,6 @@ const App = () => {
 	const [queryToLoad, setQueryToLoad] = useState(writtenQuery);
 	const [response, setResponse] = useState(data);
 	const [variables, setVariables] = useState('{"id": 15125}');
-	const [initialQueryReference, loadQuery, disposeQuery] = useQueryLoader(queryToLoad);
 		
 	// formatting 'variables' string into JSON object for useLazyLoadQuery
 	function formatJSON(input) {
@@ -46,7 +44,7 @@ const App = () => {
 	// update response state, only updates when data is fresh
     useEffect(() => {
         setResponse(data);
-    }, [queryToLoad, variables]);
+    }, []);
 
 	return (
 		<Container className="App" fluid>
@@ -78,7 +76,6 @@ const App = () => {
 					<Card className='_queryContainer'>
 						<QueryContainer 
 							setQueryToLoad={setQueryToLoad}
-							loadQuery={loadQuery}
 							variables={variables}
 						/>
 					</Card>

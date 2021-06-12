@@ -30,7 +30,6 @@ const QueryContainer = ({loadQuery, variables}) => {
 
   const updateQueryText = (editor, data, value) => {
     setQueryText(value);
-    console.log(queryText);
   }
 
   const submitQuery = () => {
@@ -40,9 +39,7 @@ const QueryContainer = ({loadQuery, variables}) => {
     const fullQueryText = aliasID(queryFileStart + queryText + queryFileEnd);
     fs.writeFileSync(path.resolve('./src/relay/written.js'), fullQueryText);
     db.add();
-    // loadQuery(variables);
     execSync('npm run relay', { encoding: 'utf-8' });
-    // console.log('Output was:\n', output);
   }
 
   return (
@@ -64,10 +61,14 @@ const QueryContainer = ({loadQuery, variables}) => {
                 theme: 'default height35rem readonly',
             }}
             />
-        <Button onClick={() => {
-          loadQuery(variables);
-          submitQuery();
-        }} type='submit' variant='secondary' className='mb-3'>Submit Query</Button>
+        <Button 
+          onClick={() => submitQuery()} 
+          type='submit' 
+          variant='secondary' 
+          className='mb-3'
+          >
+            Submit Query
+          </Button>
       </div>
     </Container>
   );
