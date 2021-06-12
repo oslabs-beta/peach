@@ -14,6 +14,7 @@ import QuerySelector from '../QuerySelector';
 import { useQueryLoader } from 'react-relay';
 import writtenQuery from '../../relay/__generated__/writtenQuery.graphql'
 import ResponseDisplay from '../ResponseDisplay';
+import TestUpload from './TestUpload';
 
 const electron = window.require('electron');
 const {shell} = window.require('electron');
@@ -44,6 +45,7 @@ const App2 = () =>{
             <Col>
               <Card className='_editorDisplay'>
                 <h5>Editor</h5>
+                <TestUpload />
               </Card>	
               <Card className='_storeDisplay'>
                 <h5>Store Display</h5>

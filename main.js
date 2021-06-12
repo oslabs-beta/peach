@@ -29,6 +29,9 @@ function createMainWindow() {
 		icon: `${__dirname}/assets/icons/png/icon.png`,
 		webPreferences: {
 			nodeIntegration: true,
+			contextIsolation: false,
+			enableRemoteModule:true,
+			worldSafeExecuteJavaScript: true,
 		},
 	})
 

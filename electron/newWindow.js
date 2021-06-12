@@ -5,7 +5,7 @@ currently only functions as a text box
 
 const path = require('path');
 const url = require('url');
-const { BrowserWindow } = require('electron');
+const { BrowserWindow, dialog, app, IPCMain } = require('electron');
 const mainMenuTemplate = require('./menu');
 
 // check for development environment
@@ -34,7 +34,9 @@ if (
       // frame: false,
       webPreferences: {
           nodeIntegration: true,
+          contextIsolation: false,
           enableRemoteModule:true,
+          worldSafeExecuteJavaScript: true,
       }
     });
     // To remove menu from Popup
