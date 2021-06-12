@@ -1,6 +1,6 @@
 import React from 'react';
 
-const QueryButton = ({query, setQueryToLoad, loadQuery, variables}) =>  {
+const QueryButton = ({query, setQueryToLoad, loadQuery, variables, setEditorState}) =>  {
 
     return (
         <div>
@@ -9,6 +9,7 @@ const QueryButton = ({query, setQueryToLoad, loadQuery, variables}) =>  {
                 onClick={() => {
                     setQueryToLoad(query);
                     loadQuery(variables);
+                    setEditorState(query.params.text);
                 }}>
                   {query.params.text}
             </button>

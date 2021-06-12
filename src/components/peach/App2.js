@@ -32,15 +32,13 @@ const App2 = () =>{
   const [queryToLoad, setQueryToLoad] = useState(writtenQuery);
 	const [response, setResponse] = useState('');
 	const [variables, setVariables] = useState('{"id": 15125}');
-<<<<<<< HEAD
-  const [querySelection, setQuerySelection] = useState(null)
+  const [querySelection, setQuerySelection] = useState(null);
+  const [editorState, setEditorState] = useState('');
 
-=======
   const [
     initialQueryReference, 
     loadQuery, 
     disposeQuery, ] = useQueryLoader(queryToLoad);
->>>>>>> dev
 		
 	// formatting 'variables' string into JSON object for useLazyLoadQuery
 	function formatJSON(input) {
@@ -72,7 +70,10 @@ const App2 = () =>{
               <Col>
               <Card className='_editorDisplay'>
               <h5>Editor</h5>
-              <EditorDisplay queries={importedQueries} />
+              <EditorDisplay 
+              queries={importedQueries} 
+              editorState={editorState}
+              />
               </Card>	
               <Card className='_storeDisplay'>
               <h5>Store Display</h5>
@@ -90,6 +91,7 @@ const App2 = () =>{
                 loadQuery={loadQuery}
                 initialQueryReference={initialQueryReference}
                 variables={variables}
+                setEditorState={setEditorState}
         		  />
             </Card>	
 					</Col>
