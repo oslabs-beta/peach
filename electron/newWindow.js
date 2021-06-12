@@ -27,6 +27,8 @@ if (
       minWidth:400,
       title: 'Start a New Peach',
       backgroundcolor: 'white',
+      transparent: true,
+      // frame: false,
       // icon: `../assets/icons/png/icon.png`,
       // To remove menu from Popup
       // frame: false,
@@ -36,7 +38,7 @@ if (
       }
     });
     // To remove menu from Popup
-    // addWindow.removeMenu();
+    addWindow.removeMenu();
 
     // TODO To serve static html files
     addWindow.loadURL(url.format({
@@ -45,65 +47,10 @@ if (
       slashes:true
     }));
 
-    // let indexPath
-
-    // // check for development mode options
-    // if (isDev && process.argv.indexOf('--noDevServer') === -1) {
-    //   indexPath = url.format({
-    //     protocol: 'http:',
-    //     host: 'localhost:8080',
-    //     pathname: '/peach',
-    //     slashes: true,
-    //   })
-    // } else {
-    //   indexPath = url.format({
-    //     // use 'file:' for static html below
-    //     protocol: 'http:',
-    //     pathname: path.join(__dirname, 'dist', '/peach'),
-    //     slashes: true,
-    //   })
-    // }
-
-    // addWindow.loadURL(indexPath) //indexPath is the original
-
     // ! Handle garbage collection
-    // addWindow.on('close', function(){
-    //   addWindow = null;
-    // });
+    addWindow.on('close', function(){
+      addWindow = null;
+    });
   }
-// To create a Custom Menu:
-//   app.whenReady().then(()=>{
-//     createAddWindow()
-//         const template = [
-//                 {
-//                       label:'Open Google',
-//                       click: function(){
-//                                 let win = new BrowserWindow({width:500,height:200})
-//                                 win.loadURL('https://www.google.com')
-//                             }
-//                 },
-//                 {
-//                       label:'View',
-//                 },
-//                 {
-//                       label:'options',
-//                       submenu:[
-//                                 {role:'selectall'},
-//                                 {role:'reload'}
-//                             ]
-//                 },
-//                 {
-//                       label: 'with Separator',
-//                       submenu:[
-//                           {role:'copy'},
-//                           // creates a divider between two options
-//                           {type:'separator'},
-//                           {role:'paste'},
-//                       ]
-//                 }
-//         ]
-//     const menu = Menu.buildFromTemplate(template)
-//     Menu.setApplicationMenu(menu)
-// })
 
   module.exports = createAddWindow;
