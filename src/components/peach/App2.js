@@ -17,6 +17,7 @@ import writtenQuery from '../../relay/__generated__/writtenQuery.graphql'
 import * as importedQueries from '../../relay/__generated__';
 import { Suspense } from 'react';
 import ResponseDisplay from '../ResponseDisplay';
+import EditorDisplay from './EditorDisplay';
 
 // import SchemaDisplayContainer from '../SchemaDisplayContainer';
 // import ResponseDisplay from '../ResponseDisplay';
@@ -32,6 +33,7 @@ const App2 = ()=>{
   const [loadedQuery, setLoadedQuery] = useState(writtenQuery);
 	const [response, setResponse] = useState('');
 	const [variables, setVariables] = useState('{"id": 15125}');
+  const [querySelection, setQuerySelection] = useState(null)
 
 		
 	// formatting 'variables' string into JSON object for useLazyLoadQuery
@@ -64,6 +66,7 @@ const App2 = ()=>{
               <Col>
               <Card className='_editorDisplay'>
               <h5>Editor</h5>
+              <EditorDisplay queries={importedQueries} />
               </Card>	
               <Card className='_storeDisplay'>
               <h5>Store Display</h5>
