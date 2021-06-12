@@ -4,8 +4,10 @@ This file holds the main window process for Electron, rendering the desktop wind
 
 const path = require('path');
 const url = require('url');
-const { app, BrowserWindow, Menu } = require('electron');
+const { app, BrowserWindow, Menu} = require('electron');
 const mainMenuTemplate = require('./electron/menu');
+const remote = require('electron')
+const {dialog} = remote
 // const createAddWindow = require('./electron/newWindow')
 
 let mainWindow
@@ -103,3 +105,45 @@ app.on('activate', () => {
 
 // Stop error, note may become deprecated
 app.allowRendererProcessReuse = true
+
+// TODO electron application codes
+
+const { ipcMain } = require('electron')
+let fs = require('fs')
+  
+
+ipcMain.on('ondragstart', (event, filePath) => {
+    
+  readFile(filePath);
+
+  function readFile(filepath) { 
+    fs.readFile(filepath, 'utf-8', (err, data) => { 
+       
+       if(err){ 
+          alert("An error ocurred reading the file :" + err.message) 
+          return 
+       } 
+       
+       // handle the file content 
+       event.sender.send('fileData', data) 
+    }) 
+ } 
+
+})
+
+ipcMain.on('clickedbutton', (event, data) => {
+  
+  dialog.showSaveDialog({ filters: [
+
+    { name: 'text', extensions: ['txt'] }
+ 
+   ]},function (fileName) {
+
+    if(fileName=== undefined) return
+    fs.writeFile(fileName, data, function (err) {
+
+    })
+
+  }); 
+
+})

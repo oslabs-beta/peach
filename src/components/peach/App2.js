@@ -14,13 +14,14 @@ import QuerySelector from '../QuerySelector';
 import { useQueryLoader } from 'react-relay';
 import writtenQuery from '../../relay/__generated__/writtenQuery.graphql'
 import ResponseDisplay from '../ResponseDisplay';
-import TestUpload from './TestUpload';
+import Uploader from './Uploader';
 import StoreDisplay from '../StoreDisplay';
 
 const electron = window.require('electron');
 const {shell} = window.require('electron');
 const remote = electron.remote
 const {dialog} = remote
+const ipcRenderer  = electron.ipcRenderer;
 
 const App2 = () =>{
 
@@ -46,7 +47,6 @@ const App2 = () =>{
             <Col>
               <Card className='_editorDisplay'>
                 <h5>Editor</h5>
-                <TestUpload />
               </Card>	
               <Card className='_storeDisplay'>
                 <h5>Store Display</h5>
@@ -68,6 +68,11 @@ const App2 = () =>{
               variables={variables}
             />
           </Card>	
+          
+          {/* <Card className='_uploader mt-2'>
+            <h5>Uploader</h5>
+            <Uploader />
+          </Card>	 */}
         </Col>
 
         <Col xs={3} className='my-2'>

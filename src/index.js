@@ -17,6 +17,7 @@ import {
 import App2 from './components/peach/App2';
 import Navbar from './components/Navbar';
 import Logo from './components/Logo'
+import logo from '../assets/PeachQE-3.png';
 
 // * Just to speed up the process of decorating the App
 import 'bootstrap/dist/css/bootstrap.min.css'

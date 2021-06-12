@@ -8,6 +8,8 @@ const url = require('url');
 const { BrowserWindow, dialog, app, IPCMain } = require('electron');
 const mainMenuTemplate = require('./menu');
 
+let fs = require('fs')
+
 // check for development environment
 let isDev = false
 
@@ -40,11 +42,11 @@ if (
       }
     });
     // To remove menu from Popup
-    addWindow.removeMenu();
+    // addWindow.removeMenu();
 
     // TODO To serve static html files
     addWindow.loadURL(url.format({
-      pathname: path.join(__dirname, '../html/peachWindow.html'),
+      pathname: path.join(__dirname, '../html/peachWindow2.html'),
       protocol: 'file:',
       slashes:true
     }));
@@ -53,6 +55,6 @@ if (
     addWindow.on('close', function(){
       addWindow = null;
     });
-  }
+  };
 
   module.exports = createAddWindow;
