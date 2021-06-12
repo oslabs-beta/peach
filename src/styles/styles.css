@@ -105,11 +105,30 @@ code {
   margin-left: 1rem;
   text-align: left; 
   font-size: 0.8em; 
+  max-height: 12rem !important;
 }
 
 #responseText {
   margin-top: 1rem;
   background-color: #fbb78d;
   height: 39rem;
+  border-radius: 0.5rem;
+}
+
+_response-container2 {
+  max-height: 20rem;
+}
+
+._responseDisplay2 {
+  margin-left: 1rem;
+  text-align: left; 
+  font-size: 0.8em; 
+  max-height: 12rem !important;
+}
+
+#responseText2 {
+  margin-top: 1rem;
+  background-color: #fbb78d;
+  height: 29rem;
   border-radius: 0.5rem;
 }

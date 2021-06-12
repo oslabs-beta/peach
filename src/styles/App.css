@@ -24,6 +24,13 @@ code {
   text-decoration: none;
 }
 
+.logo {
+  height: 40rem;
+  display: flex;
+  align-items: center;
+  justify-content: center 
+}
+
 ._schemaDisplay {
   height: 26.8rem;
   background-color: #fbb78d;
@@ -51,10 +58,6 @@ code {
 
 ._inputSchemaUrl {
   width: 100%;
-  /* display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-  justify-content: space-around; */
   text-align: center; 
   padding: 0.3rem;
   font-size: 1.2em; 
@@ -103,6 +106,12 @@ code {
 ._response {
   background-color: #eb8060;
   height: 100%;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+._response2 {
+  background-color: #eb8060;
+  height: 92%;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }
 

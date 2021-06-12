@@ -85,7 +85,7 @@ const App2 = ()=>{
 					<Col xs={3} className='my-2'>
             <Row>
               <Col>
-                <Card className='_response'>
+                <Card className='_response2'>
                   <div id="ResponseDisplay">
                     {/* <ResponseDisplay responseData={response ? response : ''} /> */}
                     <ResponseDisplay

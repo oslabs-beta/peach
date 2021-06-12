@@ -16,6 +16,7 @@ import {
 } from "react-router-dom";
 import App2 from './components/peach/App2';
 import Navbar from './components/Navbar';
+import Logo from './components/Logo'
 
 // * Just to speed up the process of decorating the App
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -51,7 +52,7 @@ function Home() {
               this route acts as a fallback. */}
           <Route path="/">
             <RelayEnvironmentProvider environment={RelayEnvironment}>
-                <Suspense fallback={"loading..."}>
+                <Suspense fallback={<Logo />}>
                     <App />
                 </Suspense>
 	          </RelayEnvironmentProvider>

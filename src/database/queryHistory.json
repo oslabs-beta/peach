@@ -1,5 +1,15 @@
 [
   {
+    "queryText": "query writtenQuery( $id: Int) { Media(id: $id, type: ANIME) { _id: id title { english romaji } }}",
+    "key": "\"4daef7883f8f20809453c8d02301938d{\\\"id\\\":15125}\"",
+    "createdAt": "6/11/2021, 5:49:17 PM"
+  },
+  {
+    "queryText": "query writtenQuery( $id: Int) { Media(id: $id, type: ANIME) { _id: id title { english romaji } }}",
+    "key": "\"4daef7883f8f20809453c8d02301938d{\\\"id\\\":15125}\"",
+    "createdAt": "6/11/2021, 5:49:11 PM"
+  },
+  {
     "queryText": "query writtenQuery { Media(id: 80) { title { english } }}",
     "key": "\"756224db2a2f33d4ffc3a7734aec1f13{}\"",
     "createdAt": "6/11/2021, 4:21:22 PM"
