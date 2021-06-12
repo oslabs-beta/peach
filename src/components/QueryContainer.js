@@ -3,16 +3,12 @@ stateful component updates query string to be run in App.js via fs module,
 also reruns relay compiler when the query is submitted
 */
 
-// require('babel').transform('code', {
-//   plugins: ['wildcard']
-// });
-
 import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import fs from 'fs';
 import path from 'path';
-import mediaQuery from '../relay/__generated__/importedMediaQuery.graphql';
+import writtenQuery from '../relay/__generated__/writtenQuery.graphql';
 import '../styles/styles.css'
 import aliasID from '../relay/aliasID';
 import db from '../database/db';
@@ -22,19 +18,19 @@ import History from './History';
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/mode/javascript/javascript';
 import { Controlled as ControlledEditor } from 'react-codemirror2';
-import QuerySelector from './QuerySelector';
 
 //require in exec to run terminal commands in js:
 const execSync = require('child_process').execSync;
 
-const QueryContainer = () => {
+const QueryContainer = ({loadQuery, variables}) => {
   // import the current text of the importedQuery file, slicing off the beginning boilerplate
-  let initialQueryText = mediaQuery.params.text;
+  let initialQueryText = writtenQuery.params.text;
 
   const [queryText, setQueryText] = useState(initialQueryText);
 
   const updateQueryText = (editor, data, value) => {
     setQueryText(value);
+    console.log(queryText);
   }
 
   const submitQuery = () => {
@@ -44,6 +40,7 @@ const QueryContainer = () => {
     const fullQueryText = aliasID(queryFileStart + queryText + queryFileEnd);
     fs.writeFileSync(path.resolve('./src/relay/written.js'), fullQueryText);
     db.add();
+    // loadQuery(variables);
     execSync('npm run relay', { encoding: 'utf-8' });
     // console.log('Output was:\n', output);
   }
@@ -67,7 +64,10 @@ const QueryContainer = () => {
                 theme: 'default height35rem readonly',
             }}
             />
-        <Button onClick={submitQuery} type='submit' variant='secondary' className='mb-3'>Submit Query</Button>
+        <Button onClick={() => {
+          loadQuery(variables);
+          submitQuery();
+        }} type='submit' variant='secondary' className='mb-3'>Submit Query</Button>
       </div>
     </Container>
   );
