@@ -8,7 +8,7 @@ const QueryButton = ({query, setQueryToLoad, loadQuery, variables}) =>  {
                 style={{width: '100%'}}
                 onClick={() => {
                     setQueryToLoad(query);
-                    loadQuery(variables);
+                    loadQuery(JSON.parse(variables));
                 }}>
                   {query.params.text}
             </button>
