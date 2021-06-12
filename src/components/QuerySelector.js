@@ -4,12 +4,11 @@ and populates the QueryContainer with the selected queries text
 */ 
 
 import React, { useState, useEffect } from 'react';
-// import * as importedQueries from '../relay/__generated__';
+import * as importedQueries from '../relay/__generated__';
 import QueryButton from './QueryButton';
 
 const QuerySelector = ({
     setQueryToLoad, 
-    importedQueries,
     loadQuery,
     initialQueryReference,
     variables

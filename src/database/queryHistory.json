@@ -2,6 +2,16 @@
   {
     "queryText": "query writtenQuery( $id: Int) { Media(id: $id, type: ANIME) { _id: id title { native english } }}",
     "key": "\"8d12112eb1ad99531b1df2e439e2de80{\\\"id\\\":15125}\"",
+    "createdAt": "6/12/2021, 10:44:35 AM"
+  },
+  {
+    "queryText": "query writtenQuery( $id: Int) { Media(id: $id, type: ANIME) { _id: id title { native english romaji } }}",
+    "key": "\"724a7d3a8936f1555e419c87131b2696{\\\"id\\\":15125}\"",
+    "createdAt": "6/12/2021, 10:44:25 AM"
+  },
+  {
+    "queryText": "query writtenQuery( $id: Int) { Media(id: $id, type: ANIME) { _id: id title { native english } }}",
+    "key": "\"8d12112eb1ad99531b1df2e439e2de80{\\\"id\\\":15125}\"",
     "createdAt": "6/11/2021, 8:57:29 PM"
   },
   {
