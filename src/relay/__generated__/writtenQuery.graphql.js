@@ -8,16 +8,13 @@
 
 /*::
 import type { ConcreteRequest } from 'relay-runtime';
-export type writtenQueryVariables = {|
-  id?: ?number
-|};
+export type writtenQueryVariables = {||};
 export type writtenQueryResponse = {|
   +Media: ?{|
-    +_id: number,
     +title: ?{|
       +english: ?string,
       +romaji: ?string,
-    |},
+    |}
   |}
 |};
 export type writtenQuery = {|
@@ -28,11 +25,8 @@ export type writtenQuery = {|
 
 
 /*
-query writtenQuery(
-  $id: Int
-) {
-  Media(id: $id, type: ANIME) {
-    _id: id
+query writtenQuery {
+  Media(id: 80) {
     title {
       english
       romaji
@@ -44,24 +38,12 @@ query writtenQuery(
 const node/*: ConcreteRequest*/ = (function(){
 var v0 = [
   {
-    "defaultValue": null,
-    "kind": "LocalArgument",
-    "name": "id"
-  }
-],
-v1 = [
-  {
     "alias": null,
     "args": [
       {
-        "kind": "Variable",
-        "name": "id",
-        "variableName": "id"
-      },
-      {
         "kind": "Literal",
-        "name": "type",
-        "value": "ANIME"
+        "name": "id",
+        "value": 80
       }
     ],
     "concreteType": "Media",
@@ -69,13 +51,6 @@ v1 = [
     "name": "Media",
     "plural": false,
     "selections": [
-      {
-        "alias": "_id",
-        "args": null,
-        "kind": "ScalarField",
-        "name": "id",
-        "storageKey": null
-      },
       {
         "alias": null,
         "args": null,
@@ -102,37 +77,37 @@ v1 = [
         "storageKey": null
       }
     ],
-    "storageKey": null
+    "storageKey": "Media(id:80)"
   }
 ];
 return {
   "fragment": {
-    "argumentDefinitions": (v0/*: any*/),
+    "argumentDefinitions": [],
     "kind": "Fragment",
     "metadata": null,
     "name": "writtenQuery",
-    "selections": (v1/*: any*/),
+    "selections": (v0/*: any*/),
     "type": "Query",
     "abstractKey": null
   },
   "kind": "Request",
   "operation": {
-    "argumentDefinitions": (v0/*: any*/),
+    "argumentDefinitions": [],
     "kind": "Operation",
     "name": "writtenQuery",
-    "selections": (v1/*: any*/)
+    "selections": (v0/*: any*/)
   },
   "params": {
-    "cacheID": "4daef7883f8f20809453c8d02301938d",
+    "cacheID": "cc9b1421218f99d5b197e8546288ecb5",
     "id": null,
     "metadata": {},
     "name": "writtenQuery",
     "operationKind": "query",
-    "text": "query writtenQuery(\n  $id: Int\n) {\n  Media(id: $id, type: ANIME) {\n    _id: id\n    title {\n      english\n      romaji\n    }\n  }\n}\n"
+    "text": "query writtenQuery {\n  Media(id: 80) {\n    title {\n      english\n      romaji\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = 'c11f2a479e9f8a0b6e4a50d16e271b3b';
+(node/*: any*/).hash = '5ea2e9dce4bcb9fc8f93284dc990315e';
 
 module.exports = node;

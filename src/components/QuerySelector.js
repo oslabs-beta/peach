@@ -7,11 +7,15 @@ import React, { useState, useEffect } from 'react';
 // import * as importedQueries from '../relay/__generated__';
 import QueryButton from './QueryButton';
 
-const QuerySelector = ({setLoadedQuery, importedQueries}) => {
+const QuerySelector = ({
+    setQueryToLoad, 
+    importedQueries,
+    loadQuery,
+    initialQueryReference
+}) => {
     
     const [queryButtons, setQueryButtons] = useState([]);
 
-    console.log(importedQueries)
     useEffect(() => {
         const queryButtonDetails = [];
         for (let query in importedQueries) {
@@ -28,7 +32,9 @@ const QuerySelector = ({setLoadedQuery, importedQueries}) => {
                     <QueryButton
                         query={query}
                         key={query.hash}
-                        setLoadedQuery={setLoadedQuery}
+                        setQueryToLoad={setQueryToLoad}
+                        loadQuery={loadQuery}
+                        initialQueryReference={initialQueryReference}
                     />
                 )
             })}

@@ -22,17 +22,17 @@ import './styles/App.css';
 // import graphql from 'babel-plugin-relay/macro';
 
 //useLazyLoadQuery imports
-import { useLazyLoadQuery, usePreloadedQuery } from 'react-relay';
+import { useLazyLoadQuery, useQueryLoader, usePreloadedQuery } from 'react-relay';
 // import importedQuery from './relay/imported';
 import writtenQuery from './relay/__generated__/writtenQuery.graphql'
-import * as importedQueries from './relay/__generated__';
 import { Suspense } from 'react';
 
 const App = () => {
-	const [loadedQuery, setLoadedQuery] = useState(writtenQuery);
+
+	const [queryToLoad, setQueryToLoad] = useState(writtenQuery);
 	const [response, setResponse] = useState('');
 	const [variables, setVariables] = useState('{"id": 15125}');
-	
+	const [initialQueryReference, loadQuery, disposeQuery] = useQueryLoader(queryToLoad);
 		
 	// formatting 'variables' string into JSON object for useLazyLoadQuery
 	function formatJSON(input) {
@@ -40,14 +40,14 @@ const App = () => {
 	}
 
 	let data = useLazyLoadQuery(
-		loadedQuery,
+		queryToLoad,
 		variables ? formatJSON(variables) : null
 	);
 
 	// update response state, only updates when data is fresh
     useEffect(() => {
         setResponse(data);
-    }, [loadedQuery, variables]);
+    }, [queryToLoad, variables]);
 
 	return (
 		<Container className="App" fluid>
@@ -78,7 +78,7 @@ const App = () => {
 				<Col xs={4} className='my-2'>
 					<Card className='_queryContainer'>
 						<QueryContainer 
-							setLoadedQuery={setLoadedQuery}
+							setQueryToLoad={setQueryToLoad}
 						/>
 					</Card>
 					</Col>
@@ -88,7 +88,10 @@ const App = () => {
 						<div id="ResponseDisplay">
 							<Suspense>
 								<ResponseDisplay 
-									responseData={response ? response : ''}
+									response={response ? response : ''}
+									loadQuery={loadQuery}
+									initialQueryReference={initialQueryReference}
+									queryToLoad={queryToLoad}
 								/>
 							</Suspense>
 						</div>

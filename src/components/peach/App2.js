@@ -11,11 +11,10 @@ import Col from 'react-bootstrap/Col';
 
 import Navbar from '../Navbar';
 import QuerySelector from '../QuerySelector';
-import { useLazyLoadQuery, useQueryLoader } from 'react-relay';
+import { useLazyLoadQuery, useQueryLoader, usePreloadedQuery } from 'react-relay';
 // import importedQuery from './relay/imported';
 import writtenQuery from '../../relay/__generated__/writtenQuery.graphql'
 import * as importedQueries from '../../relay/__generated__';
-import { Suspense } from 'react';
 import ResponseDisplay from '../ResponseDisplay';
 
 // import SchemaDisplayContainer from '../SchemaDisplayContainer';
@@ -27,8 +26,7 @@ const {shell} = window.require('electron');
 const remote = electron.remote
 const {dialog} = remote
 
-const App2 = ()=>{
-
+const App2 = () =>{
 
   const [queryToLoad, setQueryToLoad] = useState(writtenQuery);
 	const [response, setResponse] = useState('');
@@ -46,7 +44,7 @@ const App2 = ()=>{
 		variables ? formatJSON(variables) : null
 	);
 
-	// update response state, only updates when data is fresh
+	// update response state, only updates when either query or variables are fresh
     useEffect(() => {
         setResponse(data);
     }, [queryToLoad, variables]);
@@ -80,6 +78,8 @@ const App2 = ()=>{
               <QuerySelector
           			setQueryToLoad={setQueryToLoad}
 					      importedQueries={importedQueries}
+                loadQuery={loadQuery}
+                initialQueryReference={initialQueryReference}
         		  />
             </Card>	
 					</Col>
@@ -91,7 +91,7 @@ const App2 = ()=>{
                   <div id="ResponseDisplay">
                     {/* <ResponseDisplay responseData={response ? response : ''} /> */}
                     <ResponseDisplay
-                      responseData={response ? response : ''}
+                      response={response ? response : ''}
                       loadQuery={loadQuery}
                       initialQueryReference={initialQueryReference}
                       queryToLoad={queryToLoad}

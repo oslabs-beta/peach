@@ -1,11 +1,14 @@
 import React from 'react';
 
-const QueryButton = ({query, setLoadedQuery}) =>  {
+const QueryButton = ({query, setQueryToLoad, loadQuery, initialQueryReference}) =>  {
+    
     return (
         <div>
             <button 
               style={{width: '100%'}}
-              onClick={() => setLoadedQuery(query)}>
+              onClick={() => {
+                  setQueryToLoad(query);
+                  }}>
                 {query.params.text}
             </button>
         </div>
