@@ -1,4 +1,6 @@
 import React from 'react';
+import db from '../database/db';
+debugger;
 
 const QueryButton = ({query, setQueryToLoad, loadQuery, variables}) =>  {
 
@@ -6,7 +8,8 @@ const QueryButton = ({query, setQueryToLoad, loadQuery, variables}) =>  {
         <div>
             <button 
                 style={{width: '100%'}}
-                onClick={() => {
+                onClick={async () => {
+                    await db.add();
                     setQueryToLoad(query);
                     loadQuery(JSON.parse(variables));
                 }}>

@@ -514,11 +514,491 @@
           }
         }
       },
-      "refCount": 2,
+      "refCount": 1,
       "epoch": 1,
-      "fetchTime": 1623545258714
+      "fetchTime": 1623589920310
     },
-    "timeStamp": "7:47:50 PM",
+    "timeStamp": "8:12:59 AM",
+    "dateStamp": "6/13/2021"
+  },
+  {
+    "queryText": "query writtenQuery( $id: Int) { Media(id: $id, type: ANIME) { _id: id title { romaji english } }}",
+    "key": "4eeb59d2a28a729622c53f77ae281143{\"id\":15125}",
+    "value": {
+      "operation": {
+        "fragment": {
+          "kind": "SingularReaderSelector",
+          "dataID": "client:root",
+          "isWithinUnmatchedTypeRefinement": false,
+          "node": {
+            "argumentDefinitions": [
+              {
+                "defaultValue": null,
+                "kind": "LocalArgument",
+                "name": "id"
+              }
+            ],
+            "kind": "Fragment",
+            "metadata": null,
+            "name": "writtenQuery",
+            "selections": [
+              {
+                "alias": null,
+                "args": [
+                  {
+                    "kind": "Variable",
+                    "name": "id",
+                    "variableName": "id"
+                  },
+                  {
+                    "kind": "Literal",
+                    "name": "type",
+                    "value": "ANIME"
+                  }
+                ],
+                "concreteType": "Media",
+                "kind": "LinkedField",
+                "name": "Media",
+                "plural": false,
+                "selections": [
+                  {
+                    "alias": "_id",
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "id",
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
+                    "concreteType": "MediaTitle",
+                    "kind": "LinkedField",
+                    "name": "title",
+                    "plural": false,
+                    "selections": [
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "romaji",
+                        "storageKey": null
+                      },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "english",
+                        "storageKey": null
+                      }
+                    ],
+                    "storageKey": null
+                  }
+                ],
+                "storageKey": null
+              }
+            ],
+            "type": "Query",
+            "abstractKey": null
+          },
+          "variables": {
+            "id": 15125
+          },
+          "owner": {
+            "identifier": "4eeb59d2a28a729622c53f77ae281143{\"id\":15125}",
+            "node": {
+              "fragment": {
+                "argumentDefinitions": [
+                  {
+                    "defaultValue": null,
+                    "kind": "LocalArgument",
+                    "name": "id"
+                  }
+                ],
+                "kind": "Fragment",
+                "metadata": null,
+                "name": "writtenQuery",
+                "selections": [
+                  {
+                    "alias": null,
+                    "args": [
+                      {
+                        "kind": "Variable",
+                        "name": "id",
+                        "variableName": "id"
+                      },
+                      {
+                        "kind": "Literal",
+                        "name": "type",
+                        "value": "ANIME"
+                      }
+                    ],
+                    "concreteType": "Media",
+                    "kind": "LinkedField",
+                    "name": "Media",
+                    "plural": false,
+                    "selections": [
+                      {
+                        "alias": "_id",
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "id",
+                        "storageKey": null
+                      },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "concreteType": "MediaTitle",
+                        "kind": "LinkedField",
+                        "name": "title",
+                        "plural": false,
+                        "selections": [
+                          {
+                            "alias": null,
+                            "args": null,
+                            "kind": "ScalarField",
+                            "name": "romaji",
+                            "storageKey": null
+                          },
+                          {
+                            "alias": null,
+                            "args": null,
+                            "kind": "ScalarField",
+                            "name": "english",
+                            "storageKey": null
+                          }
+                        ],
+                        "storageKey": null
+                      }
+                    ],
+                    "storageKey": null
+                  }
+                ],
+                "type": "Query",
+                "abstractKey": null
+              },
+              "kind": "Request",
+              "operation": {
+                "argumentDefinitions": [
+                  {
+                    "defaultValue": null,
+                    "kind": "LocalArgument",
+                    "name": "id"
+                  }
+                ],
+                "kind": "Operation",
+                "name": "writtenQuery",
+                "selections": [
+                  {
+                    "alias": null,
+                    "args": [
+                      {
+                        "kind": "Variable",
+                        "name": "id",
+                        "variableName": "id"
+                      },
+                      {
+                        "kind": "Literal",
+                        "name": "type",
+                        "value": "ANIME"
+                      }
+                    ],
+                    "concreteType": "Media",
+                    "kind": "LinkedField",
+                    "name": "Media",
+                    "plural": false,
+                    "selections": [
+                      {
+                        "alias": "_id",
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "id",
+                        "storageKey": null
+                      },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "concreteType": "MediaTitle",
+                        "kind": "LinkedField",
+                        "name": "title",
+                        "plural": false,
+                        "selections": [
+                          {
+                            "alias": null,
+                            "args": null,
+                            "kind": "ScalarField",
+                            "name": "romaji",
+                            "storageKey": null
+                          },
+                          {
+                            "alias": null,
+                            "args": null,
+                            "kind": "ScalarField",
+                            "name": "english",
+                            "storageKey": null
+                          }
+                        ],
+                        "storageKey": null
+                      }
+                    ],
+                    "storageKey": null
+                  }
+                ]
+              },
+              "params": {
+                "cacheID": "4eeb59d2a28a729622c53f77ae281143",
+                "id": null,
+                "metadata": {},
+                "name": "writtenQuery",
+                "operationKind": "query",
+                "text": "query writtenQuery(\n  $id: Int\n) {\n  Media(id: $id, type: ANIME) {\n    _id: id\n    title {\n      romaji\n      english\n    }\n  }\n}\n"
+              },
+              "hash": "d56467e0eec94504855ed97cbc38830a"
+            },
+            "variables": {
+              "id": 15125
+            },
+            "cacheConfig": {
+              "force": true
+            }
+          }
+        },
+        "request": {
+          "identifier": "4eeb59d2a28a729622c53f77ae281143{\"id\":15125}",
+          "node": {
+            "fragment": {
+              "argumentDefinitions": [
+                {
+                  "defaultValue": null,
+                  "kind": "LocalArgument",
+                  "name": "id"
+                }
+              ],
+              "kind": "Fragment",
+              "metadata": null,
+              "name": "writtenQuery",
+              "selections": [
+                {
+                  "alias": null,
+                  "args": [
+                    {
+                      "kind": "Variable",
+                      "name": "id",
+                      "variableName": "id"
+                    },
+                    {
+                      "kind": "Literal",
+                      "name": "type",
+                      "value": "ANIME"
+                    }
+                  ],
+                  "concreteType": "Media",
+                  "kind": "LinkedField",
+                  "name": "Media",
+                  "plural": false,
+                  "selections": [
+                    {
+                      "alias": "_id",
+                      "args": null,
+                      "kind": "ScalarField",
+                      "name": "id",
+                      "storageKey": null
+                    },
+                    {
+                      "alias": null,
+                      "args": null,
+                      "concreteType": "MediaTitle",
+                      "kind": "LinkedField",
+                      "name": "title",
+                      "plural": false,
+                      "selections": [
+                        {
+                          "alias": null,
+                          "args": null,
+                          "kind": "ScalarField",
+                          "name": "romaji",
+                          "storageKey": null
+                        },
+                        {
+                          "alias": null,
+                          "args": null,
+                          "kind": "ScalarField",
+                          "name": "english",
+                          "storageKey": null
+                        }
+                      ],
+                      "storageKey": null
+                    }
+                  ],
+                  "storageKey": null
+                }
+              ],
+              "type": "Query",
+              "abstractKey": null
+            },
+            "kind": "Request",
+            "operation": {
+              "argumentDefinitions": [
+                {
+                  "defaultValue": null,
+                  "kind": "LocalArgument",
+                  "name": "id"
+                }
+              ],
+              "kind": "Operation",
+              "name": "writtenQuery",
+              "selections": [
+                {
+                  "alias": null,
+                  "args": [
+                    {
+                      "kind": "Variable",
+                      "name": "id",
+                      "variableName": "id"
+                    },
+                    {
+                      "kind": "Literal",
+                      "name": "type",
+                      "value": "ANIME"
+                    }
+                  ],
+                  "concreteType": "Media",
+                  "kind": "LinkedField",
+                  "name": "Media",
+                  "plural": false,
+                  "selections": [
+                    {
+                      "alias": "_id",
+                      "args": null,
+                      "kind": "ScalarField",
+                      "name": "id",
+                      "storageKey": null
+                    },
+                    {
+                      "alias": null,
+                      "args": null,
+                      "concreteType": "MediaTitle",
+                      "kind": "LinkedField",
+                      "name": "title",
+                      "plural": false,
+                      "selections": [
+                        {
+                          "alias": null,
+                          "args": null,
+                          "kind": "ScalarField",
+                          "name": "romaji",
+                          "storageKey": null
+                        },
+                        {
+                          "alias": null,
+                          "args": null,
+                          "kind": "ScalarField",
+                          "name": "english",
+                          "storageKey": null
+                        }
+                      ],
+                      "storageKey": null
+                    }
+                  ],
+                  "storageKey": null
+                }
+              ]
+            },
+            "params": {
+              "cacheID": "4eeb59d2a28a729622c53f77ae281143",
+              "id": null,
+              "metadata": {},
+              "name": "writtenQuery",
+              "operationKind": "query",
+              "text": "query writtenQuery(\n  $id: Int\n) {\n  Media(id: $id, type: ANIME) {\n    _id: id\n    title {\n      romaji\n      english\n    }\n  }\n}\n"
+            },
+            "hash": "d56467e0eec94504855ed97cbc38830a"
+          },
+          "variables": {
+            "id": 15125
+          },
+          "cacheConfig": {
+            "force": true
+          }
+        },
+        "root": {
+          "dataID": "client:root",
+          "node": {
+            "argumentDefinitions": [
+              {
+                "defaultValue": null,
+                "kind": "LocalArgument",
+                "name": "id"
+              }
+            ],
+            "kind": "Operation",
+            "name": "writtenQuery",
+            "selections": [
+              {
+                "alias": null,
+                "args": [
+                  {
+                    "kind": "Variable",
+                    "name": "id",
+                    "variableName": "id"
+                  },
+                  {
+                    "kind": "Literal",
+                    "name": "type",
+                    "value": "ANIME"
+                  }
+                ],
+                "concreteType": "Media",
+                "kind": "LinkedField",
+                "name": "Media",
+                "plural": false,
+                "selections": [
+                  {
+                    "alias": "_id",
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "id",
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
+                    "concreteType": "MediaTitle",
+                    "kind": "LinkedField",
+                    "name": "title",
+                    "plural": false,
+                    "selections": [
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "romaji",
+                        "storageKey": null
+                      },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "english",
+                        "storageKey": null
+                      }
+                    ],
+                    "storageKey": null
+                  }
+                ],
+                "storageKey": null
+              }
+            ]
+          },
+          "variables": {
+            "id": 15125
+          }
+        }
+      },
+      "refCount": 1,
+      "epoch": 1,
+      "fetchTime": 1623545920446
+    },
+    "timeStamp": "7:58:47 PM",
     "dateStamp": "6/12/2021"
   },
   {

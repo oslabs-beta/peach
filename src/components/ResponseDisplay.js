@@ -8,14 +8,10 @@ import React, {Suspense} from 'react';
 import Container from 'react-bootstrap/Container';
 import '../styles/styles.css';
 import Response from './Response';
-import db from '../database/db';
 
 
 const ResponseDisplay = ({initialQueryReference, queryToLoad, variables}) => {
   
-  if (initialQueryReference != null) {
-    db.add();
-  }
 
   return (
     <Container className='response-container'>

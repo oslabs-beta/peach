@@ -18,8 +18,11 @@ let historyArray = queryHistoryJSON || [];
 console.log('historyArray', historyArray);
 
 // sets a history item on localStorage equal to the history array
-db.write = () => {
-    fs.writeFileSync(pathToDatabase, JSON.stringify(historyArray, null, 2));
+db.write = async () => {
+    await fs.writeFile(pathToDatabase, JSON.stringify(historyArray, null, 2), (err, data) => {
+        if (err) console.error(err);
+        console.log(data);
+    });
     // window.localStorage.setItem(newKey, newEntry);
 };
 
@@ -29,19 +32,19 @@ db.reset = () => {
 };
 
 // add the most recent query to the histry and then sync to the database
-db.add = () => {
+db.add = async () => {
     debugger;
-    const map = store._roots;
-    const lastMapEntry = [...map][map.size - 1];
+    const map = await store._roots;
+    const lastMapEntry = await [...map][map.size - 1];
     if (lastMapEntry) {
         const newEntry = {};
-        newEntry.queryText = JSON.stringify(lastMapEntry[1].operation.fragment.owner.node.params.text)
+        newEntry.queryText = await JSON.stringify(lastMapEntry[1].operation.fragment.owner.node.params.text)
             .replace(/\\n/g, '') // remove newlines
             .replace(/["]+/g, '') // remove quotations
             .replace(/\s+/g, ' '); // remove extra spaces
         const index = historyArray.findIndex(entry => entry.queryText === newEntry.queryText);
-    /* if we already have that exact same query saved in history...
-    delete the existing entry instead of saving a duplicate */ 
+        /* if we already have that exact same query saved in history...
+        delete the existing entry instead of saving a duplicate */ 
         if (index !== -1) {
             historyArray.splice(index, 1);
         }
@@ -50,14 +53,14 @@ db.add = () => {
         newEntry.timeStamp = new Date().toLocaleTimeString();
         newEntry.dateStamp = new Date().toLocaleDateString();
         historyArray.unshift(newEntry);
-        db.sync();
+        await db.sync();
     }
 };
 
 // writes history and resets the history variable to keep it up to date
-db.sync = () => {
-    db.write();
-    db.reset();
+db.sync = async () => {
+    await db.write();
+    await db.reset();
 };
 
 // clears the queryHistory permanently
