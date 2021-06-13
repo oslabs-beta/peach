@@ -76,8 +76,8 @@ const App2 = () =>{
         </Col>
 
         <Col xs={3} className='my-2'>
-          <Row>
-            <Col>
+          <Col>
+            <Row>
               <Card className='_response'>
                 <div id="ResponseDisplay">
                   <ResponseDisplay
@@ -86,19 +86,19 @@ const App2 = () =>{
                   />
                 </div>
               </Card>
-
+            </Row>
+            <Row>
               <Card className='_variableInput'>
                 <VariableInput 
                   variables={variables} 
                   setVariables={setVariables}
                 />
               </Card>
-            </Col>
-          </Row>
+            </Row>
+          </Col>
         </Col>
-			
 			</Row>
-		</Container>
+		  </Container>
     </>
     )
 };
