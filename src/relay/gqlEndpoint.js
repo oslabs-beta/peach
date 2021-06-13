@@ -2,9 +2,13 @@
 tiny module handles updating of graphql endpoint url, imported in fetchGraphQL
 */
 
+
 const gqlEndpoint = {};
+// currently, we are hard-coding an initial grqphql endpoint
 gqlEndpoint.url = 'https://graphql.anilist.co';
-gqlEndpoint.setUrl = (newUrl, auth) => {
+
+// accepts a newUrl string to update endpoint, auth defaults to null
+gqlEndpoint.setUrl = (newUrl, auth = null) => {
     if (typeof newUrl === 'string') {
         gqlEndpoint.url = newUrl;
     }
