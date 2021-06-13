@@ -2,7 +2,6 @@
 this file contains middleware functions for reading, 
 writing, updating and deleting to local history
 */
-
 const fs = require('fs');
 const path = require('path');
 const queryHistoryJSON = require('./queryHistory.json');
@@ -10,12 +9,13 @@ import RelayEnvironment from '../relay/RelayEnvironment';
 
 const pathToDatabase = path.resolve('./src/database/queryHistory.json');
 const store = RelayEnvironment.getStore();
-// console.log('Environment', RelayEnvironment);
+console.log(store);
 
 // !NTS: would ideally like to associate queries with their respective APIs
 // easiest way might be to pull the url from fetchGraphQL.js
 const db = {};
 let historyArray = queryHistoryJSON || [];
+console.log('historyArray', historyArray);
 
 // sets a history item on localStorage equal to the history array
 db.write = () => {
@@ -30,19 +30,29 @@ db.reset = () => {
 
 // add the most recent query to the histry and then sync to the database
 db.add = () => {
-    const data = store._roots.entries().next().value;
-    // currently only saves the text of the query entry
-    const newEntry = {};
-    newEntry.queryText = JSON.stringify(data[1].operation.fragment.owner.node.params.text)
-        .replace(/\\n/g, '') // remove newlines
-        .replace(/["]+/g, '') // remove quotations
-        .replace(/\s+/g, ' ') // remove extra spaces
-        // .slice(37); // // remove universal query name
-    newEntry.key = JSON.stringify(data[0]); // key is its universal ID as set by the Relay Store
-    newEntry.createdAt = new Date().toLocaleString();
-    historyArray.unshift(newEntry);
-    db.sync();
-}
+    debugger;
+    const map = store._roots;
+    const lastMapEntry = [...map][map.size - 1];
+    if (lastMapEntry) {
+        const newEntry = {};
+        newEntry.queryText = JSON.stringify(lastMapEntry[1].operation.fragment.owner.node.params.text)
+            .replace(/\\n/g, '') // remove newlines
+            .replace(/["]+/g, '') // remove quotations
+            .replace(/\s+/g, ' '); // remove extra spaces
+        const index = historyArray.findIndex(entry => entry.queryText === newEntry.queryText);
+    /* if we already have that exact same query saved in history...
+    delete the existing entry instead of saving a duplicate */ 
+        if (index !== -1) {
+            historyArray.splice(index, 1);
+        }
+        newEntry.key = lastMapEntry[0];
+        newEntry.value = lastMapEntry[1];
+        newEntry.timeStamp = new Date().toLocaleTimeString();
+        newEntry.dateStamp = new Date().toLocaleDateString();
+        historyArray.unshift(newEntry);
+        db.sync();
+    }
+};
 
 // writes history and resets the history variable to keep it up to date
 db.sync = () => {

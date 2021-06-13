@@ -13,7 +13,7 @@ const History = ({setQueryText, submitQuery}) => {
     // formatting for better UI
     const trimmedHistory = history.map(historyObject => {
         const optionObject = {};
-        optionObject.label = historyObject.createdAt 
+        optionObject.label = historyObject.timeStamp 
                            + '\n'
                            + historyObject.queryText.slice(0, 25) 
                            + '...';

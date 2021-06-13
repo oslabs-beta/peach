@@ -17,7 +17,10 @@ const StoreDisplay = ({queryToLoad, variables}) => {
     // }
 
     // update storeDisplay every time queryToLoad or variables change
-    useEffect(() => setStoreDisplay(store.getSource()), [queryToLoad, variables])
+    useEffect(() => {
+        setStoreDisplay(store.getSource());
+        console.log(store._roots.entries());
+    }, [queryToLoad, variables])
 
     return (
         <div>

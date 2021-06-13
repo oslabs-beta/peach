@@ -1,7 +1,7 @@
 // This file has an OPEN DIALOGUE mock up to access the fs directly.
 // We might (or not) need this later
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import VariableInput from '../VariableInput';
 import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
@@ -15,6 +15,7 @@ import { useQueryLoader } from 'react-relay';
 import writtenQuery from '../../relay/__generated__/writtenQuery.graphql'
 import ResponseDisplay from '../ResponseDisplay';
 import StoreDisplay from '../StoreDisplay';
+import db from '../../database/db';
 
 const electron = window.require('electron');
 const {shell} = window.require('electron');
@@ -76,6 +77,7 @@ const App2 = () =>{
                   <ResponseDisplay
                     initialQueryReference={initialQueryReference}
                     queryToLoad={queryToLoad}
+                    variables={variables}
                   />
                 </div>
               </Card>
