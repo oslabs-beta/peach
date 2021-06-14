@@ -26,7 +26,8 @@ const App2 = () =>{
   const [queryToLoad, setQueryToLoad] = useState(writtenQuery);
 	const [variables, setVariables] = useState('{"id": 15125}');
   const [querySelection, setQuerySelection] = useState(null);
-  const [editorState, setEditorState] = useState('');
+  const [editorState, setEditorState] = useState(null);
+  const [queryKey, setQueryKey] = useState('');
 
   const [
     initialQueryReference, 
@@ -49,8 +50,9 @@ const App2 = () =>{
               <Card className='_editorDisplay'>
               <h5>Editor</h5>
               <EditorDisplay 
-              queries={importedQueries} 
+              // queries={importedQueries} 
               editorState={editorState}
+              queryKey={queryKey}
               />
               </Card>	
               <Card className='_storeDisplay'>
@@ -65,7 +67,8 @@ const App2 = () =>{
 					    <h5>New Query selector</h5>
               <QuerySelector
           			setQueryToLoad={setQueryToLoad}
-					      importedQueries={importedQueries}
+					      // importedQueries={importedQueries}
+                setQueryKey={setQueryKey}
                 loadQuery={loadQuery}
                 initialQueryReference={initialQueryReference}
                 variables={variables}

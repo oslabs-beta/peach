@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import * as importedQueries from '../../relay/__generated__';
+import * as queriesToEdit from '../../relay/imported'
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 // import importedQuery from '../relay/imported';
@@ -14,8 +16,8 @@ import 'codemirror/lib/codemirror.css';
 import 'codemirror/mode/javascript/javascript';
 import { Controlled as ControlledEditor } from 'react-codemirror2';
 
-const EditorDisplay = ({ queries, editorState }) => {
-
+const EditorDisplay = ({ queries, editorState, queryKey }) => {
+  //const queryToEdit = editorState.params.text;
   let initialEditorText = queries;
   const [ editorText, setEditorText ] = useState(editorState);
 
@@ -31,6 +33,18 @@ const EditorDisplay = ({ queries, editorState }) => {
     fs.writeFileSync(path.resolve('../relay/imported.js'), fullQueryText);
     db.add();
   }
+
+//* create new list of queries
+//* remove query that was selected by key
+//* push new query from editor onto list
+//* rewrite imported file with new list of queries 
+// ?   useEffect(() => {
+// ?    const queryList = [];
+// ?     for (let query in queriesToEdit) {
+// ?         queryList.push(queriesToEdit[query]);
+// ?     }
+// ?     setQueryButtons(queryList);
+// ? }, []);
 
   return (
 

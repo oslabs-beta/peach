@@ -8,6 +8,7 @@ import * as importedQueries from '../relay/__generated__';
 import QueryButton from './QueryButton';
 
 const QuerySelector = ({
+    setQueryKey,
     setQueryToLoad, 
     loadQuery,
     variables,
@@ -36,6 +37,7 @@ const QuerySelector = ({
                         loadQuery={loadQuery}
                         variables={variables}
                         setEditorState={setEditorState}
+                        setQueryKey={setQueryKey}
                     />
                 )
             })}
