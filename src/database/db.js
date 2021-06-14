@@ -5,21 +5,19 @@ writing, updating and deleting to local history
 const fs = require('fs');
 const path = require('path');
 const queryHistoryJSON = require('./queryHistory.json');
-import RelayEnvironment from '../relay/RelayEnvironment';
-
-const pathToDatabase = path.resolve('./src/database/queryHistory.json');
-const store = RelayEnvironment.getStore();
-console.log(store);
+const importedHistoryJSON = require('./importedHistory.json');
+const importedHistoryPath = path.resolve('./src/database/importedHistory.json')
+const queryHistoryPath = path.resolve('./src/database/queryHistory.json');
 
 // !NTS: would ideally like to associate queries with their respective APIs
 // easiest way might be to pull the url from fetchGraphQL.js
 const db = {};
-let historyArray = queryHistoryJSON || [];
-console.log('historyArray', historyArray);
+let queryHistoryArray = queryHistoryJSON || [];
+let importedHistoryArray = importedHistoryJSON || [];
 
 // sets a history item on localStorage equal to the history array
 db.write = () => {
-    fs.writeFile(pathToDatabase, JSON.stringify(historyArray, null, 2), (err, data) => {
+    fs.writeFile(queryHistoryPath, JSON.stringify(queryHistoryArray, null, 2), (err, data) => {
         if (err) console.error(err); 
     });
     // window.localStorage.setItem(newKey, newEntry);
@@ -27,46 +25,25 @@ db.write = () => {
 
 // set history array to equal the value of localStorage history item
 db.reset = () => {
-    historyArray = queryHistoryJSON || [];
+    queryHistoryArray = queryHistoryJSON || [];
 };
-
-// add the most recent query to the histry and then sync to the database
-// db.add = () => {
-//     const map = store._roots;
-//     const lastMapEntry = [...map][map.size - 1];
-//     if (lastMapEntry) {
-//         const newEntry = {};
-//         newEntry.queryText = JSON.stringify(lastMapEntry[1].operation.fragment.owner.node.params.text)
-//             .replace(/\\n/g, '') // remove newlines
-//             .replace(/["]+/g, '') // remove quotations
-//             .replace(/\s+/g, ' '); // remove extra spaces
-//         const index = historyArray.findIndex(entry => entry.queryText === newEntry.queryText);
-//         /* if we already have that exact same query saved in history...
-//         delete the existing entry instead of saving a duplicate */ 
-//         if (index !== -1) {
-//             historyArray.splice(index, 1);
-//         }
-//         newEntry.key = lastMapEntry[0];
-//         newEntry.value = lastMapEntry[1];
-//         newEntry.timeStamp = new Date().toLocaleTimeString();
-//         newEntry.dateStamp = new Date().toLocaleDateString();
-//         historyArray.unshift(newEntry);
-//         db.sync();
-//     }
-// };
 
 db.addQuery = (queryText) => {
     const newEntry = {};
     newEntry.queryText = queryText;
     // remove duplicates that match the query text exactly
-    const index = historyArray.findIndex(entry => entry.queryText === newEntry.queryText);
+    const index = queryHistoryArray.findIndex(entry => entry.queryText === newEntry.queryText);
     if (index !== -1) {
-        historyArray.splice(index, 1);
-        newEntry.timeStamp = new Date().toLocaleTimeString();
-        newEntry.dateStamp = new Date().toLocaleDateString();
-        historyArray.unshift(newEntry);
-        db.sync();
+        queryHistoryArray.splice(index, 1);
     }
+    newEntry.timeStamp = new Date().toLocaleTimeString();
+    newEntry.dateStamp = new Date().toLocaleDateString();
+    queryHistoryArray.unshift(newEntry);
+    db.sync();
+}
+
+db.addImported = (importedString) => {
+
 }
 
 // writes history and resets the history variable to keep it up to date
@@ -77,9 +54,9 @@ db.sync = () => {
 
 // clears the queryHistory permanently
 db.clear = () => {
-    fs.writeFileSync(pathToDatabase, '');
+    fs.writeFileSync(queryHistoryPath, '');
 }
 
-db.getHistory = () => historyArray;
+db.getHistory = () => queryHistoryArray;
 
 export default db;
