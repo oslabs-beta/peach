@@ -24,7 +24,7 @@ dragFile.addEventListener('drop', function (e) {
       $('#btn').on('click', () => {
         let txtarea=$('#txtarea').val()
         ipcRenderer.send('clickedbutton', txtarea)
-  
+        // console.log('The file(s) you want to save: ', txtarea)
       }) 
 
       ipcRenderer.on('fileData', (event, data) => { 

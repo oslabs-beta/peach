@@ -1,0 +1,20 @@
+.container {
+  width: 95%;
+  min-height: 100px;
+  /* background-color: coral; */
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.jumbotron {
+  width: 90%;
+  height: 100px;
+  background-color: coral;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px;
+  border-radius: 5px;
+}

@@ -128,22 +128,64 @@ ipcMain.on('ondragstart', (event, filePath) => {
        event.sender.send('fileData', data) 
     }) 
  } 
-
 })
+
+
 
 ipcMain.on('clickedbutton', (event, data) => {
-  
-  dialog.showSaveDialog({ filters: [
 
-    { name: 'text', extensions: ['txt'] }
- 
-   ]},function (fileName) {
+	// console.log('This is the data we want to save: ', data)
+  // Resolves to a Promise<Object>
+  dialog.showSaveDialog({
+		title: 'Select the File Path to save',
+    defaultPath: path.join(__dirname, '../relay/imported/imported.js'),
+    // defaultPath: path.join(__dirname, '../assets/'),
+    buttonLabel: 'Save',
+		filters: [
+				{ 
+					name: 'GraphQL query', 
+					extensions: ['js', 'txt'] 
+				}
+			],
+		properties: []
+		}).then(file => {
+			// Stating whether dialog operation was cancelled or not.
+			console.log(file.canceled);
+			if (!file.canceled) {
+				console.log(file.filePath.toString());
 
-    if(fileName=== undefined) return
-    fs.writeFile(fileName, data, function (err) {
+			// Creating and Writing to the sample.txt file
+			fs.writeFile(
+				file.filePath.toString(),
+				data,
+				(err) => {
+					if(err) {
+						alert("An error ocurred updating the file"+ err.message);
+						console.log(err);
+						return;
+					}
+					console.log('Saved!');
+					// alert("The file has been succesfully saved");
+				})
+			}
+			}).catch(err => {
+				console.log(err);
+			});
+});
 
-    })
+// This should go on line 151, after the }
+// ,
+// 			function (fileName) {
 
-  }); 
+// 			if(fileName=== undefined) return
+// 			fs.writeFile(fileName, data, function (err) {
+// 				if(err){
+// 					alert("An error ocurred updating the file"+ err.message);
+// 					console.log(err);
+// 					return;
+// 				}
+// 				alert("The file has been succesfully saved");
+// 			})
 
-})
+//   	}
+// 	); 

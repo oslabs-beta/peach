@@ -3,22 +3,16 @@
 <head>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <link rel="stylesheet" href="../src/components/peach/styles/uploader.css">
   <link rel="icon" href="../assets/icons/png/icon.png">
   <title>Peach QE - Desktop Visualizer for React-Relay Applications</title>
 </head>
-<body align='center'>
-  <!-- <nav>
-    <div class="nav-wrapper">
-      <a class="brand-logo center">Hello Peaches!!</a>
-      <br />
-      <br />
-      <img src="../assets/PeachLogo.png" width='350px'>
-    </div>
-  </nav> -->
-    <div class="container">
-        <div class="jumbotron">
-            <p class="alert alert-info" id="drag-file">Drag your file here.</p>
+<body>
+    <div class="container" width='90%' align="center">
+         <div class="jumbotron"  id="drag-file">
+            <h5 class="alert alert-info">Drag your file here.</h5>
         </div>
+        <br />
           <textarea id="txtarea" style="width:700px;height:350px;" class="form-control"></textarea><br/>
           <button id="btn" class="btn btn-success">Save</button>
     </div>
