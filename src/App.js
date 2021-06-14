@@ -20,31 +20,72 @@ import './styles/App.css';
 
 // import graphql from 'babel-plugin-relay/macro';
 
+
 //useLazyLoadQuery imports
 import { useLazyLoadQuery } from 'react-relay';
 import writtenQuery from './relay/__generated__/writtenQuery.graphql'
 import { Suspense } from 'react';
 
+
+//Roland's imports:
+// import * as schema from '../schema.graphql';
+import { graphql } from 'graphql';
+import aliasID from './relay/aliasID';
+import makeJsonSchema from './relay/makeJsonSchema';
+const path = require('path');
+
+
+const pathToSchema = path.resolve('./schema.graphql');
+
+
+const jsonSchema = makeJsonSchema();
+
 const App = () => {
 
 	const [queryToLoad, setQueryToLoad] = useState(writtenQuery);
-	const [response, setResponse] = useState(data);
+	// const [response, setResponse] = useState(data);
 	const [variables, setVariables] = useState('{"id": 15125}');
+
+	//Roland's data:
+
+	const [response1, setResonse1] = useState('');
+	const [query1, setQuery1] = useState('');
+	const [variables1, setVariables1] = useState('');
 		
+	
+	// const submitQuery = () => {
+  //   // file boilerplate
+  //   const queryFileStart = 'import graphql from \'graphql\'\;\nexport default graphql`';
+  //   const queryFileEnd = '`;';
+  //   const fullQueryText = aliasID(queryFileStart + queryText + queryFileEnd);
+  //   fs.writeFileSync(path.resolve('./src/relay/written.js'), fullQueryText);
+  //   db.add();
+  //   execSync('npm run relay', { encoding: 'utf-8' });
+  // }
+
+	const submitTypedQuery = () => {
+		const queryFileStart = 'import graphql from \'graphql\'\;\nexport default graphql`';
+    const queryFileEnd = '`;';
+    const fullQueryText = aliasID(queryFileStart + query1 + queryFileEnd);
+		graphql(pathToSchema, fullQueryText).then((result) => setResponse1(result.data));
+	}
+	
+
+
 	// formatting 'variables' string into JSON object for useLazyLoadQuery
 	function formatJSON(input) {
 		return JSON.parse(input);
 	}
-
-	let data = useLazyLoadQuery(
-		queryToLoad,
-		variables ? formatJSON(variables) : null
-	);
+	
+	// let data = useLazyLoadQuery(
+	// 	queryToLoad,
+	// 	variables ? formatJSON(variables) : null
+	// );
 
 	// update response state, only updates when data is fresh
-    useEffect(() => {
-        setResponse(data);
-    }, []);
+    // useEffect(() => {
+    //     setResponse(data);
+    // }, []);
 
 	return (
 		<Container className="App" fluid>
@@ -80,6 +121,9 @@ const App = () => {
 						<QueryContainer 
 							setQueryToLoad={setQueryToLoad}
 							variables={variables}
+							submitTypedQuery={submitTypedQuery}
+							query1={query1}
+							setQuery1={setQuery1}
 						/>
 					</Card>
 				</Col>
@@ -89,7 +133,7 @@ const App = () => {
 						<div id="ResponseDisplay">
 							<Suspense>
 								<WrittenResponseDisplay 
-									response={response ? response : ''}
+									response={response1}
 								/>
 							</Suspense>
 						</div>
