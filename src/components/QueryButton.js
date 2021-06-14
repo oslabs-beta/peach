@@ -8,7 +8,7 @@ const QueryButton = ({query, setQueryToLoad, loadQuery, variables, setEditorStat
                 style={{width: '100%'}}
                 onClick={() => {
                     setQueryToLoad(query);
-                    loadQuery(variables);
+                    loadQuery(JSON.parse(variables));
                     setEditorState(query.params.text);
                 }}>
                   {query.params.text}
