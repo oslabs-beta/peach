@@ -1,16 +1,16 @@
 import React from 'react';
 
-const QueryButton = ({query, setQueryToLoad, loadQuery, variables, setEditorState, setQueryKey, key}) =>  {
+const QueryButton = ({query, setQueryToLoad, loadQuery, variables}) =>  {
 
     return (
         <div>
             <button 
                 style={{width: '100%'}}
                 onClick={() => {
-                    setQueryToLoad(query.params.text);
+                    setQueryToLoad(query);
                     loadQuery(JSON.parse(variables));
-                    setEditorState(query);
-                    setQueryKey(key);
+                    //! setEditorState(query.params.text);
+                    //! setQueryKey(key);
                 }}>
                   {query.params.text}
             </button>

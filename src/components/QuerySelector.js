@@ -12,7 +12,6 @@ const QuerySelector = ({
     setQueryToLoad, 
     loadQuery,
     variables,
-    setEditorState
 }) => {
     
     const [queryButtons, setQueryButtons] = useState([]);
@@ -36,8 +35,6 @@ const QuerySelector = ({
                         setQueryToLoad={setQueryToLoad}
                         loadQuery={loadQuery}
                         variables={variables}
-                        setEditorState={setEditorState}
-                        setQueryKey={setQueryKey}
                     />
                 )
             })}

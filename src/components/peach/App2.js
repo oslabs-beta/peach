@@ -8,7 +8,8 @@ import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 // import logo from '../assets/PeachLogo.png';
-
+import  fs  from 'fs';
+import path from 'path';
 import Navbar from '../Navbar';
 import QuerySelector from '../QuerySelector';
 import { useQueryLoader } from 'react-relay';
@@ -22,12 +23,9 @@ const remote = electron.remote
 const {dialog} = remote
 
 const App2 = () =>{
-
   const [queryToLoad, setQueryToLoad] = useState(writtenQuery);
 	const [variables, setVariables] = useState('{"id": 15125}');
   const [querySelection, setQuerySelection] = useState(null);
-  const [editorState, setEditorState] = useState(null);
-  const [queryKey, setQueryKey] = useState('');
 
   const [
     initialQueryReference, 
@@ -51,8 +49,8 @@ const App2 = () =>{
               <h5>Editor</h5>
               <EditorDisplay 
               // queries={importedQueries} 
-              editorState={editorState}
-              queryKey={queryKey}
+              // editorState={editorState}
+              // queryKey={queryKey}
               />
               </Card>	
               <Card className='_storeDisplay'>
@@ -68,11 +66,9 @@ const App2 = () =>{
               <QuerySelector
           			setQueryToLoad={setQueryToLoad}
 					      // importedQueries={importedQueries}
-                setQueryKey={setQueryKey}
                 loadQuery={loadQuery}
                 initialQueryReference={initialQueryReference}
                 variables={variables}
-                setEditorState={setEditorState}
         		  />
             </Card>	
 					</Col>

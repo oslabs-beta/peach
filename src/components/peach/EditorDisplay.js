@@ -16,28 +16,20 @@ import 'codemirror/lib/codemirror.css';
 import 'codemirror/mode/javascript/javascript';
 import { Controlled as ControlledEditor } from 'react-codemirror2';
 
-const EditorDisplay = ({ queries, editorState, queryKey }) => {
-  //const queryToEdit = editorState.params.text;
-  let initialEditorText = queries;
-  const [ editorText, setEditorText ] = useState(editorState);
-
-  const updateEditorText = (editor, data, value) => {
-    setEditorText(value);
-  }
-
-  const submitQuery = () => {
-    // file boilerplate
-    const queryFileStart = 'import graphql from \'graphql\'\;\nexport default graphql`query importedQueryQuery($id: Int) ';
-    const queryFileEnd = '`;';
-    const fullQueryText = aliasID(queryFileStart + queryText + queryFileEnd);
-    fs.writeFileSync(path.resolve('../relay/imported.js'), fullQueryText);
-    db.add();
-  }
+//require in exec to run terminal commands in js:
+const execSync = require('child_process').execSync;
 
 //* create new list of queries
 //* remove query that was selected by key
 //* push new query from editor onto list
 //* rewrite imported file with new list of queries 
+
+//====================
+
+//* Populate editor display with whole text from imported.js
+//* After changes have been made the save button will rewrite the imported
+//* (cont) file with the newly edited query text
+
 // ?   useEffect(() => {
 // ?    const queryList = [];
 // ?     for (let query in queriesToEdit) {
@@ -46,12 +38,37 @@ const EditorDisplay = ({ queries, editorState, queryKey }) => {
 // ?     setQueryButtons(queryList);
 // ? }, []);
 
+const EditorDisplay = () => {
+  //const queryToEdit = editorState.params.text;
+  const importedPath = path.resolve('./src/relay/imported.js')
+  // const [editorState, setEditorState] = useState();
+  
+
+  // const data = fs.readFileSync('./input.txt',
+  //           {encoding:'utf8', flag:'r'});
+  
+  //let initialEditorText = queries;
+  const [ editorText, setEditorText ] = useState(fs.readFileSync(importedPath, 'utf8'));
+
+  const updateEditorText = (editor, data, value) => {
+    setEditorText(value);
+  }
+
+  const saveToImported = (newQueryText) => {
+    // Take editor text
+    // Write file sync to imported with current editor text
+    fs.writeFileSync(path.resolve(importedPath), newQueryText);
+    execSync('npm run relay', { encoding: 'utf-8' });
+  }
+
+  // fs.writeFileSync(path.resolve('./src/relay/written.js'), fullQueryText);
+
   return (
 
     <div>
       <ControlledEditor
             onBeforeChange={updateEditorText}
-            value={editorState}
+            value={editorText}
             className='code-mirror-wrapper _variableInputInner'
             options={{
                 lineWrapping: true,
@@ -64,7 +81,9 @@ const EditorDisplay = ({ queries, editorState, queryKey }) => {
                 theme: 'default height4rem readonly',
             }}
             />
-            <button>Save Edited Query</button>
+            <button onClick={() => {
+              saveToImported(editorText)
+            }}>Save Edited Query</button>
       </div>
   )
 };
