@@ -7,9 +7,7 @@ const SchemaUrlInput = () => {
     const [schemaInput, setSchemaInput] = useState('write schema URL here');
 
     const handleChange = (e) => {
-        console.log(e.target.value);
         setSchemaInput(e.target.value);
-        console.log(schemaInput);
     }
 
     const updateSchema = () => {

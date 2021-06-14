@@ -3,6 +3,7 @@ import { useSpring, animated } from 'react-spring';
 import { MdClose } from 'react-icons/md';
 import '../styles/Modal.css';
 import FileDownloader from "./FileDownloader";
+import SchemaUrlInput from '../components/SchemaUrlInput';
 
 const Modal = ({ showModal, setShowModal}) => {
   const modalRef = useRef();
@@ -56,6 +57,7 @@ const Modal = ({ showModal, setShowModal}) => {
                   the same directory your app is installed <br />
                   (aka. your PEACH folder)  
                 </p>
+                <SchemaUrlInput/>
                 <h6 className="red">Please confirm you want to overwrite the existing file.</h6>
                 <FileDownloader /> 
                 <button className='mt-4' onClick={() => setShowModal(prev => !prev)}>Close</button>

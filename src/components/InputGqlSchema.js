@@ -3,10 +3,11 @@ import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import Modal from './Modal';
 // import FileDownloader from "./FileDownloader";
+import gqlEndpoint from '../relay/gqlEndpoint';
 
 const InputGqlSchema = () => {
   const [showModal, setShowModal] = useState(false);
-  const [schemaName, setSchemaName] = useState('anilist.co');
+  const [schemaName, setSchemaName] = useState(gqlEndpoint.url);
 
   //* Original Schema/Database used as demo
   const schemaUrl = 'anilist.co';

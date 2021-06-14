@@ -24,7 +24,6 @@ import './styles/App.css';
 import { useLazyLoadQuery } from 'react-relay';
 import writtenQuery from './relay/__generated__/writtenQuery.graphql'
 import { Suspense } from 'react';
-import SchemaUrlInput from './components/SchemaUrlInput';
 
 const App = () => {
 
@@ -49,7 +48,6 @@ const App = () => {
 
 	return (
 		<Container className="App" fluid>
-		<SchemaUrlInput/>
 			<Row>
 				<Col xs={12}>
 					<Navbar />

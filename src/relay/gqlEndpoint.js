@@ -16,6 +16,7 @@ gqlEndpoint.setUrl = (newUrl, auth = null) => {
         gqlEndpoint.requiresAuth = true;
         gqlEndpoint.auth = auth;
     }
+    else gqlEndpoint.auth = false;
 };
 gqlEndpoint.requiresAuth = false;
 gqlEndpoint.auth = null;

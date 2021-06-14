@@ -26,8 +26,8 @@ export default function makeJsonSchema() {
             astObject.fields.push(
                 {
                   // note that the comments are saved as 'note' and maintained for rendering later
-                  note: text.split("\"")[3],
-                  type: text.split('\"')[6]
+                  note: text.split("\"")[3] || text, // if no notes, make sure this defaults to text
+                  type: text.split('\"')[6] || text, 
                 }
                 );
           }

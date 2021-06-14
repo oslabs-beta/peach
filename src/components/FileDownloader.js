@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState, useEffect } from 'react';
 import useFileDownloader from "./hooks/useFileDownloader";
+import gqlEndpoint from '../relay/gqlEndpoint';
 
 // Possible files to download. Line 40 iterates over these and renders the complete list.
 const files = [
@@ -21,7 +22,7 @@ const files = [
 const FileDownloader = () => {
   const [downloadFile, downloaderComponentUI] = useFileDownloader();
   const download = (file) => downloadFile(file);
-  const [schemaName, setSchemaName] = useState('anilist.co');
+  const [schemaName, setSchemaName] = useState(gqlEndpoint.url);
 
   // set Schema name
   const handleClick = (schema) => {
