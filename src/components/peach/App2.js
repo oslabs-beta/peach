@@ -15,7 +15,6 @@ import { useQueryLoader } from 'react-relay';
 import writtenQuery from '../../relay/__generated__/writtenQuery.graphql'
 import ResponseDisplay from '../ResponseDisplay';
 import StoreDisplay from '../StoreDisplay';
-import db from '../../database/db';
 
 const electron = window.require('electron');
 const {shell} = window.require('electron');

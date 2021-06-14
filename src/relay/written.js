@@ -6,8 +6,8 @@ export default graphql`query writtenQuery(
     _id: id
     title {
       native
+      
       romaji
-      english
     }
   }
 }
