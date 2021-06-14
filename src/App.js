@@ -33,10 +33,18 @@ import { graphql } from 'graphql';
 import aliasID from './relay/aliasID';
 import makeJsonSchema from './relay/makeJsonSchema';
 const path = require('path');
+const fs = require('fs');
+const axios = require('axios').default;
 
+// import * as schema from './schema.graphql';
+
+import { parse, visit, print } from 'graphql/language';
+
+const schema = fs.readFileSync(path.resolve('./schema.graphql'), 'utf8');
 
 const pathToSchema = path.resolve('./schema.graphql');
 
+const graphqlSchema = parse(schema);
 
 const jsonSchema = makeJsonSchema();
 
@@ -48,7 +56,7 @@ const App = () => {
 
 	//Roland's data:
 
-	const [response1, setResonse1] = useState('');
+	const [response1, setResponse1] = useState('');
 	const [query1, setQuery1] = useState('');
 	const [variables1, setVariables1] = useState('');
 		
@@ -63,14 +71,70 @@ const App = () => {
   //   execSync('npm run relay', { encoding: 'utf-8' });
   // }
 
-	const submitTypedQuery = () => {
-		const queryFileStart = 'import graphql from \'graphql\'\;\nexport default graphql`';
-    const queryFileEnd = '`;';
-    const fullQueryText = aliasID(queryFileStart + query1 + queryFileEnd);
-		graphql(pathToSchema, fullQueryText).then((result) => setResponse1(result.data));
-	}
+	// console.log(graphqlSchema);
+
+	// const submitTypedQuery = () => {
+	// 	const queryFileStart = 'import graphql from \'graphql\'\;\nexport default graphql`';
+  //   const queryFileEnd = '`;';
+  //   const fullQueryText = aliasID(queryFileStart + query1 + queryFileEnd);
+	// 	graphql(graphqlSchema, fullQueryText).then(res => res.json()).then((result) => setResponse1(result.data)).catch(err => setResponse1(err));
+	// }
 	
 
+	var query = `
+	query ($id: Int) { # Define which variables will be used in the query (id)
+		Media (id: $id, type: ANIME) { # Insert our variables into the query arguments (id) (type: ANIME is hard-coded in the query)
+			id
+			title {
+				romaji
+				english
+				native
+			}
+		}
+	}
+	`;
+	
+	// Define our query variables and values that will be used in the query request
+	const variables2 = {
+			id: 15125
+	};
+	
+	// Define the config we'll need for our Api request
+	const url = 'https://graphql.anilist.co',
+			options = {
+					method: 'POST',
+					headers: {
+							'Content-Type': 'application/json',
+							'Accept': 'application/json',
+					},
+					body: JSON.stringify({
+							query: query,
+							variables: variables2
+					})
+			};
+	
+	// Make the HTTP Api request
+	const submitTypedQuery = () => {
+		fetch(url, options).then(handleResponse)
+										 	 .then(handleData)
+										   .catch(handleError);
+	}
+	
+	
+	function handleResponse(response) {
+			return response.json().then(function (json) {
+					return response.ok ? json : Promise.reject(json);
+			});
+	}
+	
+	function handleData(data) {
+			setResponse1(data.data);
+	}
+	
+	function handleError(error) {
+			alert('Error, check console');
+			console.error(error);
+	}
 
 	// formatting 'variables' string into JSON object for useLazyLoadQuery
 	function formatJSON(input) {
