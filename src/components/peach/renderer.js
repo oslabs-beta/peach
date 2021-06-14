@@ -30,3 +30,15 @@ dragFile.addEventListener('drop', function (e) {
       ipcRenderer.on('fileData', (event, data) => { 
         $('#txtarea').text(data); 
          })
+
+// const closeWindow = document.getElementById('closer');
+// closeWindow.addEventListener('click', () => {
+//     ipcRenderer.send('close-me')
+// });
+
+var win = remote.BrowserWindow.getFocusedWindow();
+var quit = document.querySelector("#closer");
+quit.addEventListener("click", () => {
+  win.close();
+});
+       

@@ -5,7 +5,7 @@ currently only functions as a text box
 
 const path = require('path');
 const url = require('url');
-const { BrowserWindow, dialog, app, IPCMain } = require('electron');
+const { BrowserWindow, dialog, app, IPCRenderer } = require('electron');
 const mainMenuTemplate = require('./menu');
 
 let fs = require('fs')
@@ -23,16 +23,17 @@ if (
   // Handle add item window
   const createAddWindow = () => {
     addWindow = new BrowserWindow({
-      width: 800,
+      width: 1180,
       height: 600,
       minHeight:400,
       minWidth:400,
-      title: 'Start a New Peach',
+      title: 'Upload your own Peach',
       backgroundcolor: 'white',
-      transparent: true,
-      // frame: false,
+      // To have rounded corners, although it doesn't work for Mac
+      // transparent: true,
+      // The compiler is not recognizing the icon image. Keep commented out.
       // icon: `../assets/icons/png/icon.png`,
-      // To remove menu from Popup
+      // To remove the entire frame from Popup
       // frame: false,
       webPreferences: {
           nodeIntegration: true,
@@ -42,7 +43,7 @@ if (
       }
     });
     // To remove menu from Popup
-    // addWindow.removeMenu();
+    addWindow.removeMenu();
 
     // TODO To serve static html files
     addWindow.loadURL(url.format({

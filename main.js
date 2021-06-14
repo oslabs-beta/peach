@@ -1,7 +1,6 @@
 /* 
 This file holds the main window process for Electron, rendering the desktop window of the application
 */
-
 const path = require('path');
 const url = require('url');
 const { app, BrowserWindow, Menu} = require('electron');
@@ -9,6 +8,9 @@ const mainMenuTemplate = require('./electron/menu');
 const remote = require('electron')
 const {dialog} = remote
 // const createAddWindow = require('./electron/newWindow')
+
+//***//
+
 
 let mainWindow
 
@@ -173,19 +175,9 @@ ipcMain.on('clickedbutton', (event, data) => {
 			});
 });
 
-// This should go on line 151, after the }
-// ,
-// 			function (fileName) {
+ipcMain.on('close-me', (evt, arg) => {
+  var addwindow = remote.createAddWindow()
+  addwindow.close()
+})
 
-// 			if(fileName=== undefined) return
-// 			fs.writeFile(fileName, data, function (err) {
-// 				if(err){
-// 					alert("An error ocurred updating the file"+ err.message);
-// 					console.log(err);
-// 					return;
-// 				}
-// 				alert("The file has been succesfully saved");
-// 			})
 
-//   	}
-// 	); 

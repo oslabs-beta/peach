@@ -60,6 +60,7 @@ const App2 = () =>{
         </Col>
       
         <Col xs={6} className='my-2'>
+
           <Card className='_storeDisplay'>
             <h5>New Query selector</h5>
             <QuerySelector
@@ -68,11 +69,12 @@ const App2 = () =>{
               variables={variables}
             />
           </Card>	
-          
-          {/* <Card className='_uploader mt-2'>
-            <h5>Uploader</h5>
+
+          <Card className='_uploader my-3'>  
             <Uploader />
-          </Card>	 */}
+          </Card>	
+          
+          
         </Col>
 
         <Col xs={3} className='my-2'>

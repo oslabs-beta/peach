@@ -8,14 +8,46 @@
   <title>Peach QE - Desktop Visualizer for React-Relay Applications</title>
 </head>
 <body>
-    <div class="container" width='90%' align="center">
-         <div class="jumbotron"  id="drag-file">
-            <h5 class="alert alert-info">Drag your file here.</h5>
-        </div>
-        <br />
-          <textarea id="txtarea" style="width:700px;height:350px;" class="form-control"></textarea><br/>
-          <button id="btn" class="btn btn-success">Save</button>
+  <div class="row">
+    <div class="column1">
+      <h4>Instructions</h4>
+      <p>How to upload your queries</p>
+      <ol class="steps">
+        <li>Write and save your queries on a simple (non-enriched) text file.</li>
+        <li>
+          Recommendations:<br />
+          - Follow these 
+              <div class="tooltip">naming conventions.
+                <span class="tooltiptext" style="font-family:'calibri';font-size:75%'">
+                  &nbsp;&nbsp; ⚬ Field names should use <code>camelCase</code>. <br />
+                  &nbsp;&nbsp; ⚬ Type names should use <code>PascalCase</code>.<br />
+                  &nbsp;&nbsp; ⚬ Enum names should use <code>PascalCase</code>.<br />
+                  &nbsp;&nbsp; ⚬ Enum values should use <code>ALL_CAPS</code>.<br />
+                  &nbsp;&nbsp; ⚬ Consider globally unique names for your variables.
+                </span>
+              </div>
+          
+        </li>
+        <li>Drag & Drop the file on the peach-colored area on the right.</li>
+        <li>Click Save Button</li>
+        <li>Locate the Directory "RELAY"</li>
+        <li>Replace the existing <code>imported.js</code> file</li>
+        <li><a href="#" id="closer">Close</a> this window</li>
+      </ol>
     </div>
+    <div class="column2" align="center">
+
+        <div class="container" width='90%' align="center">
+            <div class="jumbotron"  id="drag-file">
+                <h5 class="alert alert-info">Drag your file here.</h5>
+            </div>
+            <br />
+              <textarea id="txtarea" style="width:650px;height:350px;" class="form-control"></textarea><br/>
+              <button id="btn" class="btn btn-success">Save</button>
+        </div>
+
+    </div>
+  </div>
 
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
