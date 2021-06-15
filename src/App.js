@@ -9,7 +9,7 @@ import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import App2 from './components/peach/App2';
+import ImportedMode from './components/peach/ImportedMode';
 // import logo from '../assets/PeachLogo.png';
 
 import Navbar from './components/Navbar';
@@ -101,7 +101,7 @@ const App = () => {
 			
 			<Row>
 				
-				<App2 className="App2" />
+				<ImportedMode className="importedMode" />
 
 			</Row>
 
