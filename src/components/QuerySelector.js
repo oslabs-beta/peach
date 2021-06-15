@@ -21,7 +21,7 @@ const QuerySelector = ({
         for (let query in importedQueries) {
             queryButtonDetails.push(importedQueries[query]);
         }
-        setQueryButtons(queryButtonDetails);
+        setQueryButtons(queryButtonDetails || []);
     }, []);
     
 
