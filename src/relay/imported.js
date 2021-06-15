@@ -2,7 +2,8 @@ import graphql from 'graphql';
 
 graphql`query importedMediaQuery {Media (id: 80){
   title {
-    english 
+    english
+    romaji
   }
 }}`;
 
