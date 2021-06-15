@@ -25,7 +25,7 @@ const QuerySelector = ({
     
 
     return (
-        <div>
+        <div className="mb-3">
             {queryButtons.map(query => {
                 return (
                     <QueryButton

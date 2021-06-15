@@ -9,17 +9,19 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 // import logo from '../assets/PeachLogo.png';
 
-import Navbar from '../Navbar';
+import Footer from '../Footer';
 import QuerySelector from '../QuerySelector';
 import { useQueryLoader } from 'react-relay';
 import writtenQuery from '../../relay/__generated__/writtenQuery.graphql'
 import ResponseDisplay from '../ResponseDisplay';
+import Uploader from './Uploader';
 import StoreDisplay from '../StoreDisplay';
 
 const electron = window.require('electron');
 const {shell} = window.require('electron');
 const remote = electron.remote
 const {dialog} = remote
+const ipcRenderer  = electron.ipcRenderer;
 
 const App2 = () =>{
 
@@ -32,22 +34,16 @@ const App2 = () =>{
 
     return(
     <>
-      <Container className="App2" fluid>
-        <Row>
-          <Col xs={12}>
-            <Navbar />
-          </Col>
-        </Row>
-        
-      <Row>
+      <Container className="App2" fluid>        
+      <Row className="containerApp2 mt-5" >
         <Col xs={3}>
           <Row  className='my-2'>
             <Col>
               <Card className='_editorDisplay'>
-                <h5>Editor</h5>
+                <h6 className="mt-1">Editor</h6>
               </Card>	
-              <Card className='_storeDisplay'>
-                <h5>Store Display</h5>
+              <Card className='_storeDisplay mt-4'>
+                <h6 className="mt-1">Store Display</h6>
                 <StoreDisplay
                   queryToLoad={queryToLoad}
                   variables={variables}
@@ -58,40 +54,49 @@ const App2 = () =>{
         </Col>
       
         <Col xs={6} className='my-2'>
-          <Card className='_storeDisplay'>
-            <h5>New Query selector</h5>
+
+          <Card className='_newQuerySelector'>
+            <h6 className="mt-1">New Query selector</h6>
             <QuerySelector
               setQueryToLoad={setQueryToLoad}
               loadQuery={loadQuery}
               variables={variables}
             />
           </Card>	
+
+          <Card className='_variableInput mt-4'>
+                <VariableInput 
+                  variables={variables} 
+                  setVariables={setVariables}
+                />
+              </Card>
+
+          <Card className='_uploader my-4'>  
+            <Uploader />
+          </Card>	
+          
+          
         </Col>
 
         <Col xs={3} className='my-2'>
-          <Row>
-            <Col>
-              <Card className='_response'>
-                <div id="ResponseDisplay">
+
+              <Card className='_response2'>
+                <div id="ResponseDisplay2">
                   <ResponseDisplay
                     initialQueryReference={initialQueryReference}
                     queryToLoad={queryToLoad}
                   />
                 </div>
               </Card>
-
-              <Card className='_variableInput'>
-                <VariableInput 
-                  variables={variables} 
-                  setVariables={setVariables}
-                />
-              </Card>
-            </Col>
-          </Row>
+              
         </Col>
-			
 			</Row>
-		</Container>
+      <Row>
+        <Col>
+          <Footer />
+        </Col>
+      </Row>
+		  </Container>
     </>
     )
 };
