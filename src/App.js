@@ -34,6 +34,7 @@ import { Suspense } from 'react';
 import { graphql } from 'graphql';
 import aliasID from './relay/aliasID';
 import makeJsonSchema from './relay/makeJsonSchema';
+import gqlEndpoint from './relay/gqlendpoint';
 const path = require('path');
 const fs = require('fs');
 const axios = require('axios').default;
@@ -56,7 +57,7 @@ const App = () => {
 	const [variables, setVariables] = useState('');
 
 	// Define the config we'll need for our Api request
-	let url = 'https://graphql.anilist.co';
+	let url = gqlEndpoint.url;
 	let options = {
 			method: 'POST',
 			headers: {
