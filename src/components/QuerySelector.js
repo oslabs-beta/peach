@@ -8,9 +8,10 @@ import * as importedQueries from '../relay/__generated__';
 import QueryButton from './QueryButton';
 
 const QuerySelector = ({
+    setQueryKey,
     setQueryToLoad, 
     loadQuery,
-    variables
+    variables,
 }) => {
     
     const [queryButtons, setQueryButtons] = useState([]);
@@ -25,7 +26,7 @@ const QuerySelector = ({
     
 
     return (
-        <div>
+        <div className="mb-3">
             {queryButtons.map(query => {
                 return (
                     <QueryButton

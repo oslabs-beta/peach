@@ -2,7 +2,8 @@ import graphql from 'graphql';
 
 graphql`query importedMediaQuery {Media (id: 80){
   title {
-    english 
+    english
+    romaji
   }
 }}`;
 
@@ -12,7 +13,6 @@ graphql`query importedLongMediaQuery($id: Int) {
     title {
       native
       english
-      userPreferred
     }
   }
 }`;
