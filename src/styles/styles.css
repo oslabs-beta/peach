@@ -80,6 +80,10 @@ code {
   height: 35.1rem !important;
 }
 
+.cm-s-height20rem {
+  height: 20rem !important;
+}
+
 ._variableInput-inner {
   padding-top: 0.3rem;
   color: hsl(0, 0%, 18%);

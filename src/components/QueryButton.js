@@ -12,6 +12,8 @@ const QueryButton = ({query, setQueryToLoad, loadQuery, variables}) =>  {
                 onClick={() => {
                     setQueryToLoad(query);
                     loadQuery(JSON.parse(variables));
+                    //! setEditorState(query.params.text);
+                    //! setQueryKey(key);
                 }}>
                   {query.params.text}
             </Button>

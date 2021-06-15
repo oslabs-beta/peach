@@ -175,6 +175,7 @@ p.schema {
 ._editorDisplay {
   align-content: center;
   text-align: center;
+  /* height: 50%; */
 }
 
 ._storeDisplay h6 {
