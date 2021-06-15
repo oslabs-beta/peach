@@ -1,4 +1,12 @@
-{
-    "anime list": "https://graphql.anilist.co",
-    "dnd5e": "https://www.dnd5eapi.co/graphql"
-}
+[
+    {
+        "name": "anime list",
+        "url": "https://graphql.anilist.co",
+        "lastUsed": ""
+    },
+    {
+        "name": "dnd5e",
+        "url": "https://www.dnd5eapi.co/graphql",
+        "lastUsed": ""
+    }
+]

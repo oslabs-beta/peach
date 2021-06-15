@@ -19,7 +19,7 @@ let importedHistoryArray = importedHistoryJSON || [];
 
 const schemaHistoryJSON = require('./schemaHistory.json');
 const schemaHistoryPath = path.resolve('./src/database/schemaHistory.json');
-const schemaHistoryObject = schemaHistoryJSON || {};
+const schemaHistoryArray = schemaHistoryJSON || [];
 
 const db = {};
 
@@ -81,8 +81,12 @@ db.addImported = (fileContents, name) => {
 /* adds a url to the schemaHistory database, which is an object, 
 unlike the other json files */
 db.addURL = (schemaName) => {
-    schemaHistoryObject[schemaName] = gqlEndpoint.url;
-    db.sync(schemaHistoryObject, schemaHistoryJSON, schemaHistoryPath)
+    newEntry = {};
+    newEntry.name = schemaName;
+    newEntry.url = gqlEndpoint.url;
+    newEntry.lastUsed = new Date().toLocaleString();
+    schemaHistoryArray.push(newEntry);
+    db.sync(schemaHistoryArray, schemaHistoryJSON, schemaHistoryPath)
 }
 
 /* writes the passed-in history array to the relevant json file and resets 
@@ -100,6 +104,6 @@ db.clear = (path) => {
 // these functions return the relevant history array or object
 db.getQueryHistory = () => queryHistoryArray;
 db.getImportedHistory = () => importedHistoryArray;
-db.getSchemaHistory = () => schemaHistoryObject;
+db.getSchemaHistory = () => schemaHistoryArray;
 
 export default db;
