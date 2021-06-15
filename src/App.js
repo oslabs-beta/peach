@@ -55,7 +55,7 @@ const App = () => {
 				<ImportedMode className="importedMode" />
 			</Row>
 			
-			<Row className="my-3">
+			<Row className="mt-3">
 				<Col xs={4}>
 					<Row  className='my-2'>
 						<Col>

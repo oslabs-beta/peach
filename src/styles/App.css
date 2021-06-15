@@ -6,14 +6,14 @@
 .importedMode {
   background-color: #f7cfbc8f;
   height: calc(100% + 60px);
-  height: 46.5rem;
+  height: 50.5rem;
 }
 
-/* .containerApp2 {
+.containerApp2 {
   display: flex;
   align-content: space-around;
   align-items: flex-start;
-} */
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -139,7 +139,7 @@ code {
 
 ._response2 {
   /* background-color: #eb8060; */
-  height: 100%;
+  height: 91vh;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }
 
@@ -176,6 +176,12 @@ p.schema {
 ._editorDisplay {
   align-content: center;
   text-align: center;
+  /* height: 50%; */
+}
+
+._storeDisplay {
+  font-family: Verdana;
+  font-size: 0.8rem;
 }
 
 ._storeDisplay h6 {
@@ -186,6 +192,13 @@ p.schema {
 ._newQuerySelector {
   align-content: center;
   text-align: center;
+  max-height: 40vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+._queryButton {
+  font-size: 0.5rem;
 }
 
 
