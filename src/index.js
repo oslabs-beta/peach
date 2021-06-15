@@ -16,6 +16,7 @@ import {
 } from "react-router-dom";
 import App2 from './components/peach/App2';
 import Navbar from './components/Navbar';
+import ErrorBoundary from './components/ErrorBoundary';
 
 // * Just to speed up the process of decorating the App
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -41,7 +42,9 @@ function Home() {
           <Route path="/peach">
             <RelayEnvironmentProvider environment={RelayEnvironment}>
                 <Suspense fallback={"loading..."}>
+                  <ErrorBoundary>
                     <App2 />
+                  </ErrorBoundary>
                 </Suspense>
             </RelayEnvironmentProvider>
           </Route>
@@ -52,7 +55,9 @@ function Home() {
           <Route path="/">
             <RelayEnvironmentProvider environment={RelayEnvironment}>
                 <Suspense fallback={"loading..."}>
+                  <ErrorBoundary>
                     <App />
+                  </ErrorBoundary>
                 </Suspense>
 	          </RelayEnvironmentProvider>
           </Route>

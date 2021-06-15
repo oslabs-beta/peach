@@ -16,6 +16,7 @@ import SchemaDisplayContainer from './components/SchemaDisplayContainer';
 import WrittenResponseDisplay from './components/WrittenResponseDisplay';
 import QueryContainer from './components/QueryContainer';
 import VariableInput from './components/VariableInput';
+import ErrorBoundary from './components/ErrorBoundary';
 import './styles/App.css';
 
 // import graphql from 'babel-plugin-relay/macro';
@@ -38,7 +39,7 @@ const App = () => {
 
 	let data = useLazyLoadQuery(
 		queryToLoad,
-		variables ? formatJSON(variables) : null
+		variables ? formatJSON(variables) : {}
 	);
 
 	// update response state, only updates when data is fresh
@@ -59,17 +60,21 @@ const App = () => {
 					<Row  className='my-2'>
 						<Col>
 							<Card className='_schemaDisplay'>
-								<SchemaDisplayContainer/>
+								<ErrorBoundary>
+									<SchemaDisplayContainer/>
+								</ErrorBoundary>
 							</Card>	
 						</Col>
 					</Row>
 					<Row>
 						<Col>
 							<Card className='_variableInput'>
-								<VariableInput 
-									variables={variables} 
-									setVariables={setVariables}
-								/>
+								<ErrorBoundary>
+									<VariableInput 
+										variables={variables} 
+										setVariables={setVariables}
+									/>
+								</ErrorBoundary>
 							</Card>
 						</Col>
 					</Row>
@@ -77,21 +82,26 @@ const App = () => {
 				
 				<Col xs={4} className='my-2'>
 					<Card className='_queryContainer'>
-						<QueryContainer 
-							setQueryToLoad={setQueryToLoad}
-							variables={variables}
-						/>
+						<ErrorBoundary>
+							<QueryContainer 
+								setQueryToLoad={setQueryToLoad}
+								variables={variables}
+							/>
+						</ErrorBoundary>
 					</Card>
 				</Col>
 
 				<Col xs={4} className='my-2'>
 					<Card className='_response'>
 						<div id="ResponseDisplay">
-							<Suspense>
-								<WrittenResponseDisplay 
-									response={response ? response : ''}
-								/>
-							</Suspense>
+							<ErrorBoundary>
+								<Suspense>
+									<WrittenResponseDisplay 
+										response={response ? response : ''}
+									/>
+								</Suspense>
+							</ErrorBoundary>
+							
 						</div>
 					</Card>
 				</Col>
