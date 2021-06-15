@@ -2,10 +2,11 @@
 tiny module handles updating of graphql endpoint url, imported in fetchGraphQL
 */
 import schemaHistory from '../database/schemaHistory.json';
+// import db from '../database/db';
+// console.log(db);
 
 const gqlEndpoint = {};
-// currently, we are hard-coding an initial grqphql endpoint
-gqlEndpoint.url = 'https://graphql.anilist.co';
+gqlEndpoint.url = schemaHistory[0];
 
 // accepts a newUrl string to update endpoint, auth defaults to null
 gqlEndpoint.setUrl = (newUrl, auth = null) => {
