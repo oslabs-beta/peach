@@ -41,14 +41,15 @@ const App2 = () =>{
         <Col xs={3}>
           <Row  className='my-2'>
             <Col>
-              <Card className='_editorDisplay'>
-              <h6 className="mt-1">Editor</h6>
-              <EditorDisplay 
-              // queries={importedQueries} 
-              // editorState={editorState}
-              // queryKey={queryKey}
-              />
-              </Card>	
+            <Card className='_variableInput mt-4'>
+                <VariableInput 
+                  variables={variables} 
+                  setVariables={setVariables}
+                />
+              </Card>
+          <Card className='_uploader my-4'>  
+            <Uploader />
+          </Card>	
               <Card className='_storeDisplay mt-4'>
                 <h6 className="mt-1">Store Display</h6>
                 <StoreDisplay
@@ -70,17 +71,10 @@ const App2 = () =>{
               variables={variables}
             />
           </Card>	
-
-          <Card className='_variableInput mt-4'>
-                <VariableInput 
-                  variables={variables} 
-                  setVariables={setVariables}
-                />
-              </Card>
-
-          <Card className='_uploader my-4'>  
-            <Uploader />
-          </Card>	
+          <Card className='_editorDisplay mt-2'>
+              <h6 className="mt-1">Editor</h6>
+              <EditorDisplay/>
+              </Card>	
           
           
         </Col>

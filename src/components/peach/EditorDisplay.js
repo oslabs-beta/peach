@@ -78,12 +78,13 @@ const EditorDisplay = () => {
                     json: true
                 },
                 lineNumbers: true,
-                theme: 'default height4rem readonly',
+                theme: 'default height20rem readonly',
             }}
             />
-            <button onClick={() => {
+            <Button variant='success'
+              onClick={() => {
               saveToImported(editorText)
-            }}>Save Edited Query</button>
+            }}>Save Edited Query</Button>
       </div>
   )
 };
