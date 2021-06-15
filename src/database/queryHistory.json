@@ -1,12 +1,38 @@
 [
   {
-    "queryText": "query importedCharacterQuery {\n  Character(id: 80) {\n    name {\n      full\n      native\n    }\n  }\n}\n",
-    "timeStamp": "11:19:50 AM",
+    "queryText": "query importedLongMediaQuery(\n  $id: Int\n) {\n  Media(id: $id, type: ANIME) {\n    _id: id\n    title {\n      native\n      english\n    }\n  }\n}\n",
+    "url": "https://graphql.anilist.co",
+    "timeStamp": "4:20:57 PM",
+    "dateStamp": "6/15/2021"
+  },
+  {
+    "queryText": "query importedMediaQuery {\n  Media(id: 80) {\n    title {\n      english\n      romaji\n    }\n  }\n}\n",
+    "url": "https://graphql.anilist.co",
+    "timeStamp": "4:20:57 PM",
+    "dateStamp": "6/15/2021"
+  },
+  {
+    "queryText": "query importedThreadQuery {\n  Thread(id: 80) {\n    title\n  }\n}\n",
+    "url": "https://graphql.anilist.co",
+    "timeStamp": "4:20:57 PM",
+    "dateStamp": "6/15/2021"
+  },
+  {
+    "queryText": "query importedUserQuery {\n  User(id: 80) {\n    name\n  }\n}\n",
+    "url": "https://graphql.anilist.co",
+    "timeStamp": "4:20:57 PM",
     "dateStamp": "6/15/2021"
   },
   {
     "queryText": "query writtenQuery(\n  $id: Int\n) {\n  Media(id: $id, type: ANIME) {\n    _id: id\n    title {\n      native\n      english\n      romaji\n    }\n  }\n}\n",
-    "timeStamp": "11:19:31 AM",
+    "url": "https://graphql.anilist.co",
+    "timeStamp": "4:20:57 PM",
+    "dateStamp": "6/15/2021"
+  },
+  {
+    "queryText": "query importedCharacterQuery {\n  Character(id: 80) {\n    name {\n      full\n      native\n    }\n  }\n}\n",
+    "url": "https://graphql.anilist.co",
+    "timeStamp": "4:08:48 PM",
     "dateStamp": "6/15/2021"
   },
   {

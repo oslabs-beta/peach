@@ -6,6 +6,7 @@ and populates the QueryContainer with the selected queries text
 import React, { useState, useEffect } from 'react';
 import * as importedQueries from '../relay/__generated__';
 import QueryButton from './QueryButton';
+import db from '../database/db';
 
 const QuerySelector = ({
     setQueryKey,
@@ -24,7 +25,7 @@ const QuerySelector = ({
         setQueryButtons(queryButtonDetails);
     }, []);
     
-
+    console.log(queryButtons);
     return (
         <div className="mb-3">
             {queryButtons.map(query => {
@@ -38,6 +39,7 @@ const QuerySelector = ({
                     />
                 )
             })}
+            <button onClick={() => queryButtons.forEach(query => db.addQuery(query.params.text))}>Save to History</button>
         </div>
     )
 }
