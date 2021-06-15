@@ -54,24 +54,26 @@ const App = () => {
 	const [variables, setVariables] = useState('');
 
 	// Define the config we'll need for our Api request
-	const url = 'https://graphql.anilist.co',
-			options = {
-					method: 'POST',
-					headers: {
-							'Content-Type': 'application/json',
-							'Accept': 'application/json',
-					},
-					body: JSON.stringify({
-							query: query,
-							variables: variables
-					})
-			};
+	let url = 'https://graphql.anilist.co';
+	let options = {
+			method: 'POST',
+			headers: {
+					'Content-Type': 'application/json',
+					'Accept': 'application/json',
+			},
+			body: JSON.stringify({
+					query: query,
+					variables: variables // || {}
+			})
+	};
 	
 	// Make the HTTP Api request
 	const submitTypedQuery = () => {
-		fetch(url, options).then(handleResponse)
-										 	 .then(handleData)
-										   .catch(handleError);
+		fetch(url, options)
+			.then(handleResponse)
+			.then(handleData)
+			.catch(handleError);
+			// ! db.addQuery(options.query)
 	}
 	
 	//Helper functions for submitTypedQuery:
