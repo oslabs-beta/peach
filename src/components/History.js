@@ -8,7 +8,7 @@ import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 import db from '../database/db.js';
 
-const History = ({setQueryText, submitQuery}) => {
+const History = ({setQuery, submitQuery}) => {
 
     const [history, setHistory] = useState(db.getQueryHistory());
     // formatting for better UI
@@ -24,8 +24,8 @@ const History = ({setQueryText, submitQuery}) => {
 
     const reloadHistory = (queryText) => {
         // console.log('reloaded history with', queryText);
-        setQueryText(queryText);
         // submitQuery(); for now, we don't want to immediately submit
+        setQuery(queryText);
     };
 
 

@@ -23,10 +23,9 @@ import { Controlled as ControlledEditor } from 'react-codemirror2';
 const execSync = require('child_process').execSync;
 
 const QueryContainer = ({submitTypedQuery, query, setQuery}) => {
-  // import the current text of the importedQuery file, slicing off the beginning boilerplate
-  let initialQueryText = writtenQuery.params.text;
-
-  const [queryText, setQueryText] = useState(initialQueryText);
+  // import the current text of the importedQuery file, slicing off the beginning boilerplate(do we need anymore??)
+  // let initialQueryText = writtenQuery.params.text;
+  // const [queryText, setQueryText] = useState(initialQueryText);
 
   const updateQueryText = (editor, data, value) => {
     setQuery(value);
@@ -36,7 +35,7 @@ const QueryContainer = ({submitTypedQuery, query, setQuery}) => {
     <Container>
       <div>
         <History 
-          setQueryText={setQueryText}
+          setQuery={setQuery}
           />
         {/* <textarea type="text" rows="24" value={queryText} onChange={updateQueryText} placeholder="Enter Query Here"  className='my-2 _queries'></textarea> */}
         <ControlledEditor

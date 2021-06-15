@@ -38,6 +38,8 @@ const path = require('path');
 const fs = require('fs');
 const axios = require('axios').default;
 
+import db from './database/db';
+
 //experimental hook for updating variable state. Currently breaks app when used.
 const useJsonVariables = (input) => {
 	const [variables, _setVariables] = useState(input);
@@ -73,7 +75,7 @@ const App = () => {
 			.then(handleResponse)
 			.then(handleData)
 			.catch(handleError);
-			// ! db.addQuery(options.query)
+		db.addQuery(query);
 	}
 	
 	//Helper functions for submitTypedQuery:
