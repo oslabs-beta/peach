@@ -1,5 +1,7 @@
 /* 
-stateless component renders query response data passed from App.js 
+stateless component renders query response data passed from App2.js 
+Note that this is not the same as the WrittenResponseDisplay, which 
+currently uses useLazyLoadQuery to render on start-up. 
 */ 
 
 import React, {Suspense} from 'react';
@@ -8,7 +10,7 @@ import '../styles/styles.css';
 import Response from './Response';
 
 
-const ResponseDisplay = ({initialQueryReference, queryToLoad}) => {
+const ResponseDisplay = ({initialQueryReference, queryToLoad, variables}) => {
   
   return (
     <Container className='response-container'>
@@ -18,9 +20,10 @@ const ResponseDisplay = ({initialQueryReference, queryToLoad}) => {
         </h4>
           <Suspense fallback="Loading...">
             {initialQueryReference != null ? 
-            <Response 
+            <Response
               initialQueryReference={initialQueryReference}
-              queryToLoad={queryToLoad}>
+              queryToLoad={queryToLoad}
+              variables={variables}>
             </Response> : null}
           </Suspense>
       </div>
