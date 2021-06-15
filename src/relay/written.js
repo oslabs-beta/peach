@@ -7,7 +7,6 @@ export default graphql`query writtenQuery(
     title {
       native
       romaji
-      english
     }
   }
 }

@@ -45,6 +45,7 @@
 
 .ModalContent p {
     margin-bottom: 1rem;
+    font-size: 0.9rem;
 }
 
 .ModalContent button {
@@ -67,13 +68,13 @@
   z-index: 10;
 }
 
-.card {
+.card2 {
   background-color: #fbb78d;
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 0.2rem;
 }
 
-.card .modalText {
+.card2 .modalText {
   font-size: 0.65em; 
 }
 
