@@ -32,22 +32,12 @@ const QueryContainer = ({submitTypedQuery, query, setQuery}) => {
     setQuery(value);
   }
 
-  const submitQuery = () => {
-    // file boilerplate
-    const queryFileStart = 'import graphql from \'graphql\'\;\nexport default graphql`';
-    const queryFileEnd = '`;';
-    const fullQueryText = aliasID(queryFileStart + queryText + queryFileEnd);
-    fs.writeFileSync(path.resolve('./src/relay/written.js'), fullQueryText);
-    db.add();
-    execSync('npm run relay', { encoding: 'utf-8' });
-  }
-
   return (
     <Container>
       <div>
         <History 
           setQueryText={setQueryText}
-          submitQuery={submitQuery}/>
+          />
         {/* <textarea type="text" rows="24" value={queryText} onChange={updateQueryText} placeholder="Enter Query Here"  className='my-2 _queries'></textarea> */}
         <ControlledEditor
             onBeforeChange={updateQueryText}

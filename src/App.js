@@ -36,17 +36,6 @@ const path = require('path');
 const fs = require('fs');
 const axios = require('axios').default;
 
-// import * as schema from './schema.graphql';
-
-import { parse, visit, print } from 'graphql/language';
-
-const schema = fs.readFileSync(path.resolve('./schema.graphql'), 'utf8');
-
-const pathToSchema = path.resolve('./schema.graphql');
-
-const graphqlSchema = parse(schema);
-
-const jsonSchema = makeJsonSchema();
 
 const useJsonVariables = (input) => {
 	const [variables, _setVariables] = useState(input);
@@ -54,7 +43,7 @@ const useJsonVariables = (input) => {
 		const parser = JSON.parse(value)
 		_setVariables(parser);
 	}
-	return [variables, _setVariables];
+	return [variables, setVariables];
 }
 
 const App = () => {
@@ -67,7 +56,7 @@ const App = () => {
 
 	const [response, setResponse] = useState('');
 	const [query, setQuery] = useState('');
-	const [variables, setVariables] = useJsonVariables();
+	const [variables, setVariables] = useState('');
 	
 	//Default query and variables to test with
 	var query2 = `
@@ -83,10 +72,9 @@ const App = () => {
 	}
 	`;
 	const variables2 = {
-			id: 15125
+			"id": 15125
 	};
 	
-	console.log(variables);
 
 	// Define the config we'll need for our Api request
 	const url = 'https://graphql.anilist.co',
@@ -104,6 +92,7 @@ const App = () => {
 	
 	// Make the HTTP Api request
 	const submitTypedQuery = () => {
+		// setVariables(JSON.parse(variables));
 		fetch(url, options).then(handleResponse)
 										 	 .then(handleData)
 										   .catch(handleError);
