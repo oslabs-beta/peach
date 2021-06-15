@@ -2,8 +2,6 @@ import React, { useState, useEffect }from 'react';
 import RelayEnvironment from '../relay/RelayEnvironment';
 const store = RelayEnvironment.getStore();
 // import { RecordSourceSelectorProxy } from 'relay-runtime';
-console.log(store);
-
 
 const StoreDisplay = ({queryToLoad, variables}) => {
 
