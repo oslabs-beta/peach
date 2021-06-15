@@ -29,12 +29,8 @@
   clear: both;
 }
 
-.container {
-  width: 95%;
-  min-height: 100px;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
+.container2:hover {
+  background-color: rgba(243, 174, 157, 0.664);
 }
 
 .jumbotron {
@@ -88,6 +84,7 @@
   
   z-index: -1;
 }
+
 @media (min-width: 33em) {
   .steps li:before {
     border-radius: 50%;

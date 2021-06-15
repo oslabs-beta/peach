@@ -36,9 +36,12 @@ dragFile.addEventListener('drop', function (e) {
 //     ipcRenderer.send('close-me')
 // });
 
+//require in exec to run terminal commands in js:
+const execSync = require('child_process').execSync;
+
 var win = remote.BrowserWindow.getFocusedWindow();
 var quit = document.querySelector("#closer");
 quit.addEventListener("click", () => {
+  execSync('npm run relay', { encoding: 'utf-8' });
   win.close();
 });
-       

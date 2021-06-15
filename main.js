@@ -175,8 +175,12 @@ ipcMain.on('clickedbutton', (event, data) => {
 			});
 });
 
+//require in exec to run terminal commands in js:
+const execSync = require('child_process').execSync;
+
 ipcMain.on('close-me', (evt, arg) => {
   var addwindow = remote.createAddWindow()
+	execSync('npm run relay', { encoding: 'utf-8' });
   addwindow.close()
 })
 

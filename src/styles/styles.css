@@ -108,6 +108,13 @@ code {
   max-height: 12rem !important;
 }
 
+._responseDisplay2 {
+  margin-left: 1rem;
+  text-align: left; 
+  font-size: 0.8em; 
+  max-height: 6rem !important;
+}
+
 #responseText {
   margin-top: 1rem;
   background-color: #fbb78d;
@@ -115,20 +122,24 @@ code {
   border-radius: 0.5rem;
 }
 
-_response-container2 {
-  max-height: 20rem;
+._response2 {
+  height: 20rem;
 }
 
-._responseDisplay2 {
+#responseDisplay2 {
   margin-left: 1rem;
   text-align: left; 
   font-size: 0.8em; 
-  max-height: 12rem !important;
+  max-height: 24rem !important;
 }
 
 #responseText2 {
   margin-top: 1rem;
   background-color: #fbb78d;
-  height: 29rem;
+  height: 25rem;
   border-radius: 0.5rem;
+}
+
+._WrittenResponseDisplay {
+  max-height: 20rem !important;
 }

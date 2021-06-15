@@ -9,6 +9,7 @@ import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import App2 from './components/peach/App2';
 // import logo from '../assets/PeachLogo.png';
 
 import Navbar from './components/Navbar';
@@ -17,6 +18,7 @@ import WrittenResponseDisplay from './components/WrittenResponseDisplay';
 import QueryContainer from './components/QueryContainer';
 import VariableInput from './components/VariableInput';
 import './styles/App.css';
+import './styles/styles.css';
 
 // import graphql from 'babel-plugin-relay/macro';
 
@@ -47,14 +49,14 @@ const App = () => {
     }, []);
 
 	return (
-		<Container className="App" fluid>
+		<Container className="App" fluid id="App1">
 			<Row>
 				<Col xs={12}>
 					<Navbar />
 				</Col>
 			</Row>
 			
-			<Row>
+			<Row className="mb-3">
 				<Col xs={4}>
 					<Row  className='my-2'>
 						<Col>
@@ -96,6 +98,13 @@ const App = () => {
 					</Card>
 				</Col>
 			</Row>
+			
+			<Row>
+				
+				<App2 className="App2" />
+
+			</Row>
+
 		</Container>
 	)
 }
