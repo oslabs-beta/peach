@@ -1,8 +1,18 @@
 [
   {
     "queryText": "query importedCharacterQuery {\n  Character(id: 80) {\n    name {\n      full\n      native\n    }\n  }\n}\n",
-    "timeStamp": "2:25:07 PM",
-    "dateStamp": "6/14/2021"
+    "timeStamp": "11:19:50 AM",
+    "dateStamp": "6/15/2021"
+  },
+  {
+    "queryText": "query writtenQuery(\n  $id: Int\n) {\n  Media(id: $id, type: ANIME) {\n    _id: id\n    title {\n      native\n      english\n      romaji\n    }\n  }\n}\n",
+    "timeStamp": "11:19:31 AM",
+    "dateStamp": "6/15/2021"
+  },
+  {
+    "queryText": "query writtenQuery(\n  $id: Int\n) {\n  Media(id: $id, type: ANIME) {\n    _id: id\n    title {\n      native\n      \n    }\n  }\n}\n",
+    "timeStamp": "11:19:00 AM",
+    "dateStamp": "6/15/2021"
   },
   {
     "queryText": "query writtenQuery(\n  $id: Int\n) {\n  Media(id: $id, type: ANIME) {\n    _id: id\n    title {\n      native\n      romaji\n      english\n    }\n  }\n}\n",
