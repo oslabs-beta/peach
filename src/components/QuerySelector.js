@@ -25,7 +25,6 @@ const QuerySelector = ({
         setQueryButtons(queryButtonDetails);
     }, []);
     
-    console.log(queryButtons);
     return (
         <div className="mb-3">
             {queryButtons.map(query => {

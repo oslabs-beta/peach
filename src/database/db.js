@@ -81,7 +81,7 @@ db.addImported = (fileContents, name) => {
 /* adds a url to the schemaHistory database, which is an object, 
 unlike the other json files */
 db.addURL = (schemaName) => {
-    newEntry = {};
+    const newEntry = {};
     newEntry.name = schemaName;
     newEntry.url = gqlEndpoint.url;
     newEntry.lastUsed = new Date().toLocaleString();
