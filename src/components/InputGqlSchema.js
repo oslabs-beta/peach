@@ -4,13 +4,14 @@ import Button from 'react-bootstrap/Button';
 import Modal from './Modal';
 // import FileDownloader from "./FileDownloader";
 import gqlEndpoint from '../relay/gqlEndpoint';
+import db from '../database/db';
 
 const InputGqlSchema = () => {
   const [showModal, setShowModal] = useState(false);
   const [schemaName, setSchemaName] = useState(gqlEndpoint.url);
 
   //* Original Schema/Database used as demo
-  const schemaUrl = 'anilist.co';
+  const schemaUrl = db.getSchemaHistory()[0].name;
 
   // effect (side effect)
   useEffect(() => {
