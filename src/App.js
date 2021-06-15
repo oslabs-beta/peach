@@ -21,14 +21,13 @@ import './styles/App.css';
 // import graphql from 'babel-plugin-relay/macro';
 
 
-//useLazyLoadQuery imports
+//useLazyLoadQuery relay imports
 import { useLazyLoadQuery } from 'react-relay';
 import writtenQuery from './relay/__generated__/writtenQuery.graphql'
 import { Suspense } from 'react';
 
 
 //Roland's imports:
-// import * as schema from '../schema.graphql';
 import { graphql } from 'graphql';
 import aliasID from './relay/aliasID';
 import makeJsonSchema from './relay/makeJsonSchema';
@@ -36,7 +35,7 @@ const path = require('path');
 const fs = require('fs');
 const axios = require('axios').default;
 
-
+//experimental hook for updating variable state. Currently breaks app when used.
 const useJsonVariables = (input) => {
 	const [variables, _setVariables] = useState(input);
 	const setVariables = value => {
@@ -47,34 +46,9 @@ const useJsonVariables = (input) => {
 }
 
 const App = () => {
-
-	// const [queryToLoad, setQueryToLoad] = useState(writtenQuery);
-	// const [response, setResponse] = useState(data);
-	// const [variables, setVariables] = useState('{"id": 15125}');
-
-	//Roland's data:
-
 	const [response, setResponse] = useState('');
 	const [query, setQuery] = useState('');
 	const [variables, setVariables] = useState('');
-	
-	//Default query and variables to test with
-	var query2 = `
-	query ($id: Int) { # Define which variables will be used in the query (id)
-		Media (id: $id, type: ANIME) { # Insert our variables into the query arguments (id) (type: ANIME is hard-coded in the query)
-			id
-			title {
-				romaji
-				english
-				native
-			}
-		}
-	}
-	`;
-	const variables2 = {
-			"id": 15125
-	};
-	
 
 	// Define the config we'll need for our Api request
 	const url = 'https://graphql.anilist.co',
@@ -92,7 +66,6 @@ const App = () => {
 	
 	// Make the HTTP Api request
 	const submitTypedQuery = () => {
-		// setVariables(JSON.parse(variables));
 		fetch(url, options).then(handleResponse)
 										 	 .then(handleData)
 										   .catch(handleError);
@@ -109,11 +82,6 @@ const App = () => {
 	}
 	function handleError(error) {
 			console.error(error);
-	}
-
-	// formatting 'variables' string into JSON object for useLazyLoadQuery
-	function formatJSON(input) {
-		return JSON.parse(input);
 	}
 
 	return (
