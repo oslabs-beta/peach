@@ -38,7 +38,7 @@ const QueryContainer = ({loadQuery, variables}) => {
     const queryFileEnd = '`;';
     const fullQueryText = aliasID(queryFileStart + queryText + queryFileEnd);
     fs.writeFileSync(path.resolve('./src/relay/written.js'), fullQueryText);
-    db.add();
+    db.addQuery(queryText);
     execSync('npm run relay', { encoding: 'utf-8' });
   }
 

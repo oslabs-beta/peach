@@ -1,4 +1,5 @@
 import React from 'react';
+// import db from '../database/db';
 import Button from 'react-bootstrap/Button';
 
 const QueryButton = ({query, setQueryToLoad, loadQuery, variables}) =>  {
@@ -12,6 +13,7 @@ const QueryButton = ({query, setQueryToLoad, loadQuery, variables}) =>  {
                 onClick={() => {
                     setQueryToLoad(query);
                     loadQuery(JSON.parse(variables));
+                    // db.addQuery(query.params.text);
                 }}>
                   {query.params.text}
             </Button>

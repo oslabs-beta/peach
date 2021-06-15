@@ -1,5 +1,6 @@
 /* 
-renders information about query history from the local database
+renders information about query history from the local database in a 
+drop-down menu, indexed by timestamp and query text
 */
 
 import React, { useState, useEffect } from 'react';
@@ -9,11 +10,11 @@ import db from '../database/db.js';
 
 const History = ({setQueryText, submitQuery}) => {
 
-    const [history, setHistory] = useState(db.getHistory());
+    const [history, setHistory] = useState(db.getQueryHistory());
     // formatting for better UI
     const trimmedHistory = history.map(historyObject => {
         const optionObject = {};
-        optionObject.label = historyObject.createdAt 
+        optionObject.label = historyObject.timeStamp 
                            + '\n'
                            + historyObject.queryText.slice(0, 25) 
                            + '...';

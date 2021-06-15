@@ -2,6 +2,7 @@
 handles the task of parsing schema.graphql into json, 
 which allows other components to render and manipulate the data
 */
+
 const { parse, visit, print } = require('graphql/language');
 const path = require('path');
 const fs = require('fs');

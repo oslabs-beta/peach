@@ -11,7 +11,7 @@ const VariableInput = ({variables, setVariables, loadQuery}) => {
 
     const handleChange = (editor, data, value) => {
         setVariables(value);
-        loadQuery(variables);
+        loadQuery(JSON.parse(variables));
     }
 
     return (
