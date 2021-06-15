@@ -1,7 +1,7 @@
 /* 
 tiny module handles updating of graphql endpoint url, imported in fetchGraphQL
 */
-
+import schemaHistory from '../database/schemaHistory.json';
 
 const gqlEndpoint = {};
 // currently, we are hard-coding an initial grqphql endpoint

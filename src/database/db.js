@@ -7,15 +7,19 @@ and previous saved versions of the imported.js file
 
 const fs = require('fs');
 const path = require('path');
-// ! uncomment when gqlEndpoint is hooked up from the other branch
-// import gqlEndpoint from '../relay/gqlEndpoint';
+import gqlEndpoint from '../relay/gqlEndpoint';
+
 const queryHistoryJSON = require('./queryHistory.json');
 const queryHistoryPath = path.resolve('./src/database/queryHistory.json');
-const importedHistoryJSON = require('./importedHistory.json');
-const importedHistoryPath = path.resolve('./src/database/importedHistory.json')
-
 let queryHistoryArray = queryHistoryJSON || [];
+
+const importedHistoryJSON = require('./importedHistory.json');
+const importedHistoryPath = path.resolve('./src/database/importedHistory.json');
 let importedHistoryArray = importedHistoryJSON || [];
+
+const schemaHistoryJSON = require('./schemaHistory.json');
+const schemaHistoryPath = path.resolve('./src/database/schemaHistory.json');
+const schemaHistoryObject = schemaHistoryJSON || {};
 
 const db = {};
 
@@ -47,8 +51,7 @@ db.addQuery = (queryText) => {
     if (index !== -1) {
         queryHistoryArray.splice(index, 1);
     }
-    // ! uncomment when gqlEndpoint is hooked up from the other branch
-    // newEntry.url = gqlEndpoint.url;
+    newEntry.url = gqlEndpoint.url;
     newEntry.timeStamp = new Date().toLocaleTimeString();
     newEntry.dateStamp = new Date().toLocaleDateString();
     queryHistoryArray.unshift(newEntry);
@@ -64,8 +67,7 @@ db.addImported = (fileContents, name) => {
     const newEntry = {};
     newEntry.fileContents = fileContents;
     newEntry.name = name;
-    // ! uncomment when gqlEndpoint is hooked up from the other branch
-    // newEntry.url = gqlEndpoint.url; 
+    newEntry.url = gqlEndpoint.url; 
     const index = queryHistoryArray.findIndex(entry => entry.name === newEntry.name);
     if (index !== -1) {
         importedHistoryArray.splice(index, 1);
@@ -76,6 +78,13 @@ db.addImported = (fileContents, name) => {
     db.sync(importedHistoryArray, importedHistoryJSON, importedHistoryPath);
 }
 
+/* adds a url to the schemaHistory database, which is an object, 
+unlike the other json files */
+db.addURL = (schemaName) => {
+    schemaHistoryObject[schemaName] = gqlEndpoint.url;
+    db.sync(schemaHistoryObject, schemaHistoryJSON, schemaHistoryPath)
+}
+
 /* writes the passed-in history array to the relevant json file and resets 
 the local history array to keep it up to date */
 db.sync = (array, json, path) => {
@@ -83,13 +92,14 @@ db.sync = (array, json, path) => {
     db.reset(array, json);
 };
 
-// clears the queryHistory permanently
+// clears the passed-in history permanently
 db.clear = (path) => {
     fs.writeFileSync(path, '');
 }
 
-// these functions return the relevant history array
+// these functions return the relevant history array or object
 db.getQueryHistory = () => queryHistoryArray;
 db.getImportedHistory = () => importedHistoryArray;
+db.getSchemaHistory = () => schemaHistoryObject;
 
 export default db;
