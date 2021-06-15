@@ -7,9 +7,8 @@ import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-// import logo from '../assets/PeachLogo.png';
 
-import Footer from '../Footer';
+import Navbar from '../Navbar';
 import QuerySelector from '../QuerySelector';
 import { useQueryLoader } from 'react-relay';
 import writtenQuery from '../../relay/__generated__/writtenQuery.graphql'
@@ -23,7 +22,7 @@ const remote = electron.remote
 const {dialog} = remote
 const ipcRenderer  = electron.ipcRenderer;
 
-const App2 = () =>{
+const ImportedMode = () =>{
 
   const [queryToLoad, setQueryToLoad] = useState(writtenQuery);
 	const [variables, setVariables] = useState('{"id": 15125}');
@@ -34,8 +33,15 @@ const App2 = () =>{
 
     return(
     <>
-      <Container className="App2" fluid>        
-      <Row className="containerApp2 mt-5" >
+      <Container className="importedMode" fluid id="importedMode"> 
+
+      <Row>
+        <Col>
+          <Navbar />
+        </Col>
+      </Row>   
+
+      <Row className="containerApp2 mt-2" >
         <Col xs={3}>
           <Row  className='my-2'>
             <Col>
@@ -91,14 +97,9 @@ const App2 = () =>{
               
         </Col>
 			</Row>
-      <Row>
-        <Col>
-          <Footer />
-        </Col>
-      </Row>
 		  </Container>
     </>
     )
 };
 
-export default App2;
+export default ImportedMode;

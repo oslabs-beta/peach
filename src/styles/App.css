@@ -1,11 +1,12 @@
-.App {
+.AppRelay {
   background-color: #ffeae17a;
   height: calc(100% - 60px);
 }
 
 .importedMode {
   background-color: #f7cfbc8f;
-  height: calc(100% - 60px);
+  height: calc(100% + 60px);
+  height: 46.5rem;
 }
 
 /* .containerApp2 {
