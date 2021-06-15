@@ -22,31 +22,69 @@ import './styles/styles.css';
 
 // import graphql from 'babel-plugin-relay/macro';
 
-//useLazyLoadQuery imports
+
+//useLazyLoadQuery relay imports
 import { useLazyLoadQuery } from 'react-relay';
 import writtenQuery from './relay/__generated__/writtenQuery.graphql'
 import { Suspense } from 'react';
 
-const App = () => {
 
-	const [queryToLoad, setQueryToLoad] = useState(writtenQuery);
-	const [response, setResponse] = useState(data);
-	const [variables, setVariables] = useState('{"id": 15125}');
-		
-	// formatting 'variables' string into JSON object for useLazyLoadQuery
-	function formatJSON(input) {
-		return JSON.parse(input);
+//Roland's imports:
+import { graphql } from 'graphql';
+import aliasID from './relay/aliasID';
+import makeJsonSchema from './relay/makeJsonSchema';
+const path = require('path');
+const fs = require('fs');
+const axios = require('axios').default;
+
+//experimental hook for updating variable state. Currently breaks app when used.
+const useJsonVariables = (input) => {
+	const [variables, _setVariables] = useState(input);
+	const setVariables = value => {
+		const parser = JSON.parse(value)
+		_setVariables(parser);
 	}
+	return [variables, setVariables];
+}
 
-	let data = useLazyLoadQuery(
-		queryToLoad,
-		variables ? formatJSON(variables) : null
-	);
+const App = () => {
+	const [response, setResponse] = useState('');
+	const [query, setQuery] = useState('');
+	const [variables, setVariables] = useState('');
 
-	// update response state, only updates when data is fresh
-    useEffect(() => {
-        setResponse(data);
-    }, []);
+	// Define the config we'll need for our Api request
+	const url = 'https://graphql.anilist.co',
+			options = {
+					method: 'POST',
+					headers: {
+							'Content-Type': 'application/json',
+							'Accept': 'application/json',
+					},
+					body: JSON.stringify({
+							query: query,
+							variables: variables
+					})
+			};
+	
+	// Make the HTTP Api request
+	const submitTypedQuery = () => {
+		fetch(url, options).then(handleResponse)
+										 	 .then(handleData)
+										   .catch(handleError);
+	}
+	
+	//Helper functions for submitTypedQuery:
+	function handleResponse(response) {
+			return response.json().then(function (json) {
+					return response.ok ? json : Promise.reject(json);
+			});
+	}
+	function handleData(data) {
+			setResponse(data.data);
+	}
+	function handleError(error) {
+			console.error(error);
+	}
 
 	return (
 		<Container className="App" fluid id="App1">
@@ -79,9 +117,10 @@ const App = () => {
 				
 				<Col xs={4} className='my-2'>
 					<Card className='_queryContainer'>
-						<QueryContainer 
-							setQueryToLoad={setQueryToLoad}
-							variables={variables}
+						<QueryContainer
+							submitTypedQuery={submitTypedQuery}
+							query={query}
+							setQuery={setQuery}
 						/>
 					</Card>
 				</Col>
@@ -91,7 +130,7 @@ const App = () => {
 						<div id="ResponseDisplay">
 							<Suspense>
 								<WrittenResponseDisplay 
-									response={response ? response : ''}
+									response={response}
 								/>
 							</Suspense>
 						</div>
