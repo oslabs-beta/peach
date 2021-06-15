@@ -36,7 +36,10 @@ query writtenQuery(
     _id: id
     title {
       native
+<<<<<<< HEAD
       english
+=======
+>>>>>>> dev
       romaji
     }
   }
@@ -99,6 +102,7 @@ v1 = [
             "kind": "ScalarField",
             "name": "english",
             "storageKey": null
+<<<<<<< HEAD
           },
           {
             "alias": null,
@@ -106,6 +110,8 @@ v1 = [
             "kind": "ScalarField",
             "name": "romaji",
             "storageKey": null
+=======
+>>>>>>> dev
           }
         ],
         "storageKey": null
@@ -132,16 +138,28 @@ return {
     "selections": (v1/*: any*/)
   },
   "params": {
+<<<<<<< HEAD
     "cacheID": "724a7d3a8936f1555e419c87131b2696",
+=======
+    "cacheID": "05aa46ae34f9c44a18c501144233b413",
+>>>>>>> dev
     "id": null,
     "metadata": {},
     "name": "writtenQuery",
     "operationKind": "query",
+<<<<<<< HEAD
     "text": "query writtenQuery(\n  $id: Int\n) {\n  Media(id: $id, type: ANIME) {\n    _id: id\n    title {\n      native\n      english\n      romaji\n    }\n  }\n}\n"
+=======
+    "text": "query writtenQuery(\n  $id: Int\n) {\n  Media(id: $id, type: ANIME) {\n    _id: id\n    title {\n      native\n      romaji\n    }\n  }\n}\n"
+>>>>>>> dev
   }
 };
 })();
 // prettier-ignore
+<<<<<<< HEAD
 (node/*: any*/).hash = 'acd556a0d1d06081425ac104a5f4bec3';
+=======
+(node/*: any*/).hash = '24531f8b8bcca81e0fce33b86b993ec2';
+>>>>>>> dev
 
 module.exports = node;

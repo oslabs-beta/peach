@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <style>
+    .main-window {
+  border-radius: 20px;
+  background-color: white;
+  height: 100vh;
+  margin-bottom: 100px
+    }
+  </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-  <link rel="icon"
- href="favicon.ico">
+  <link rel="icon" href="../assets/icons/png/icon.png">
   <title>Peach QE - Desktop Visualizer for React-Relay Applications</title>
 </head>
 <body align='center'>
@@ -15,6 +22,132 @@
       <!-- <img src="../assets/PeachLogo.png" width='350px'> -->
     </div>
   </nav>
+  <body>
+    <div style="text-align:center; width: 90%">
+        <div style="text-align:center;">
+            <input type="text" placeholder="Please select a file" id="actual-file" disabled="disabled"/>
+            <input type="button" value="Choose a file" id="select-file"/>
+        </div>
+        <br><br>
+        <textarea id="content-editor" rows="5"></textarea><br><br>
+        <input type="button" id="save-changes" value="Save changes"/>
+        <input type="button" id="delete-file" value="Delete file"/>
+    </div>
+    <hr>
+    <div style="text-align:center;">
+        <p>
+            The file content will be the same as the editor.
+        </p>
+        <input type="button" value="Choose a file" id="create-new-file"/>
+    </div>
   <div id="peach"></div>
+    <script>
+        // var remote = require('remote'); 
+        // var dialog = remote.require('dialog');
+        // var fs = require('fs');
+            
+        // Load remote compnent that contains the dialog dependency
+  const remote = require('remote'); 
+  // Load the dialogs component of the OS
+  const {dialog} = require('electron').remote; 
+   // Load the File System to execute our common tasks (CRUD)
+  const fs = require('fs');
+  const app = require('electron').remote; 
+
+        document.getElementById('select-file').addEventListener('click',function(){
+            dialog.showOpenDialog(function (fileNames) {
+                if(fileNames === undefined){
+                    console.log("No file selected");
+                }else{
+                    document.getElementById("actual-file").value = fileNames[0];
+                    readFile(fileNames[0]);
+                }
+            }); 
+        },false);
+        
+        document.getElementById('save-changes').addEventListener('click',function(){
+            var actualFilePath = document.getElementById("actual-file").value;
+            
+            if(actualFilePath){
+                saveChanges(actualFilePath,document.getElementById('content-editor').value);
+            }else{
+                alert("Please select a file first");
+            }
+        },false);
+        
+        document.getElementById('delete-file').addEventListener('click',function(){
+            var actualFilePath = document.getElementById("actual-file").value;
+            
+            if(actualFilePath){
+                deleteFile(actualFilePath);
+                document.getElementById("actual-file").value = "";
+                document.getElementById("content-editor").value = "";
+            }else{
+                alert("Please select a file first");
+            }
+        },false);
+        
+        document.getElementById('create-new-file').addEventListener('click',function(){
+            var content = document.getElementById("content-editor").value;
+            
+            dialog.showSaveDialog(function (fileName) {
+                if (fileName === undefined){
+                    console.log("You didn't save the file");
+                    return;
+                }
+                
+                fs.writeFile(fileName, content, function (err) {
+                    if(err){
+                        alert("An error ocurred creating the file "+ err.message)
+                    }
+                    
+                    alert("The file has been succesfully saved");
+                });
+            }); 
+        },false);
+        
+        function readFile(filepath) {
+            fs.readFile(filepath, 'utf-8', function (err, data) {
+                if(err){
+                    alert("An error ocurred reading the file :" + err.message);
+                    return;
+                }
+                
+                document.getElementById("content-editor").value = data;
+            });
+        }
+        
+        function deleteFile(filepath){
+            fs.exists(filepath, function(exists) {
+                if(exists) {
+                    // File exists deletings
+                    fs.unlink(filepath,function(err){
+                        if(err){
+                            alert("An error ocurred updating the file"+ err.message);
+                            console.log(err);
+                            return;
+                        }
+                    });
+                } else {
+                    alert("This file doesn't exist, cannot delete");
+                }
+            });
+        }
+        
+        function saveChanges(filepath,content){
+            fs.writeFile(filepath, content, function (err) {
+                if(err){
+                    alert("An error ocurred updating the file"+ err.message);
+                    console.log(err);
+                    return;
+                }
+                
+                alert("The file has been succesfully saved");
+            }); 
+        }
+    </script>
+
+
 </body>
 </html>
+
