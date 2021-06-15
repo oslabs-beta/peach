@@ -1,12 +1,16 @@
 /* 
 This file holds the main window process for Electron, rendering the desktop window of the application
 */
-
 const path = require('path');
 const url = require('url');
-const { app, BrowserWindow, Menu } = require('electron');
+const { app, BrowserWindow, Menu} = require('electron');
 const mainMenuTemplate = require('./electron/menu');
+const remote = require('electron')
+const {dialog} = remote
 // const createAddWindow = require('./electron/newWindow')
+
+//***//
+
 
 let mainWindow
 
@@ -29,6 +33,9 @@ function createMainWindow() {
 		icon: `${__dirname}/assets/icons/png/icon.png`,
 		webPreferences: {
 			nodeIntegration: true,
+			contextIsolation: false,
+			enableRemoteModule:true,
+			worldSafeExecuteJavaScript: true,
 		},
 	})
 
@@ -100,3 +107,81 @@ app.on('activate', () => {
 
 // Stop error, note may become deprecated
 app.allowRendererProcessReuse = true
+
+// TODO electron application codes
+
+const { ipcMain } = require('electron')
+let fs = require('fs')
+  
+
+ipcMain.on('ondragstart', (event, filePath) => {
+    
+  readFile(filePath);
+
+  function readFile(filepath) { 
+    fs.readFile(filepath, 'utf-8', (err, data) => { 
+       
+       if(err){ 
+          alert("An error ocurred reading the file :" + err.message) 
+          return 
+       } 
+       
+       // handle the file content 
+       event.sender.send('fileData', data) 
+    }) 
+ } 
+})
+
+
+
+ipcMain.on('clickedbutton', (event, data) => {
+
+	// console.log('This is the data we want to save: ', data)
+  // Resolves to a Promise<Object>
+  dialog.showSaveDialog({
+		title: 'Select the File Path to save',
+    defaultPath: path.join(__dirname, '../relay/imported/imported.js'),
+    // defaultPath: path.join(__dirname, '../assets/'),
+    buttonLabel: 'Save',
+		filters: [
+				{ 
+					name: 'GraphQL query', 
+					extensions: ['js', 'txt'] 
+				}
+			],
+		properties: []
+		}).then(file => {
+			// Stating whether dialog operation was cancelled or not.
+			console.log(file.canceled);
+			if (!file.canceled) {
+				console.log(file.filePath.toString());
+
+			// Creating and Writing to the sample.txt file
+			fs.writeFile(
+				file.filePath.toString(),
+				data,
+				(err) => {
+					if(err) {
+						alert("An error ocurred updating the file"+ err.message);
+						console.log(err);
+						return;
+					}
+					console.log('Saved!');
+					// alert("The file has been succesfully saved");
+				})
+			}
+			}).catch(err => {
+				console.log(err);
+			});
+});
+
+//require in exec to run terminal commands in js:
+const execSync = require('child_process').execSync;
+
+ipcMain.on('close-me', (evt, arg) => {
+  var addwindow = remote.createAddWindow()
+	execSync('npm run relay', { encoding: 'utf-8' });
+  addwindow.close()
+})
+
+

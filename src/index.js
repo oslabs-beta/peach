@@ -8,14 +8,8 @@ import { render } from 'react-dom';
 import App from './App';
 import { RelayEnvironmentProvider } from 'react-relay';
 import RelayEnvironment from './relay/RelayEnvironment';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
-import App2 from './components/peach/App2';
-import Navbar from './components/Navbar';
+import Logo from './components/Logo'
+// import logo from '../assets/PeachQE-3.png';
 
 // * Just to speed up the process of decorating the App
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -32,38 +26,13 @@ let root = document.createElement('div');
 root.id = 'root';
 document.body.appendChild(root);
 
-function Home() {
-    return (
-      <div>
-        <Switch>
-          {/* If the current URL is /peach, we render the new App
-              while the original is ignored */}
-          <Route path="/peach">
-            <RelayEnvironmentProvider environment={RelayEnvironment}>
-                <Suspense fallback={"loading..."}>
-                    <App2 />
-                </Suspense>
-            </RelayEnvironmentProvider>
-          </Route>
-  
-  
-          {/* If none route is specified,
-              this route acts as a fallback. */}
-          <Route path="/">
-            <RelayEnvironmentProvider environment={RelayEnvironment}>
-                <Suspense fallback={"loading..."}>
-                    <App />
-                </Suspense>
-	          </RelayEnvironmentProvider>
-          </Route>
-        </Switch>
-      </div>
-    );
-  }
-
-// Now we can render our application into it
 render(
-  <Router>
-    <Home />
-  </Router>,
-    document.getElementById('root'))
+	<RelayEnvironmentProvider environment={RelayEnvironment}>
+    <Suspense fallback={<Logo />}>
+      <App />
+        {/* <div align="center">
+          <hr width="70%" />
+        </div> */}
+    </Suspense>
+	</RelayEnvironmentProvider>,
+    document.getElementById('root'));

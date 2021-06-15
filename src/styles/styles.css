@@ -105,6 +105,14 @@ code {
   margin-left: 1rem;
   text-align: left; 
   font-size: 0.8em; 
+  max-height: 12rem !important;
+}
+
+._responseDisplay2 {
+  margin-left: 1rem;
+  text-align: left; 
+  font-size: 0.8em; 
+  max-height: 6rem !important;
 }
 
 #responseText {
@@ -112,4 +120,26 @@ code {
   background-color: #fbb78d;
   height: 39rem;
   border-radius: 0.5rem;
+}
+
+._response2 {
+  height: 20rem;
+}
+
+#responseDisplay2 {
+  margin-left: 1rem;
+  text-align: left; 
+  font-size: 0.8em; 
+  max-height: 24rem !important;
+}
+
+#responseText2 {
+  margin-top: 1rem;
+  background-color: #fbb78d;
+  height: 25rem;
+  border-radius: 0.5rem;
+}
+
+._WrittenResponseDisplay {
+  max-height: 20rem !important;
 }

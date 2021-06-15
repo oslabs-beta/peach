@@ -2,10 +2,12 @@
 handles the fetch request for connecting to graphql endpoint
 */ 
 
+import gqlEndpoint from './gqlEndpoint';
+
 async function fetchGraphQL (operation, variables) {
     // ! currently hard-coded value for graphql endpoint url, needs to update with schema
     // I was going to make a conditional here to change the current DB depending on the schema downloaded by the user.
-    let currentDB = 'https://graphql.anilist.co';
+    let currentDB = gqlEndpoint.url;
 
     // Comented lines below this are my attempt at changing the database Relay works on.
     // let currentSchemaName = localStorage.getItem('schema-name');
