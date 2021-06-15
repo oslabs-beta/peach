@@ -48,40 +48,29 @@ const graphqlSchema = parse(schema);
 
 const jsonSchema = makeJsonSchema();
 
+const useJsonVariables = (input) => {
+	const [variables, _setVariables] = useState(input);
+	const setVariables = value => {
+		const parser = JSON.parse(value)
+		_setVariables(parser);
+	}
+	return [variables, _setVariables];
+}
+
 const App = () => {
 
-	const [queryToLoad, setQueryToLoad] = useState(writtenQuery);
+	// const [queryToLoad, setQueryToLoad] = useState(writtenQuery);
 	// const [response, setResponse] = useState(data);
-	const [variables, setVariables] = useState('{"id": 15125}');
+	// const [variables, setVariables] = useState('{"id": 15125}');
 
 	//Roland's data:
 
-	const [response1, setResponse1] = useState('');
-	const [query1, setQuery1] = useState('');
-	const [variables1, setVariables1] = useState('');
-		
+	const [response, setResponse] = useState('');
+	const [query, setQuery] = useState('');
+	const [variables, setVariables] = useJsonVariables();
 	
-	// const submitQuery = () => {
-  //   // file boilerplate
-  //   const queryFileStart = 'import graphql from \'graphql\'\;\nexport default graphql`';
-  //   const queryFileEnd = '`;';
-  //   const fullQueryText = aliasID(queryFileStart + queryText + queryFileEnd);
-  //   fs.writeFileSync(path.resolve('./src/relay/written.js'), fullQueryText);
-  //   db.add();
-  //   execSync('npm run relay', { encoding: 'utf-8' });
-  // }
-
-	// console.log(graphqlSchema);
-
-	// const submitTypedQuery = () => {
-	// 	const queryFileStart = 'import graphql from \'graphql\'\;\nexport default graphql`';
-  //   const queryFileEnd = '`;';
-  //   const fullQueryText = aliasID(queryFileStart + query1 + queryFileEnd);
-	// 	graphql(graphqlSchema, fullQueryText).then(res => res.json()).then((result) => setResponse1(result.data)).catch(err => setResponse1(err));
-	// }
-	
-
-	var query = `
+	//Default query and variables to test with
+	var query2 = `
 	query ($id: Int) { # Define which variables will be used in the query (id)
 		Media (id: $id, type: ANIME) { # Insert our variables into the query arguments (id) (type: ANIME is hard-coded in the query)
 			id
@@ -93,12 +82,12 @@ const App = () => {
 		}
 	}
 	`;
-	
-	// Define our query variables and values that will be used in the query request
 	const variables2 = {
 			id: 15125
 	};
 	
+	console.log(variables);
+
 	// Define the config we'll need for our Api request
 	const url = 'https://graphql.anilist.co',
 			options = {
@@ -109,7 +98,7 @@ const App = () => {
 					},
 					body: JSON.stringify({
 							query: query,
-							variables: variables2
+							variables: variables
 					})
 			};
 	
@@ -120,19 +109,16 @@ const App = () => {
 										   .catch(handleError);
 	}
 	
-	
+	//Helper functions for submitTypedQuery:
 	function handleResponse(response) {
 			return response.json().then(function (json) {
 					return response.ok ? json : Promise.reject(json);
 			});
 	}
-	
 	function handleData(data) {
-			setResponse1(data.data);
+			setResponse(data.data);
 	}
-	
 	function handleError(error) {
-			alert('Error, check console');
 			console.error(error);
 	}
 
@@ -140,16 +126,6 @@ const App = () => {
 	function formatJSON(input) {
 		return JSON.parse(input);
 	}
-	
-	// let data = useLazyLoadQuery(
-	// 	queryToLoad,
-	// 	variables ? formatJSON(variables) : null
-	// );
-
-	// update response state, only updates when data is fresh
-    // useEffect(() => {
-    //     setResponse(data);
-    // }, []);
 
 	return (
 		<Container className="App" fluid>
@@ -182,12 +158,10 @@ const App = () => {
 				
 				<Col xs={4} className='my-2'>
 					<Card className='_queryContainer'>
-						<QueryContainer 
-							setQueryToLoad={setQueryToLoad}
-							variables={variables}
+						<QueryContainer
 							submitTypedQuery={submitTypedQuery}
-							query1={query1}
-							setQuery1={setQuery1}
+							query={query}
+							setQuery={setQuery}
 						/>
 					</Card>
 				</Col>
@@ -197,7 +171,7 @@ const App = () => {
 						<div id="ResponseDisplay">
 							<Suspense>
 								<WrittenResponseDisplay 
-									response={response1}
+									response={response}
 								/>
 							</Suspense>
 						</div>

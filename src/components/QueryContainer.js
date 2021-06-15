@@ -22,14 +22,14 @@ import { Controlled as ControlledEditor } from 'react-codemirror2';
 //require in exec to run terminal commands in js:
 const execSync = require('child_process').execSync;
 
-const QueryContainer = ({loadQuery, variables, submitTypedQuery, query1, setQuery1}) => {
+const QueryContainer = ({submitTypedQuery, query, setQuery}) => {
   // import the current text of the importedQuery file, slicing off the beginning boilerplate
   let initialQueryText = writtenQuery.params.text;
 
   const [queryText, setQueryText] = useState(initialQueryText);
 
   const updateQueryText = (editor, data, value) => {
-    setQuery1(value);
+    setQuery(value);
   }
 
   const submitQuery = () => {
@@ -51,7 +51,7 @@ const QueryContainer = ({loadQuery, variables, submitTypedQuery, query1, setQuer
         {/* <textarea type="text" rows="24" value={queryText} onChange={updateQueryText} placeholder="Enter Query Here"  className='my-2 _queries'></textarea> */}
         <ControlledEditor
             onBeforeChange={updateQueryText}
-            value={query1}
+            value={query}
             className='code-mirror-wrapper'
             options={{
                 lineWrapping: true,
