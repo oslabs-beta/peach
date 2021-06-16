@@ -20,6 +20,8 @@ const SchemaDisplayContainer = () => {
     const [focus, setFocus] = useState(0);
     const [schemaList, setSchemaList] = useState([jsonSchema]);
 
+    // useEffect(callback, [schemaList])
+
 
     //const schemaRef = useRef(nul;)
     const items = []
@@ -93,7 +95,10 @@ const SchemaDisplayContainer = () => {
     return (
       <Container fluid>
         <div align='center' >
-        <InputGqlSchema className='mb-1' />
+        <InputGqlSchema 
+          className='mb-1'
+          setSchemaList={setSchemaList} 
+          />
         <hr align='center' width='75%' />
         </div>
 

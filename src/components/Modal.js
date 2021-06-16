@@ -5,7 +5,7 @@ import '../styles/Modal.css';
 import FileDownloader from "./FileDownloader";
 import SchemaUrlInput from '../components/SchemaUrlInput';
 
-const Modal = ({ showModal, setShowModal}) => {
+const Modal = ({ showModal, setShowModal, setSchemaList }) => {
   const modalRef = useRef();
 
   //To bring the Modal from the top, cascade style
@@ -59,7 +59,7 @@ const Modal = ({ showModal, setShowModal}) => {
                 </p>
                 <SchemaUrlInput/>
                 <h6 className="red">Please confirm you want to overwrite the existing file.</h6>
-                <FileDownloader /> 
+                <FileDownloader setSchemaList={setSchemaList}/> 
                 <button className='mt-4' onClick={() => setShowModal(prev => !prev)}>Close</button>
                 <MdClose className='CloseModalButton' />
               </div>

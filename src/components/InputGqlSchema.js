@@ -6,7 +6,7 @@ import Modal from './Modal';
 import gqlEndpoint from '../relay/gqlEndpoint';
 import db from '../database/db';
 
-const InputGqlSchema = () => {
+const InputGqlSchema = ({setSchemaList}) => {
   const [showModal, setShowModal] = useState(false);
   const [schemaName, setSchemaName] = useState(gqlEndpoint.url);
 
@@ -52,7 +52,7 @@ const InputGqlSchema = () => {
           <div className='_downloadedSchema'> {schemaName} </div> 
         
         </div>
-        <Modal showModal={showModal} setShowModal={setShowModal} />
+        <Modal showModal={showModal} setShowModal={setShowModal} setSchemaList={setSchemaList}/>
       </div>
        
     </Container>
