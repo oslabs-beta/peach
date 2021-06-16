@@ -12,10 +12,12 @@
 }
 
 .column2 {
-  float: center;
+  /* float: center; */
   width: 70%;
   padding: 10px;
   height: auto;
+  margin-left: -30px;
+  /* border: black 1px solid; */
 }
 
 .row {
@@ -31,17 +33,33 @@
 
 .container2:hover {
   background-color: rgba(243, 174, 157, 0.664);
+  height: 101%;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px rgba(121, 120, 120, 0.87);
 }
 
-.jumbotron {
+.form-control {
+  width:650px;
+  height:350px;
+  margin-left: -30px;
+  align-content: center;
+}
+
+.popup {
+  margin-left: 15px;
+  text-align: left;
+}
+
+.jumbotron12 {
+  margin-left: 2.5rem;
   width: 90%;
   height: 100px;
-  background-color: coral;
+  background-color: #ff7f50;
   display: flex;
   align-items: center;
   justify-content: center;
   border: 3px;
-  border-radius: 5px;
+  border-radius: 5px 5px 0 0;
 }
 
 .steps {

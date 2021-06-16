@@ -11,6 +11,7 @@ module.exports = {
 				use: [{ loader: 'style-loader' }, { loader: 'css-loader' }],
 			},
 			{
+				exclude: /(__generate__)/,
 				test: /\.jsx?$/,
 				use: [{ loader: 'babel-loader', query: { compact: false } }],
 			},

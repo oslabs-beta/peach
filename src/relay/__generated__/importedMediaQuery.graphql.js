@@ -12,8 +12,7 @@ export type importedMediaQueryVariables = {||};
 export type importedMediaQueryResponse = {|
   +Media: ?{|
     +title: ?{|
-      +english: ?string,
-      +romaji: ?string,
+      +english: ?string
     |}
   |}
 |};
@@ -29,7 +28,6 @@ query importedMediaQuery {
   Media(id: 80) {
     title {
       english
-      romaji
     }
   }
 }
@@ -65,13 +63,6 @@ var v0 = [
             "kind": "ScalarField",
             "name": "english",
             "storageKey": null
-          },
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "romaji",
-            "storageKey": null
           }
         ],
         "storageKey": null
@@ -98,16 +89,16 @@ return {
     "selections": (v0/*: any*/)
   },
   "params": {
-    "cacheID": "489f7d7e4a82cdf6040a3dc0bd04287f",
+    "cacheID": "6614549f14a36b9789a0079ac7e87d20",
     "id": null,
     "metadata": {},
     "name": "importedMediaQuery",
     "operationKind": "query",
-    "text": "query importedMediaQuery {\n  Media(id: 80) {\n    title {\n      english\n      romaji\n    }\n  }\n}\n"
+    "text": "query importedMediaQuery {\n  Media(id: 80) {\n    title {\n      english\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = 'cfe342451fa33e36af3ea4942fb48b1d';
+(node/*: any*/).hash = '843bb8c6b1e72fc01d2e70e90b2d0e35';
 
 module.exports = node;

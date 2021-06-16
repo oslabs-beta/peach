@@ -12,7 +12,7 @@ import Col from 'react-bootstrap/Col';
 import ImportedMode from './components/peach/ImportedMode';
 // import logo from '../assets/PeachLogo.png';
 
-import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 import SchemaDisplayContainer from './components/SchemaDisplayContainer';
 import WrittenResponseDisplay from './components/WrittenResponseDisplay';
 import QueryContainer from './components/QueryContainer';
@@ -49,14 +49,13 @@ const App = () => {
     }, []);
 
 	return (
-		<Container className="App" fluid id="App1">
-			<Row>
-				<Col xs={12}>
-					<Navbar />
-				</Col>
+		<Container className="AppRelay" fluid>
+
+			<Row>	
+				<ImportedMode className="importedMode" />
 			</Row>
 			
-			<Row className="mb-3">
+			<Row className="mt-3">
 				<Col xs={4}>
 					<Row  className='my-2'>
 						<Col>
@@ -98,11 +97,11 @@ const App = () => {
 					</Card>
 				</Col>
 			</Row>
-			
-			<Row>
-				
-				<ImportedMode className="importedMode" />
 
+			<Row id="AppRelay">
+				<Col xs={12}>
+					<Footer />
+				</Col>
 			</Row>
 
 		</Container>

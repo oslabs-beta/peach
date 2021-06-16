@@ -106,7 +106,7 @@ const SchemaDisplayContainer = () => {
             onSelect={handleOnSelect}
             onFocus={handleOnFocus}
             //onChange={handleOnChange}
-            autoFocus
+            // autoFocus
           />
           <Button onClick={handleClick}  type='submit' variant='secondary' className='my-2'> Show All </Button>
           {/* <button className='my-2 _inputButton' onClick={handleClick}> Show All </button> */}

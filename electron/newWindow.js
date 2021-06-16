@@ -23,7 +23,7 @@ if (
   // Handle add item window
   const createAddWindow = () => {
     addWindow = new BrowserWindow({
-      width: 1180,
+      width: 1155,
       height: 600,
       minHeight:400,
       minWidth:400,
