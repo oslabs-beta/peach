@@ -8,7 +8,7 @@ const Navbar = () => {
     <div className='_banner' >
       <div>
       <Button size='sm' variant='dark' disabled>
-        ⇧ Relay Proper
+        ⇧ Peach Mode
         </Button>
       </div>         
       <div>
@@ -19,7 +19,7 @@ const Navbar = () => {
       <div>
         <Link
           activeClass="active"
-          to="App2"
+          to="AppRelay"
           spy={true}
           isDynamic={true}
           smooth={true}
@@ -27,7 +27,7 @@ const Navbar = () => {
           duration={100}
         >
           <Button size='sm' variant='warning' >
-            Peach Mode ⇩
+            Relay Proper ⇩
           </Button>
         </Link>
       </div>         

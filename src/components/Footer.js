@@ -5,18 +5,18 @@ import Button from 'react-bootstrap/Button';
 
 const Footer = () => {
   return (
-    <div className='_footer mt-3' id="App2">
-      <div>
+    <div className='_footer mt-3' id="importedMode">
+      <div >
         <Link
           activeClass="active"
-          to="App1"
+          to="importedMode"
           spy={true}
           isDynamic={true}
           smooth={true}
           duration={100}
         >
       <Button size='sm' variant='dark' >
-        ⇧ Relay Proper
+        ⇧ Peach Mode
         </Button>
       </Link>
       </div>         
@@ -27,7 +27,7 @@ const Footer = () => {
       </div>         
       <div>
         <Button size='sm' variant='warning' disabled >
-          Peach Mode ⇩
+          Relay Proper ⇩
         </Button>
       </div>         
   </div>
@@ -35,3 +35,4 @@ const Footer = () => {
 }
 
 export default Footer
+

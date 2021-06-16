@@ -145,8 +145,8 @@ ipcMain.on('clickedbutton', (event, data) => {
     buttonLabel: 'Save',
 		filters: [
 				{ 
-					name: 'GraphQL query', 
-					extensions: ['js', 'txt'] 
+					name: 'PeachQE - GraphQL pre-written queries', 
+					extensions: ['js'] 
 				}
 			],
 		properties: []

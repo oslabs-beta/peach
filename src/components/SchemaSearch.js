@@ -45,8 +45,8 @@ const SchemaSearch = props => {
             onSearch={handleOnSearch}
             onHover={handleOnHover}
             onSelect={handleOnSelect}
-            onFocus={handleOnFocus}
-            autoFocus
+            // onFocus={handleOnFocus}
+            // autoFocus
           />
         </div>
       </header>
