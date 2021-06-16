@@ -159,7 +159,7 @@ Once you have the application running, you will notice that PeachQE operates in 
 
 When the application first opens, the window will by default display "Relay Proper" mode, which contains much of the core functionality of the application:
 
-<img alt="Relay Proper Mode" src="assets/readme_imgs/Peach-Mode-Example.jpeg" style="width: 900px; height: auto;">
+<img alt="Relay Proper Mode" src="assets/readme_imgs/Relay-Proper-Example.jpeg" style="width: 900px; height: auto;">
 
 1. The left section of the window is reserved for the **Schema Display**. Here, you can: 
     * View your current schema and type into the searchbar to find specific fields. 
@@ -179,7 +179,7 @@ When the application first opens, the window will by default display "Relay Prop
 
 ### Peach Mode
 
-<img alt="Relay Proper Mode" src="assets/readme_imgs/Relay-Proper-Example.jpeg" style="width: 900px; height: auto;">
+<img alt="Peach Mode" src="assets/readme_imgs/Peach-Mode-Example.jpeg" style="width: 900px; height: auto;">
 
 By clicking the yellow button titled **Peach Mode** at the top right corner of the window, or simply by scrolling down, you will find our disignated UI for **Relay** specific functionality.
 
