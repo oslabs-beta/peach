@@ -2,21 +2,21 @@
   {
     "name": "anime list",
     "url": "https://graphql.anilist.co",
-    "lastUsed": ""
+    "lastUsed": "6/15/2021, 6:00:50 PM"
   },
   {
     "name": "dnd5e",
     "url": "https://www.dnd5eapi.co/graphql",
-    "lastUsed": ""
+    "lastUsed": "6/15/2021, 6:01:50 PM"
   },
   {
     "name": "GitHub",
     "url": "https://docs.github.com/public/schema.docs.graphql",
-    "lastUsed": ""
+    "lastUsed": "6/15/2021, 6:02:50 PM"
   },
   {
     "name": "Music",
     "file": "https://raw.githubusercontent.com/mapr-demos/mapr-db-graphql-sample/master/mapr-rest/src/main/webapp/WEB-INF/classes/schema.graphqls",
-    "lastUsed": ""
+    "lastUsed": "6/15/2021, 6:04:50 PM"
   }
 ]

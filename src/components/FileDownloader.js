@@ -19,6 +19,8 @@ const FileDownloader = () => {
   const handleClick = (schema) => {
     setSchemaName(schema.name);
     gqlEndpoint.url = schema.url;
+    // const index = schemaHistory.indexOf(a => a.url === schema.url);
+    db.addURL(schema.name);
     execSync(`get-graphql-schema ${schema.url} > schema.graphql`, { encoding: 'utf-8' });
   }
 

@@ -1,36 +1,36 @@
 [
   {
-    "queryText": "query importedCharacterQuery {\n  Character(id: 80) {\n    name {\n      full\n      native\n    }\n  }\n}\n",
-    "url": "https://graphql.anilist.co",
-    "timeStamp": "4:36:46 PM",
-    "dateStamp": "6/15/2021"
-  },
-  {
-    "queryText": "query importedLongMediaQuery(\n  $id: Int\n) {\n  Media(id: $id, type: ANIME) {\n    _id: id\n    title {\n      native\n      english\n    }\n  }\n}\n",
-    "url": "https://graphql.anilist.co",
-    "timeStamp": "4:36:46 PM",
-    "dateStamp": "6/15/2021"
-  },
-  {
     "queryText": "query importedMediaQuery {\n  Media(id: 80) {\n    title {\n      english\n      romaji\n    }\n  }\n}\n",
     "url": "https://graphql.anilist.co",
-    "timeStamp": "4:36:46 PM",
+    "timeStamp": "6:51:39 PM",
     "dateStamp": "6/15/2021"
   },
   {
     "queryText": "query importedThreadQuery {\n  Thread(id: 80) {\n    title\n  }\n}\n",
     "url": "https://graphql.anilist.co",
-    "timeStamp": "4:36:46 PM",
+    "timeStamp": "6:51:20 PM",
     "dateStamp": "6/15/2021"
   },
   {
     "queryText": "query importedUserQuery {\n  User(id: 80) {\n    name\n  }\n}\n",
     "url": "https://graphql.anilist.co",
-    "timeStamp": "4:36:46 PM",
+    "timeStamp": "6:51:20 PM",
     "dateStamp": "6/15/2021"
   },
   {
     "queryText": "query writtenQuery(\n  $id: Int\n) {\n  Media(id: $id, type: ANIME) {\n    _id: id\n    title {\n      native\n      english\n      romaji\n    }\n  }\n}\n",
+    "url": "https://graphql.anilist.co",
+    "timeStamp": "6:51:20 PM",
+    "dateStamp": "6/15/2021"
+  },
+  {
+    "queryText": "query importedCharacterQuery {\n  Character(id: 80) {\n    name {\n      full\n      native\n    }\n  }\n}\n",
+    "url": "https://graphql.anilist.co",
+    "timeStamp": "6:40:49 PM",
+    "dateStamp": "6/15/2021"
+  },
+  {
+    "queryText": "query importedLongMediaQuery(\n  $id: Int\n) {\n  Media(id: $id, type: ANIME) {\n    _id: id\n    title {\n      native\n      english\n    }\n  }\n}\n",
     "url": "https://graphql.anilist.co",
     "timeStamp": "4:36:46 PM",
     "dateStamp": "6/15/2021"
