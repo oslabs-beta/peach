@@ -22,36 +22,25 @@ import { Controlled as ControlledEditor } from 'react-codemirror2';
 //require in exec to run terminal commands in js:
 const execSync = require('child_process').execSync;
 
-const QueryContainer = ({loadQuery, variables}) => {
-  // import the current text of the importedQuery file, slicing off the beginning boilerplate
-  let initialQueryText = writtenQuery.params.text;
-
-  const [queryText, setQueryText] = useState(initialQueryText);
+const QueryContainer = ({submitTypedQuery, query, setQuery}) => {
+  // import the current text of the importedQuery file, slicing off the beginning boilerplate(do we need anymore??)
+  // let initialQueryText = writtenQuery.params.text;
+  // const [queryText, setQueryText] = useState(initialQueryText);
 
   const updateQueryText = (editor, data, value) => {
-    setQueryText(value);
-  }
-
-  const submitQuery = () => {
-    // file boilerplate
-    const queryFileStart = 'import graphql from \'graphql\'\;\nexport default graphql`';
-    const queryFileEnd = '`;';
-    const fullQueryText = aliasID(queryFileStart + queryText + queryFileEnd);
-    fs.writeFileSync(path.resolve('./src/relay/written.js'), fullQueryText);
-    db.add();
-    execSync('npm run relay', { encoding: 'utf-8' });
+    setQuery(value);
   }
 
   return (
     <Container>
       <div>
         <History 
-          setQueryText={setQueryText}
-          submitQuery={submitQuery}/>
+          setQuery={setQuery}
+          />
         {/* <textarea type="text" rows="24" value={queryText} onChange={updateQueryText} placeholder="Enter Query Here"  className='my-2 _queries'></textarea> */}
         <ControlledEditor
             onBeforeChange={updateQueryText}
-            value={queryText}
+            value={query}
             className='code-mirror-wrapper'
             options={{
                 lineWrapping: true,
@@ -62,7 +51,7 @@ const QueryContainer = ({loadQuery, variables}) => {
             }}
             />
         <Button 
-          onClick={() => submitQuery()} 
+          onClick={() => submitTypedQuery()} 
           type='submit' 
           variant='secondary' 
           className='mb-3'
