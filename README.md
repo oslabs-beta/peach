@@ -6,30 +6,33 @@
     <img src="assets/PeachLogo.png" alt="Logo" width="350" height="350">
   </a>
 
-  <h3 align="center">README - Peach QE</h3>
+  <h3 align="center">README</h3>
 
   <p align="center">
-  <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat"/>
-  <img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat"/>
-  <img alt="license" src="https://img.shields.io/github/license/oslabs-beta/peach?color=%2357d3af">
-  <img alt="last commit" src="https://img.shields.io/github/last-commit/oslabs-beta/peach?color=%2357d3af">
+  <!-- <img src="https://img.shields.io/badge/PRs-welcome-important.svg?style=flat"/> -->
+  <img alt="GitHub contributors" src="https://img.shields.io/github/contributors/oslabs-beta/peach?color=important&style=for-the-badge">
+  <img alt="license" src="https://img.shields.io/github/license/oslabs-beta/peach?color=important&style=for-the-badge">
+  <img alt="last commit" src="https://img.shields.io/github/last-commit/oslabs-beta/peach?color=important&style=for-the-badge">
   <img alt="Repo stars" src="https://img.shields.io/github/stars/oslabs-beta/peach?logoColor=%2334495e&style=social"> 
 </p>
 
   <p align="center">
-     - Initial Commit -
+     <h1 align="center">Peach QE</h1>
+    <p align="center">
+A Relay visualizer for all your GraphQL queries.
+  <br />
+    <a href="https://www.peachqe.io" target="_BLANK" alt="PeachQE website">Homepage →</a><br>
+    <a href="https://www.producthunt.com/posts/peach-qe-relay-visualizer" target="_BLANK">Product Hunt Page →</a>
+</p>
     <br />
-    (Minimum set of features, including DevTools toggling in DEV mode)
+    <a href="#about-the-project"><strong>Explore the docs »</strong></a>
     <br />
-    <br />
-    <a href="https://github.com/oslabs-beta/peach.git"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
+    <!-- <br />
     <a href="#usage">View Demo</a>
     ·
     <a href="#s">Report Bug</a>
     ·
-    <a href="#">Request Feature</a>
+    <a href="#">Request Feature</a> -->
   </p>
 </p>
 
@@ -37,7 +40,7 @@
 <br />
 
 <p align="center">    <a href="https://github.com/oslabs-beta/peach.git">
-    <img src="assets/test5.png" alt="Logo" width="350"align='center'>
+    <img src="assets/PeachQE-3.png" alt="Logo" width="350"align='center'>
   </a></p>
 
 <br />
@@ -48,21 +51,21 @@
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#about-the-project">About The Project</a>
+      <a href="#about-the-project" style="color:#ff7f50;">About The Project</a>
       <ul>
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
     <li>
-      <a href="#getting-started">Getting Started</a>
+      <a href="#getting-started" style="color:#ff7f50;">Getting Started</a>
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Deployment</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgements">Acknowledgements</a></li>
+    <li><a href="#usage" style="color:#ff7f50;">Deployment</a></li>
+    <li><a href="#license" style="color:#ff7f50;">License</a></li>
+    <!-- <li><a href="#contact" style="color:#ff7f50;">Contact</a></li> -->
+    <li><a href="#acknowledgements" style="color:#ff7f50;">Acknowledgements</a></li>
   </ol>
 </details>
 
@@ -71,7 +74,8 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-Our first hands on attempt to understand Relay.
+Peach QE is the first Relay visualizer to handle all your GraphQL queries under one roof, directly on your desktop.
+Upload pre-written queries, live-edit the queries you want to explore, variable inputs, and even handle as many databases as required.
 
 <br />
 
@@ -142,14 +146,14 @@ Install the dpendencies:
 
 <br />
 
-<h3 align="center">
+<h3 align="center" style="color:#ff7f50;">
 Enjoy!
 </h3>
 
 <br />
 <br />
 
-_For more examples, please refer to the [Documentation](https://www.electronjs.org/)_
+_For more information, please visit our [website](https://www.peachqe.io/)_
 
 <br />
 
@@ -161,7 +165,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <br />
 
 <!-- ACKNOWLEDGEMENTS -->
-## Acknowledgements to the PEach QE team:
+## <spam style="color:#ff7f50;">Acknowledgements to the PEach QE team:</spam>
 
 * [Alura Chung-Mehdi](https://github.com/aluracm)
 * [Roland Wynter](https://github.com/Rcwynter)
