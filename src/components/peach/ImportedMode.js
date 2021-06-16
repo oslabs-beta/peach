@@ -16,6 +16,7 @@ import ResponseDisplay from '../ResponseDisplay';
 import EditorDisplay from './EditorDisplay';
 import Uploader from './Uploader';
 import StoreDisplay from '../StoreDisplay';
+import * as importedQueries from '../../relay/__generated__';
 
 const electron = window.require('electron');
 const {shell} = window.require('electron');
@@ -70,14 +71,17 @@ const ImportedMode = () =>{
       
         <Col xs={6} className='my-2'>
 
+            {(importedQueries) ?
           <Card className='_newQuerySelector'>
             <h6 className="mt-1">New Query selector</h6>
             <QuerySelector
+              queryToLoad={queryToLoad}
               setQueryToLoad={setQueryToLoad}
               loadQuery={loadQuery}
               variables={variables}
-            />
+            /> 
           </Card>	
+          : null}
           <Card className='_editorDisplay mt-2'>
               <h6 className="mt-1">Editor</h6>
               <EditorDisplay/>

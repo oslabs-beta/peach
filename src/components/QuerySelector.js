@@ -8,6 +8,7 @@ import * as importedQueries from '../relay/__generated__';
 import QueryButton from './QueryButton';
 
 const QuerySelector = ({
+    queryToLoad,
     setQueryKey,
     setQueryToLoad, 
     loadQuery,
@@ -18,11 +19,13 @@ const QuerySelector = ({
 
     useEffect(() => {
         const queryButtonDetails = [];
-        for (let query in importedQueries) {
-            queryButtonDetails.push(importedQueries[query]);
+        if (importedQueries){
+            for (let query in importedQueries) {
+                queryButtonDetails.push(importedQueries[query])
+            }
         }
         setQueryButtons(queryButtonDetails || []);
-    }, []);
+    }, [queryToLoad]);
     
 
     return (

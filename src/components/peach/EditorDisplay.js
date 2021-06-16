@@ -19,25 +19,6 @@ import { Controlled as ControlledEditor } from 'react-codemirror2';
 //require in exec to run terminal commands in js:
 const execSync = require('child_process').execSync;
 
-//* create new list of queries
-//* remove query that was selected by key
-//* push new query from editor onto list
-//* rewrite imported file with new list of queries 
-
-//====================
-
-//* Populate editor display with whole text from imported.js
-//* After changes have been made the save button will rewrite the imported
-//* (cont) file with the newly edited query text
-
-// ?   useEffect(() => {
-// ?    const queryList = [];
-// ?     for (let query in queriesToEdit) {
-// ?         queryList.push(queriesToEdit[query]);
-// ?     }
-// ?     setQueryButtons(queryList);
-// ? }, []);
-
 const EditorDisplay = () => {
   //const queryToEdit = editorState.params.text;
   const importedPath = path.resolve('./src/relay/imported.js')
