@@ -1,4 +1,3 @@
-
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
@@ -143,6 +142,7 @@ Install the dpendencies:
    npm run package-linux
    ```
 
+
 2. Look for the directory **Release-builds** in the root folder where you cloned this Repo. (created automatically by the previous command)
 
 3. Find the specific folder for your OS. (e.g., *peachQE-win*)
@@ -150,6 +150,19 @@ Install the dpendencies:
 4. The file **peachQE.exe** (in Windows) will launch the app in your machine.
 
 <br />
+
+In **every** case, you will need to add the file [*schema.graphql*](https://github.com/oslabs-beta/peach/blob/dev/schema.graphql) to the root directory and the file [*imported.js*](https://github.com/oslabs-beta/peach/blob/dev/src/relay/imported.js) to the directory src>relay. For example: 
+
+    .
+    ├── (Root)                    # Installed Root folder
+    ├── schema.graphql
+    ├── src   
+        ├── relay                 # Create both folders
+              ├── imported.js     
+    │   
+    └── ...
+
+<br /><br />
 
 ## User Manual
 
@@ -200,14 +213,21 @@ Enjoy!
 <br />
 <br />
 
-_For more information, please visit our [website](https://www.peachqe.io/)_
+<!-- LICENSE -->
+## Downloadable App
+Or if you don’t want the codebase. Simply download our App!
+https://peachqe.io/ <br />
+Enjoy a simplified way to pick your peachy queries!
 
-<br />
+<img alt="Download App" src="assets/PeachQE_Install_Guide.gif" style="width: 900px; height: auto;">
+
+
+<br /><br />
 
 <!-- LICENSE -->
 ## License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+Distributed under the [MIT](https://github.com/oslabs-beta/peach/blob/dev/LICENSE) License. See [`LICENSE`](https://github.com/oslabs-beta/peach/blob/dev/LICENSE) for more information.
 
 <br />
 
