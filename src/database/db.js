@@ -86,7 +86,7 @@ db.addURL = (schemaName) => {
     newEntry.url = gqlEndpoint.url;
     const index = schemaHistoryArray.findIndex(entry => entry.url === newEntry.url);
     if (index !== -1) {
-        queryHistoryArray.splice(index, 1);
+        schemaHistoryArray.splice(index, 1);
     }
     newEntry.lastUsed = new Date().toLocaleString();
     schemaHistoryArray.unshift(newEntry);

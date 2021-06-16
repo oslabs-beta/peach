@@ -7,6 +7,7 @@ import React, { useState, useEffect } from 'react';
 import useFileDownloader from "./hooks/useFileDownloader";
 import gqlEndpoint from '../relay/gqlEndpoint';
 import schemaHistory from '../database/schemaHistory.json';
+import db from '../database/db';
 
 const execSync = require('child_process').execSync;
 
@@ -19,7 +20,6 @@ const FileDownloader = () => {
   const handleClick = (schema) => {
     setSchemaName(schema.name);
     gqlEndpoint.url = schema.url;
-    // const index = schemaHistory.indexOf(a => a.url === schema.url);
     db.addURL(schema.name);
     execSync(`get-graphql-schema ${schema.url} > schema.graphql`, { encoding: 'utf-8' });
   }
