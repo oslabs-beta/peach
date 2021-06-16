@@ -13,15 +13,6 @@ const QueryButton = ({query, setQueryToLoad, loadQuery, variables}) =>  {
                 onClick={() => {
                     setQueryToLoad(query);
                     loadQuery(JSON.parse(variables));
-<<<<<<< HEAD
-                    console.log('text in QueryButton', query.params.text);
-                    // db.addQuery(query.params.text);
-                    //! setEditorState(query.params.text);
-                    //! setQueryKey(key);
-=======
-                    // ! setEditorState(query.params.text);
-                    // ! setQueryKey(key);
->>>>>>> one-app-swapped
                 }}>
                   {query.params.text}
             </Button>

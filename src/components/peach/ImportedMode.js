@@ -7,6 +7,7 @@ import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
 
 import Navbar from '../Navbar';
 import QuerySelector from '../QuerySelector';
@@ -69,9 +70,14 @@ const ImportedMode = () =>{
           </Row>
         </Col>
         <Col xs={6} className='my-2'>
-        <Card className='_newQuerySelector'>
+        <Card className='_newQuerySelector' align="center">
             <h6 className="mt-1">New Query selector</h6>
-          <button onClick={() => setRenderQuerySelector(true)}>Render Query Sele</button>
+          <Button 
+            variant="success"
+            small="sm"
+            className="my-1"
+            style={{width: '50%', marginLeft: '25%'}}
+            onClick={() => setRenderQuerySelector(true)}>Render Query Selector</Button>
             {(renderQuerySelector) ?
             <QuerySelector
               queryToLoad={queryToLoad}

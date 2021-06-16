@@ -23,10 +23,8 @@ const SchemaUrlInput = () => {
     }
 
     return (
-        <div>
-            <input onChange={handleNameChange} type="text" defaultValue={schemaName || ''}></input>
-            <input onChange={handleURLChange} type="text" defaultValue={schemaURL || ''}></input>
-            <button onClick={() => addSchema(schemaName, schemaURL)}>Add Schema Endpoint</button>
+        <div className="schemaURLInput mb-1">
+            <input onChange={handleNameChange} type="text" defaultValue={schemaName || ''}></input> <input onChange={handleURLChange} type="text" defaultValue={schemaURL || ''}></input> <button onClick={() => addSchema(schemaName, schemaURL)}>Add Schema Endpoint</button>
         </div>
     )
 };

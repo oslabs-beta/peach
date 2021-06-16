@@ -63,7 +63,7 @@ const EditorDisplay = ( {setRenderQuerySelector} ) => {
             }}
             />
             <Button 
-              variant='success'
+              variant='dark'
               className="my-1"
               onClick={() => {
               saveToImported(editorText);
