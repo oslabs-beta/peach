@@ -181,7 +181,7 @@ When the application first opens, the window will by default display "Relay Prop
 
 <img alt="Peach Mode" src="assets/readme_imgs/Peach-Mode-Example.jpeg" style="width: 900px; height: auto;">
 
-By clicking the yellow button titled **Peach Mode** at the top right corner of the window, or simply by scrolling down, you will find our disignated UI for **Relay** specific functionality.
+By clicking the yellow button titled **Peach Mode** at the top right corner of the window, or simply by scrolling down, you will find our designated UI for **Relay** specific functionality.
 
 While the **Response Display** functions entirely the same, the central and left sections have been altered to accomodate for Relay-specific functionality.
 
