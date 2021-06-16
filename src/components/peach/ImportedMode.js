@@ -1,7 +1,7 @@
 // This file has an OPEN DIALOGUE mock up to access the fs directly.
 // We might (or not) need this later
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import VariableInput from '../VariableInput';
 import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
@@ -86,6 +86,7 @@ const App2 = () =>{
                   <ResponseDisplay
                     initialQueryReference={initialQueryReference}
                     queryToLoad={queryToLoad}
+                    variables={variables}
                   />
                 </div>
               </Card>

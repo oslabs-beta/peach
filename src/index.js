@@ -8,8 +8,9 @@ import { render } from 'react-dom';
 import App from './App';
 import { RelayEnvironmentProvider } from 'react-relay';
 import RelayEnvironment from './relay/RelayEnvironment';
+// import ErrorBoundary from './components/ErrorBoundary';
 import Logo from './components/Logo'
-import logo from '../assets/PeachQE-3.png';
+// import logo from '../assets/PeachQE-3.png';
 
 // * Just to speed up the process of decorating the App
 import 'bootstrap/dist/css/bootstrap.min.css'

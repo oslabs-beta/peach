@@ -2,10 +2,13 @@
 handles the task of parsing schema.graphql into json, 
 which allows other components to render and manipulate the data
 */
+
 const { parse, visit, print } = require('graphql/language');
 const path = require('path');
 const fs = require('fs');
 
+/* this function creates a JSON representation of the 
+Schema and fields from the graphQL schema */ 
 export default function makeJsonSchema() {
     const output = [];
     const pathToSchema = path.resolve('./schema.graphql');
@@ -26,8 +29,11 @@ export default function makeJsonSchema() {
             astObject.fields.push(
                 {
                   // note that the comments are saved as 'note' and maintained for rendering later
-                  note: text.split("\"")[3],
-                  type: text.split('\"')[6]
+                  // if no notes, make sure this defaults to an empty string
+                  note: text.split("\"")[3] || '', 
+                  // sometimes there are no quotes or only quotes around the text
+                  // in that case, we would want the full text, rather than an empty string
+                  type: text.split('\"')[6] || text, 
                 }
                 );
           }

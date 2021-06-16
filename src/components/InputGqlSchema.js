@@ -3,30 +3,32 @@ import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import Modal from './Modal';
 // import FileDownloader from "./FileDownloader";
+import gqlEndpoint from '../relay/gqlEndpoint';
+import db from '../database/db';
 
 const InputGqlSchema = () => {
   const [showModal, setShowModal] = useState(false);
-  const [schemaName, setSchemaName] = useState('anilist.co');
+  const [schemaName, setSchemaName] = useState(gqlEndpoint.url);
 
   //* Original Schema/Database used as demo
-  const schemaUrl = 'anilist.co';
+  // const schemaUrl = gqlEndpoint.url;
 
   // effect (side effect)
-  useEffect(() => {
+  // useEffect(() => {
     // Check for selected (stored) schema Name in local Storage
-    let currentSchemaName = localStorage.getItem('schema-name');
+    // let currentSchemaName = localStorage.getItem('schema-name');
     // if found set selected schema value in <div>
-    if (currentSchemaName) {
-      setSchemaName(currentSchemaName);
-    };
-  }, [useState(schemaName)]);
+  //   if (currentSchemaName) {
+  //     setSchemaName(currentSchemaName);
+  //   };
+  // }, [useState(schemaName)]);
 
   // set Schema name
-  const handleClick = (schema) => {
-    setSchemaName(schema);
-    localStorage.setItem('schema-name', schema);
-    schemaUrl = schema;
-  }
+  // const handleClick = (schema) => {
+  //   setSchemaName(schema);
+  //   localStorage.setItem('schema-name', schema);
+  //   schemaUrl = schema;
+  // }
 
   // TODO: This opens the modal
   const openModal = () => {
@@ -47,7 +49,7 @@ const InputGqlSchema = () => {
             Import a new Schema
           </Button> &nbsp;
 
-          <div className='_downloadedSchema'> {schemaName} </div> 
+          <div className='_downloadedSchema'>{schemaName}</div> 
         
         </div>
         <Modal showModal={showModal} setShowModal={setShowModal} />

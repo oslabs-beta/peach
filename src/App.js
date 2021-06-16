@@ -17,6 +17,7 @@ import SchemaDisplayContainer from './components/SchemaDisplayContainer';
 import WrittenResponseDisplay from './components/WrittenResponseDisplay';
 import QueryContainer from './components/QueryContainer';
 import VariableInput from './components/VariableInput';
+import ErrorBoundary from './components/ErrorBoundary';
 import './styles/App.css';
 import './styles/styles.css';
 
@@ -33,6 +34,7 @@ import { Suspense } from 'react';
 import { graphql } from 'graphql';
 import aliasID from './relay/aliasID';
 import makeJsonSchema from './relay/makeJsonSchema';
+import gqlEndpoint from './relay/gqlendpoint';
 const path = require('path');
 const fs = require('fs');
 const axios = require('axios').default;
@@ -55,25 +57,26 @@ const App = () => {
 	const [variables, setVariables] = useState('');
 
 	// Define the config we'll need for our Api request
-	const url = 'https://graphql.anilist.co',
-			options = {
-					method: 'POST',
-					headers: {
-							'Content-Type': 'application/json',
-							'Accept': 'application/json',
-					},
-					body: JSON.stringify({
-							query: query,
-							variables: variables
-					})
-			};
+	let url = gqlEndpoint.url;
+	let options = {
+			method: 'POST',
+			headers: {
+					'Content-Type': 'application/json',
+					'Accept': 'application/json',
+			},
+			body: JSON.stringify({
+					query: query,
+					variables: variables // || {}
+			})
+	};
 	
 	// Make the HTTP Api request
 	const submitTypedQuery = () => {
-		fetch(url, options).then(handleResponse)
-										 	 .then(handleData)
-										   .catch(handleError);
-		db.add();
+		fetch(url, options)
+			.then(handleResponse)
+			.then(handleData)
+			.catch(handleError);
+		db.addQuery(query);
 	}
 	
 	//Helper functions for submitTypedQuery:
@@ -102,17 +105,21 @@ const App = () => {
 					<Row  className='my-2'>
 						<Col>
 							<Card className='_schemaDisplay'>
-								<SchemaDisplayContainer/>
+								<ErrorBoundary>
+									<SchemaDisplayContainer/>
+								</ErrorBoundary>
 							</Card>	
 						</Col>
 					</Row>
 					<Row>
 						<Col>
 							<Card className='_variableInput'>
-								<VariableInput 
-									variables={variables} 
-									setVariables={setVariables}
-								/>
+								<ErrorBoundary>
+									<VariableInput 
+										variables={variables} 
+										setVariables={setVariables}
+									/>
+								</ErrorBoundary>
 							</Card>
 						</Col>
 					</Row>
@@ -120,31 +127,33 @@ const App = () => {
 				
 				<Col xs={4} className='my-2'>
 					<Card className='_queryContainer'>
-						<QueryContainer
-							submitTypedQuery={submitTypedQuery}
-							query={query}
-							setQuery={setQuery}
-						/>
+						<ErrorBoundary>
+							<QueryContainer
+								submitTypedQuery={submitTypedQuery}
+								query={query}
+								setQuery={setQuery}
+							/>
+						</ErrorBoundary>
 					</Card>
 				</Col>
 
 				<Col xs={4} className='my-2'>
 					<Card className='_response'>
 						<div id="ResponseDisplay">
-							<Suspense>
-								<WrittenResponseDisplay 
-									response={response}
-								/>
-							</Suspense>
+							<ErrorBoundary>
+								<Suspense>
+									<WrittenResponseDisplay 
+										response={response}
+									/>
+								</Suspense>
+							</ErrorBoundary>
 						</div>
 					</Card>
 				</Col>
 			</Row>
 			
 			<Row>
-				
 				<ImportedMode className="importedMode" />
-
 			</Row>
 
 		</Container>

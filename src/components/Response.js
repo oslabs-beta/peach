@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import { usePreloadedQuery } from 'react-relay';
 
+
+
 const Response = ({variables, queryToLoad, initialQueryReference}) => {
     let data;
     data = usePreloadedQuery(queryToLoad, initialQueryReference);
-    
     // const data = usePreloadedQuery(queryToLoad, initialQueryReference);
     return (
         <div>
