@@ -52,16 +52,24 @@ A Relay visualizer for all your GraphQL queries.
     <li>
       <a href="#about-the-project" style="color:#ff7f50;">About The Project</a>
       <ul>
-        <li><a href="#built-with">Built With</a></li>
+        <li><a href="#built-with" style="color:#ff7f50;">Built With</a></li>
       </ul>
     </li>
     <li>
       <a href="#getting-started" style="color:#ff7f50;">Getting Started</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#prerequisites" style="color:#ff7f50;">Prerequisites</a></li>
       </ul>
     </li>
-    <li><a href="#usage" style="color:#ff7f50;">Deployment</a></li>
+    <li><a href="#deployment" style="color:#ff7f50;">Deployment</a></li>
+    <li>
+      <a href="#user-manual" style="color:#ff7f50;">User Manual</a>
+      <ul>
+        <li><a href="#relay-proper" style="color:#ff7f50;">Relay Proper</a></li>
+        <li><a href="#peach-mode" style="color:#ff7f50;">Peach Mode</a></li>
+      </ul>
+    </li>
+    <li><a href="#downloadable-app" style="color:#ff7f50;">Downloadable App</a></li>
     <li><a href="#license" style="color:#ff7f50;">License</a></li>
     <!-- <li><a href="#contact" style="color:#ff7f50;">Contact</a></li> -->
     <li><a href="#acknowledgements" style="color:#ff7f50;">Acknowledgements</a></li>
