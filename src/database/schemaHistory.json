@@ -1,13 +1,13 @@
 [
   {
+    "name": "anime list",
+    "url": "https://graphql.anilist.co",
+    "lastUsed": "8/17/2021, 11:45:02 AM"
+  },
+  {
     "name": "StudioGhibli",
     "url": "https://ghibliql.herokuapp.com",
     "lastUsed": "6/15/2021, 7:32:27 PM"
-  },
-  {
-    "name": "anime list",
-    "url": "https://graphql.anilist.co",
-    "lastUsed": "6/15/2021, 7:30:41 PM"
   },
   {
     "name": "dnd5e",

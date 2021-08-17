@@ -7,8 +7,10 @@ const { parse, visit, print } = require('graphql/language');
 const path = require('path');
 const fs = require('fs');
 
-/* this function creates a JSON representation of the 
-Schema and fields from the graphQL schema */ 
+/* 
+this function creates a JSON representation of the Schema and 
+fields from the graphQL schema by parsing the  abstract syntax tree 
+*/ 
 export default function makeJsonSchema() {
     const output = [];
     const pathToSchema = path.resolve('./schema.graphql');
@@ -18,7 +20,7 @@ export default function makeJsonSchema() {
     });
     parse(schemaString).definitions.forEach(ast => {
       // currently ignoring the definitions that are not for Object Types
-      // render therefore excludes things like Mutations, Subscriptions and Fragment definitions
+      // render therefore excludes Mutations, Subscriptions and Fragment definitions
       if (ast.kind === 'ObjectTypeDefinition') {
         const astObject = {};
         astObject.name = ast.name.value;

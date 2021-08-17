@@ -362,6 +362,9 @@ type Character {
   """
   age: String
 
+  """The characters blood type"""
+  bloodType: String
+
   """
   If the character is marked as favourite by the currently authenticated user
   """
@@ -458,6 +461,11 @@ type CharacterName {
 
   """Other names the character might be referred to as but are spoilers"""
   alternativeSpoiler: [String]
+
+  """
+  The currently authenticated users preferred name language. Default romaji for non-authenticated
+  """
+  userPreferred: String
 }
 
 """The names of the character"""
@@ -731,7 +739,7 @@ type InternalPage {
     """Filter by the studio id"""
     studioId: Int
   ): [RevisionHistory]
-  reports: [Report]
+  reports(reporterId: Int, reportedId: Int): [Report]
   modActions(userId: Int, modId: Int): [ModAction]
 
   """The pagination information"""
@@ -2677,6 +2685,9 @@ type Mutation {
 
     """The user's anime list options"""
     mangaListOptions: MediaListOptionsInput
+
+    """The language the user wants to see staff and character names in"""
+    staffNameLanguage: UserStaffNameLanguage
   ): User
 
   """Create or update a media list entry"""
@@ -4699,6 +4710,9 @@ type Query {
 
   """Site statistics query"""
   SiteStatistics: SiteStatistics
+
+  """Get the user who added a tag to a media"""
+  MediaTagUser(tagId: Int, mediaId: Int): User
 }
 
 """Media recommendation"""
@@ -4779,6 +4793,7 @@ type Report {
 
   """When the entry data was created"""
   createdAt: Int
+  cleared: Boolean
 }
 
 """A Review that features in an anime or manga"""
@@ -5082,6 +5097,9 @@ type Staff {
   """The persons birthplace or hometown"""
   homeTown: String
 
+  """The persons blood type"""
+  bloodType: String
+
   """
   If the staff member is marked as favourite by the currently authenticated user
   """
@@ -5233,6 +5251,11 @@ type StaffName {
 
   """Other names the staff member might be referred to as (pen names)"""
   alternative: [String]
+
+  """
+  The currently authenticated users preferred name language. Default romaji for non-authenticated
+  """
+  userPreferred: String
 }
 
 """The names of the staff member"""
@@ -5864,6 +5887,9 @@ type User {
 
   """If the user is a moderator or data moderator"""
   moderatorStatus: String @deprecated(reason: "Deprecated. Replaced with moderatorRoles field.")
+
+  """The user's previously used names."""
+  previousNames: [UserPreviousName]
 }
 
 """A user's activity history stats."""
@@ -5929,6 +5955,7 @@ type UserModData {
   bans: Json
   ip: Json
   counts: Json
+  privacy: Int
   email: String
 }
 
@@ -5958,6 +5985,21 @@ type UserOptions {
   Minutes between activity for them to be merged together. 0 is Never, Above 2 weeks (20160 mins) is Always.
   """
   activityMergeTime: Int
+
+  """The language the user wants to see staff and character names in"""
+  staffNameLanguage: UserStaffNameLanguage
+}
+
+"""A user's previous name"""
+type UserPreviousName {
+  """A previous name of the user."""
+  name: String
+
+  """When the user first changed from this name."""
+  createdAt: Int
+
+  """When the user most recently changed from this name."""
+  updatedAt: Int
 }
 
 type UserReleaseYearStatistic {
@@ -5989,6 +6031,20 @@ enum UserSort {
   CHAPTERS_READ
   CHAPTERS_READ_DESC
   SEARCH_MATCH
+}
+
+"""The language the user wants to see staff and character names in"""
+enum UserStaffNameLanguage {
+  """
+  The romanization of the staff or character's native name, with western name ordering
+  """
+  ROMAJI_WESTERN
+
+  """The romanization of the staff or character's native name"""
+  ROMAJI
+
+  """The staff or character's name in their native language"""
+  NATIVE
 }
 
 type UserStaffStatistic {
