@@ -1,0 +1,14 @@
+{
+	"presets": ["@babel/preset-react", "@babel/preset-env"],
+	"plugins": [
+		["macros"],
+		["relay"],
+		["@babel/plugin-transform-runtime", {
+			"regenerator": true
+		}],
+		["wildcard"]
+	],
+	"ignore": [
+		"_generated_"
+	]
+}

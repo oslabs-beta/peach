@@ -1,0 +1,149 @@
+/** ---------------------------- */
+/** --- Code editor ------------ */
+/** ---------------------------- */
+
+.code-edit-container {
+  position: relative;
+  height: 5rem;
+  border: 1px solid hsl(0, 0%, 60%);
+  background-color: hsl(212, 35%, 95%);
+  margin: 1em 0;
+}
+
+.code-input,
+.code-output {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  border: none;
+  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  font-size: 0.8rem;
+  background: transparent;
+  white-space: pre-wrap;
+  line-height: 1.5em;
+  word-wrap: break-word;
+  font-size: 1rem;
+}
+
+.code-input {
+  opacity: 1;
+  margin: 0;
+  color: hsl(0, 0%, 40%);
+  resize: none;
+  height: 5rem;
+}
+
+.code-output {
+  pointer-events: none;
+  z-index: 3;
+  margin: 0;
+  overflow-y: auto;
+  height: 5rem;
+}
+
+code {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  height: 6rem;
+  padding: 1rem;
+  display: block;
+  color: hsl(0, 0%, 40%);
+  font-size: 0.8rem;
+  font-family: "PT Mono", monospace;
+}
+
+.code-mirror-wrapper {
+  max-height: '6rem' !important;
+}
+
+/* This is an global styling
+.CodeMirror {
+  max-height: 6rem;
+} */
+
+/* Code mirror syles */
+.cm-s-readonly {
+  background-color: rgba(255, 255, 255, 1) !important;  
+}
+.cm-s-height4rem {
+  height: 4rem !important;
+  width: 100% !important;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.cm-s-height35rem {
+  height: 35.1rem !important;
+}
+
+.cm-s-height18rem {
+  height: 18rem !important;
+}
+
+._variableInput-inner {
+  padding-top: 0.3rem;
+  color: hsl(0, 0%, 18%);
+}
+
+/* overrides */
+.code-edit-container :not(pre) > code[class*="language-"],
+.code-edit-container pre[class*="language-"] {
+  background: transparent;
+  margin: 0;
+  height: 5rem;
+  /* background-color: seashell;  */
+}
+
+._queries {
+  background-color: seashell;
+  width: calc(100% - 0.25rem);
+  padding-left: 1rem;
+  padding-top: 1rem;
+}
+
+._responseDisplay {
+  margin-left: 1rem;
+  text-align: left; 
+  font-size: 0.8em; 
+  max-height: 12rem !important;
+}
+
+._responseDisplay2 {
+  margin-left: 1rem;
+  text-align: left; 
+  font-size: 0.8em; 
+  max-height: 6rem !important;
+}
+
+#responseText {
+  margin-top: 1rem;
+  background-color: #fbb78d;
+  height: 39rem;
+  border-radius: 0.5rem;
+}
+
+._response2 {
+  height: 20rem;
+}
+
+#responseDisplay2 {
+  margin-left: 1rem;
+  text-align: left; 
+  font-size: 0.8em; 
+  max-height: 24rem !important;
+}
+
+#responseText2 {
+  margin-top: 1rem;
+  background-color: #fbb78d;
+  height: 25rem;
+  border-radius: 0.5rem;
+}
+
+._WrittenResponseDisplay {
+  max-height: 20rem !important;
+}
