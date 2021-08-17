@@ -21,7 +21,7 @@ import Col from 'react-bootstrap/Col';
 import './styles/App.css';
 import './styles/styles.css';
 
-/* */ 
+/* UTILITIES */ 
 import gqlEndpoint from './relay/gqlendpoint';
 import db from './database/db';
 
@@ -40,7 +40,7 @@ const App = () => {
 			},
 			body: JSON.stringify({
 					query: query,
-					variables: variables // || {}
+					variables: variables
 			})
 	};
 	

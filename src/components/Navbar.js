@@ -7,8 +7,8 @@ const Navbar = () => {
   return (
     <div className='_banner' >
       <div>
-      <Button size='sm' variant='dark' disabled>
-        ⇧ Peach Mode
+        <Button size='sm' variant='dark' disabled>
+          ⇧ Peach Mode
         </Button>
       </div>         
       <div>
@@ -33,6 +33,6 @@ const Navbar = () => {
       </div>         
   </div>
   )
-}
+};
 
-export default Navbar
+export default Navbar;

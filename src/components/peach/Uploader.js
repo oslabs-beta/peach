@@ -27,7 +27,6 @@ const Uploader = () => {
         <div className="popup">
           ...please use the <em>Peaches</em> menu to <em><br />
           Start a New Peach</em>. Then &nbsp;&nbsp;
-          {/* npm run relay && cross-env NODE_ENV=development webpack-dev-server --hot --host 0.0.0.0 --config=./webpack.dev.config.js --mode development */}
           <Button 
             onClick={() => execSync('npm run relay', { encoding: 'utf-8' })} 
             type='submit' 

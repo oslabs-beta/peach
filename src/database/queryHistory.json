@@ -1,5 +1,11 @@
 [
   {
+    "queryText": "query writtenQuery(\n  $id: Int\n) {\n  Media(id: $id, type: ANIME) {\n    _id: id\n    title {\n      native\n      \n    }\n  }\n}\n",
+    "url": "https://graphql.anilist.co",
+    "timeStamp": "2:41:07 PM",
+    "dateStamp": "8/17/2021"
+  },
+  {
     "queryText": "query importedCharacterQuery {\n  Character(id: 80) {\n    name {\n      full\n      native\n    }\n  }\n}\n",
     "url": "https://ghibliql.herokuapp.com",
     "timeStamp": "7:32:41 PM",
@@ -33,11 +39,6 @@
     "queryText": "query writtenQuery(\n  $id: Int\n) {\n  Media(id: $id, type: ANIME) {\n    _id: id\n    title {\n      native\n      english\n      romaji\n    }\n  }\n}\n",
     "url": "https://graphql.anilist.co",
     "timeStamp": "7:32:20 PM",
-    "dateStamp": "6/15/2021"
-  },
-  {
-    "queryText": "query writtenQuery(\n  $id: Int\n) {\n  Media(id: $id, type: ANIME) {\n    _id: id\n    title {\n      native\n      \n    }\n  }\n}\n",
-    "timeStamp": "11:19:00 AM",
     "dateStamp": "6/15/2021"
   },
   {

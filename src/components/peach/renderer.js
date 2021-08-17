@@ -1,6 +1,5 @@
 const electron = require('electron');
 const remote = electron.remote
-const {dialog} = remote
 const ipcRenderer  = electron.ipcRenderer;
 var $ = require('jquery');
 
@@ -31,16 +30,8 @@ dragFile.addEventListener('drop', function (e) {
         $('#txtarea').text(data); 
          })
 
-// const closeWindow = document.getElementById('closer');
-// closeWindow.addEventListener('click', () => {
-//     ipcRenderer.send('close-me')
-// });
-
-//require in exec to run terminal commands in js:
-// const execSync = require('child_process').execSync;
 var win = remote.BrowserWindow.getFocusedWindow();
 var quit = document.querySelector("#closer");
 quit.addEventListener("click", () => {
-  // execSync('npm run relay', { encoding: 'utf-8' });
   win.close();
 });

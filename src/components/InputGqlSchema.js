@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import Modal from './Modal';
-// import FileDownloader from "./FileDownloader";
 import gqlEndpoint from '../relay/gqlEndpoint';
-import db from '../database/db';
 
 const InputGqlSchema = () => {
   const [showModal, setShowModal] = useState(false);
@@ -21,7 +19,6 @@ const InputGqlSchema = () => {
       <div className="_inputSchemaUrl">
         <div className="_inline">
           <Button 
-            // onClick opens the modal
             onClick={openModal}
             size='sm' 
             variant='success' 
@@ -38,6 +35,6 @@ const InputGqlSchema = () => {
        
     </Container>
   )
-}
+};
 
 export default InputGqlSchema;
