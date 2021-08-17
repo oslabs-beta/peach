@@ -52,24 +52,18 @@ A Relay visualizer for all your GraphQL queries.
     <li>
       <a href="#about-the-project" style="color:#ff7f50;">About The Project</a>
       <ul>
-        <li><a href="#built-with" style="color:#ff7f50;">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started" style="color:#ff7f50;">Getting Started</a>
-      <ul>
         <li><a href="#prerequisites" style="color:#ff7f50;">Prerequisites</a></li>
       </ul>
     </li>
     <li><a href="#deployment" style="color:#ff7f50;">Deployment</a></li>
     <li>
-      <a href="#user-manual" style="color:#ff7f50;">User Manual</a>
+      <a href="#getting-started" style="color:#ff7f50;">Getting Started</a>
       <ul>
         <li><a href="#relay-proper" style="color:#ff7f50;">Relay Proper</a></li>
         <li><a href="#peach-mode" style="color:#ff7f50;">Peach Mode</a></li>
       </ul>
     </li>
-    <li><a href="#downloadable-app" style="color:#ff7f50;">Downloadable App</a></li>
+    <li><a href="#usage" style="color:#ff7f50;">Deployment</a></li>
     <li><a href="#license" style="color:#ff7f50;">License</a></li>
     <!-- <li><a href="#contact" style="color:#ff7f50;">Contact</a></li> -->
     <li><a href="#acknowledgements" style="color:#ff7f50;">Acknowledgements</a></li>
@@ -82,7 +76,8 @@ A Relay visualizer for all your GraphQL queries.
 ## About The Project
 
 Peach QE is the first Relay visualizer to handle all your GraphQL queries under one roof, directly on your desktop.
-Upload pre-written queries, live-edit the queries you want to explore, edit variable inputs, and even handle as many databases as required.
+
+Upload pre-written queries, live-edit the queries you want to explore, variable inputs, and even handle as many databases as required.
 
 <br />
 
@@ -221,11 +216,7 @@ Enjoy!
 <br />
 <br />
 
-<!-- LICENSE -->
-## Downloadable App
-Or if you don’t want the codebase. Simply download our App!
-https://peachqe.io/ <br />
-Enjoy a simplified way to pick your peachy queries!
+_For more information, please visit our [website](https://www.peachqe.io/)_
 
 <img alt="Download App" src="assets/PeachQE_Install_Guide.gif" style="width: 900px; height: auto;">
 

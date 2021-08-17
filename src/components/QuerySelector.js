@@ -6,9 +6,11 @@ and populates the QueryContainer with the selected queries text
 import React, { useState, useEffect } from 'react';
 import * as importedQueries from '../relay/__generated__';
 import QueryButton from './QueryButton';
+import Button from 'react-bootstrap/Button';
 import db from '../database/db';
 
 const QuerySelector = ({
+    queryToLoad,
     setQueryKey,
     setQueryToLoad, 
     loadQuery,
@@ -19,14 +21,16 @@ const QuerySelector = ({
 
     useEffect(() => {
         const queryButtonDetails = [];
-        for (let query in importedQueries) {
-            queryButtonDetails.push(importedQueries[query]);
+        if (importedQueries){
+            for (let query in importedQueries) {
+                queryButtonDetails.push(importedQueries[query])
+            }
         }
-        setQueryButtons(queryButtonDetails);
-    }, []);
+        setQueryButtons(queryButtonDetails || []);
+    }, [queryToLoad, importedQueries]);
     
     return (
-        <div className="mb-3">
+        <div className="mb-3 ">
             {queryButtons.map(query => {
                 return (
                     <QueryButton
@@ -38,7 +42,11 @@ const QuerySelector = ({
                     />
                 )
             })}
-            <button onClick={() => queryButtons.forEach(query => db.addQuery(query.params.text))}>Save to History</button>
+            <Button 
+                className="mt-1"
+                variant="dark"
+                size="sm"
+                onClick={() => queryButtons.forEach(query => db.addQuery(query.params.text))}>Save to History</Button>
         </div>
     )
 }

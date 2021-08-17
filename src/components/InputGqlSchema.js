@@ -10,25 +10,6 @@ const InputGqlSchema = () => {
   const [showModal, setShowModal] = useState(false);
   const [schemaName, setSchemaName] = useState(gqlEndpoint.url);
 
-  //* Original Schema/Database used as demo
-  // const schemaUrl = gqlEndpoint.url;
-
-  // effect (side effect)
-  // useEffect(() => {
-    // Check for selected (stored) schema Name in local Storage
-    // let currentSchemaName = localStorage.getItem('schema-name');
-    // if found set selected schema value in <div>
-  //   if (currentSchemaName) {
-  //     setSchemaName(currentSchemaName);
-  //   };
-  // }, [useState(schemaName)]);
-
-  // set Schema name
-  // const handleClick = (schema) => {
-  //   setSchemaName(schema);
-  //   localStorage.setItem('schema-name', schema);
-  //   schemaUrl = schema;
-  // }
 
   // TODO: This opens the modal
   const openModal = () => {
@@ -47,7 +28,7 @@ const InputGqlSchema = () => {
             className='mt-2'
             >
             Import a new Schema
-          </Button> &nbsp;
+          </Button> <br />
 
           <div className='_downloadedSchema'>{schemaName}</div> 
         

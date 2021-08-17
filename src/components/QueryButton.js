@@ -9,14 +9,10 @@ const QueryButton = ({query, setQueryToLoad, loadQuery, variables}) =>  {
             <Button 
                 style={{width: '95%'}}
                 variant="secondary"
-                className="my-1"
+                className="_queryButton my-1"
                 onClick={() => {
                     setQueryToLoad(query);
                     loadQuery(JSON.parse(variables));
-                    console.log('text in QueryButton', query.params.text);
-                    // db.addQuery(query.params.text);
-                    //! setEditorState(query.params.text);
-                    //! setQueryKey(key);
                 }}>
                   {query.params.text}
             </Button>

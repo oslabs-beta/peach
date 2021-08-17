@@ -7,9 +7,9 @@ import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-// import logo from '../assets/PeachLogo.png';
+import Button from 'react-bootstrap/Button';
 
-import Footer from '../Footer';
+import Navbar from '../Navbar';
 import QuerySelector from '../QuerySelector';
 import { useQueryLoader } from 'react-relay';
 import writtenQuery from '../../relay/__generated__/writtenQuery.graphql'
@@ -24,7 +24,9 @@ const remote = electron.remote
 const {dialog} = remote
 const ipcRenderer  = electron.ipcRenderer;
 
-const App2 = () =>{
+const ImportedMode = () =>{
+  const [renderQuerySelector, setRenderQuerySelector] = useState(false);
+
   const [queryToLoad, setQueryToLoad] = useState(writtenQuery);
 	const [variables, setVariables] = useState('{"id": 15125}');
   const [querySelection, setQuerySelection] = useState(null);
@@ -36,21 +38,28 @@ const App2 = () =>{
 
     return(
     <>
-      <Container className="App2" fluid>        
-      <Row className="containerApp2 mt-5" >
+      <Container className="importedMode" fluid id="importedMode"> 
+
+      <Row>
+        <Col>
+          <Navbar />
+        </Col>
+      </Row>   
+
+      <Row className="containerApp2 mt-2" >
         <Col xs={3}>
           <Row  className='my-2'>
             <Col>
-            <Card className='_variableInput mt-4'>
+            <Card className='_variableInput'>
                 <VariableInput 
                   variables={variables} 
                   setVariables={setVariables}
                 />
               </Card>
-          <Card className='_uploader my-4'>  
+          <Card className='_uploader my-2'>  
             <Uploader />
           </Card>	
-              <Card className='_storeDisplay mt-4'>
+              <Card className='_storeDisplay mt-3'>
                 <h6 className="mt-1">Store Display</h6>
                 <StoreDisplay
                   queryToLoad={queryToLoad}
@@ -60,20 +69,29 @@ const App2 = () =>{
             </Col>
           </Row>
         </Col>
-      
         <Col xs={6} className='my-2'>
-
-          <Card className='_newQuerySelector'>
+        <Card className='_newQuerySelector' align="center">
             <h6 className="mt-1">New Query selector</h6>
+          <Button 
+            variant="success"
+            small="sm"
+            className="my-1"
+            style={{width: '50%', marginLeft: '25%'}}
+            onClick={() => setRenderQuerySelector(true)}>Render Query Selector</Button>
+            {(renderQuerySelector) ?
             <QuerySelector
+              queryToLoad={queryToLoad}
               setQueryToLoad={setQueryToLoad}
               loadQuery={loadQuery}
               variables={variables}
-            />
+            /> 
+          : null}
           </Card>	
           <Card className='_editorDisplay mt-2'>
               <h6 className="mt-1">Editor</h6>
-              <EditorDisplay/>
+              <EditorDisplay
+              setRenderQuerySelector={setRenderQuerySelector}
+              />
               </Card>	
           
           
@@ -93,14 +111,9 @@ const App2 = () =>{
               
         </Col>
 			</Row>
-      <Row>
-        <Col>
-          <Footer />
-        </Col>
-      </Row>
 		  </Container>
     </>
     )
 };
 
-export default App2;
+export default ImportedMode;
