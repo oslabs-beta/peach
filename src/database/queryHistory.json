@@ -2,7 +2,7 @@
   {
     "queryText": "query writtenQuery(\n  $id: Int\n) {\n  Media(id: $id, type: ANIME) {\n    _id: id\n    title {\n      native\n      \n    }\n  }\n}\n",
     "url": "https://graphql.anilist.co",
-    "timeStamp": "1:52:56 PM",
+    "timeStamp": "2:03:24 PM",
     "dateStamp": "8/18/2021"
   },
   {
