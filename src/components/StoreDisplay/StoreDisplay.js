@@ -1,5 +1,5 @@
-import React, { useState, useEffect }from 'react';
-import RelayEnvironment from '../relay/RelayEnvironment';
+import React, { useState, useEffect } from 'react';
+import RelayEnvironment from '../../relay/RelayEnvironment';
 import Button from 'react-bootstrap/Button';
 const store = RelayEnvironment.getStore();
 

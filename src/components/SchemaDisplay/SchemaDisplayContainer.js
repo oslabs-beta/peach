@@ -6,9 +6,9 @@ as many SchemaDisplay components as the uploaded Schema require
 import React, { useState } from 'react';
 import SchemaDisplay from './SchemaDisplay';
 import Container from 'react-bootstrap/Container';
-import makeJsonSchema from '../relay/makeJsonSchema';
+import makeJsonSchema from '../../relay/makeJsonSchema';
 import Button from 'react-bootstrap/Button';
-import InputGqlSchema from './InputGqlSchema';
+import InputGqlSchema from '../SchemaDownload/InputGqlSchema';
 import { ReactSearchAutocomplete } from 'react-search-autocomplete'
 
 // calls makeJsonSchema to generate a js array of objects we can render from schema.graphql

@@ -3,13 +3,13 @@
 
 /* REACT COMPONENTS */ 
 import React, { useState } from 'react';
-import VariableInput from '../VariableInput';
+import VariableInput from '../VariableInput/VariableInput';
 import Navbar from '../Navbar';
-import QuerySelector from '../QuerySelector';
-import ResponseDisplay from '../ResponseDisplay';
-import EditorDisplay from './EditorDisplay';
+import QuerySelector from '../QuerySelector/QuerySelector';
+import ResponseDisplay from '../ResponseDisplay/ResponseDisplay';
+import EditorDisplay from '../QueryEditor/EditorDisplay';
 import Uploader from './Uploader';
-import StoreDisplay from '../StoreDisplay';
+import StoreDisplay from '../StoreDisplay/StoreDisplay';
 
 /* RELAY */
 import { useQueryLoader } from 'react-relay';

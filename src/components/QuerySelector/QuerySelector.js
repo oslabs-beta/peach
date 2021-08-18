@@ -4,10 +4,10 @@ and populates the QueryContainer with the selected queries text
 */ 
 
 import React, { useState, useEffect } from 'react';
-import * as importedQueries from '../relay/__generated__';
+import * as importedQueries from '../../relay/__generated__';
 import QueryButton from './QueryButton';
 import Button from 'react-bootstrap/Button';
-import db from '../database/db';
+import db from '../../database/db';
 
 const QuerySelector = ({queryToLoad, setQueryKey, setQueryToLoad, loadQuery, variables,}) => {
   const [queryButtons, setQueryButtons] = useState([]);

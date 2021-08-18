@@ -6,7 +6,7 @@ drop-down menu, indexed by timestamp and query text
 import React, { useState, useEffect } from 'react';
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
-import db from '../database/db.js';
+import db from '../../database/db.js';
 
 const History = ({setQuery}) => {
 

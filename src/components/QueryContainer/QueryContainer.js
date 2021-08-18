@@ -3,11 +3,10 @@ stateful component updates query string to be run in App.js via fs module,
 also reruns relay compiler when the query is submitted
 */
 
-import React, { useState } from 'react';
+import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
-import fs from 'fs';
-import '../styles/styles.css'
+import '../../styles/styles.css';
 import History from './History';
 
 //importing library for code editor

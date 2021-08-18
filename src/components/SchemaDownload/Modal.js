@@ -1,9 +1,9 @@
 import React, { useRef, useEffect, useCallback } from 'react';
 import { useSpring, animated } from 'react-spring';
 import { MdClose } from 'react-icons/md';
-import '../styles/Modal.css';
+import '../../styles/Modal.css';
 import FileDownloader from "./FileDownloader";
-import SchemaUrlInput from '../components/SchemaUrlInput';
+import SchemaUrlInput from './SchemaUrlInput';
 
 const Modal = ({ showModal, setShowModal}) => {
   const modalRef = useRef();

@@ -4,10 +4,10 @@ iterates over the schemaHistory.json to generate buttons that will reload the ap
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from 'react';
-import useFileDownloader from "./hooks/useFileDownloader";
-import gqlEndpoint from '../relay/gqlEndpoint';
-import schemaHistory from '../database/schemaHistory.json';
-import db from '../database/db';
+import useFileDownloader from "../hooks/useFileDownloader";
+import gqlEndpoint from '../../relay/gqlEndpoint';
+import schemaHistory from '../../database/schemaHistory.json';
+import db from '../../database/db';
 
 const execSync = require('child_process').execSync;
 

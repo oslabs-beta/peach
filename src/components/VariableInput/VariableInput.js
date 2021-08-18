@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/styles.css';
+import '../../styles/styles.css';
 
 //importing library for code editor
 import 'codemirror/lib/codemirror.css';

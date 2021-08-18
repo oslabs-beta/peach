@@ -9,7 +9,6 @@ const remote = electron.remote
 //require in exec to run terminal commands in js:
 const execSync = require('child_process').execSync;
 
-
 const Uploader = () => {
   const [isShown, setIsShown] = useState(false);
 

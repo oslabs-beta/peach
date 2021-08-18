@@ -6,7 +6,7 @@ currently uses useLazyLoadQuery to render on start-up.
 
 import React, {Suspense} from 'react';
 import Container from 'react-bootstrap/Container';
-import '../styles/styles.css';
+import '../../styles/styles.css';
 import Response from './Response';
 
 const ResponseDisplay = ({initialQueryReference, queryToLoad, variables}) => {
