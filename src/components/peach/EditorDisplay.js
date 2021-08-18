@@ -11,7 +11,7 @@ import { Controlled as ControlledEditor } from 'react-codemirror2';
 //require in exec to run terminal commands in js:
 const execSync = require('child_process').execSync;
 
-const EditorDisplay = ( {setRenderQuerySelector} ) => {
+const EditorDisplay = ({setRenderQuerySelector}) => {
 
   const importedPath = path.resolve('./src/relay/imported.js')
   const [ editorText, setEditorText ] = useState(fs.readFileSync(importedPath, 'utf8'));
