@@ -4,7 +4,7 @@ as many SchemaDisplay components as the uploaded Schema require
 */ 
 
 import React, { useState } from 'react';
-import SchemaDisplay from './SchemaDisplay';
+import SchemaDisplay from '.';
 import Container from 'react-bootstrap/Container';
 import makeJsonSchema from '../../relay/makeJsonSchema';
 import Button from 'react-bootstrap/Button';

@@ -5,12 +5,12 @@ top-level component responsible for rendering all other major components,
 import React, { useState, Suspense } from 'react';
 
 /* COMPONENTS */ 
-import ImportedMode from './components/peach/ImportedMode';
+import ImportedMode from './components/ImportedMode';
 import Footer from './components/Footer';
 import SchemaDisplayContainer from './components/SchemaDisplay/SchemaDisplayContainer';
 import WrittenResponseDisplay from './components/ResponseDisplay/WrittenResponseDisplay';
-import QueryContainer from './components/QueryContainer/QueryContainer';
-import VariableInput from './components/VariableInput/VariableInput';
+import QueryContainer from './components/QueryContainer';
+import VariableInput from './components/VariableInput';
 import ErrorBoundary from './components/ErrorBoundary';
 
 /* STYLES */ 

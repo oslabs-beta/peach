@@ -3,11 +3,11 @@
 
 /* REACT COMPONENTS */ 
 import React, { useState } from 'react';
-import VariableInput from '../VariableInput/VariableInput';
+import VariableInput from '../VariableInput';
 import Navbar from '../Navbar';
-import QuerySelector from '../QuerySelector/QuerySelector';
-import ResponseDisplay from '../ResponseDisplay/ResponseDisplay';
-import EditorDisplay from '../QueryEditor/EditorDisplay';
+import QuerySelector from '../QuerySelector';
+import ResponseDisplay from '../ResponseDisplay/ImportedResponseDisplay';
+import EditorDisplay from '../QueryEditor';
 import Uploader from './Uploader';
 import StoreDisplay from '../StoreDisplay/StoreDisplay';
 

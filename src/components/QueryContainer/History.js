@@ -3,7 +3,7 @@ renders information about query history from the local database in a
 drop-down menu, indexed by timestamp and query text
 */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 import db from '../../database/db.js';
@@ -24,8 +24,6 @@ const History = ({setQuery}) => {
     const reloadHistory = (queryText) => {
         setQuery(queryText);
     };
-
-
 
     return (
         <Dropdown 

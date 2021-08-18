@@ -1,7 +1,8 @@
 /* 
-stateless component renders query response data passed from App2.js 
-Note that this is not the same as the WrittenResponseDisplay, which 
-currently uses useLazyLoadQuery to render on start-up. 
+stateless component renders query response data passed from imported.js 
+via the ImportedMode component. Note that this is not the same as the 
+WrittenResponseDisplay which renders queries input into the written.js 
+file via the QueryEditor
 */ 
 
 import React, {Suspense} from 'react';
