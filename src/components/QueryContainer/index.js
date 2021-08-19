@@ -4,8 +4,6 @@ also reruns relay compiler when the query is submitted
 */
 
 import React from 'react';
-import Container from 'react-bootstrap/Container';
-import Button from 'react-bootstrap/Button';
 import '../../styles/styles.css';
 import History from './History';
 
@@ -21,7 +19,7 @@ const QueryContainer = ({submitTypedQuery, query, setQuery}) => {
   }
 
   return (
-    <Container>
+    <div>
       <div>
         <History 
           setQuery={setQuery}
@@ -38,16 +36,14 @@ const QueryContainer = ({submitTypedQuery, query, setQuery}) => {
               theme: 'default height35rem readonly',
           }}
         />
-        <Button 
+        <button 
           onClick={() => submitTypedQuery()} 
           type='submit' 
-          variant='secondary' 
-          className='mb-3'
           >
           Submit Query
-        </Button>
+        </button>
       </div>
-    </Container>
+    </div>
   );
 }
 

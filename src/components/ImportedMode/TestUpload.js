@@ -1,5 +1,4 @@
 import React from 'react';
-import Button from 'react-bootstrap/Button';
 import uploaderHook from '../hooks/uploaderHook';
 const electron = window.require('electron');
 const {shell} = window.require('electron');
@@ -15,7 +14,7 @@ const TestUpload = () => {
       <div>
         <div align='center'>
           <input type="text" placeholder="Please select a file" id="actual-file" disabled="disabled"/>
-          <Button 
+          <button 
             value="Choose a file" 
             id="select-file" 
             className="secondary"
@@ -33,7 +32,7 @@ const TestUpload = () => {
             }
             >
             Select
-          </Button>
+          </button>
         </div>
         <br /><br />
         <textarea id="content-editor" rows="10"></textarea><br /><br />

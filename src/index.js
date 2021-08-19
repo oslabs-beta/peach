@@ -9,9 +9,6 @@ import { RelayEnvironmentProvider } from 'react-relay';
 import RelayEnvironment from './relay/RelayEnvironment';
 import Logo from './components/Logo'
 
-// * Just to speed up the process of decorating the App
-import 'bootstrap/dist/css/bootstrap.min.css'
-
 // ? In case we decide to operate with our own css
 import './styles/App.css';
 

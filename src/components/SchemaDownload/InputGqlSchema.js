@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import Container from 'react-bootstrap/Container';
-import Button from 'react-bootstrap/Button';
 import Modal from './Modal';
 import gqlEndpoint from '../../relay/gqlEndpoint';
 
@@ -15,17 +13,17 @@ const InputGqlSchema = () => {
   }
 
   return (
-    <Container fluid>
+    <div fluid>
       <div className="_inputSchemaUrl">
         <div className="_inline">
-          <Button 
+          <button 
             onClick={openModal}
             size='sm' 
             variant='success' 
             className='mt-2'
             >
             Import a new Schema
-          </Button> <br />
+          </button> <br />
 
           <div className='_downloadedSchema'>{schemaName}</div> 
         
@@ -33,7 +31,7 @@ const InputGqlSchema = () => {
         <Modal showModal={showModal} setShowModal={setShowModal} />
       </div>
        
-    </Container>
+    </div>
   )
 };
 

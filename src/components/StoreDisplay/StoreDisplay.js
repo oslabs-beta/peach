@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import RelayEnvironment from '../../relay/RelayEnvironment';
-import Button from 'react-bootstrap/Button';
 const store = RelayEnvironment.getStore();
 
 const StoreDisplay = ({queryToLoad, variables}) => {
@@ -18,14 +17,14 @@ const StoreDisplay = ({queryToLoad, variables}) => {
                 {JSON.stringify(storeDisplay, null, 2)}
             </pre>
             <div align="center">
-                <Button 
+                <button 
                     variant="success"
                     className="m-1"
                     size="sm"
                     onClick={() => store.snapshot()} >
                         Save Snapshot
-                    </Button>
-                <Button 
+                </button>
+                <button 
                     variant="secondary"
                     className="m-1"
                     size="sm"
@@ -34,7 +33,7 @@ const StoreDisplay = ({queryToLoad, variables}) => {
                     setStoreDisplay(store.getSource());
                 }}>
                     Restore Last Snapshot
-                </Button>
+                </button>
             </div>
         </div>
         

@@ -14,10 +14,6 @@ import VariableInput from './components/VariableInput';
 import ErrorBoundary from './components/ErrorBoundary';
 
 /* STYLES */ 
-import Container from 'react-bootstrap/Container';
-import Card from 'react-bootstrap/Card';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import './styles/App.css';
 import './styles/styles.css';
 
@@ -67,39 +63,25 @@ const App = () => {
 	}
 
 	return (
-		<Container className="AppRelay" fluid>
+		<div className="AppRelay" fluid>
 
-			<Row>	
 				<ImportedMode className="importedMode" />
-			</Row>
 			
-			<Row className="mt-3">
-				<Col xs={4}>
-					<Row  className='my-2'>
-						<Col>
-							<Card className='_schemaDisplay'>
+							<div className='_schemaDisplay'>
 								<ErrorBoundary>
 									<SchemaDisplayContainer/>
 								</ErrorBoundary>
-							</Card>	
-						</Col>
-					</Row>
-					<Row>
-						<Col>
-							<Card className='_variableInput'>
+							</div>	
+							<div className='_variableInput'>
 								<ErrorBoundary>
 									<VariableInput 
 										variables={variables} 
 										setVariables={setVariables}
 									/>
 								</ErrorBoundary>
-							</Card>
-						</Col>
-					</Row>
-				</Col>
+							</div>
 				
-				<Col xs={4} className='my-2'>
-					<Card className='_queryContainer'>
+					<div className='_queryContainer'>
 						<ErrorBoundary>
 							<QueryContainer
 								submitTypedQuery={submitTypedQuery}
@@ -107,11 +89,9 @@ const App = () => {
 								setQuery={setQuery}
 							/>
 						</ErrorBoundary>
-					</Card>
-				</Col>
+					</div>
 
-				<Col xs={4} className='my-2'>
-					<Card className='_response'>
+					<div className='_response'>
 						<div id="ResponseDisplay">
 							<ErrorBoundary>
 								<Suspense>
@@ -121,17 +101,10 @@ const App = () => {
 								</Suspense>
 							</ErrorBoundary>
 						</div>
-					</Card>
-				</Col>
-			</Row>
+					</div>
 
-			<Row id="AppRelay">
-				<Col xs={12}>
 					<Footer />
-				</Col>
-			</Row>
-
-		</Container>
+		</div>
 	)
 }
 

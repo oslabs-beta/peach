@@ -1,7 +1,6 @@
 import React from 'react';
 import './../styles/App.css';
 import { Link, animateScroll as scroll } from "react-scroll";
-import Button from 'react-bootstrap/Button';
 
 const Footer = () => {
   return (
@@ -15,9 +14,9 @@ const Footer = () => {
           smooth={true}
           duration={100}
         >
-      <Button size='sm' variant='dark' >
+      <button >
         ⇧ Peach Mode
-        </Button>
+      </button>
       </Link>
       </div>         
       <div>
@@ -26,9 +25,9 @@ const Footer = () => {
         </h5>
       </div>         
       <div>
-        <Button size='sm' variant='warning' disabled >
+        <button disabled>
           Relay Proper ⇩
-        </Button>
+        </button>
       </div>         
   </div>
   )

@@ -1,20 +1,18 @@
 import React from 'react';
-import Button from 'react-bootstrap/Button';
 
 const QueryButton = ({query, setQueryToLoad, loadQuery, variables}) =>  {
 
     return (
         <div>
-            <Button 
+            <button 
                 style={{width: '95%'}}
-                variant="secondary"
-                className="_queryButton my-1"
+                className="_queryButton"
                 onClick={() => {
                     setQueryToLoad(query);
                     loadQuery(JSON.parse(variables));
                 }}>
                   {query.params.text}
-            </Button>
+            </button>
         </div>
     )
 }

@@ -6,14 +6,13 @@ file via the QueryEditor
 */ 
 
 import React, {Suspense} from 'react';
-import Container from 'react-bootstrap/Container';
 import '../../styles/styles.css';
 import Response from './Response';
 
 const ResponseDisplay = ({initialQueryReference, queryToLoad, variables}) => {
   
   return (
-    <Container className='response-container'>
+    <div className='response-container'>
       <div id="responseText" align='center'>
         <h4>
           Response
@@ -27,7 +26,7 @@ const ResponseDisplay = ({initialQueryReference, queryToLoad, variables}) => {
             </Response>)}
           </Suspense>
       </div>
-    </Container>
+    </div>
   );
 };
 

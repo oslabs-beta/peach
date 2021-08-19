@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../../styles/downloader.css";
-import { ProgressBar } from "react-bootstrap";
+// import { ProgressBar } from "react-bootstrap";
 import Axios from "axios";
 
 const Downloader = ({ files = [], remove }) => {
@@ -108,12 +108,12 @@ const DownloadItem = ({ name, file, filename, removeFile }) => {
           </div>
         </div>
         <div className="col-12 mt-2">
-          <ProgressBar
+          {/* <ProgressBar
             variant="success"
             now={downloadInfo.progress}
             striped={true}
             label={`${downloadInfo.progress}%`}
-          />
+          /> */}
         </div>
       </div>
     </li>

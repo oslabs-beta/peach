@@ -3,7 +3,6 @@ stateless component renders query response data passed from App.js
 */ 
 
 import React from 'react';
-import Container from 'react-bootstrap/Container';
 import '../../styles/styles.css';
 
 const WrittenResponseDisplay = ({response}) => {
@@ -15,7 +14,7 @@ const WrittenResponseDisplay = ({response}) => {
   }
   
   return (
-    <Container className='response-container'>
+    <div className='response-container'>
       <div id="responseText" align='center'>
         <h4>
           Response
@@ -27,7 +26,7 @@ const WrittenResponseDisplay = ({response}) => {
           {response ? format(response) : ''}
         </pre>          
       </div>
-    </Container>
+    </div>
   );
 };
 

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Button from 'react-bootstrap/Button';
 import fs from 'fs';
 import path from 'path';
 
@@ -43,14 +42,12 @@ const EditorDisplay = ({setRenderQuerySelector}) => {
         className='code-mirror-wrapper _variableInputInner' 
         options={options}>
       </ControlledEditor>
-      <Button 
-        variant='dark'
-        className="my-1"
+      <button 
         onClick={() => {
         saveToImported(editorText);
         setRenderQuerySelector(false);
         }}>Save Edited Query
-      </Button>
+      </button>
     </div>
   )
 };

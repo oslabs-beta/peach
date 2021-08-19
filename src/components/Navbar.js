@@ -1,15 +1,16 @@
 import React from 'react';
 import './../styles/App.css';
 import { Link, animateScroll as scroll } from "react-scroll";
-import Button from 'react-bootstrap/Button';
+
+// ! NTS - this appears to be virtually identical to the Footer component, and should therefore be refactored or deleted
 
 const Navbar = () => {
   return (
     <div className='_banner' >
       <div>
-        <Button size='sm' variant='dark' disabled>
+        <button disabled>
           ⇧ Peach Mode
-        </Button>
+        </button>
       </div>         
       <div>
         <h5>
@@ -26,9 +27,9 @@ const Navbar = () => {
           offset={70}
           duration={100}
         >
-          <Button size='sm' variant='warning' >
+          <button size='sm' variant='warning' >
             Relay Proper ⇩
-          </Button>
+          </button>
         </Link>
       </div>         
   </div>

@@ -5,9 +5,7 @@ as many SchemaDisplay components as the uploaded Schema require
 
 import React, { useState } from 'react';
 import SchemaDisplay from '.';
-import Container from 'react-bootstrap/Container';
 import makeJsonSchema from '../../relay/makeJsonSchema';
-import Button from 'react-bootstrap/Button';
 import InputGqlSchema from '../SchemaDownload/InputGqlSchema';
 import { ReactSearchAutocomplete } from 'react-search-autocomplete'
 
@@ -61,7 +59,7 @@ const SchemaDisplayContainer = () => {
         };
 
     return (
-      <Container fluid>
+      <div fluid>
         <div align='center' >
         <InputGqlSchema className='mb-1' />
         <hr align='center' width='75%' />
@@ -74,7 +72,7 @@ const SchemaDisplayContainer = () => {
             onSearch={handleOnSearch}
             onSelect={handleOnSelect}
           />
-          <Button onClick={handleClick}  type='submit' variant='secondary' className='my-2'> Show All </Button>
+          <button onClick={handleClick}  type='submit' variant='secondary' className='my-2'> Show All </button>
         </div>
         
         <div id="schema-display-container"  className='mb-4'>
@@ -83,7 +81,7 @@ const SchemaDisplayContainer = () => {
           </ul>
           <div className="_inputButton"></div>
         </div>
-      </Container>
+      </div>
     )
 }
 

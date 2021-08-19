@@ -1,5 +1,3 @@
-import React from 'react';
-import Button from 'react-bootstrap/Button';
 const electron = window.require('electron');
 const {shell} = window.require('electron');
 const remote = electron.remote;

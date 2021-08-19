@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/uploader.css";
 
 const electron = window.require('electron');
@@ -26,14 +24,14 @@ const Uploader = () => {
         <div className="popup">
           ...please use the <em>Peaches</em> menu to <em><br />
           Start a New Peach</em>. Then &nbsp;&nbsp;
-          <Button 
+          <button 
             onClick={() => execSync('npm run relay', { encoding: 'utf-8' })} 
             type='submit' 
             variant='danger' 
             size="sm"
             >
             Restart Relay
-        </Button>
+        </button>
         </div>
       )}
       </div>
