@@ -12,7 +12,7 @@ const StoreDisplay = ({queryToLoad, variables}) => {
     }, [queryToLoad, variables])
 
     return (
-        <div>
+        <div className='container'>
             <pre style={{maxHeight: '55vh', overflow: scroll}}>
                 {JSON.stringify(storeDisplay, null, 2)}
             </pre>

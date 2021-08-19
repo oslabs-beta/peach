@@ -22,7 +22,7 @@ const QuerySelector = ({queryToLoad, setQueryKey, setQueryToLoad, loadQuery, var
     }, [queryToLoad, importedQueries]);
     
   return (
-    <div className="mb-3 ">
+    <div className="container">
       {queryButtons.map(query => {
         return (
           <QueryButton

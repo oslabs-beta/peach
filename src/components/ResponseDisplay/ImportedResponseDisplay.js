@@ -12,7 +12,7 @@ import Response from './Response';
 const ResponseDisplay = ({initialQueryReference, queryToLoad, variables}) => {
   
   return (
-    <div className='response-container'>
+    <div className='container'>
       <div id="responseText" align='center'>
         <h4>
           Response

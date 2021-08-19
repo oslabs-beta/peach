@@ -19,7 +19,7 @@ const QueryContainer = ({submitTypedQuery, query, setQuery}) => {
   }
 
   return (
-    <div>
+    <div className="container">
       <div>
         <History 
           setQuery={setQuery}

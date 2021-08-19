@@ -25,8 +25,7 @@ const FileDownloader = () => {
   }
 
   return (
-    <>
-      <div className="row">
+      <div className="container">
         <div className="col text-center">
           <form action="" className="my-2">
             {/* <input type="text" id="url" name="schemaUrl" placeholder="your schema URL..."/> */}
@@ -55,7 +54,6 @@ const FileDownloader = () => {
         </div>
         {downloaderComponentUI}
       </div>
-    </>
   );
 };
 

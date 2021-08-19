@@ -35,7 +35,7 @@ const EditorDisplay = ({setRenderQuerySelector}) => {
   }
 
   return (
-    <div>
+    <div className="container">
       <ControlledEditor
         onBeforeChange={updateEditorText} 
         value={editorText} 

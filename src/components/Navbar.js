@@ -6,7 +6,7 @@ import { Link, animateScroll as scroll } from "react-scroll";
 
 const Navbar = () => {
   return (
-    <div className='_banner' >
+    <div className='_banner container' >
       <div>
         <button disabled>
           ⇧ Peach Mode

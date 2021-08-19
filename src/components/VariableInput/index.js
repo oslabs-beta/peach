@@ -24,7 +24,7 @@ const VariableInput = ({variables, setVariables}) => {
     }
 
   return (
-    <div className='variable'>
+    <div className='container'>
     <h5>Variable Input</h5>
     <ControlledEditor
       onBeforeChange={handleChange}

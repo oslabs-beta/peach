@@ -4,7 +4,7 @@ import { Link, animateScroll as scroll } from "react-scroll";
 
 const Footer = () => {
   return (
-    <div className='_footer mt-3' id="importedMode">
+    <div className='_footer container' id="importedMode">
       <div >
         <Link
           activeClass="active"

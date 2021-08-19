@@ -14,7 +14,7 @@ const WrittenResponseDisplay = ({response}) => {
   }
   
   return (
-    <div className='response-container'>
+    <div className='container'>
       <div id="responseText" align='center'>
         <h4>
           Response

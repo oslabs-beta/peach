@@ -7,7 +7,7 @@ import React, { useState, Suspense } from 'react';
 /* COMPONENTS */ 
 import ImportedMode from './components/ImportedMode';
 import Footer from './components/Footer';
-import SchemaDisplayContainer from './components/SchemaDisplay/SchemaDisplayContainer';
+import SchemaDisplayContainer from './components/SchemaDisplay';
 import WrittenResponseDisplay from './components/ResponseDisplay/WrittenResponseDisplay';
 import QueryContainer from './components/QueryContainer';
 import VariableInput from './components/VariableInput';
