@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import gqlEndpoint from '../relay/gqlEndpoint';
-import db from '../database/db';
+import gqlEndpoint from '../../relay/gqlEndpoint';
+import db from '../../database/db';
 
 const execSync = require('child_process').execSync;
 

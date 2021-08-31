@@ -12,28 +12,6 @@ const TestUpload = () => {
   return (
     <>
     <div>
-      <>
-      {/* <Button 
-        className="mb-2"
-        onClick={()=>{
-          dialog.showOpenDialog({
-            title:'Open Dialogue',
-                message:'First Dialog',
-                  filters: [
-                  { name: 'Images', extensions: ['jpg', 'png', 'gif'] },
-                  { name: 'Movies', extensions: ['mkv', 'avi', 'mp4'] },
-                  { name: 'Custom File Type', extensions: ['as'] },
-                  { name: 'All Files', extensions: ['*'] }
-                ]
-          }
-          ).then(result=>{
-            shell.openPath(result.filePaths[0])
-            console.log(result.filePaths[0]);
-            })
-      }}>
-        Open Dialog to Select a file
-      </Button> */}
-      </>
       <div>
         <div align='center'>
           <input type="text" placeholder="Please select a file" id="actual-file" disabled="disabled"/>

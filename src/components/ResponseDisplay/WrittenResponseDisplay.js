@@ -1,11 +1,10 @@
 /* 
 stateless component renders query response data passed from App.js
-Note that this display 
 */ 
 
 import React from 'react';
 import Container from 'react-bootstrap/Container';
-import '../styles/styles.css';
+import '../../styles/styles.css';
 
 const WrittenResponseDisplay = ({response}) => {
 

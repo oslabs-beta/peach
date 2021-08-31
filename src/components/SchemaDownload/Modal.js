@@ -1,9 +1,9 @@
 import React, { useRef, useEffect, useCallback } from 'react';
 import { useSpring, animated } from 'react-spring';
 import { MdClose } from 'react-icons/md';
-import '../styles/Modal.css';
+import '../../styles/Modal.css';
 import FileDownloader from "./FileDownloader";
-import SchemaUrlInput from '../components/SchemaUrlInput';
+import SchemaUrlInput from './SchemaUrlInput';
 
 const Modal = ({ showModal, setShowModal}) => {
   const modalRef = useRef();
@@ -27,24 +27,18 @@ const Modal = ({ showModal, setShowModal}) => {
   // Close the modal with 'Esc' key
   const keyPress = useCallback(
     e => {
-            if (e.key === 'Escape' && showModal) {
-              setShowModal(false);
-              // console.log('I pressed'); // Unnecessary console.log now!
-            }
-          },
-          [setShowModal, showModal]
-  );
-  useEffect(
-    () => {
-      document.addEventListener('keydown', keyPress);
-      return () => document.removeEventListener('keydown', keyPress);
-    },
-    [keyPress]
-  );
+      if (e.key === 'Escape' && showModal) {
+        setShowModal(false);
+      }}, [setShowModal, showModal]);
+      
+  useEffect(() => {
+    document.addEventListener('keydown', keyPress);
+    return () => document.removeEventListener('keydown', keyPress);
+  },[keyPress]);
   
   return (
     <>
-      {showModal ? (
+      {showModal && (
         <div className="Background" ref={modalRef} onClick={closeModal}>
         <animated.div style={animation}>
             <div className="ModalWrapper" showModal={showModal}>
@@ -70,7 +64,7 @@ const Modal = ({ showModal, setShowModal}) => {
             </div>
           </animated.div>
         </div>
-      ) : null}
+      )}
     </>
   )
 };

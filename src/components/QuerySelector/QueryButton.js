@@ -1,5 +1,4 @@
 import React from 'react';
-// import db from '../database/db';
 import Button from 'react-bootstrap/Button';
 
 const QueryButton = ({query, setQueryToLoad, loadQuery, variables}) =>  {

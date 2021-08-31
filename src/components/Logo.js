@@ -1,5 +1,4 @@
 import React from 'react';
-// import logo from '../../assets/PeachLogo.png';
 import logo from '../../assets/PeachQE-3.png';
 
 const Logo = () => {
